@@ -42,3 +42,7 @@ Thumbs.db
 
 # npm
 .npmrc
+
+# hugo
+/public
+/static
