@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/blog/</loc>
+    <lastmod>2019-06-20T12:45:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-06-20T12:45:10+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+    <lastmod>2019-06-20T12:45:10+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/trees-by-joyce-kilmer/</loc>
+    <lastmod>2019-06-20T12:45:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/poetry/</loc>
+    <lastmod>2019-06-20T12:45:10+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/trees/</loc>
+    <lastmod>2019-06-20T12:45:10+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/that-it-will-never-come-again-by-emily-dickinson/</loc>
+    <lastmod>2019-06-20T12:42:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/time/</loc>
+    <lastmod>2019-06-20T12:42:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/if-by-rudyard-kipling/</loc>
+    <lastmod>2019-06-20T11:21:27+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/life/</loc>
+    <lastmod>2019-06-20T11:21:27+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
