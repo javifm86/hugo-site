@@ -1,0 +1,32 @@
+{
+  "name": "hugo-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:css": "node_modules/.bin/watch \"npm run build:css\" ./static-src/css",
+    "build:css": "node_modules/.bin/postcss static-src/css/styles.css -o static/css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javifm86/hugo-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javifm86/hugo-site/issues"
+  },
+  "homepage": "https://github.com/javifm86/hugo-site#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^9.6.0",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.2",
+    "tailwindcss": "^1.0.4",
+    "watch": "^1.0.2"
+  }
+}
