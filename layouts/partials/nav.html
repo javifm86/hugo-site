@@ -1,9 +1,9 @@
-<div id="nav-border" class="container">
-    <nav id="nav" class="nav justify-content-center">
-    {{ range .Site.Menus.main }} 
-      {{ $icon := printf "<i data-feather=\"%s\"></i>" .Pre }}
-      {{ $text := print $icon " " .Name | safeHTML }}
-      <a class="nav-link" href="{{ .URL }}">{{ $text }}</a>
-    {{ end }}
+<div class="container mx-auto">
+    <nav class="flex p-6 border border-gray-500">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        {{ $text := .Name | safeHTML }}
+        <a class="mr-6 p-2 text-gray-600 hover:text-green-500 uppercase {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}">{{ $text }}</a>
+        {{ end }}
     </nav>
-  </div>
+</div>
