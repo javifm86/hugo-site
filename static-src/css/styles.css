@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+a {
+    @apply text-green-500;
+}
+
+a:hover {
+    @apply underline;
+}
+
 nav > a.active {
     @apply text-green-500 font-bold;
 }
