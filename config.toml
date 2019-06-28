@@ -15,9 +15,13 @@ title = "Web personal"
     url = "/blog/"
     weight = 2
   [[menu.main]]
-    name = "Categorías"
-    url = "/tags/"
+    name = "Categories"
+    url = "/categories/"
     weight = 3
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 4
 
 [params]
   # homeText = "Front end developer"
