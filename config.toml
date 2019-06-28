@@ -1,29 +1,25 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Web personal"
 
 [permalinks]
   blog = "/:filename/"
 
-# See https://feathericons.com/
-# The value of pre is the icon name
 [menu]
   [[menu.main]]
-    name = "Home"
-    pre = "home"
+    name = "Inicio"
     url = "/"
     weight = 1
   [[menu.main]]
     name = "Blog"
-    pre = "edit"
     url = "/blog/"
     weight = 2
   [[menu.main]]
-    name = "Tags"
-    pre = "tag"
+    name = "Categorías"
     url = "/tags/"
     weight = 3
 
 [params]
-  homeText = "You just made a Hugo blog from scratch."
+  # homeText = "Front end developer"
+  homeText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in est faucibus, mollis lacus et, posuere lacus. Donec ligula ligula, ornare quis cursus eu, gravida vel augue. Praesent vestibulum urna velit, ac lacinia magna ultrices eget. Nunc et tellus ornare, congue felis id, volutpat eros. Praesent hendrerit, metus sed ultrices ultrices, nulla massa luctus mauris, at placerat libero neque eu risus."
   dateFormat = "Jan 2, 2006"
