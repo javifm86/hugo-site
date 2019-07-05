@@ -1,14 +1,51 @@
 {{ define "main" }}
-
-<div class="container mx-auto">
-    <div class="flex items-center">
-        <div class="w-3/5">
-            <h1 class="text-4xl">{{ .Site.Title }}</h1>
-            <p>{{ .Site.Params.homeText | markdownify }}</p>
+<div class="bg-gray-100">
+    <div class="container mx-auto pb-4">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="w-full lg:w-3/5 p-4">
+                <span class="line-before inline-block my-4">Web personal</span>
+                <h1 class="text-5xl font-bold font-serif leading-tight mb-4">{{ .Site.Title }}</h1>
+                <p class="font-sans">{{ .Site.Params.homeText | markdownify }}</p>
+            </div>
+            <div class="w-full lg:w-2/5 p-4">
+                {{ readFile "static/svg/portada.svg" | safeHTML }}
+            </div>
         </div>
-        <div class="w-2/5">
-            {{ readFile "static/svg/portada.svg" | safeHTML }}
-        </div>
+    </div>
+</div>
+<div class="text-center my-16">
+    <h1 class="text-5xl font-bold font-serif leading-tight mb-4">Principales skills</h1>
+</div>
+<div class="container mx-auto flex flex-wrap items-center">
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/html-5.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/css-3.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/javascript.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/git-icon.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/angular-icon.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/vue.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/sass.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/nodejs.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/npm.svg" | safeHTML }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ readFile "static/svg/badges/tailwindcss.svg" | safeHTML }}
     </div>
 </div>
 
