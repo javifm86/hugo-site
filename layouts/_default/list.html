@@ -1,5 +1,5 @@
 {{ define "main" }}
-
+<div class="container mx-auto">
 <h1>{{ .Title }}</h1>
 {{ range .Pages.ByPublishDate.Reverse }}
 <p>
@@ -8,5 +8,5 @@
   {{ partial "date-and-tags.html" . }}
 </p>
 {{ end }}
-
+</div>
 {{ end }}
