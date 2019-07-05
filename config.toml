@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "Web personal"
+title = "Frontend developer"
 
 [permalinks]
   blog = "/:filename/"
@@ -25,5 +25,5 @@ title = "Web personal"
 
 [params]
   # homeText = "Front end developer"
-  homeText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in est faucibus, mollis lacus et, posuere lacus. Donec ligula ligula, ornare quis cursus eu, gravida vel augue. Praesent vestibulum urna velit, ac lacinia magna ultrices eget. Nunc et tellus ornare, congue felis id, volutpat eros. Praesent hendrerit, metus sed ultrices ultrices, nulla massa luctus mauris, at placerat libero neque eu risus."
+  homeText = "Apasionado del desarrollo, con experiencia de 12 años en el mundo del desarrollo front. Disfruto trabajando en equipo y tengo buenas habilidades para la comunicación. Me gusta afrontar nuevos retos y dispongo de facilidad para aprender nuevos conceptos y lenguajes de programación."
   dateFormat = "Jan 2, 2006"
