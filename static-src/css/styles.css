@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply text-gray-900;
+}
+
 a {
     @apply text-green-500;
 }
@@ -12,4 +16,19 @@ a:hover {
 
 nav > a.active {
     @apply text-green-500 font-bold;
+}
+
+.line-before {
+    position: relative;
+    padding-left: 80px;
+}
+.line-before:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: 1px solid theme('colors.green.500');
+    background: theme('colors.green.500');
+    width: 70px;
+    transform: translateY(-50%);
 }
