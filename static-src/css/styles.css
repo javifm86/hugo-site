@@ -10,9 +10,9 @@ a {
     @apply text-green-500;
 }
 
-a:hover {
+/* a:hover {
     @apply underline;
-}
+} */
 
 nav > a.active {
     @apply text-green-500 font-bold;
@@ -31,4 +31,13 @@ nav > a.active {
     background: theme('colors.green.500');
     width: 70px;
     transform: translateY(-50%);
+}
+
+pre {
+    background-color: theme('colors.gray.200');
+    @apply p-4 my-4;
+}
+
+.highlight {
+    @apply my-4;
 }
