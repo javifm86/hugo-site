@@ -1,12 +1,32 @@
 {{ define "main" }}
-<div class="container mx-auto">
-<h1>{{ .Title }}</h1>
-{{ range .Pages.ByPublishDate.Reverse }}
-<p>
-  <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
-  <br>
-  {{ partial "date-and-tags.html" . }}
-</p>
-{{ end }}
+<div class="bg-gray-100">
+    <div class="container mx-auto pb-4">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="w-full lg:w-3/5 p-4">
+                <span class="line-before inline-block my-4 uppercase">Últimos artículos</span>
+                <h1 class="text-5xl font-bold font-serif leading-tight mb-4">{{ .Title }}</h1>
+                <p class="font-sans text-lg">{{ .Params.subtitle }}</p>
+            </div>
+            <div class="w-full lg:w-2/5 p-4">
+                {{ readFile "static/svg/blog6.svg" | safeHTML }}
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="container mx-auto p-4">
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    {{ range $paginator.Pages.ByPublishDate.Reverse }}
+    <article class="mb-8">
+        <h2 class="text-2xl font-bold font-serif leading-tight mb-4">
+            <a href="{{ .RelPermalink }}" class="text-gray-900 hover:text-green-500">{{ .Title }}</a>
+        </h2>
+        <!-- <p>{{ .Summary | safeHTML  }}</p> -->
+        {{ partial "date-and-tags.html" . }}
+    </article>
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+</div>
+
+
 {{ end }}
