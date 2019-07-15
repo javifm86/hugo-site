@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development npm-run-all --parallel css:build hugo:serve",
+    "start": "cross-env NODE_ENV=development npm-run-all --parallel css:build css:watch hugo:serve",
     "build": "cross-env NODE_ENV=production npm-run-all --sequential css:build hugo:build",
     "hugo:serve": "hugo server",
     "hugo:build": "hugo",
