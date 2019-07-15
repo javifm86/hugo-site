@@ -42,6 +42,10 @@ pre {
     @apply my-4;
 }
 
+article.post-container:hover a.post-container-title {
+    @apply text-green-500;
+}
+
 .post-container {
     position: relative;
 }
