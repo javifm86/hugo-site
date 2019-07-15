@@ -3,9 +3,9 @@
     <div class="container mx-auto pb-4">
         <div class="flex flex-col md:flex-row items-center">
             <div class="w-full lg:w-3/5 p-4">
-                <span class="line-before inline-block my-4">Web personal</span>
+                <span class="line-before inline-block my-4 uppercase">Web personal</span>
                 <h1 class="text-5xl font-bold font-serif leading-tight mb-4">{{ .Site.Title }}</h1>
-                <p class="font-sans">{{ .Site.Params.homeText | markdownify }}</p>
+                <p class="font-sans text-lg">{{ .Site.Params.homeText | markdownify }}</p>
             </div>
             <div class="w-full lg:w-2/5 p-4">
                 {{ readFile "static/svg/portada.svg" | safeHTML }}
@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="text-center my-16">
-    <h1 class="text-5xl font-bold font-serif leading-tight mb-4">Principales skills</h1>
+    <h2 class="text-4xl font-bold font-serif leading-tight mb-4">Principales skills</h2>
 </div>
 <div class="container mx-auto flex flex-wrap items-center">
     <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
