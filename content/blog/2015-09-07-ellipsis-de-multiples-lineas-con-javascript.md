@@ -7,6 +7,9 @@ url: /ellipsis-de-multiples-lineas-con-javascript.html
 categories:
   - CSS3
   - Javascript
+tags:
+  - javascript
+  - css
 
 ---
 Ellipsis es simplemente un cáracter compuesto por tres puntos: &#8220;…&#8221;. En desarrollo web, se aplica a textos muy largos que son más grandes que su contenedor, y por tanto queremos que sean recortados agregando al final el carácter ellipsis. Con el avance de los estándares css modernos, ya podemos aplicar una solución sin necesidad de echar mano de Javascript:

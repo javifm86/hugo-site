@@ -6,6 +6,8 @@ date: 2016-12-21T15:07:46+00:00
 url: /raspberry-pi-primeros-pasos-2.html
 categories:
   - Raspberry Pi
+tags:
+  - raspberry pi
 
 ---
 Una vez tenemos arrancada nuestra Raspberry con Raspbian aparece el escritorio. Lo primero que deberemos hacer será aplicar una configuración básica, para ello la última versión de Raspbian cuenta con una herramienta visual llamada _&#8220;Configuración de Raspberry pi&#8221;_, que encuentras en `Menú / Preferencias`.

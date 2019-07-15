@@ -7,6 +7,8 @@ url: /suscribirse-de-manera-segura-a-eventos-con-jquery.html
 categories:
   - Javascript
   - jQuery
+tags:
+  - jQuery
 
 ---
 Un truco del que me acabo de enterar, que seguro será de gran utilidad a la hora de desarrollar aplicaciones con Javascript. Sobre todo aplicaciones [SPA][1] (Single Page Application).  A la hora de suscribirnos a eventos de manera global en nuestras ventanas, escenas,  vistas (hay multitud de forma de llamarlas según el framework o el entorno en que trabajes) es algo muy normal suscribirnos a eventos en `window`.

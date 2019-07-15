@@ -9,6 +9,11 @@ categories:
   - Javascript
   - Smart TV
   - Utilidades
+tags:
+  - debug
+  - smart TV
+  - javascript
+  - console.io
 
 ---
 Hace algún tiempo hablé de [Weinre,][1] como opción para **depurar de forma remota nuestras aplicaciones Javascript.** Era una opción bastante buena para dispositivos Android y Smarts TV de LG, pero cuando fuí a depurar la aplicación que estamos desarrollando en una Smart TV de Samsung, me llevé la sorpresa de que las televisiones Samsung, deben hacer algo por dentro que sobreescribe el método console del navegador, y con Weinre no podía ver ninguno de los logs que había puesto en el código.

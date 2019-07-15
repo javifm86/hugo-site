@@ -7,6 +7,10 @@ url: /lanzar-fichero-batch-bat-sin-mostrar-la-consola-en-windows.html
 categories:
   - Utilidades
   - Windows
+tags:
+  - truco
+  - batch
+  - vb
 
 ---
 En mi día a día suelo trabajar en entorno Windows, y hay ciertos atajos de teclado y acciones, como backups de algunos proyectos, que tengo automatizadas con un simple fichero `.bat`, que ejecuto a través de un comando a través de [Autohotkey][1] (algún día escribiré un poco sobre esta utilidad para mejorar la productividad en Windows).

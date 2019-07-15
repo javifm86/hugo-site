@@ -7,6 +7,9 @@ url: /activar-https-con-lets-encrypt.html
 categories:
   - Linux
   - Servidor
+tags:
+  - vps
+  - linux
 
 ---
 [Let&#8217;s Encrypt][1] es un proveedor gratuito de **certificados TLS/SSL** que nos brinda la posibilidad de activar **https** en nuestro servidor para nuestros dominio.s El proceso está automatizado tanto para Apache como Nginx, en mi caso voy a utilizar **Cerbot** para instalarlo en mi servidor Nginx.

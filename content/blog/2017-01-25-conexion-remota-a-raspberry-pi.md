@@ -6,6 +6,8 @@ date: 2017-01-25T15:41:09+00:00
 url: /conexion-remota-a-raspberry-pi.html
 categories:
   - Raspberry Pi
+tags:
+  - raspberry pi
 
 ---
 Una vez finalizada la configuración básica, vamos a ver la manera de **conectarnos remotamente**, sin necesidad de tener enchufado ratón y teclado a la Raspberry, ni tan siquiera un monitor HDMI (si no quieres). Por defecto raspbian Pixel trae instalado el paquete **RealVNC** para conexiones remotas. Este paquete es incompatible con **xrdp**, que es el protocolo que utiliza la herramienta de _Conexión a Escritorio remoto_ que trae instalada Windows por defecto.

@@ -7,6 +7,11 @@ url: /weinre-depurar-remotamente-aplicaciones.html
 categories:
   - HTML5
   - Utilidades
+tags:
+  - debug
+  - smart TV
+  - weinre
+  - javascript
 
 ---
 Nunca me había visto en la necesidad de hacer uso de esta funcionalidad, normalmente desarrollo aplicaciones y páginas web y las pruebo directamente en el navegador, para **depurar el código Javascript** suelo utilizar las herramientas de desarrollador de Chrome. ¿En qué casos podemos necesitar **depurar remotamente**? La respuesta es sencilla, en dispositivos en los cuales no podemos acceder a herramientas de depuración del navegador. Desde la llegada de HTML5 y sus funcionalidades, es posible desarrollar aplicaciones para móviles, Smart TV&#8230; Actualmente estoy trabajando en desarrollo de aplicaciones para **Smart TV,** y me ví en la necesidad de depurar remotamente al realizar pruebas en las teles directamente.
@@ -17,9 +22,9 @@ Nunca me había visto en la necesidad de hacer uso de esta funcionalidad, normal
 npm -g install weinre
 {{< / highlight >}}
 
-<!--more-->Yo utilizo Windows, aunque también tengo Ubuntu, en sistemas Linux deberemos ejecutar el comando precedido de sudo probablemente. Así de simple y así de fácil, ya tenemos instalado weinre. Weinre ejecutará un servidor en nuestra máquina, que será la interfaz a través de la cual depuraremos nuestro aplicación HTML5, que se ejecutará en otro dispositivo (móvil, tablet, Smart TV, etc.)
+<!--more-->Yo utilizo Windows, aunque también tengo Ubuntu, en sistemas Linux deberemos ejecutar el comando precedido de sudo probablemente. Así de simple y así de fácil, ya tenemos instalado weinre. Weinre ejecutará un servidor en nuestra máquina, que será la interfaz a través de la cual depuraremos nuestro aplicación HTML5, que se ejecutará en otro dispositivo (móvil, tablet, Smart TV, etc).
 
-**. La interfaz es practicamente la misma que las developer tools de Chrome,** asi que si sueles usarla te desenvolverás con soltura en ella, aunque tiene algunas limitaciones.
+**La interfaz es practicamente la misma que las developer tools de Chrome,** asi que si sueles usarla te desenvolverás con soltura en ella, aunque tiene algunas limitaciones.
 
 Para ejecutar el servidor de weinre, vamos a la consola y ejecutamos:
 

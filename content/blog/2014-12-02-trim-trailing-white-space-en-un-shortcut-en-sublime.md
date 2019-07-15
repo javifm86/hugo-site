@@ -7,6 +7,8 @@ url: /trim-trailing-white-space-en-un-shortcut-en-sublime.html
 categories:
   - Sublime Text
   - Utilidades
+tags:
+  - sublime
 
 ---
 Sublime permite definir por medio de sus ficheros de configuración, una opción que cuando trabajo solo suelo tener activada, pero que en ocasiones trabajando en equipo no es muy recomendable.

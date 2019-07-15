@@ -8,7 +8,7 @@ categories:
   - Raspberry Pi
 tags:
   - IP
-  - raspberry
+  - raspberry pi
 
 ---
 Por comodidad a la hora de disfrutar de nuestra Raspberry **lo más conveniente es asignarle una IP fija.** De esa manera siempre podremos conectarnos a la misma dirección y no dependeremos de que el servidor DHCP nos dé una distinta cada vez. Esta configuración es muy básica, sencilla y muy necesaria a la hora de conectarnos remotamente o configurar otra serie de servicios.

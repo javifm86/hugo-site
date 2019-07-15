@@ -7,6 +7,10 @@ url: /evitar-que-jquery-sea-global-con-requirejs.html
 categories:
   - Javascript
   - jQuery
+tags:
+  - RequireJS
+  - jQuery
+  - javascript
 
 ---
 El popular framework de Javascript <a href="https://jquery.com/" target="_blank">jQuery</a>, es utilizado ampliamente en el mundo del desarrollo web. Por defecto se instancia en la variable global `$`, además de `jQuery`. Esto puede entrar en conflicto con otras librerías que hayan decidido utilizar el $ también. Si estás utilizando el popular cargador de módulos <a href="http://requirejs.org/" target="_blank">RequireJS</a>, hay una manera muy fácil para **evitar que jQuery se instancie globalmente.**

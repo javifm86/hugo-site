@@ -6,6 +6,8 @@ date: 2016-10-11T13:35:14+00:00
 url: /reemplazando-atributos-html-con-sublime.html
 categories:
   - Sublime Text
+tags:
+  - sublime
 
 ---
 Un tip rápido y fácil aplicable con Sublime o cualquier otro editor de texto que permita **reemplazar con expresiones regulares.** Me encontraba copiando a una entrada de Wordpess una tabla desde un fichero excel, en el cual había modificado el ancho de algunas celdas. Es una manera fácil de insertar una tabla sin necesidad de estar construyendo todo el código html.

@@ -7,6 +7,10 @@ url: /obtener-el-valor-de-una-propiedad-css-en-porcentaje.html
 categories:
   - Javascript
   - jQuery
+tags:
+  - truco
+  - jQuery
+  - css
 
 ---
 Un tip rápido, trabajando con jQuery **no es posible obtener** de un nodo por ejemplo, el **valor del ancho en porcentaje.** Lo primero y más lógico que se nos ocurre sería invocar al método `css` y pedirle el `width` (equivalente sería a otras propiedades como top, left, height, etc):

@@ -7,6 +7,11 @@ url: /configuracion-servidor-vps-en-digital-ocean-i.html
 categories:
   - Linux
   - Servidor
+tags:
+  - vps
+  - digital ocean
+  - linux
+  - hosting
 
 ---
 Me he decidido a contratar un VPS en Digital Ocean, a ver si de una vez por todas en mi escaso tiempo libre, puedo ir desarrollando un portfolio y aprendiendo cosas nuevas. Vamos a ver un listado de la configuración de un VPS desde cero, partiendo de una instalación limpia de Ubuntu 16.04. Vayamos por partes:

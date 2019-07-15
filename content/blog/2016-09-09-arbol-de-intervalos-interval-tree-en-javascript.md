@@ -6,6 +6,9 @@ date: 2016-09-09T10:41:33+00:00
 url: /arbol-de-intervalos-interval-tree-en-javascript.html
 categories:
   - Javascript
+tags:
+  - algoritmos
+  - javascript
 
 ---
 Continúo aprendiendo cosas en mi proyecto laboral actual. En este caso, para **optimizar el rendimiento de una búsqueda en un objeto enorme en Javascript.** El problema es el siguiente, se han de encontrar los nodos que pertenecen a un intervalo dado. En este caso en concreto, se dispone de una lista de canales de televisión, para los cuales disponemos de todos los programas, relativos a varios días de programación.

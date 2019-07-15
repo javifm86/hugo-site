@@ -8,6 +8,11 @@ categories:
   - CSS3
   - Javascript
   - jQuery
+tags:
+  - css
+  - animación
+  - javascript
+  - jQuery
 
 ---
 <p style="text-align: left;">

@@ -7,11 +7,10 @@ url: /wordpress-no-carga-despues-de-actualizar.html
 categories:
   - Wordpress
 tags:
-  - actualización
-  - carga
-  - error
-  - plugins
   - wordpress
+  - actualización
+  - error
+  - plugin
 
 ---
 Después de meses sin publicar ni tan siquiera una entrada, me dirigí a abrir el blog para escribir algo, realizar actualizaciones, plugins, temas, traducciones&#8230; Tenía la versión de WordPress desactualizada, el propio WordPress te avisa que **antes de actualizar realices un respaldo de la base de datos.**

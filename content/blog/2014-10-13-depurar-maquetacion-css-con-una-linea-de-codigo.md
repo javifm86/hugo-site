@@ -6,6 +6,10 @@ date: 2014-10-13T11:03:44+00:00
 url: /depurar-maquetacion-css-con-una-linea-de-codigo.html
 categories:
   - Javascript
+tags:
+  - css
+  - javascript
+  - truco
 
 ---
 Llevo aproximadamente 8 años trabajando como desarrollador Javascript principalmente, y la verdad es que cada día uno sigue descubriendo cosas que no dejan de sorprenderle. En este caso, un código de una línea, que sirve para visualizar el layout de todos los elementos CSS de una página.

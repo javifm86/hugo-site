@@ -6,6 +6,8 @@ date: 2014-07-12T18:25:05+00:00
 url: /cambia-el-separador-de-palabras-en-sublime-text.html
 categories:
   - Sublime Text
+tags:
+  - sublime
 
 ---
 Una de las cosas más tontas, pero que descubrí hace poco. Por defecto, Sublime Text tiene definido determinados caráceteres como separador de palabras. El punto, la coma, el signo del dólar, etc. En determinadas ocasiones, para determinados lenguajes (o para todos), podemos querer modificar los carácteres considerados como separador de palabra. Por ejemplo, en CSS, es muy común utilizar en las clases nombres separando las palabras con guiones, es una convención bastante extendida. Creas tu nuevo estilo en CSS, vas a copiarlo y te ves obligado a seleccionarlo ya que con doble click no se selecciona todo.
