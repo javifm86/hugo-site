@@ -1,22 +1,41 @@
 {{ define "main" }}
+
+{{ $miniTitle := "Últimos artículos" }}
+{{ $svgUrl := "static/svg/blog6.svg" }}
+{{ $isTag := false }}
+
+{{ if in .URL "/tags/" }}
+    {{ $miniTitle = "Artículos sobre..." }}
+    {{ $isTag = true }}
+{{ end }}
+
+
 <div class="bg-gray-100">
     <div class="container mx-auto pb-4">
         <div class="flex flex-col md:flex-row items-center">
             <div class="w-full lg:w-3/5 p-4">
-                <span class="line-before inline-block my-4 uppercase">Últimos artículos</span>
-                <h1 class="text-5xl font-bold font-serif leading-tight mb-4">{{ .Title }}</h1>
-                <p class="font-sans text-lg">{{ .Params.subtitle }}</p>
+                <span class="line-before inline-block my-4 uppercase">{{ $miniTitle }}</span>
+                <h1 class="text-5xl font-bold font-serif leading-tight mb-4">
+                    {{ if $isTag }}#{{ end }}{{ .Title }}
+                </h1>
+                <p class="font-sans text-lg">
+                    {{ if $isTag }}
+                        Artículos de la categoría seleccionada.
+                    {{ else }}
+                        {{ .Params.subtitle }}
+                    {{ end }}
+                </p>
             </div>
             <div class="w-full lg:w-2/5 p-4">
-                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/blog6.svg") }}
+                {{ partial "svg.html" (dict "context" . "svgSrc" $svgUrl) }}
             </div>
         </div>
     </div>
 </div>
 
-<div class="container mx-auto py-10 overflow-hidden">
+<div class="container mx-auto py-12 overflow-hidden">
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-    <div class="flex flex-wrap -mx-2">
+    <div class="flex flex-wrap -mx-2 mb-8">
         {{ range $paginator.Pages.ByPublishDate.Reverse }}
         <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
             <article class="border border-gray-400 rounded shadow-md h-full p-4 post-container">
@@ -31,7 +50,6 @@
     </div>
     {{/*  {{ template "_internal/pagination.html" . }}  */}}
     {{ partial "pagination.html" . }}
-    {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/blog6.svg" "cssClasses" "w-100") }}
 
 </div>
 
