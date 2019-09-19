@@ -1,17 +1,23 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 }}
 
-<ul class="pagination flex items-center">
+<ul class="pagination flex items-center justify-center text-xl">
     {{ with $pag.First }}
-    <li class="page-item px-3 py-3">
-        <a href="{{ .URL }}" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <!-- <li class="page-item py-3">
+        <a href="{{ .URL }}" class="page-link" aria-label="First">
+            <span aria-hidden="true">
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/chevron-double-left.svg" "cssClasses" "w-5 fill-current text-green-500") }}
+            </span>
+        </a>
+    </li> -->
+    {{ end }}
+    {{ if $pag.HasPrev }}
+    <li class="page-item{{ if not $pag.HasPrev }} disabled{{ end }} px-3 -m-2">
+        <a href="{{ $pag.Prev.URL }}" class="page-link hover:bg-gray-200 px-3 py-2 rounded" aria-label="Anterior">
+            &laquo; Anterior
+        </a>
     </li>
     {{ end }}
-    <li class="page-item{{ if not $pag.HasPrev }} disabled{{ end }} px-3 py-3">
-    <a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" class="page-link" aria-label="Previous">
-        <span aria-hidden="true"><svg class="w-4 fill-current text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z"/></svg></span>
-    </a>
-    </li>
     {{ $.Scratch.Set "__paginator.ellipsed" false }}
     {{ range $pag.Pagers }}
     {{ $right := sub .TotalPages .PageNumber }}
@@ -26,19 +32,32 @@
     {{ end }}
     {{ if $showNumber }}
     <li class="page-item{{ if eq . $pag }} active{{ end }} border-gray-400 px-3 py-3">
-        <a class="page-link {{ if eq . $pag }} bg-green-500 text-white rounded{{ end }} py-2 px-3 -m-2" href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ if eq . $pag }}
+        <a class="page-link bg-green-500 text-white rounded px-3 py-2 -m-2" href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ else }}
+        <a class="page-link rounded px-3 py-2 -m-2 hover:bg-gray-200" href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ end }}
+
     </li>
     {{ else if ($.Scratch.Get "__paginator.shouldEllipse") }}
     <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     {{ end }}
     {{ end }}
-    <li class="page-item{{ if not $pag.HasNext }} disabled{{ end }} px-3 py-3">
-    <a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    {{ if $pag.HasNext }}
+    <li class="page-item px-3 -m-2">
+        <a href="{{ $pag.Next.URL }}" class="page-link page-link hover:bg-gray-200 px-3 py-2 rounded" aria-label="Siguiente">
+           Siguiente &raquo;
+        </a>
     </li>
+    {{ end }}
     {{ with $pag.Last }}
-    <li class="page-item px-3 py-3">
-        <a href="{{ .URL }}" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
+    <!-- <li class="page-item py-3">
+        <a href="{{ .URL }}" class="page-link" aria-label="Last">
+            <span aria-hidden="true">
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/chevron-double-right.svg" "cssClasses" "w-5 fill-current text-green-500") }}
+            </span>
+        </a>
+    </li> -->
     {{ end }}
 </ul>
 {{ end }}
