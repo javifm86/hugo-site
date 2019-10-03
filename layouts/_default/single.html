@@ -1,8 +1,12 @@
 {{ define "main" }}
-<div class="container mx-auto">
-    <h1>{{ .Title }}</h1>
-    {{ partial "date-and-tags.html" . }}
-    <br><br>
-    {{ .Content }}
+
+<div class="container mx-auto px-4 single-post">
+    <div class="my-6">
+        <h1 class="text-4xl font-serif leading-tight font-bold">{{ .Title }}</h1>
+        {{ partial "date-and-tags.html" . }}
+    </div>
+    <div class="single-post-content">
+        {{ .Content }}
+    </div>
 </div>
 {{ end }}
