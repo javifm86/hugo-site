@@ -3,7 +3,6 @@ title: Ellipsis de múltiples líneas con Javascript
 author: javi
 type: post
 date: 2015-09-07T09:00:57+00:00
-url: /ellipsis-de-multiples-lineas-con-javascript.html
 categories:
   - CSS3
   - Javascript

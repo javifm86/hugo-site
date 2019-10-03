@@ -3,7 +3,6 @@ title: Obtener el valor de una propiedad CSS en porcentaje
 author: javi
 type: post
 date: 2016-03-18T12:22:35+00:00
-url: /obtener-el-valor-de-una-propiedad-css-en-porcentaje.html
 categories:
   - Javascript
   - jQuery

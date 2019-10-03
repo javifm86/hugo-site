@@ -3,7 +3,6 @@ title: Depuración remota en Smart TV con console.io
 author: javi
 type: post
 date: 2014-11-05T16:03:56+00:00
-url: /depuracion-remota-en-smart-tv-con-console-io.html
 categories:
   - HTML5
   - Javascript
@@ -31,9 +30,7 @@ Rapidamente mis compañeros y yo pensamos en elaborar un propio debugger muy sim
   * Firefox, Safari, Opera, Chrome, Maple, PhantomJS and IE
   * iPhone, iPod, iPad, Android browser, windows 8 phone etc
 
-<!--more-->Vamos a ver en unos sencillos pasos como instalar Console.io rapidamente. Se instala como un módulo de 
-
-[Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
+<!--more-->Vamos a ver en unos sencillos pasos como instalar Console.io rapidamente. Se instala como un módulo de [Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
 
 {{< highlight bash >}}
 npm install -g xconsole.io
@@ -47,12 +44,14 @@ consoleio
 
 Y aparecerá en consola el siguiente mensaje:
 
-`Starting Console.IO<br />
-Console.IO is run at http://localhost:8082`
+{{< highlight bash >}}
+Starting Console.IO
+Console.IO is run at http://localhost:8082
+{{< / highlight >}}
 
 Con esto ya estaría instalado, simplemente abrimos la dirección del servidor y comprobamos que todo cargue correctamente. Deberíamos ver algo así:
 
-[<img class="aligncenter wp-image-43 size-large" src="/img/2014/11/consoleio1-1024x363.png" alt="" width="676" height="239" srcset="https://blog.javifm.com/wp-content/uploads/2014/11/consoleio1-1024x363.png 1024w, https://blog.javifm.com/wp-content/uploads/2014/11/consoleio1-300x106.png 300w, https://blog.javifm.com/wp-content/uploads/2014/11/consoleio1-676x240.png 676w, https://blog.javifm.com/wp-content/uploads/2014/11/consoleio1.png 1362w" sizes="(max-width: 676px) 100vw, 676px" />][8]
+[<img src="/img/2014/11/consoleio1-1024x363.png" alt="Interfaz de console.io" srcset="/img/2014/11/consoleio1-1024x363.png 1024w, /img/2014/11/consoleio1-300x106.png 300w, /img/2014/11/consoleio1-676x240.png 676w, /img/2014/11/consoleio1.png 1362w" sizes="(max-width: 676px) 100vw, 676px" />][8]
 
 En mi portátil personal fue suficiente con estos pasos, en el del trabajo por alguna razón que no he investigado, no debió añadirse correctamente la ruta hasta el Console.io, y al abrir la url del servidor, me apareció un error de este tipo:
 
@@ -75,19 +74,20 @@ Ya solo nos queda lanzar nuestra aplicación, desde el dispositivo que queramos,
 
 En la parte superior izquierda, veremos los dispositivos conectados (los que podemos debuggear), en este caso tenemos una ejecución de una televisión LG Smart TV de 2013, que hemos abierto para depurar, y otra ejecución desde un ordenador con un chrome versión 38, que aparece con una bolita verde. Para conectar con la ejecución de un dispositivo, simplemente hacemos doble click sobre la bolita verde, y empezaremos a ver y recibir logs del dispositivo seleccionado.
 
-[<img class="aligncenter wp-image-44 size-full" src="/img/2014/11/devices.png" alt="devices" width="606" height="402" srcset="https://blog.javifm.com/wp-content/uploads/2014/11/devices.png 606w, https://blog.javifm.com/wp-content/uploads/2014/11/devices-300x199.png 300w" sizes="(max-width: 606px) 100vw, 606px" />][9]
+[<img src="/img/2014/11/devices.png" alt="Interfaz de console.io mostrando Smart TV de LG y ordenador Chrome como dispositivos conectados" width="606" height="402" srcset="/img/2014/11/devices.png 606w, /img/2014/11/devices-300x199.png 300w" sizes="(max-width: 606px) 100vw, 606px" />][9]
 
 Se pueden guardar los logs, pausar la ejecución, filtrar los tipos de logs que queremos ver, podemos ver el código fuente de la página, realizar capturas de pantalla, recargar la aplicación sin tener que lanzarla de nuevo, ver las características del dispositivo, objeto navigator&#8230;
 
 En fin muchas cosas, es cuestión de investigar y trastear por su interfaz gráfica, que es  bastante intuitiva y nos iremos encontrando cosas que en un determinado momento pueden sernos de gran utilidad. En la siguiente imagen vemos algunos logs, un Hola mundo, el valor de un objeto, las propiedades de un array. Además **desde el editor podemos ejecutar código Javascript,** muy útil para conocer propiedades de elementos del DOM, manipularlos o lanzar cualquier función que nos haga falta de manera manual.
 
-[<img class="aligncenter wp-image-45 size-full" src="/img/2014/11/logs.png" alt="logs" width="643" height="715" srcset="https://blog.javifm.com/wp-content/uploads/2014/11/logs.png 643w, https://blog.javifm.com/wp-content/uploads/2014/11/logs-269x300.png 269w" sizes="(max-width: 643px) 100vw, 643px" />][10]
+[<img src="/img/2014/11/logs.png" alt="Consola de Javascript para ejecutar código en Console.io" width="643" height="715" srcset="/img/2014/11/logs.png 643w, /img/2014/11/logs-269x300.png 269w" sizes="(max-width: 643px) 100vw, 643px" />][10]
 
 En resumen Console.io es una herramienta muy potente, que nos puede arrojar luz cuando probamos en distintos tipos de dispositivo desde donde no es posible consultar una consola de errores, o en caso de poder consultarla ésta es muy limitada. A mí me ha sacado las castañas del fuego más de una vez, probando en las Smart TV. No dudéis en ampliar información en la documentación oficial.
 
-Enlaces: [Console.io][2] | [Página en Github][11]
+* [Console.io][2]
+* [Página en Github][11]
 
- [1]: http://javifm.com/blog/winre-depurar-remotamente-aplicaciones.html "Weinre"
+ [1]: /blog/depurar-remotamente-aplicaciones-html-con-weinre "Weinre"
  [2]: http://nkashyap.github.io/console.io/ "Console.io"
  [3]: http://nodejs.org/ "Node.js"
  [4]: http://nodejs.org/download/ "Descarga Node.js"

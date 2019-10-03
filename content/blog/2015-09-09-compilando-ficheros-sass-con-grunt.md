@@ -3,7 +3,6 @@ title: Compilando ficheros Sass con grunt
 author: javi
 type: post
 date: 2015-09-09T13:50:35+00:00
-url: /compilando-ficheros-sass-con-grunt.html
 categories:
   - CSS3
   - Javascript
@@ -16,7 +15,7 @@ tags:
   - sass
 
 ---
-<img class="aligncenter size-full wp-image-87" src="/img/2015/09/grunt-sass.png" alt="Grunt y Sass" width="500" height="260" srcset="https://blog.javifm.com/wp-content/uploads/2015/09/grunt-sass.png 500w, https://blog.javifm.com/wp-content/uploads/2015/09/grunt-sass-300x156.png 300w" sizes="(max-width: 500px) 100vw, 500px" />
+<img src="/img/2015/09/grunt-sass.png" alt="Grunt y Sass" width="500" height="260" srcset="/img/2015/09/grunt-sass.png 500w, /img/2015/09/grunt-sass-300x156.png 300w" sizes="(max-width: 500px) 100vw, 500px" />
 
 A lo largo de los 2 últimos años, he ido poco a poco **mejorando mi nivel de productividad** en el trabajo. Primero cambié mi editor de toda la vida, [Notepad++][1] por [Sublime Text][2]. Y posteriormente, he ido añadiendo diferentes herramientas que proporciona **Node.js**, para automatizar distintos procesos y tareas, como ejecución de tests, linters de código, minimizado de Javascript y CSS, etc&#8230;
 
@@ -24,15 +23,13 @@ Para automatizar más aún todos estos procesos, está [Grunt][3], que dispone d
 
 Para ello está utilizando [Sass][4], uno de los preprocesadores CSS más populares actualmente. Por motivos de simplicidad de código y maximizar la compatibilidad con navegadores no muy modernos (mantenemos soporte a navegadores webKit antiguos, que usan algunas Smart TV anteriores a 2013), a la hora de hacer los elementos reutilizables de la aplicación con Javascript, decidimos que en lugar de que cada widget cargue su hoja de estilos, **tener todo el CSS de todos los widgets unificados en un mismo fichero que esté cargado desde el principio** (controlar cuando se ha cargado una hoja de estilos, de manera simple y compatible con todos los navegadores es una tarea que [ni RequireJS ha incluido en su cargador de módulos][5]).
 
-<!--more-->Grunt y sus plugins son instalados y gestionados a través de 
-
-**NPM**, el gestor de paquetes por consola para [Node.js][6]. Asi que si no lo tienes ya, el primer paso es instalar [Node.js][7]. Acto seguido, nos dirigiremos a la consola, e instalaramos Grunt globalmente (seguramente necesites sudo en Linux):
+<!--more-->Grunt y sus plugins son instalados y gestionados a través de **NPM**, el gestor de paquetes por consola para [Node.js][6]. Asi que si no lo tienes ya, el primer paso es instalar [Node.js][7]. Acto seguido, nos dirigiremos a la consola, e instalaramos Grunt globalmente (seguramente necesites sudo en Linux):
 
 {{< highlight bash >}}
 npm install -g grunt-cli
 {{< / highlight >}}
 
-Ya podemos ir a la carpeta donde está nuestro proyecto (`cd ruta/proyecto/`). Deberemos tener nuestro fichero `package.json` creado, con el nombre del proyecto, descripción y otros datos importantes. Si no lo tienes creado, desde consola, estando en el directorio raíz del proyecto, puedes ejecutar `<strong>npm init</strong>`, y se irán pidiendo datos para crear el fichero, o puedes crearlo directamente con tu editor de texto, con esto bastaría a priori:
+Ya podemos ir a la carpeta donde está nuestro proyecto (`cd ruta/proyecto/`). Deberemos tener nuestro fichero `package.json` creado, con el nombre del proyecto, descripción y otros datos importantes. Si no lo tienes creado, desde consola, estando en el directorio raíz del proyecto, puedes ejecutar `npm init`, y se irán pidiendo datos para crear el fichero, o puedes crearlo directamente con tu editor de texto, con esto bastaría a priori:
 
 {{< highlight JavaScript >}}
 {
@@ -179,11 +176,12 @@ module.exports = function( grunt ) {
 };
 {{< / highlight >}}
 
-Ya simplemento hemos de dirigirnos a la consola, y ejecutar **`grunt`**, ya que la tarea watch ha sido añadida por defecto, o bien `<strong>grunt watch</strong>` y se lanzará el proceso que estará observando los cambios producidos en los ficheros scss de nuestro proyecto, para acto seguido lanzar la tarea.
+Ya simplemento hemos de dirigirnos a la consola, y ejecutar **`grunt`**, ya que la tarea watch ha sido añadida por defecto, o bien `grunt watch` y se lanzará el proceso que estará observando los cambios producidos en los ficheros scss de nuestro proyecto, para acto seguido lanzar la tarea.
 
 De esta manera **nuestros ficheros Sass son compilados automaticamente**, muy útil si nuestro editor de texto no dispone de un plugin que automatice el proceso y queremos evitar tener que estar compilando manualmente desde la consola.
 
-Enlaces útiles: [Primeros pasos con grunt][10] | [Configurando tareas][11]
+* [Primeros pasos con grunt][10]
+* [Configurando tareas][11]
 
  [1]: https://notepad-plus-plus.org/
  [2]: http://www.sublimetext.com/

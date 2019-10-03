@@ -3,7 +3,6 @@ title: Evitar que jQuery sea global con RequireJS
 author: javi
 type: post
 date: 2015-11-03T12:56:17+00:00
-url: /evitar-que-jquery-sea-global-con-requirejs.html
 categories:
   - Javascript
   - jQuery

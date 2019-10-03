@@ -3,7 +3,6 @@ title: Cambia el separador de palabras en Sublime Text
 author: javi
 type: post
 date: 2014-07-12T18:25:05+00:00
-url: /cambia-el-separador-de-palabras-en-sublime-text.html
 categories:
   - Sublime Text
 tags:

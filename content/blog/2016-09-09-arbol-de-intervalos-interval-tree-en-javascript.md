@@ -3,7 +3,6 @@ title: Arbol de intervalos (interval tree) en Javascript
 author: javi
 type: post
 date: 2016-09-09T10:41:33+00:00
-url: /arbol-de-intervalos-interval-tree-en-javascript.html
 categories:
   - Javascript
 tags:

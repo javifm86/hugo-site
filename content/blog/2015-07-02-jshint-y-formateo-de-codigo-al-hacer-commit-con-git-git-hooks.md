@@ -3,7 +3,6 @@ title: JSHint y formateo de código al hacer commit con git (Git hooks)
 author: javi
 type: post
 date: 2015-07-02T08:15:08+00:00
-url: /jshint-y-formateo-de-codigo-al-hacer-commit-con-git-git-hooks.html
 categories:
   - Git
   - Javascript
@@ -19,13 +18,13 @@ tags:
 ---
 A la hora de trabajar en equipo, tener una guía de estilos definida es de vital importancia. Estoy trabajando en un proyecto en el cual por diversos motivos que no vienen al caso, se podría mejorar bastante en ese aspecto, y mediante el uso de [Node.js][1] disponemos de herramientas que nos pueden ayudar a tener en un equipo un código más uniforme y estandar.
 
-Para nuestro proyecto he elegido un linter, en este caso [JSHint][2], y un formateador para el código Javascript, que representa el grueso de los desarrollos de nuestra aplicación, [js-beautify][3]. Podría incorporarse además una tercera herramienta, muy potente a la hora de definir exactamente los estilos que deseamos aplicar de manera muy minuciosa, [JSCS][4], que se ocupa de muchas opciones de estilo que actualmente mantiene JSHint, pero que pronto **pasarán a estar deprecadas.**  (Actualización: Parece que [ESLint][5] es una alternativa equilibrada a JSHint y JSCS, tengo que probarlo más a fondo.) Por el momento me limitaré a las 2 mencionadas.
+Para nuestro proyecto he elegido un linter, en este caso [JSHint][2], y un formateador para el código Javascript, que representa el grueso de los desarrollos de nuestra aplicación, [js-beautify][3]. Podría incorporarse además una tercera herramienta, muy potente a la hora de definir exactamente los estilos que deseamos aplicar de manera muy minuciosa, [JSCS][4], que se ocupa de muchas opciones de estilo que actualmente mantiene JSHint, pero que pronto **pasarán a estar deprecadas.**  (Actualización: Parece que [ESLint][5] es una alternativa equilibrada a JSHint y JSCS, tengo que probarlo más a fondo). Por el momento me limitaré a las 2 mencionadas.
 
 Como control de versiones, utilizamos [Git][6], y aunque la consola es muy completa, en el día a día para según que tareas, es mucho mejor a la hora de seguir un historial de commits, ver cambios y hacer mergeos una herramienta gráfica como [SourceTree][7], que es la que uso y recomiendo.
 
 Para estandarizar nuestro código, he decidido crear una serie de reglas a la hora de validar el código Javascript, y una vez validado, el archivo deberá ser formateado de acuerdo a otra serie de reglas, de manera que en el repositorio siempre dispongamos de archivos libres de errores, con un mismo formato y siguiendo el mismo estilo.
 
-La idea es simple, quiero que cada vez que alguien vaya a hacer commit de sus cambios al repositorio, se validen los ficheros Javascript de acuerdo a unas reglas comunes de JSHint, y si el archivo no contiene errores será formateado automaticamente antes del commit al repositorio. La idea es hacerlo automático, así nadie tiene ninguna excusa. Veamos primero como instalar a nivel de proyecto las 2 herramientas.
+La idea es simple, quiero que cada vez que alguien vaya a hacer commit de sus cambios al repositorio, se validen los ficheros Javascript de acuerdo a unas reglas comunes de JSHint, y si el archivo no contiene errores será formateado automáticamente antes del commit al repositorio. La idea es hacerlo automático, así nadie tiene ninguna excusa. Veamos primero como instalar a nivel de proyecto las 2 herramientas.
 
 <!--more-->
 
@@ -94,9 +93,9 @@ Igual que en el caso anterior, crearemos un fichero `.beautifyrc` con las opcion
 }
 {{< / highlight >}}
 
-Puedes <a href="https://www.npmjs.com/package/js-beautify" target="_blank">consultar el listado</a> de opciones para añadir/modificar según tus preferencias. Ya está todo listo, ahora simplemente hemos de hacer que automaticamente **al hacer commit, se pase elJSHint a todos los ficheros javascript automaticamente,** y si detecta algún error en alguno de los archivos, no será posible hacer commit, ya que git dará error hasta que no se solucionen. ¿Cómo puede automatizarse este proceso?
+Puedes <a href="https://www.npmjs.com/package/js-beautify" target="_blank">consultar el listado</a> de opciones para añadir/modificar según tus preferencias. Ya está todo listo, ahora simplemente hemos de hacer que automáticamente **al hacer commit, se pase el JSHint a todos los ficheros javascript automáticamente,** y si detecta algún error en alguno de los archivos, no será posible hacer commit, ya que git dará error hasta que no se solucionen. ¿Cómo puede automatizarse este proceso?
 
-A través de lo que se llaman <a href="https://git-scm.com/book/es/v2/Customizing-Git-Git-Hooks" target="_blank">hooks</a>, que no son más que scripts que lanza git automaticamente cuando determinadas acciones ocurren. Puedes ir al directorio .git de tu proyecto, y allí encontrarás una carpeta `hooks` en la que hay scripts de ejemplo con la extensión `.sample`. El que nos interesa para este ejemplo, es el script ejecutado antes de hacer commit, que realizará tareas en el momento que hagamos commit. Para ello simplemente crearemos un archivo llamado `pre-commit`, sin extensión, o bien editaremos el archivo `pre-commit.sample` y modificaremos su nombre. El script que he creado en cuestión es el siguiente:
+A través de lo que se llaman <a href="https://git-scm.com/book/es/v2/Customizing-Git-Git-Hooks" target="_blank">hooks</a>, que no son más que scripts que lanza git automáticamente cuando determinadas acciones ocurren. Puedes ir al directorio .git de tu proyecto, y allí encontrarás una carpeta `hooks` en la que hay scripts de ejemplo con la extensión `.sample`. El que nos interesa para este ejemplo, es el script ejecutado antes de hacer commit, que realizará tareas en el momento que hagamos commit. Para ello simplemente crearemos un archivo llamado `pre-commit`, sin extensión, o bien editaremos el archivo `pre-commit.sample` y modificaremos su nombre. El script que he creado en cuestión es el siguiente:
 
 {{< highlight bash >}}
 #!/bin/sh
@@ -174,7 +173,7 @@ source/lib
 
 De esta manera ignoraremos todo lo que esté en `source/lib`, contenga la palabra `jasmine` o contenga los caracteres `.min.js`.
 
-Iremos pasando fichero por fichero JSHint, si hay algún error se mostrará en la consola, si no hay ningún error en el fichero este se formatea automaticamente, y se hace git add para añadir los cambios hechos en el fichero. Una vez validados todos, comprobaremos si hubo algún error en alguno, si lo hubo saldremos con código 1, que impide que se haga el commit. En caso de que todo esté bien, se sale con código 0 y nuestro commit será enviado al repositorio correctamente.
+Iremos pasando fichero por fichero JSHint, si hay algún error se mostrará en la consola, si no hay ningún error en el fichero este se formatea automáticamente, y se hace git add para añadir los cambios hechos en el fichero. Una vez validados todos, comprobaremos si hubo algún error en alguno, si lo hubo saldremos con código 1, que impide que se haga el commit. En caso de que todo esté bien, se sale con código 0 y nuestro commit será enviado al repositorio correctamente.
 
 Debo decir que formatear el código Javascript no es para lo que está pensado el hook `pre-commit`, en él, siendo estrictos, solo deberían llevarse a cabo tareas que no modificasen el código, como son validar el código, ejecución de pruebas unitarias, etc. Por ejemplo este script no funcionaría correctamente, en un caso más avanzado, como sería commitear sólo una parte de un fichero.
 

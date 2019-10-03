@@ -3,7 +3,6 @@ title: Dirección IP fija para Raspberry en Raspbian
 author: javi
 type: post
 date: 2017-09-19T12:38:28+00:00
-url: /direccion-ip-fija-para-raspberry-en-raspbian.html
 categories:
   - Raspberry Pi
 tags:

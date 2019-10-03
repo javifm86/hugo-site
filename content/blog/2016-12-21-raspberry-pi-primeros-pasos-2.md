@@ -3,7 +3,6 @@ title: Raspberry pi, primeros pasos (2)
 author: javi
 type: post
 date: 2016-12-21T15:07:46+00:00
-url: /raspberry-pi-primeros-pasos-2.html
 categories:
   - Raspberry Pi
 tags:
@@ -12,13 +11,13 @@ tags:
 ---
 Una vez tenemos arrancada nuestra Raspberry con Raspbian aparece el escritorio. Lo primero que deberemos hacer será aplicar una configuración básica, para ello la última versión de Raspbian cuenta con una herramienta visual llamada _&#8220;Configuración de Raspberry pi&#8221;_, que encuentras en `Menú / Preferencias`.
 
-<img class="aligncenter size-full wp-image-115" src="/img/2016/12/Screenshot_1.png" alt="" width="659" height="590" srcset="https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_1.png 659w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_1-300x269.png 300w" sizes="(max-width: 659px) 100vw, 659px" />
+<img src="/img/2016/12/Screenshot_1.png" alt="Selección de menu en interfaz visual de Raspbian: Preferencias - Configuración de Raspberry Pi" width="659" height="590" srcset="/img/2016/12/Screenshot_1.png 659w, /img/2016/12/Screenshot_1-300x269.png 300w" sizes="(max-width: 659px) 100vw, 659px" />
 
 **NOTA:** He tomado los pantallazos después de configurar mi raspberry, inicialmente todo se encuentra en inglés.
 
 Una vez arrancamos la aplicación, nos aparecerá la siguiente pantalla:
 
-<img class="aligncenter size-full wp-image-116" src="/img/2016/12/Screenshot_2.png" alt="" width="754" height="499" srcset="https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_2.png 754w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_2-300x199.png 300w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_2-676x447.png 676w" sizes="(max-width: 754px) 100vw, 754px" />
+<img src="/img/2016/12/Screenshot_2.png" alt="Configuración de Raspberry Pi - Sistema" width="754" height="499" srcset="/img/2016/12/Screenshot_2.png 754w, /img/2016/12/Screenshot_2-300x199.png 300w, /img/2016/12/Screenshot_2-676x447.png 676w" sizes="(max-width: 754px) 100vw, 754px" />
 
 Dentro de la pestaña sistema.
 
@@ -33,17 +32,17 @@ Dentro de la pestaña sistema.
 
 En **Interfaces** podemos activar/desactivar una serie de servicios, yo activé ssh, que es lo que uso el 90% del tiempo para manejar la raspberry.
 
-<img class="aligncenter size-full wp-image-117" src="/img/2016/12/Screenshot_3.png" alt="" width="705" height="483" srcset="https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_3.png 705w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_3-300x206.png 300w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_3-676x463.png 676w" sizes="(max-width: 705px) 100vw, 705px" />
+<img src="/img/2016/12/Screenshot_3.png" alt="Configuración de Raspberry Pi: Interfaces" width="705" height="483" srcset="/img/2016/12/Screenshot_3.png 705w, /img/2016/12/Screenshot_3-300x206.png 300w, /img/2016/12/Screenshot_3-676x463.png 676w" sizes="(max-width: 705px) 100vw, 705px" />
 
 **Rendimiento**
 
-<img class="aligncenter size-full wp-image-118" src="/img/2016/12/Screenshot_4.png" alt="" width="689" height="473" srcset="https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_4.png 689w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_4-300x206.png 300w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_4-676x464.png 676w" sizes="(max-width: 689px) 100vw, 689px" />
+<img src="/img/2016/12/Screenshot_4.png" alt="Configuración de Raspberry Pi: Rendimiento" width="689" height="473" srcset="/img/2016/12/Screenshot_4.png 689w, /img/2016/12/Screenshot_4-300x206.png 300w, /img/2016/12/Screenshot_4-676x464.png 676w" sizes="(max-width: 689px) 100vw, 689px" />
 
 Memoria GPU, viene por defecto con 64MB, si vas a utilizar Kodi para reproducir HD y/o emuladores de consola, será necesario aumentar este valor. Yo he puesto 128MB para Kodi, no descarto aumentarlo un poco más. Si no tienes estos requerimientos, 64MB es más que suficiente. El **valor máximo para Raspberry Pi 3 es de 944**, según la [documentación oficial][2] (buscar **gpu_mem**).
 
-Por último encontramos la pestaña **Localización**, donde configurar la zona horaria, locale, teclado y país de la Wifi. Puse todo en español. Para configurar  el teclado es necesario que esté enchufado físicamente.
+Por último encontramos la pestaña **Localización**, donde configurar la zona horaria, locale, teclado y país de la Wifi. Puse todo en español. Para configurar el teclado es necesario que esté enchufado físicamente.
 
-<img class="aligncenter size-full wp-image-119" src="/img/2016/12/Screenshot_5.png" alt="" width="695" height="468" srcset="https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_5.png 695w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_5-300x202.png 300w, https://blog.javifm.com/wp-content/uploads/2016/12/Screenshot_5-676x455.png 676w" sizes="(max-width: 695px) 100vw, 695px" />
+<img src="/img/2016/12/Screenshot_5.png" alt="Configuración de Raspberry Pi: Localización" width="695" height="468" srcset="/img/2016/12/Screenshot_5.png 695w, /img/2016/12/Screenshot_5-300x202.png 300w, /img/2016/12/Screenshot_5-676x455.png 676w" sizes="(max-width: 695px) 100vw, 695px" />
 
 Una vez configurado todo a nuestro gusto, pulsamos Aceptar para que se apliquen los cambios.
 
@@ -51,7 +50,7 @@ Una vez configurado todo a nuestro gusto, pulsamos Aceptar para que se apliquen 
 
 Para obtener salida a Internet tenemos 2 opciones, conectar por cable ethernet o a través de Wifi. Yo tengo el router al lado de la raspberry, asi que está conectada por cable. Si en tu caso no tienes cerca para enchufar por cable, puedes acceder a través de Wifi, en el icono de al lado de Bluetooth puedes configurar tu red Wifi.
 
-<img class="aligncenter size-full wp-image-121" src="/img/2016/12/Screenshot_7.png" alt="" width="296" height="162" />
+<img src="/img/2016/12/Screenshot_7.png" alt="Wifi en Raspbian" width="296" height="162" />
 
 Una vez conectado, puedes abrir el navegador y comprobar la conexión a internet. También puedes abrir una terminal y hacer ping: `ping google.com`
 

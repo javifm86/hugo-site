@@ -3,7 +3,6 @@ title: Reemplazando atributos HTML con Sublime
 author: javi
 type: post
 date: 2016-10-11T13:35:14+00:00
-url: /reemplazando-atributos-html-con-sublime.html
 categories:
   - Sublime Text
 tags:
@@ -20,6 +19,6 @@ Simplemente pulsando _Ctrl + H_ (o en el menú _Find-> Replace_), nos aseguramos
 
 Vemos como se seleccionan todas las ocurrencias (en rojo la opción de búsqueda con expresiones regulares).
 
-<img class="aligncenter size-full wp-image-103" src="/img/2016/10/Screenshot_2.png" alt="screenshot_2" width="694" height="544" srcset="https://blog.javifm.com/wp-content/uploads/2016/10/Screenshot_2.png 694w, https://blog.javifm.com/wp-content/uploads/2016/10/Screenshot_2-300x235.png 300w, https://blog.javifm.com/wp-content/uploads/2016/10/Screenshot_2-676x530.png 676w" sizes="(max-width: 694px) 100vw, 694px" />
+<img src="/img/2016/10/Screenshot_2.png" alt="Editor sublime text marcando el selector de expresiones regulares y mostrando seleccionados todos los atributos width de un documento HTML" width="694" height="544" srcset="/img/2016/10/Screenshot_2.png 694w, /img/2016/10/Screenshot_2-300x235.png 300w, /img/2016/10/Screenshot_2-676x530.png 676w" sizes="(max-width: 694px) 100vw, 694px" />
 
 Simplemente va a buscar todas las coincidencias en el fichero del atributo width con contenido entre comillas. Seleccionamos reemplazar por nada, y en un momento ya hemos eliminado todos los artributos width del texto. Fácil y sencillo.

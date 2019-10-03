@@ -3,7 +3,6 @@ title: Activar https con Let’s Encrypt
 author: javi
 type: post
 date: 2019-06-26T17:43:44+00:00
-url: /activar-https-con-lets-encrypt.html
 categories:
   - Linux
   - Servidor

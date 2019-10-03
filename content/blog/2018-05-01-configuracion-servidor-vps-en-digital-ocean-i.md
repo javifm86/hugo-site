@@ -3,7 +3,6 @@ title: Configuración servidor VPS en Digital Ocean I
 author: javi
 type: post
 date: 2018-05-01T10:10:39+00:00
-url: /configuracion-servidor-vps-en-digital-ocean-i.html
 categories:
   - Linux
   - Servidor
@@ -86,11 +85,11 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 
 A partir de ahora será necesario que en futuras aplicaciones y/o servicios instalados, permitamos que realice conexiones añadiendolas a ufw.
 
-**Instalación de LEMP**
+## Instalación de LEMP
 
 LEMP son las siglas que indican un servidor con sistema operativo Linux, Nginx como servidor web, PHP como procesador dinámico y MySQL como base de datos para el backend. Algo muy común por ejemplo a la hora de tener una página en WordPress. Vamos a ver como instalar en nuestro VPS estos paquetes:
 
-**Instalar Nginx**
+## Instalar Nginx
 
 Nginx es un servidor web de código abierto, uno de los más usados en el mundo junto con Apache. Cada uno tiene sus pros y sus contras, yo he optado por Nginx. Antes de nada, actualizaremos el repositorio apt de nuestro servidor, y posteriormente instalaremos nginx:
 
@@ -118,9 +117,9 @@ Nginx HTTP (v6)            ALLOW       Anywhere (v6)
 
 Hecho esto, ya solo deberemos acceder a la dirección IP pública de nuestro VPS para ver la página de bienvenida de nginx.
 
-<img class="aligncenter size-full wp-image-140" src="/img/2018/01/nginx_default.png" alt="" width="577" height="212" srcset="https://blog.javifm.com/wp-content/uploads/2018/01/nginx_default.png 577w, https://blog.javifm.com/wp-content/uploads/2018/01/nginx_default-300x110.png 300w" sizes="(max-width: 577px) 100vw, 577px" />
+<img src="/img/2018/01/nginx_default.png" alt="Página de bienvenida de Nginx" width="577" height="212" srcset="/img/2018/01/nginx_default.png 577w, /img/2018/01/nginx_default-300x110.png 300w" sizes="(max-width: 577px) 100vw, 577px" />
 
-**Instalar MySQL**
+## Instalar MySQL
 
 Para instalarlo simplemente ejecutamos:
 
@@ -136,7 +135,7 @@ sudo mysql_secure_installation
 
 Tan sólo hay que seguir el asistente introduciendo el carácter **`y`** para contestar que sí.
 
-**Instalar PHP**
+## Instalar PHP
 
 Nginx por defecto no cuenta con procesamiento para PHP. Para ello deberemos instalar `php-fpm`. Tecleamos en la terminal:
 
@@ -156,7 +155,7 @@ Pulsando F6, buscaremos la siguiente cadena: &#8220;cgi.fix_pathinfo&#8221;. Pon
 sudo systemctl restart php7.0-fpm
 {{< / highlight >}}
 
-**Habilitar PHP en Nginx**
+## Habilitar PHP en Nginx
   
 Con Nginx podemos tener distintas configuraciones de servidor para distintos sitios (dominios, subdominios&#8230;). Inicialmente solo tendremos un sitio, llamado default. Vamos a habilitar PHP editando el fichero default, además de algunas configuraciones de seguridad:
 

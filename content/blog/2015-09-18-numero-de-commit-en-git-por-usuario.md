@@ -3,7 +3,6 @@ title: Número de commits en Git por usuario
 author: javi
 type: post
 date: 2015-09-18T08:27:17+00:00
-url: /numero-de-commit-en-git-por-usuario.html
 categories:
   - Git
 tags:

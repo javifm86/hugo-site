@@ -3,7 +3,6 @@ title: Suscribirse de manera segura a eventos con jQuery
 author: javi
 type: post
 date: 2016-04-27T14:54:10+00:00
-url: /suscribirse-de-manera-segura-a-eventos-con-jquery.html
 categories:
   - Javascript
   - jQuery

@@ -3,7 +3,6 @@ title: Trim trailing white space en un shortcut en Sublime
 author: javi
 type: post
 date: 2014-12-02T16:14:31+00:00
-url: /trim-trailing-white-space-en-un-shortcut-en-sublime.html
 categories:
   - Sublime Text
   - Utilidades

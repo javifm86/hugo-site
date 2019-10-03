@@ -3,7 +3,6 @@ title: Detectar fin de una transición/animación CSS3 con Javascript
 author: javi
 type: post
 date: 2014-06-29T10:06:28+00:00
-url: /detectar-fin-de-una-transicionanimacion-css3-con-javascript.html
 categories:
   - CSS3
   - Javascript
@@ -31,8 +30,8 @@ $("#selector").bind("transitionend
                      webkitTransitionEnd 
                      oTransitionEnd 
                      MSTransitionEnd", function(){ 
-                                           ended = true;
-                                       });
+                        ended = true;
+                    });
 {{< / highlight >}}
 
 Solución para animaciones:
@@ -43,8 +42,8 @@ $("#someSelector").bind("animationend
                          webkitAnimationEnd 
                          oAnimationEnd 
                          MSAnimationEnd", function(){
-                                              ended = true;
-                                          });
+                        ended = true;
+                    });
 {{< / highlight >}}
 
 Si no deseas usar jQuery, en Modernizr tienen esto:
@@ -81,10 +80,11 @@ element.addEventListener(transitionEnd, theFunctionToInvoke, false);
 <p style="text-align: left;">
   Encontré la solución en StackOverflow:
 </p>
-
-<li style="text-align: left;">
-  <a title="Callback when CSS3 transition finishes" href="http://stackoverflow.com/questions/9255279/callback-when-css3-transition-finishes">Callback when CSS3 transition finishes</a>
-</li>
-<li style="text-align: left;">
-  <a title="Normalize CSS3 transitions functions across browsers" href="http://stackoverflow.com/questions/5023514/how-do-i-normalize-css3-transition-functions-across-browsers">How do I normalize CSS3 Transition functions across browsers?</a>
-</li>
+<ul>
+    <li style="text-align: left;">
+    <a title="Callback when CSS3 transition finishes" href="http://stackoverflow.com/questions/9255279/callback-when-css3-transition-finishes">Callback when CSS3 transition finishes</a>
+    </li>
+    <li style="text-align: left;">
+    <a title="Normalize CSS3 transitions functions across browsers" href="http://stackoverflow.com/questions/5023514/how-do-i-normalize-css3-transition-functions-across-browsers">How do I normalize CSS3 Transition functions across browsers?</a>
+    </li>
+</ul>

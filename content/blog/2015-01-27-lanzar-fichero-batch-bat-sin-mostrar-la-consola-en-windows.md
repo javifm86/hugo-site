@@ -3,7 +3,6 @@ title: Lanzar fichero batch (.bat) sin mostrar la consola en Windows
 author: javi
 type: post
 date: 2015-01-27T16:12:47+00:00
-url: /lanzar-fichero-batch-bat-sin-mostrar-la-consola-en-windows.html
 categories:
   - Utilidades
   - Windows

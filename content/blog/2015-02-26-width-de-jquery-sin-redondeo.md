@@ -3,7 +3,6 @@ title: Width() de jQuery sin redondeo
 author: javi
 type: post
 date: 2015-02-26T10:36:01+00:00
-url: /width-de-jquery-sin-redondeo.html
 categories:
   - Javascript
   - jQuery

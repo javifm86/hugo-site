@@ -3,7 +3,6 @@ title: WordPress no carga después de actualizar
 author: javi
 type: post
 date: 2016-03-15T16:15:04+00:00
-url: /wordpress-no-carga-despues-de-actualizar.html
 categories:
   - Wordpress
 tags:

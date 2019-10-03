@@ -3,7 +3,6 @@ title: Depurar maquetación CSS con una línea de código
 author: javi
 type: post
 date: 2014-10-13T11:03:44+00:00
-url: /depurar-maquetacion-css-con-una-linea-de-codigo.html
 categories:
   - Javascript
 tags:

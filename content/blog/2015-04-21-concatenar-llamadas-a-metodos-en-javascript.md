@@ -3,7 +3,6 @@ title: Concatenar llamadas a métodos en Javascript
 author: javi
 type: post
 date: 2015-04-21T09:10:23+00:00
-url: /concatenar-llamadas-a-metodos-en-javascript.html
 categories:
   - Javascript
 tags:

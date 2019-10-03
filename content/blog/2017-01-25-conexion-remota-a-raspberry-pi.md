@@ -3,7 +3,6 @@ title: Conexión remota a Raspberry Pi
 author: javi
 type: post
 date: 2017-01-25T15:41:09+00:00
-url: /conexion-remota-a-raspberry-pi.html
 categories:
   - Raspberry Pi
 tags:
@@ -40,17 +39,17 @@ Para conectar remotamente, disponemos de 2 opciones:
 
 **Desde Windows** no es necesario ningún paso adicional, simplemente abriremos la herramienta de _Conexión a Escritorio remoto_. Pondremos la IP o el hostname que le hayamos dado, podremos configurar una serie de opciones como Pantalla (tamaño del escritorio remoto, calidad del color&#8230;), y una vez esté a nuestro gusto pulsamos en Conectar.
 
-<img class="aligncenter size-full wp-image-124" src="/img/2017/01/xrdp.png" alt="" width="410" height="473" srcset="https://blog.javifm.com/wp-content/uploads/2017/01/xrdp.png 410w, https://blog.javifm.com/wp-content/uploads/2017/01/xrdp-260x300.png 260w" sizes="(max-width: 410px) 100vw, 410px" />
+<img src="/img/2017/01/xrdp.png" alt="Conexión a escritorio remoto de Windows" width="410" height="473" srcset="/img/2017/01/xrdp.png 410w, /img/2017/01/xrdp-260x300.png 260w" sizes="(max-width: 410px) 100vw, 410px" />
   
 <!--more-->
 
 Es posible que salte un aviso informando de que no se puede comprobar la identidad del equipo remoto, pulsaremos _Sí_ para establecer la conexión. Si todo ha ido bien, veremos una pantalla donde introducir nuestras credenciales de acceso a la Raspberry.  Usuario pi y contraseña raspberry, si es que no la has cambiado aún(¡deberías!).
 
-<img class="aligncenter size-full wp-image-126" src="/img/2017/01/login.png" alt="" width="799" height="577" srcset="https://blog.javifm.com/wp-content/uploads/2017/01/login.png 799w, https://blog.javifm.com/wp-content/uploads/2017/01/login-300x217.png 300w, https://blog.javifm.com/wp-content/uploads/2017/01/login-768x555.png 768w, https://blog.javifm.com/wp-content/uploads/2017/01/login-676x488.png 676w" sizes="(max-width: 799px) 100vw, 799px" />
+<img src="/img/2017/01/login.png" alt="Login con xrdp" width="799" height="577" srcset="/img/2017/01/login.png 799w, /img/2017/01/login-300x217.png 300w, /img/2017/01/login-768x555.png 768w, /img/2017/01/login-676x488.png 676w" sizes="(max-width: 799px) 100vw, 799px" />
 
 Después de escribir usuario y password, al dar OK veremos el escritorio de nuestra Raspberry, y podremos interactuar con ella desde la interfaz gráfica.
 
-<img class="aligncenter size-full wp-image-125" src="/img/2017/01/conexion_remota.png" alt="" width="806" height="617" srcset="https://blog.javifm.com/wp-content/uploads/2017/01/conexion_remota.png 806w, https://blog.javifm.com/wp-content/uploads/2017/01/conexion_remota-300x230.png 300w, https://blog.javifm.com/wp-content/uploads/2017/01/conexion_remota-768x588.png 768w, https://blog.javifm.com/wp-content/uploads/2017/01/conexion_remota-676x517.png 676w" sizes="(max-width: 806px) 100vw, 806px" />
+<img src="/img/2017/01/conexion_remota.png" alt="Interfaz gráfica de Raspbian" width="806" height="617" srcset="/img/2017/01/conexion_remota.png 806w, /img/2017/01/conexion_remota-300x230.png 300w, /img/2017/01/conexion_remota-768x588.png 768w, /img/2017/01/conexion_remota-676x517.png 676w" sizes="(max-width: 806px) 100vw, 806px" />
 
 Para **conectar desde cualquier plataforma**, podemos utilizar **VNC**. Yo lo utilizo desde mi móvil android, con la aplicación _VNC Viewer_. Hay distintas aplicaciones para las distintas plataformas, incluso [hay una extensión para Google Chrome.][1] Para ello deberemos dar algún paso más, nada complicado.
 
@@ -62,13 +61,13 @@ Si estamos conectando desde fuera de nuestra red, a través de internet, el núm
 
 Tras pulsar conectar, nos solicitará la password y después de introducirla conectaremos remotamente. Puedes crear distintos tipos de escritorios remotos con VNC, para ver las distintas opciones lo mejor es consultar la ayuda con `vncserver --help`.
 
-<img class="aligncenter size-full wp-image-127" src="/img/2017/01/vnc_android.png" alt="" width="303" height="538" srcset="https://blog.javifm.com/wp-content/uploads/2017/01/vnc_android.png 303w, https://blog.javifm.com/wp-content/uploads/2017/01/vnc_android-169x300.png 169w" sizes="(max-width: 303px) 100vw, 303px" />
+<img src="/img/2017/01/vnc_android.png" alt="VNC desde Android" width="303" height="538" srcset="/img/2017/01/vnc_android.png 303w, /img/2017/01/vnc_android-169x300.png 169w" sizes="(max-width: 303px) 100vw, 303px" />
 
 Hasta aquí la manera de conectar a través de interfaz gráfica, si bien no es la conexión que más amenudo uso, puntualmente me viene bien. La manera más habitual de conectar, como hacen muchos usuarios de Linux es a través de [SSH][2], conectaremos a la consola de nuestra Raspberry y dispondremos de la línea de comandos para ejecutar lo que queramos.
 
 Para ello se puede hacer uso de una herramienta llamada [Putty][3], o de cualquier línea de comandos. En Putty simplemente ponemos la dirección IP de la máquina a la que nos vamos a conectar, elegimos ssh y dejamos el puerto por defecto que es el 22. En consola normal, ejecutaremos el comando ssh seguido de la dirección IP: `ssh 192.168.1.50`.
 
-<img class="aligncenter size-full wp-image-128" src="/img/2017/01/putty.png" alt="" width="462" height="444" srcset="https://blog.javifm.com/wp-content/uploads/2017/01/putty.png 462w, https://blog.javifm.com/wp-content/uploads/2017/01/putty-300x288.png 300w" sizes="(max-width: 462px) 100vw, 462px" />
+<img src="/img/2017/01/putty.png" alt="Configuración de Putty" width="462" height="444" srcset="/img/2017/01/putty.png 462w, /img/2017/01/putty-300x288.png 300w" sizes="(max-width: 462px) 100vw, 462px" />
 
 Elegimos Open, introducimos nuestras credenciales y ya estaremos en nuestra máquina.
 
