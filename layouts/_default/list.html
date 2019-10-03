@@ -4,7 +4,7 @@
 {{ $svgUrl := "static/svg/blog6.svg" }}
 {{ $isTag := false }}
 
-{{ if in .URL "/tags/" }}
+{{ if in .Permalink "/tags/" }}
     {{ $miniTitle = "Artículos sobre..." }}
     {{ $isTag = true }}
 {{ end }}
