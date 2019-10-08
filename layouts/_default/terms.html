@@ -1,18 +1,22 @@
 {{ define "main" }}
-<div class="container mx-auto">
-<h1>{{ .Title }}</h1>
 
-{{ $type := .Type }}
-{{ range $key, $value := .Data.Terms.ByCount }}
-  {{ $name := .Name }}
-  {{ $count := .Count }}
-  {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
-  <p>
-    <a class="btn btn-outline-dark font-125" href="{{ .Permalink }}">
-      <span class="badge badge-dark">{{ $count }}</span> {{ $name }}
-    </a>
-  </p>
-  {{ end }}
-{{ end }}
+<div class="container mx-auto">
+    <div class="my-6 px-4">
+        <h1 class="text-4xl font-serif leading-tight font-bold">{{ .Title }}</h1>
+    </div>
+
+    <div class="flex justify-center flex-wrap">
+        {{ $type := .Type }}
+        {{ range $key, $value := .Data.Terms.ByCount }}
+            {{ $name := .Name }}
+            {{ $count := .Count }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+                <a class="tag text-lg mx-4 my-2" href="{{ .Permalink }}">
+                    {{ $name }} <!-- <span class="">({{ $count }})</span> -->
+                </a>
+            {{ end }}
+        {{ end }}
+    </div>
+
 </div>
 {{ end }}
