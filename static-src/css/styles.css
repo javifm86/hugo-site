@@ -72,6 +72,14 @@ a.post-container-title::before {
     height: 100%;
 }
 
+a.tag {
+    @apply bg-gray-200 rounded-full px-3 py-1 font-semibold text-gray-700;
+}
+
+a.tag:hover {
+    @apply underline;
+}
+
 .single-post p, .single-post ul, .single-post ol{
     @apply mb-6;
 }
@@ -99,6 +107,10 @@ a.post-container-title::before {
 
 .single-post-content a:hover {
     @apply border-none;
+}
+
+.single-post-content h2 {
+    @apply text-2xl font-bold mb-2;
 }
 
 @tailwind utilities;
