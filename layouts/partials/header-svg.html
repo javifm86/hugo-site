@@ -1,0 +1,24 @@
+{{ $svgUrl := .svgUrl }}
+{{ $title := .titleHeader }}
+{{ $miniTitle := .miniTitle }}
+{{ $title := .titleHeader }}
+{{ $des := .des }}
+
+<div class="bg-gray-100">
+    <div class="container mx-auto pb-4">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="w-full lg:w-3/5 p-4">
+                <span class="line-before inline-block my-4 uppercase">{{ $miniTitle }}</span>
+                <h1 class="text-5xl font-bold font-serif leading-tight mb-4">
+                    {{ $title }}
+                </h1>
+                <p class="font-sans text-lg">
+                        {{ $des }}
+                </p>
+            </div>
+            <div class="w-full lg:w-2/5 p-4">
+                {{ partial "svg.html" (dict "context" . "svgSrc" $svgUrl) }}
+            </div>
+        </div>
+    </div>
+</div>
