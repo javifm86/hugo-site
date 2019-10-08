@@ -15,7 +15,7 @@ tags:
 ---
 Me he decidido a contratar un VPS en Digital Ocean, a ver si de una vez por todas en mi escaso tiempo libre, puedo ir desarrollando un portfolio y aprendiendo cosas nuevas. Vamos a ver un listado de la configuración de un VPS desde cero, partiendo de una instalación limpia de Ubuntu 16.04. Vayamos por partes:
 
-**Configuración inicial del servidor**
+## Configuración inicial del servidor
 
 En este apartado hablaremos de la configuración incial básica para que nuestro VPS sea más seguro. Lo primero de todo es conectarnos a nuestro servidor, para ello utilizaremos ssh para establecer conexión remota por consola, con el usuario root, hasta que creemos otro usuario. Podemos conectarnos desde la consola de nuestro sistema operativo (Mac, Linux), o utilizar alguna utilidad como [Putty][1], que es un cliente SSH gratuito y archiconocido para Windows. Para conectarnos deberemos saber la dirección IP pública de nuestro servidor y ejecutar el siguiente comando:
 
