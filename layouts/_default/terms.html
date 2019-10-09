@@ -1,10 +1,13 @@
 {{ define "main" }}
 
-<div class="container mx-auto">
-    <div class="my-6 px-4">
-        <h1 class="text-4xl font-serif leading-tight font-bold">{{ .Title }}</h1>
-    </div>
+{{ $svgUrl := "static/svg/blog6.svg" }}
+{{ $miniTitle := "Lorem" }}
+{{ $headerTitle := "Ipsum" }}
+{{ $des := "!!Artículos de la categoría seleccionada. Artículos de la categoría seleccionada. Artículos de la categoría seleccionada." }}
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" $headerTitle "miniTitle" $miniTitle "des" $des)}}
 
+<div class="container mx-auto">
+    <h2 class="text-center mt-12 mb-4 text-4xl font-bold font-serif leading-tight">{{ .Title }}</h2>
     <div class="flex justify-center flex-wrap">
         {{ $type := .Type }}
         {{ range $key, $value := .Data.Terms.ByCount }}
