@@ -46,3 +46,4 @@ Thumbs.db
 # hugo
 /public
 /static/css
+/static/img
