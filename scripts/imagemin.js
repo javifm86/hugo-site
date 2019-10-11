@@ -1,32 +1,69 @@
 const imagemin = require('imagemin');
-const imageminJpegtran = require('imagemin-jpegtran');
+
+// Lossy Plugins
+const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
+const imageminGiflossy = require('imagemin-giflossy');
+const imageminWebp = require('imagemin-webp');
 const imageminSvgo = require('imagemin-svgo');
+
+// Lossyless Plugin
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminOptipng = require('imagemin-optipng');
 const imageminGifsicle = require('imagemin-gifsicle');
+
 const { lstatSync, readdirSync } = require('fs');
 const { join, normalize } = require('path');
 
-var process = require('process');
+// Run script from repository root folder
+const process = require('process');
 process.chdir('../');
 
-const OUTPUT_DIR = 'buildimages/img';
+// Source directory for images to be optimized
 const INPUT_DIR = 'static-src/img';
 
+// Destiny for compressed images
+const OUTPUT_DIR = 'static/img';
+
+// Colors for console.log messages
+const COLORS = {
+    yellow: '\x1b[33m%s\x1b[0m'
+};
+
+/**
+ * Return true if source is a directory.
+ * @param {string} source Directory.
+ */
 const isDirectory = source => lstatSync(source).isDirectory();
+
+/**
+ * Get directories for a given directory.
+ * @param {string} source Directory.
+ */
 const getDirectories = source =>
     readdirSync(source)
         .map(name => join(source, name))
         .filter(isDirectory);
+
+/**
+ * Recursive function that get list of all directories and subdirectories for
+ * a given directory.
+ * @param {string} source Root directory.
+ */
 const getDirectoriesRecursive = source => [
-    source,
+    normalize(source),
     ...getDirectories(source)
         .map(getDirectoriesRecursive)
         .reduce((a, b) => a.concat(b), [])
 ];
 
-const converToUnixUrl = path => {
+/**
+ * Convert Windows backslash paths to slash paths.
+ * @param {string} path
+ */
+const converToSlash = path => {
     const isExtendedLengthPath = /^\\\\\?\\/.test(path);
-    const hasNonAscii = /[^\u0000-\u0080]+/.test(path); // eslint-disable-line no-control-regex
+    const hasNonAscii = /[^\u0000-\u0080]+/.test(path);
 
     if (isExtendedLengthPath || hasNonAscii) {
         return path;
@@ -35,40 +72,43 @@ const converToUnixUrl = path => {
     return path.replace(/\\/g, '/');
 };
 
-try {
-    console.log('Beginning image compression...');
+console.log(COLORS.yellow, 'Beginning image compression.');
 
-    (async () => {
-        let imageDirs = getDirectoriesRecursive(INPUT_DIR);
+(async () => {
+    const imageDirs = getDirectoriesRecursive(INPUT_DIR);
+    let imagesOptimized = 0;
+
+    /**
+     * Loop through all subfolders, and recursively run imagemin,
+     * outputting to the same subfolders inside OUTPUT_DIR folder.
+     */
+    for (let i in imageDirs) {
+        const dir = imageDirs[i];
 
         /**
-         * Loop through all subfolders, and recursively run imagemin,
-         * outputting to the same subfolders inside OUTPUT_DIR folder
+         * imagemin needs paths with forward slashes. converToSlash is needed
+         * on Windows environment.
+         *
+         * Remove INPUT_DIR in OUTPUT_DIR for just getting the part of folder wanted.
+         * If not replaced, the output would be: static/img/static-src/img/**
          */
+        const destiny = converToSlash(join(OUTPUT_DIR, dir)).replace(INPUT_DIR, '');
 
-        for (let i in imageDirs) {
-            const dir = imageDirs[i];
-            let destiny = converToUnixUrl(join(OUTPUT_DIR, dir)).replace(INPUT_DIR, '');
-            console.log(dir);
-            console.log(normalize(destiny));
-            await imagemin([`${converToUnixUrl(dir)}/*.{jpg,png,svg,gif}`], {
-                destination: normalize(destiny),
-                plugins: [
-                    imageminJpegtran(),
-                    imageminPngquant({
-                        quality: [0.6, 0.8]
-                    }),
-                    imageminGifsicle(),
-                    imageminSvgo({
-                        plugins: [{ removeViewBox: false }]
-                    })
-                ]
-            });
-            console.log(`...${(((+i + 1) / imageDirs.length) * 100).toFixed(0)}%`);
-        }
+        const files = await imagemin([`${converToSlash(dir)}/*.{jpg,png,svg,gif}`], {
+            destination: normalize(destiny),
+            plugins: [
+                imageminJpegtran(),
+                imageminPngquant({
+                    quality: [0.6, 0.8]
+                }),
+                imageminGifsicle(),
+                imageminSvgo({
+                    plugins: [{ removeViewBox: false }]
+                })
+            ]
+        });
+        imagesOptimized += files.length;
+    }
 
-        console.log('Finished compressing all images!');
-    })();
-} catch (e) {
-    console.log(e);
-}
+    console.log(COLORS.yellow, `Image compression finished. Total images compressed: ${imagesOptimized}`);
+})();
