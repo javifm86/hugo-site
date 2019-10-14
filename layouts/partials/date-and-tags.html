@@ -1,9 +1,16 @@
-{{ $dateTime := .PublishDate.Format "2006-01-02" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-<div class="flex items-center">
-    <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+{{ $dateTime := .context.PublishDate.Format "2006-01-02" }}
+{{ $isFull := (eq .type "full") }}
+<div class="flex items-center text-gray-600">
+
+
+    <time datetime="{{ $dateTime }}">
+        {{ if $isFull }}Publicado el{{ end }} {{ .context.Date.Day }} {{ index $.context.Site.Data.months (printf "%d" .context.Date.Month) }} {{ .context.Date.Year }}</time>
+    {{ if $isFull }}
+    <span class="mx-2">&bull;</span>
+    <span>Tiempo de lectura: {{ .context.ReadingTime }}min</span>
+    {{ end }}
 </div>
-{{ with .Params.tags }}
+{{ with .context.Params.tags }}
     <div class="mt-4">
         {{ range . }}
             {{ $href := print (absURL "tags/") (urlize .) }}

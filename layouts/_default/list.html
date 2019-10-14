@@ -27,7 +27,7 @@
                     <a href="{{ .RelPermalink }}" class="text-gray-900 post-container-title">{{ .Title }}</a>
                 </h2>
                 <!-- <p>{{ .Summary | safeHTML  }}</p> -->
-                {{ partial "date-and-tags.html" . }}
+                {{ partial "date-and-tags.html" (dict "context" . "type" "")}}
             </article>
         </div>
         {{ end }}
