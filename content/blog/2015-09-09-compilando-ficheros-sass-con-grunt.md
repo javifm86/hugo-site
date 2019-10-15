@@ -65,7 +65,7 @@ npm install grunt-contrib-sass --save-dev
 npm install grunt-contrib-watch --save-dev
 {{< / highlight >}}
 
-Ya está todo listo, ahora solo tenemos que crear nuestras tareas grunt. Para ello, en el raíz del proyecto, junto al fichero `package.json`, crearemos un fichero llamado `<strong>gruntfile.js</strong>`, donde definiremos la configuración de las distintas tareas, luego cargaremos los paquetes a usar en las tareas y por último registraremos las tareas. Para nuestro propósito, el fichero quedaría así:</code>
+Ya está todo listo, ahora solo tenemos que crear nuestras tareas grunt. Para ello, en el raíz del proyecto, junto al fichero `package.json`, crearemos un fichero llamado `gruntfile.js`, donde definiremos la configuración de las distintas tareas, luego cargaremos los paquetes a usar en las tareas y por último registraremos las tareas. Para nuestro propósito, el fichero quedaría así:</code>
 
 {{< highlight JavaScript >}}
 // Función contenedora
