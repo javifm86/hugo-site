@@ -1,13 +1,12 @@
 {{ $dateTime := .context.PublishDate.Format "2006-01-02" }}
 {{ $isFull := (eq .type "full") }}
-<div class="flex items-center text-gray-600">
-
-
+<div class="flex flex-wrap items-center text-gray-600">
     <time datetime="{{ $dateTime }}">
         {{ if $isFull }}Publicado el{{ end }} {{ .context.Date.Day }} {{ index $.context.Site.Data.months (printf "%d" .context.Date.Month) }} {{ .context.Date.Year }}</time>
     {{ if $isFull }}
-    <span class="mx-2">&bull;</span>
-    <span>Tiempo de lectura: {{ .context.ReadingTime }}min</span>
+    <span>
+        <span class="mx-2">&bull;</span>Tiempo de lectura: {{ .context.ReadingTime }}min
+    </span>
     {{ end }}
 </div>
 {{ with .context.Params.tags }}
