@@ -1,0 +1,88 @@
+{{ define "main" }}
+<style>
+    .svg-container svg {
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+    .svg-container svg:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+</style>
+<div class="container mx-auto px-4 single-post">
+    <div class="my-6">
+        <h1 class="title">{{ .Title }}</h1>
+        {{ partial "date-and-tags.html" (dict "context" . "type" "full") }}
+    </div>
+    <div class="single-post-content">
+        <p>
+            ¡Hola! Mi nombre es <strong>Javier Fernández</strong> y nací en Madrid en 1986. Desde que conocí internet y
+            el mundo de las páginas web supe que quería dedicarme a ello, y comencé a aprender de manera autodidacta
+            HTML y CSS antes de acabar el bachillerato. Estudié un grado de formación profesional superior de
+            <strong>Administración de sistemas informáticos,</strong> pero pronto comencé a mejorar y aprender en el
+            mundo de la programación por mi cuenta.
+        </p>
+    </div>
+</div>
+
+<div class="text-center my-12">
+    <h2 class="title">Principales skills</h2>
+</div>
+
+<div class="container mx-auto flex flex-wrap items-center svg-container">
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/html-5.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/css-3.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/javascript.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/git-icon.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/angular-icon.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/vue.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/sass.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/nodejs.svg" "cssClasses" "w-40 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/npm.svg" "cssClasses" "w-32 mx-auto") }}
+    </div>
+    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
+        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/tailwindcss.svg" "cssClasses" "w-40 sm:w-48 mx-auto") }}
+    </div>
+</div>
+<div class="container mx-auto px-4 single-post single-post-content">
+    <p>
+        Mi profesión es <strong>desarrollador frontend</strong>, siendo mi punto fuerte la programación con
+        <strong>Javascript</strong>. He trabajado con Javascript nativo, antiguamente con la librería jQuery y
+        recientemente con frameworks actuales como Vue o Angular. Sé maquetar y conozco <strong>CSS</strong>, me
+        preocupo por el responsive design. He trabajado con preprocesadores como Sass y PostCSS así como con algunos
+        frameworks como Bootstrap y Tailwind CSS.
+    </p>
+    <p>
+        Utilizo <strong>Git</strong> para control de versiones, siempre que puedo para proyectos en equipo propongo
+        utilizar la metodología Git flow.
+    </p>
+    <p>
+        Respecto a la parte backend, he trabajado con <strong>PHP</strong> y <strong>NodeJS</strong>, aunque no en
+        tanta profundidad como para considerarme un desarrollador fullstack. Me encanta desarrollar tareas de
+        optimización y automatización con gestores de tareas (Grunt/Gulp), Webpack o directamente con scripts npm en
+        NodeJS.
+    </p>
+    <p>
+        La accesibilidad, optimización y el rendimiento son mis principales objetivos a la hora de ofrecer soluciones en
+        la web.
+    </p>
+</div>
+
+{{ end }}
