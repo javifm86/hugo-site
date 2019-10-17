@@ -2,41 +2,16 @@
 
 {{ $svgUrl := "static/svg/portada.svg" }}
 {{ $miniTitle := "Web personal" }}
-{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" .Site.Title "miniTitle" $miniTitle "des" .Site.Params.homeText)}}
-
-<div class="text-center my-16">
-    <h2 class="text-4xl font-bold font-serif leading-tight mb-4">Principales skills</h2>
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" .Site.Title "miniTitle" $miniTitle "des" .Params.HomeText)}}
+<div class="text-center my-8">
+    <h2 class="title">{{ .Params.Subtitle }}</h2>
 </div>
-<div class="container mx-auto flex flex-wrap items-center">
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/html-5.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/css-3.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/javascript.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/git-icon.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/angular-icon.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/vue.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/sass.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/nodejs.svg" "cssClasses" "w-40 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/npm.svg" "cssClasses" "w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/tailwindcss.svg" "cssClasses" "w-48 mx-auto") }}
+<div class="container mx-auto px-4">
+    <div class="mx-auto max-w-4xl text-lg sm:text-xl border border-gray-400 shadow-md rounded p-6 mb-4">
+        <p class="mb-4">
+            {{ .Params.Bio }}
+        </p>
+        <a href="/acerca-de" class="font-medium text-gray-900 border-b-2 border-green-500">Más acerca de mí &rarr;</a>
     </div>
 </div>
 

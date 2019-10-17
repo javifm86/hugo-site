@@ -24,6 +24,7 @@ paginate = 12
     weight = 4
 
 [params]
+  # .Site.Params.homeText
   # homeText = "Front end developer"
-  homeText = "Apasionado del mundo del desarrollo front. Disfruto trabajando en equipo y tengo buenas habilidades para la comunicación. Me gusta afrontar nuevos retos y dispongo de facilidad para aprender nuevos conceptos y lenguajes de programación."
-  dateFormat = "Jan 2, 2006"
+  # homeText = "Apasionado del mundo del desarrollo front. Disfruto programando en Javascript siempre teniendo presente el responsive design y la accesibilidad."
+  # dateFormat = "Jan 2, 2006"
