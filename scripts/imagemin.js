@@ -16,8 +16,8 @@ const { lstatSync, readdirSync } = require('fs');
 const { join, normalize } = require('path');
 
 // Run script from repository root folder
-const process = require('process');
-process.chdir('../');
+// const process = require('process');
+// process.chdir('../');
 
 // Source directory for images to be optimized
 const INPUT_DIR = 'static-src/img';
@@ -97,7 +97,11 @@ console.log(COLORS.yellow, 'Beginning image compression.');
         const files = await imagemin([`${converToSlash(dir)}/*.{jpg,png,svg,gif}`], {
             destination: normalize(destiny),
             plugins: [
-                imageminJpegtran(),
+                // imageminJpegtran(),
+                imageminMozjpeg({
+                    progressive: true,
+                    quality: 90
+                }),
                 imageminPngquant({
                     quality: [0.6, 0.8]
                 }),

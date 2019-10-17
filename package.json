@@ -9,7 +9,8 @@
     "hugo:serve": "hugo server",
     "hugo:build": "hugo",
     "css:watch": "node_modules/.bin/watch \"npm run css:build\" ./static-src/css",
-    "css:build": "node_modules/.bin/postcss static-src/css/styles.css -o static/css/styles.css"
+    "css:build": "node_modules/.bin/postcss static-src/css/styles.css -o static/css/styles.css",
+    "img:compress": "node ./scripts/imagemin"
   },
   "repository": {
     "type": "git",
