@@ -26,6 +26,8 @@ paginate = 12
     name = "Sobre mí"
     url = "/sobre-mi/"
     weight = 5
+[outputs]
+    section = ["JSON", "HTML"]
 
 [params]
   # .Site.Params.homeText
