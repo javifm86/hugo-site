@@ -1,34 +1,14 @@
-const imagemin = require('imagemin');
-
-// Lossy Plugins
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const imageminPngquant = require('imagemin-pngquant');
-const imageminGiflossy = require('imagemin-giflossy');
-const imageminWebp = require('imagemin-webp');
-const imageminSvgo = require('imagemin-svgo');
-
-// Lossyless Plugin
-const imageminJpegtran = require('imagemin-jpegtran');
-const imageminOptipng = require('imagemin-optipng');
-const imageminGifsicle = require('imagemin-gifsicle');
-
 const { lstatSync, readdirSync } = require('fs');
 const { join, normalize } = require('path');
 
-// Run script from repository root folder
-// const process = require('process');
-// process.chdir('../');
+const { runImagemin } = require('./shared/imagemin');
+const { converToSlash, COLORS } = require('./shared/utils');
 
 // Source directory for images to be optimized
 const INPUT_DIR = 'static-src/img';
 
 // Destiny for compressed images
 const OUTPUT_DIR = 'static/img';
-
-// Colors for console.log messages
-const COLORS = {
-    yellow: '\x1b[33m%s\x1b[0m'
-};
 
 /**
  * Return true if source is a directory.
@@ -57,21 +37,6 @@ const getDirectoriesRecursive = source => [
         .reduce((a, b) => a.concat(b), [])
 ];
 
-/**
- * Convert Windows backslash paths to slash paths.
- * @param {string} path
- */
-const converToSlash = path => {
-    const isExtendedLengthPath = /^\\\\\?\\/.test(path);
-    const hasNonAscii = /[^\u0000-\u0080]+/.test(path);
-
-    if (isExtendedLengthPath || hasNonAscii) {
-        return path;
-    }
-
-    return path.replace(/\\/g, '/');
-};
-
 console.log(COLORS.yellow, 'Beginning image compression.');
 
 (async () => {
@@ -93,24 +58,10 @@ console.log(COLORS.yellow, 'Beginning image compression.');
          * If not replaced, the output would be: static/img/static-src/img/**
          */
         const destiny = converToSlash(join(OUTPUT_DIR, dir)).replace(INPUT_DIR, '');
+        const source = `${converToSlash(dir)}/*.{jpg,png,svg,gif}`;
 
-        const files = await imagemin([`${converToSlash(dir)}/*.{jpg,png,svg,gif}`], {
-            destination: normalize(destiny),
-            plugins: [
-                // imageminJpegtran(),
-                imageminMozjpeg({
-                    progressive: true,
-                    quality: 90
-                }),
-                imageminPngquant({
-                    quality: [0.6, 0.8]
-                }),
-                imageminGifsicle(),
-                imageminSvgo({
-                    plugins: [{ removeViewBox: false }]
-                })
-            ]
-        });
+        const files = await runImagemin(source, destiny);
+        console.log(files);
         imagesOptimized += files.length;
     }
 
