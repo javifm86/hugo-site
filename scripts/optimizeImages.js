@@ -59,9 +59,7 @@ console.log(COLORS.yellow, 'Beginning image compression.');
          */
         const destiny = converToSlash(join(OUTPUT_DIR, dir)).replace(INPUT_DIR, '');
         const source = `${converToSlash(dir)}/*.{jpg,png,svg,gif}`;
-
         const files = await runImagemin(source, destiny);
-        console.log(files);
         imagesOptimized += files.length;
     }
 
