@@ -1,5 +1,5 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
+baseURL = "http://javifm.com/beta/"
+languageCode = "es-es"
 title = "Frontend developer"
 paginate = 12
 [permalinks]
