@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+{{ $miniTitle := "Últimos artículos" }}
+{{ $svgUrl := "static/svg/blog6.svg" }}
+{{ $isTag := false }}
+{{ $titleHeader := .Title }}
+{{ $des := "" }}
+
+{{ if in .Permalink "/tags/" }}
+    {{ $miniTitle = "Artículos sobre..." }}
+    {{ $isTag = true }}
+    {{ $des = "Artículos de la categoría seleccionada." }}
+    {{ $titleHeader =  print "#" .Title }}
+{{ else }}
+    {{ $des = .Params.subtitle }}
+{{ end }}
+
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" $titleHeader "miniTitle" $miniTitle "des" $des)}}
+
+<div class="container mx-auto py-12 overflow-hidden">
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    <div class="flex flex-wrap -mx-2 mb-8">
+        {{ range $paginator.Pages.ByPublishDate.Reverse }}
+        <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <article class="border border-gray-400 rounded shadow-md h-full p-4 post-container">
+                <h2 class="text-2xl font-bold font-serif leading-tight mb-2">
+                    <a href="{{ .RelPermalink }}" class="text-gray-900 post-container-title">{{ .Title }}</a>
+                </h2>
+                <!-- <p>{{ .Summary | safeHTML  }}</p> -->
+                {{ partial "date-and-tags.html" (dict "context" . "type" "")}}
+            </article>
+        </div>
+        {{ end }}
+    </div>
+    {{/*  {{ template "_internal/pagination.html" . }}  */}}
+    {{ partial "pagination.html" . }}
+
+</div>
+
+{{ end }}

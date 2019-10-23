@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+{{ $svgUrl := "static/svg/blog6.svg" }}
+{{ $miniTitle := .Params.MiniTitle }}
+{{ $headerTitle := .Title }}
+{{ $des := .Description }}
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" $headerTitle "miniTitle" $miniTitle "des" $des)}}
+
+<div class="container mx-auto">
+    <h2 class="text-center mt-12 mb-8 text-4xl font-bold font-serif leading-tight">{{ .Params.Subtitle }}</h2>
+    <div class="flex justify-center flex-wrap">
+        {{ $type := .Type }}
+        {{ range $key, $value := .Data.Terms.ByCount }}
+            {{ $name := .Name }}
+            {{ $count := .Count }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+                <a class="tag text-lg mx-4 my-2" href="{{ .Permalink }}">
+                    {{ $name }} <!-- <span class="">({{ $count }})</span> -->
+                </a>
+            {{ end }}
+        {{ end }}
+    </div>
+
+</div>
+{{ end }}

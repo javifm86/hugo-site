@@ -1,0 +1,11 @@
+{{ define "main" }}
+SEARCH
+<input id="search-input" type="text" placeholder="Loading..." name="search">
+<section id="search-results" class="search"></section>
+
+{{ end }}
+{{ define "script" }}
+{{ $search := "js/search.js" | absURL }}
+<script src="{{ $search }}"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+{{ end }}

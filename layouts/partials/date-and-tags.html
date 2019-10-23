@@ -1,0 +1,19 @@
+{{ $dateTime := .context.PublishDate.Format "2006-01-02" }}
+{{ $isFull := (eq .type "full") }}
+<div class="flex flex-wrap items-center text-gray-600">
+    <time datetime="{{ $dateTime }}">
+        {{ if $isFull }}Publicado el{{ end }} {{ .context.Date.Day }} {{ index $.context.Site.Data.months (printf "%d" .context.Date.Month) }} {{ .context.Date.Year }}</time>
+    {{ if $isFull }}
+    <span>
+        <span class="mx-2">&bull;</span>Tiempo de lectura: {{ .context.ReadingTime }}min
+    </span>
+    {{ end }}
+</div>
+{{ with .context.Params.tags }}
+    <div class="mt-4">
+        {{ range . }}
+            {{ $href := print (absURL "tags/") (urlize .) }}
+            <a class="tag inline-block text-sm mr-2 mb-2" href="{{ $href }}">{{ . }}</a>
+        {{ end }}
+    </div>
+{{ end }}

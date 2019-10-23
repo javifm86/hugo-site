@@ -1,0 +1,20 @@
+<div class="bg-gray-100 prefers-dark:bg-gray-900 border-t-4 border-green-500">
+    <div class="container mx-auto">
+        <nav class="flex p-6">
+            {{ $permalink := .Permalink }}
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            {{ $text := .Name | safeHTML }}
+            {{ $active := "" }}
+            {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
+            {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
+                {{ $active = "active" }}
+            {{ else }}
+                {{ $active = "" }}
+            {{end}}
+
+            <a class="mr-6 p-2 text-gray-700 hover:text-green-500 prefers-dark:hover:text-red-500 prefers-dark:focus:text-white uppercase {{$active}}" href="{{ .URL }}">{{ $text }}</a>
+            {{ end }}
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+{{ $svgUrl := "static/svg/portada.svg" }}
+{{ $miniTitle := "Web personal" }}
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" .Site.Title "miniTitle" $miniTitle "des" .Params.HomeText)}}
+<div class="text-center my-8">
+    <h2 class="title">{{ .Params.Subtitle }}</h2>
+</div>
+<div class="container mx-auto px-4">
+    <div class="mx-auto max-w-4xl text-lg sm:text-xl border border-gray-400 shadow-md rounded p-6 mb-4">
+        <p class="mb-4">
+            {{ .Params.Bio }}
+        </p>
+        <a href="/sobre-mi" class="font-medium text-gray-900 border-b-2 border-green-500">Más acerca de mí &rarr;</a>
+    </div>
+</div>
+
+{{ end }}

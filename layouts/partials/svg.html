@@ -1,0 +1,8 @@
+{{ $svg := readFile .svgSrc | safeHTML }}
+{{ $cssClasses := .cssClasses }}
+
+{{ if $cssClasses }}
+{{ $svg = replace $svg "{{cssClass}}" $cssClasses | safeHTML }}
+{{ end }}
+
+{{ $svg }}

@@ -1,0 +1,49 @@
+{
+  "name": "hugo-site",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development npm-run-all --parallel css:build css:watch hugo:serve",
+    "build": "cross-env NODE_ENV=production npm-run-all --sequential css:build hugo:build",
+    "hugo:serve": "hugo server",
+    "hugo:build": "hugo",
+    "css:watch": "node_modules/.bin/watch \"npm run css:build\" ./static-src/css",
+    "css:build": "node_modules/.bin/postcss static-src/css/styles.css -o static/css/styles.css",
+    "preimg:compress": "rimraf ./static/img",
+    "img:compress": "node ./scripts/optimizeImages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javifm86/hugo-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javifm86/hugo-site/issues"
+  },
+  "homepage": "https://github.com/javifm86/hugo-site#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^9.6.0",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "imagemin": "^7.0.0",
+    "imagemin-giflossy": "^5.1.10",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^7.1.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "imagemin-webp": "^5.1.0",
+    "node-watch": "^0.6.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.2",
+    "prettier": "1.18.2",
+    "rimraf": "^3.0.0",
+    "tailwindcss": "^1.0.4",
+    "watch": "^1.0.2"
+  }
+}

@@ -1,0 +1,52 @@
+{{/* Get file that matches the filename as specified as src="" in shortcode */}}
+{{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+
+{{/* Set image sizes, these are hardcoded for now, x dictates that images are resized to this width */}}
+
+{{ $tinyw := default "500x" }}
+{{ $smallw := default "800x" }}
+{{ $mediumw := default "1200x" }}
+{{ $largew := default "1500x" }}
+
+{{/* Initialize variables */}}
+{{ $tiny := "" }}
+{{ $small := "" }}
+{{ $medium := "" }}
+{{ $large := "" }}
+
+{{/* Resize the src image to the given sizes if neccessary */}}
+{{ if ge $src.Width "500" }}
+{{ $tiny = $src.Resize $tinyw }}
+{{ end }}
+
+{{ if ge $src.Width "800" }}
+{{ $small = $src.Resize $smallw }}
+{{ end }}
+
+{{ if ge $src.Width "1200" }}
+{{ $medium = $src.Resize $mediumw }}
+{{ end }}
+
+{{ if ge $src.Width "1500" }}
+{{ $large := $src.Resize $largew }}
+{{ end }}
+
+  <img
+    class='mb-6 {{ with .Get "class" }}{{.}}{{ end }}'
+    srcset='
+    {{ with $src.RelPermalink }}{{.}} {{$src.Width}}w{{ end }}
+    {{ if ge $src.Width "500" }}
+      {{ with $tiny.RelPermalink }},{{.}} 500w{{ end }}
+    {{ end }}
+    {{ if ge $src.Width "800" }}
+      {{ with $small.RelPermalink }}, {{.}} 800w{{ end }}
+    {{ end }}
+    {{ if ge $src.Width "1200" }}
+      {{ with $medium.RelPermalink }}, {{.}} 1200w{{ end }}
+    {{ end }}
+    {{ if ge $src.Width "1500" }}
+      {{ with $large.RelPermalink }}, {{.}} 1500w {{ end }}
+    {{ end }}'
+    src="{{ $src.RelPermalink }}"
+    width="{{ $src.Width }}" height="{{ $src.Height }}"
+    {{ with .Get "alt" }}alt='{{.}}'{{ end }}>

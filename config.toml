@@ -1,0 +1,36 @@
+baseURL = "http://javifm.com/beta/"
+languageCode = "es-es"
+title = "Frontend developer"
+paginate = 12
+[permalinks]
+  blog = "/:section/:title/"
+
+[menu]
+  [[menu.main]]
+    name = "Inicio"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+  # [[menu.main]]
+  #   name = "Categories"
+  #   url = "/categories/"
+  #   weight = 3
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 4
+  [[menu.main]]
+    name = "Sobre mí"
+    url = "/sobre-mi/"
+    weight = 5
+[outputs]
+    section = ["JSON", "HTML"]
+
+[params]
+  # .Site.Params.homeText
+  # homeText = "Front end developer"
+  # homeText = "Apasionado del mundo del desarrollo front. Disfruto programando en Javascript siempre teniendo presente el responsive design y la accesibilidad."
+  # dateFormat = "Jan 2, 2006"
