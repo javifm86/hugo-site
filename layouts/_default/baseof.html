@@ -3,12 +3,11 @@
   {{ partial "head.html" . }}
   <body>
     {{ partial "nav.html" . }}
-    <!-- <div class="container mx-auto"> -->
       <main id="main">
        {{ block "main" . }}{{ end }}
       </main>
-    <!-- </div> -->
     {{ block "script" . }}{{ end }}
+    {{ partial "footer.html" . }}
     {{ partial "script.html" . }}
   </body>
 </html>
