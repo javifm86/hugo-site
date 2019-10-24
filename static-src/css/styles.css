@@ -2,7 +2,11 @@
 @tailwind components;
 
 body {
-    @apply text-gray-900;
+    @apply text-gray-900 flex min-h-screen flex-col;
+}
+
+main {
+    @apply flex-1;
 }
 
 nav > a.active {
