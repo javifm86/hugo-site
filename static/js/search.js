@@ -74,7 +74,7 @@ window.onload = function() {
     searchResults = document.getElementById('search-results');
 
     // request and index documents
-    fetch('/blog/index.json', {
+    fetch('/beta/blog/index.json', {
         method: 'get'
     })
         .then(res => res.json())
