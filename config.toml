@@ -1,7 +1,11 @@
-baseURL = "http://javifm.com/beta/"
+baseURL = "https://javifm.com/beta/"
 languageCode = "es-es"
 title = "Frontend developer"
 paginate = 12
+# PygmentsCodeFences = true
+PygmentsUseClasses = true
+# PygmentsStyle = "native" # https://xyproto.github.io/splash/docs/all.html
+# PygmentsStyle = "github"
 [permalinks]
   blog = "/:section/:title/"
 
@@ -26,8 +30,8 @@ paginate = 12
     name = "Sobre mí"
     url = "/sobre-mi/"
     weight = 5
-[outputs]
-    section = ["JSON", "HTML"]
+# [outputs]
+#     section = ["JSON", "HTML"]
 
 [params]
   # .Site.Params.homeText
