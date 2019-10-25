@@ -14,5 +14,25 @@
         <a href="/sobre-mi" class="font-medium text-gray-900 border-b-2 border-green-500">Más acerca de mí &rarr;</a>
     </div>
 </div>
+<div class="container mx-auto px-4">
+    <h2 class="title">Últimos artículos</h2>
+    <div class="flex flex-wrap mb-8">
+
+        {{ with .Site.GetPage "/blog" }}
+        {{ range first 4 .Pages }}
+        <div class="w-full sm:w-1/2 p-6 mb-8 ">
+            {{ $urlImg:= "" }}
+            {{ $permalink := .Permalink }}
+            {{ with .Params.img }}
+            {{ $urlImg = (printf "%s%s" $permalink .) }}
+            {{ end }}
+            <!-- TODO: Partial https://gist.github.com/randallmlough/c39c25f16dc2e71d2a928badea9923e4 -->
+            <img src="{{$urlImg}}">
+            <a class="text-2xl font-bold font-serif leading-tight mb-2" href="{{.Permalink}}">{{.Title}}</a>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
 
 {{ end }}

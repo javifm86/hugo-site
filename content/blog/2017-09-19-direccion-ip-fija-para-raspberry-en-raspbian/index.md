@@ -1,5 +1,6 @@
 ---
 title: Dirección IP fija para Raspberry en Raspbian
+img: img/raspberry-board.jpg
 author: javi
 type: post
 date: 2017-09-19T12:38:28+00:00

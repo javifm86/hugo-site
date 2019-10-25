@@ -1,5 +1,6 @@
 ---
 title: Configurar teclado conexión remota Raspberry Pi con XDRP – km-040a.ini
+img: img/raspberry.jpg
 author: javi
 type: post
 date: 2017-03-07T10:24:28+00:00

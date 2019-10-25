@@ -1,5 +1,6 @@
 ---
 title: Configuración servidor VPS en Digital Ocean I
+img: img/digital-ocean.png
 author: javi
 type: post
 date: 2018-05-01T10:10:39+00:00
