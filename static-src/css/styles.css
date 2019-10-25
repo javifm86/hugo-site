@@ -1,4 +1,4 @@
-@import './syntax.css';
+@import './syntax-native.css';
 
 @tailwind base;
 @tailwind components;
