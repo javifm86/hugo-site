@@ -23,7 +23,7 @@ Rapidamente mis compañeros y yo pensamos en elaborar un propio debugger muy sim
   * Firefox, Safari, Opera, Chrome, Maple, PhantomJS and IE
   * iPhone, iPod, iPad, Android browser, windows 8 phone etc
 
-<!--more-->Vamos a ver en unos sencillos pasos como instalar Console.io rapidamente. Se instala como un módulo de [Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
+Vamos a ver en unos sencillos pasos como instalar Console.io rapidamente. Se instala como un módulo de [Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
 
 {{< highlight bash >}}
 npm install -g xconsole.io

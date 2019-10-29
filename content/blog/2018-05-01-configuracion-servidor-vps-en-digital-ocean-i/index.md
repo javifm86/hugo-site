@@ -56,7 +56,7 @@ Available applications:
   OpenSSH
 </pre>
 
-<!--more-->Es muy importante que permitamos el acceso a OpenSSH, de lo contrario la próxima vez que vayamos a conectarnos no podremos, algo que no debe ocurrir. Para ello añadimos OpenSSH:
+Es muy importante que permitamos el acceso a OpenSSH, de lo contrario la próxima vez que vayamos a conectarnos no podremos, algo que no debe ocurrir. Para ello añadimos OpenSSH:
 
 {{< highlight bash >}}
 sudo ufw allow OpenSSH

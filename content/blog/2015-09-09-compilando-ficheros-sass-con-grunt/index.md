@@ -19,7 +19,7 @@ Para automatizar más aún todos estos procesos, está [Grunt][3], que dispone d
 
 Para ello está utilizando [Sass][4], uno de los preprocesadores CSS más populares actualmente. Por motivos de simplicidad de código y maximizar la compatibilidad con navegadores no muy modernos (mantenemos soporte a navegadores webKit antiguos, que usan algunas Smart TV anteriores a 2013), a la hora de hacer los elementos reutilizables de la aplicación con Javascript, decidimos que en lugar de que cada widget cargue su hoja de estilos, **tener todo el CSS de todos los widgets unificados en un mismo fichero que esté cargado desde el principio** (controlar cuando se ha cargado una hoja de estilos, de manera simple y compatible con todos los navegadores es una tarea que [ni RequireJS ha incluido en su cargador de módulos][5]).
 
-<!--more-->Grunt y sus plugins son instalados y gestionados a través de **NPM**, el gestor de paquetes por consola para [Node.js][6]. Asi que si no lo tienes ya, el primer paso es instalar [Node.js][7]. Acto seguido, nos dirigiremos a la consola, e instalaramos Grunt globalmente (seguramente necesites sudo en Linux):
+Grunt y sus plugins son instalados y gestionados a través de **NPM**, el gestor de paquetes por consola para [Node.js][6]. Asi que si no lo tienes ya, el primer paso es instalar [Node.js][7]. Acto seguido, nos dirigiremos a la consola, e instalaramos Grunt globalmente (seguramente necesites sudo en Linux):
 
 {{< highlight bash >}}
 npm install -g grunt-cli

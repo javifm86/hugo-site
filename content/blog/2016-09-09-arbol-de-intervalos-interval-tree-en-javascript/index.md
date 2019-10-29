@@ -12,7 +12,7 @@ Continúo aprendiendo cosas en mi proyecto laboral actual. En este caso, para **
 
 En los navegadores de hoy en día, como Google Chrome o cualquier navegador medianamente moderno, **no habría excesivos problemas en iterar por fuerza bruta** hasta encontrar todos los eventos cuya fecha de inicio y fin se encontrase dentro del intervalo (ojo, para nada digo que sea lo más óptimo ni recomendado). Los problemas pueden llegar cuando en el target del proyecto podemos encontrar televisiones Smart TV´s antiguas y/o de gama baja, que vienen **más justas de memoria.**
 
-<!--more-->
+
 
 Además, no es un escenario normal, en mi caso los datos se encuentran en formato binario, y es necesario realizar una descodificación antes de saber si un determinado programa de un canal está dentro del rango horario buscado o no. Para ello podemos elaborar un [árbol de intervalos,][1] algo bastante sencillo de hacer en lenguajes como Java, pero más díficil en Javascript. Por suerte, siempre **podemos encontrar librerías y código de terceros** que ya haya resuelto este y otros algoritmos para Javascript, en este caso yo he utilizado ésta librería, [interval-tree2.][2]
 
