@@ -2,6 +2,7 @@ baseURL = "https://javifm.com/beta/"
 languageCode = "es-es"
 title = "Frontend developer"
 paginate = 12
+summaryLength = 10
 # PygmentsCodeFences = true
 PygmentsUseClasses = true
 # PygmentsStyle = "native" # https://xyproto.github.io/splash/docs/all.html
