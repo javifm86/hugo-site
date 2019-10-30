@@ -1,5 +1,7 @@
 ---
 title: Raspberry pi, primeros pasos (2)
+img: img/raspberry-logo.jpg
+altImg: Logo raspberry pi
 author: javi
 type: post
 date: 2016-12-21T15:07:46+00:00

@@ -1,5 +1,7 @@
 ---
 title: Conexión remota a Raspberry Pi
+img: img/raspberry-logo.jpg
+altImg: Logo raspberry pi
 author: javi
 type: post
 date: 2017-01-25T15:41:09+00:00
