@@ -1,3 +1,4 @@
+/*  https://github.com/voronianski/oceanic-next-color-scheme */
 @import './syntax-native.css';
 
 @tailwind base;
@@ -84,10 +85,17 @@ h1.title {
 h2.title {
     @apply text-3xl font-bold font-serif leading-tight mb-4;
 }
+
+.article-title {
+    @apply text-xl font-bold font-serif leading-tight;
+}
 @screen sm {
     h1.title,
     h2.title {
         @apply text-4xl;
+    }
+    .article-title {
+        @apply text-2xl;
     }
 }
 
