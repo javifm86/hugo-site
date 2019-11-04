@@ -1,6 +1,6 @@
 <div class="bg-gray-100 prefers-dark:bg-gray-900 border-t-4 border-green-500">
     <div class="container mx-auto">
-        <nav class="flex p-6">
+        <nav class="flex flex-wrap py-6 px-4">
             {{ $permalink := .Permalink }}
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
@@ -13,7 +13,7 @@
                 {{ $active = "" }}
             {{end}}
 
-            <a class="mr-6 p-2 text-gray-700 hover:text-green-500 prefers-dark:hover:text-red-500 prefers-dark:focus:text-white uppercase {{$active}}" href="{{ .URL }}">{{ $text }}</a>
+            <a class="mr-6 first:-ml-2 p-2 text-gray-700 hover:text-green-500 prefers-dark:hover:text-red-500 prefers-dark:focus:text-white uppercase {{$active}}" href="{{ .URL }}">{{ $text }}</a>
             {{ end }}
         </nav>
     </div>
