@@ -31,6 +31,10 @@ PygmentsUseClasses = true
     name = "Sobre mí"
     url = "/sobre-mi/"
     weight = 5
+  [[menu.main]]
+    name = "Buscar"
+    url = "/search/"
+    weight = 6
 # [outputs]
 #     section = ["JSON", "HTML"]
 
