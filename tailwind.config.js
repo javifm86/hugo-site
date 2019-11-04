@@ -1,5 +1,5 @@
 const postcss = require('postcss');
-
+// https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 module.exports = {
     theme: {
         extend: {
@@ -37,7 +37,8 @@ module.exports = {
         backgroundColor: ['responsive', 'hover', 'focus', 'prefers-dark', 'prefers-dark-hover', 'prefers-dark-focus'],
         borderColor: ['responsive', 'hover', 'focus', 'prefers-dark', 'prefers-dark-hover', 'prefers-dark-focus'],
         textColor: ['responsive', 'hover', 'focus', 'prefers-dark', 'prefers-dark-hover', 'prefers-dark-focus'],
-        boxShadow: ['responsive', 'hover', 'focus', 'group-hover']
+        boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
+        margin: ['responsive', 'first']
     },
     plugins: [
         function({ addVariant, e }) {
