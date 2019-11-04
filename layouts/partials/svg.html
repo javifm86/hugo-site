@@ -1,8 +1,15 @@
 {{ $svg := readFile .svgSrc | safeHTML }}
 {{ $cssClasses := .cssClasses }}
+{{ $classes :=  print "class='" $cssClasses "'" }}
+{{ $cssStyle := .cssStyle }}
+{{ $style :=  print "style='" $cssStyle "'" }}
 
 {{ if $cssClasses }}
-{{ $svg = replace $svg "{{cssClass}}" $cssClasses | safeHTML }}
+{{ $svg = replace $svg "data-class" $classes | safeHTML }}
+{{ end }}
+
+{{ if $cssStyle }}
+{{ $svg = replace $svg "data-style" $style | safeHTML }}
 {{ end }}
 
 {{ $svg }}
