@@ -48,3 +48,4 @@ Thumbs.db
 /static/css
 /static/img
 /resources/_gen
+static/js/lunr.min.js
