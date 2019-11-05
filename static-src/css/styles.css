@@ -12,10 +12,6 @@ main {
     @apply flex-1;
 }
 
-nav > a.active {
-    @apply text-green-500 font-bold;
-}
-
 .line-before {
     position: relative;
     padding-left: 80px;
