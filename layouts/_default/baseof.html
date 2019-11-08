@@ -7,13 +7,17 @@
 </head>
 
 <body>
-    {{ partial "nav.html" . }}
-    <main id="main">
-        {{ block "main" . }}{{ end }}
-    </main>
-    {{ block "script" . }}{{ end }}
-    {{ partial "footer.html" . }}
+    <div id="site-wrapper" class="relative overflow-hidden w-full">
+        <div id="site-canvas" class="w-full h-full relative">
+            {{ partial "nav.html" . }}
+            <main id="main">
+                {{ block "main" . }}{{ end }}
+            </main>
+            {{ partial "footer.html" . }}
+        </div>
+    </div>
     {{ partial "script.html" . }}
+    {{ block "script" . }}{{ end }}
 </body>
 
 </html>
