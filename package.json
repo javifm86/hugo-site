@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development npm-run-all --parallel copy:lunr css:build css:watch img:watch hugo:serve",
+    "prebuild": "rimraf ./public",
     "build": "cross-env NODE_ENV=production npm-run-all --sequential copy:lunr css:build hugo:build",
     "hugo:serve": "hugo server",
     "hugo:build": "hugo",
     "css:watch": "node_modules/.bin/watch \"npm run css:build\" ./static-src/css",
     "css:build": "node_modules/.bin/postcss static-src/css/styles.css -o static/css/styles.css",
-    "copy:lunr": "cp -R node_modules/lunr/lunr.min.js static/js",
+    "copy:lunr": "cp node_modules/lunr/lunr.min.js static/js",
     "preimg:compress": "rimraf ./static/img",
     "img:compress": "node ./scripts/optimizeImages",
     "img:watch": "node ./scripts/watchImages"
