@@ -102,6 +102,6 @@
             renderSearchResults(results);
         };
 
-        searchInput.placeholder = '';
+        searchInput.placeholder = 'Introduce término de búsqueda';
     }
 })();

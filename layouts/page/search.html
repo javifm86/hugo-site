@@ -3,16 +3,15 @@
 {{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" .Params.titleHeader "miniTitle" .Params.miniTitle "des" .Params.des) }}
 <div class="container mx-auto px-4">
     <div class="relative my-10">
-        <input type="text" id="search-input" name="search" placeholder="Loading..." class="focus:outline-none border-solid border-2 focus:border-green-300 block text-lg sm:text-xl w-full bg-gray-100 focus:bg-white rounded px-10 py-2">
+        <input type="text" id="search-input" name="search" placeholder="Cargando..." class="focus:outline-none border-solid border-2 border-gray-400 focus:border-green-400 block text-lg sm:text-xl w-full bg-white rounded px-10 py-2">
         <div class="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
             {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/search.svg" "cssClasses" "fill-current pointer-events-none text-gray-600 w-4 h-4") }}
         </div>
     </div>
     <section id="search-results"></section>
 </div>
-
-
 {{ end }}
+
 {{ define "script" }}
 {{ $search := "js/search.js" | absURL }}
 {{ $lunr := "js/lunr.min.js" | absURL }}
