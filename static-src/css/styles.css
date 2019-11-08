@@ -5,7 +5,7 @@
 @tailwind components;
 
 body {
-    @apply text-gray-900 flex min-h-screen flex-col;
+    @apply text-gray-900;
 }
 
 main {
@@ -124,6 +124,24 @@ h2.title {
 
 .single-post-content h2 {
     @apply text-2xl font-bold mb-2;
+}
+
+#site-canvas {
+    /* For sticky footer */
+    @apply flex min-h-screen flex-col;
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+    transition: 300ms ease transform;
+    backface-visibility: hidden;
+}
+
+body.show-nav #site-canvas {
+    transform: translateX(-300px);
+    transform: translate3d(-300px, 0, 0);
+}
+#site-menu {
+    width: 300px;
+    right: -300px;
 }
 
 @tailwind utilities;
