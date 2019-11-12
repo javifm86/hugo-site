@@ -33,7 +33,7 @@
     {{ if $showNumber }}
     <li class="page-item{{ if eq . $pag }} active{{ end }} border-gray-400 px-3 py-3">
         {{ if eq . $pag }}
-        <a class="page-link bg-green-500 text-white rounded px-3 py-2 -m-2" href="{{ .URL }}">{{ .PageNumber }}</a>
+        <a class="page-link bg-gray-300 text-gray-700 rounded px-3 py-2 -m-2" href="{{ .URL }}">{{ .PageNumber }}</a>
         {{ else }}
         <a class="page-link rounded px-3 py-2 -m-2 hover:bg-gray-200" href="{{ .URL }}">{{ .PageNumber }}</a>
         {{ end }}
