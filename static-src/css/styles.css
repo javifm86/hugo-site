@@ -1,8 +1,21 @@
-/*  https://github.com/voronianski/oceanic-next-color-scheme */
+/* https://github.com/voronianski/oceanic-next-color-scheme */
+/* https://developers.google.com/web/updates/2019/03/prefers-reduced-motion */
 @import './syntax-native.css';
 
 @tailwind base;
 @tailwind components;
+
+/* -------- Focus visible -------- */
+*:focus {
+    outline: 2px solid theme('colors.green.500');
+}
+.js-focus-visible *:focus:not(.focus-visible) {
+    outline: none;
+}
+*:focus-visible {
+    outline: 2px solid theme('colors.green.500');
+}
+/* -------- End Focus visible -------- */
 
 body {
     @apply text-gray-900;
@@ -28,8 +41,7 @@ main {
 }
 
 pre {
-    background-color: theme('colors.gray.200');
-    @apply mb-6 p-4 overflow-auto text-base;
+    @apply mb-6 p-4 overflow-auto text-base bg-gray-200;
 }
 
 .highlight {
@@ -131,7 +143,7 @@ h2.title {
     @apply flex min-h-screen flex-col;
     transform: translateX(0);
     transform: translate3d(0, 0, 0);
-    transition: 300ms ease transform;
+    transition: transform 300ms ease;
     backface-visibility: hidden;
 }
 
@@ -142,6 +154,25 @@ body.show-nav #site-canvas {
 #site-menu {
     width: 300px;
     right: -300px;
+}
+
+.transition-all-300 {
+    transition: all 0.3s ease;
+}
+
+/* @media (prefers-reduced-motion: reduce) {
+    .transition-all-300 {
+        transition: none;
+    }
+} */
+
+#skiplink:focus {
+    position: absolute;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
 }
 
 @tailwind utilities;
