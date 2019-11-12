@@ -1,6 +1,10 @@
 {{ $permalink := .Permalink }}
 {{ $currentPage := . }}
 
+<!-- Skip nav link menu -->
+<a id="skiplink" class="sr-only absolute top-0 left-0 mt-2 ml-1 font-semibold bg-gray-300 rounded-sm p-2 uppercase text-gray-700" href="#main">
+    Saltar al contenido principal
+</a>
 <!-- Mobile menu -->
 <div id="site-menu" class="h-full absolute top-0 py-6 px-4 bg-gray-800 hidden">
     <nav class="flex flex-col uppercase text-xl">
