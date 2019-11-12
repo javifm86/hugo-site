@@ -49,3 +49,4 @@ Thumbs.db
 /static/img
 /resources/_gen
 static/js/lunr.min.js
+static/js/focus-visible.min.js
