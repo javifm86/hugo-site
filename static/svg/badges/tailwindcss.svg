@@ -1,4 +1,4 @@
-<svg data-class data-style data-id role="img" aria-labelledby="titleId" viewBox="0 0 512 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+<svg data-custom-class="" data-custom-style="" data-custom-id="" role="img" aria-labelledby="titleId" viewBox="0 0 512 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
     <title id="titleId">Tailwind CSS</title>
     <defs>
         <linearGradient x1="-2.77777778%" y1="32%" x2="100%" y2="67.5555556%" id="linearGradient-1">

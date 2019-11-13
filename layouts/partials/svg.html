@@ -1,27 +1,33 @@
 {{ $svg := readFile .svgSrc | safeHTML }}
+
 {{ $cssClasses := .cssClasses | default "" }}
 {{ $classes :=  print "class='" $cssClasses "'" }}
+{{ $replaceClasses := "data-custom-class=\"\"" }}
+
 {{ $cssStyle := .cssStyle | default "" }}
 {{ $style :=  print "style='" $cssStyle "'" }}
+{{ $replaceStyle := "data-custom-style=\"\"" }}
+
 {{ $htmlId := .htmlId | default "" }}
 {{ $id :=  print "id='" $htmlId "'" }}
+{{ $replaceId := "data-custom-id=\"\"" }}
 
 {{ if ne $cssClasses "" }}
-{{ $svg = replace $svg "data-class" $classes | safeHTML }}
+{{ $svg = replace $svg $replaceClasses $classes | safeHTML }}
 {{ else }}
-{{ $svg = replace $svg "data-class" "" | safeHTML }}
+{{ $svg = replace $svg $replaceClasses "" | safeHTML }}
 {{ end }}
 
 {{ if ne $cssStyle "" }}
-{{ $svg = replace $svg "data-style" $style | safeHTML }}
+{{ $svg = replace $svg $replaceStyle $style | safeHTML }}
 {{ else }}
-{{ $svg = replace $svg "data-style" "" | safeHTML }}
+{{ $svg = replace $svg $replaceStyle "" | safeHTML }}
 {{ end }}
 
 {{ if ne $htmlId "" }}
-{{ $svg = replace $svg "data-id" $id | safeHTML }}
+{{ $svg = replace $svg $replaceId $id | safeHTML }}
 {{ else }}
-{{ $svg = replace $svg "data-id" "" | safeHTML }}
+{{ $svg = replace $svg $replaceId "" | safeHTML }}
 {{ end }}
 
 {{ $svg }}
