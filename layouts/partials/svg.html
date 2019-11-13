@@ -2,15 +2,15 @@
 
 {{ $cssClasses := .cssClasses | default "" }}
 {{ $classes :=  print "class='" $cssClasses "'" }}
-{{ $replaceClasses := "data-custom-class=\"\"" }}
+{{ $replaceClasses := "data-custom-class=\"no-empty\"" }}
 
 {{ $cssStyle := .cssStyle | default "" }}
 {{ $style :=  print "style='" $cssStyle "'" }}
-{{ $replaceStyle := "data-custom-style=\"\"" }}
+{{ $replaceStyle := "data-custom-style=\"no-empty\"" }}
 
 {{ $htmlId := .htmlId | default "" }}
 {{ $id :=  print "id='" $htmlId "'" }}
-{{ $replaceId := "data-custom-id=\"\"" }}
+{{ $replaceId := "data-custom-id=\"no-empty\"" }}
 
 {{ if ne $cssClasses "" }}
 {{ $svg = replace $svg $replaceClasses $classes | safeHTML }}
