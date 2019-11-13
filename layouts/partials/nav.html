@@ -5,23 +5,6 @@
 <a id="skiplink" class="sr-only absolute top-0 left-0 mt-2 ml-1 font-semibold bg-gray-300 rounded-sm p-2 uppercase text-gray-700" href="#main">
     Saltar al contenido principal
 </a>
-<!-- Mobile menu -->
-<div id="site-menu" class="h-full absolute top-0 py-6 px-4 bg-gray-800 hidden">
-    <nav class="flex flex-col uppercase text-xl">
-    {{ range .Site.Menus.main }}
-        {{ $text := .Name | safeHTML }}
-        {{ $classesMobile := "" }}
-        {{ $classesMobile := "" }}
-        {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-        {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
-            {{ $classesMobile = "bg-green-600 rounded text-white font-semibold" }}
-        {{ else }}
-            {{ $classesMobile = "text-gray-100" }}
-        {{end}}
-        <a class="mb-1 px-4 py-2 {{$classesMobile}}" href="{{ .URL }}">{{ $text }}</a>
-    {{ end }}
-    </nav>
-</div>
 <!-- Desktop menu -->
 <div class="bg-gray-100 prefers-dark:bg-gray-900 border-t-4 border-green-500">
     <div class="container mx-auto">
@@ -38,10 +21,28 @@
                 {{end}}
                 <a class="mr-6 first:-ml-2 p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ .URL }}">{{ $text }}</a>
             {{ end }}
-            <button type="button" id="sidebar-open" class="sm:hidden text-gray-700">
-                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/menu.svg" "cssClasses" "w-8 h-8 fill-current" "htmlId" "open-menu") }}
-                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/cross.svg" "cssClasses" "w-8 h-8 fill-current hidden" "htmlId" "close-menu") }}
+            <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 flex items-center uppercase text-xl p-1 -m-1">
+                Menú
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/menu.svg" "cssClasses" "ml-2 w-6 h-6 fill-current" "htmlId" "open-menu") }}
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/cross.svg" "cssClasses" "ml-2 w-6 h-6 fill-current hidden" "htmlId" "close-menu") }}
             </button>
         </nav>
     </div>
+</div>
+<!-- Mobile menu -->
+<div id="site-menu" class="h-full absolute top-0 py-6 px-4 bg-gray-800 hidden">
+    <nav class="flex flex-col uppercase text-xl">
+    {{ range .Site.Menus.main }}
+        {{ $text := .Name | safeHTML }}
+        {{ $classesMobile := "" }}
+        {{ $classesMobile := "" }}
+        {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
+        {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
+            {{ $classesMobile = "bg-green-600 rounded text-white font-semibold outline-none focus:bg-white focus:text-green-600" }}
+        {{ else }}
+            {{ $classesMobile = "text-gray-100" }}
+        {{end}}
+        <a class="mb-1 px-4 py-2 {{$classesMobile}}" href="{{ .URL }}">{{ $text }}</a>
+    {{ end }}
+    </nav>
 </div>

@@ -6,13 +6,15 @@
 @tailwind components;
 
 /* -------- Focus visible -------- */
-*:focus {
+*:focus,
+button:focus {
     outline: 2px solid theme('colors.green.500');
 }
 .js-focus-visible *:focus:not(.focus-visible) {
     outline: none;
 }
-*:focus-visible {
+*:focus-visible,
+button:focus-visible {
     outline: 2px solid theme('colors.green.500');
 }
 /* -------- End Focus visible -------- */
@@ -129,7 +131,8 @@ h2.title {
     @apply text-lg leading-relaxed;
 }
 
-.single-post-content a {
+.single-post-content a,
+a.general-link {
     @apply border-b-2 border-solid border-green-500 font-medium;
     padding-bottom: 1px;
 }

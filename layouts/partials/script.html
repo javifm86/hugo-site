@@ -2,36 +2,39 @@
 <script src="{{ $focusVisible }}"></script>
 <script>
     (function() {
-        const bodyElement = document.getElementsByTagName('body')[0];
-        const svgOpen = document.getElementById('open-menu');
-        const svgClose = document.getElementById('close-menu');
-        const siteCanvas = document.getElementById('site-canvas');
-        const siteMenu = document.getElementById('site-menu');
+        const $bodyElement = document.getElementsByTagName('body')[0];
+        const $svgOpen = document.getElementById('open-menu');
+        const $svgClose = document.getElementById('close-menu');
+        const $siteCanvas = document.getElementById('site-canvas');
+        const $siteMenu = document.getElementById('site-menu');
+        const $buttonNav = document.getElementById('sidebar-open');
         const transitionEnd = transitionEndEventName();
         const CSS_CLASS_NAV = 'show-nav';
         let stateNav = 'closed';
 
         const closeMenuOnResize = debounce(function() {
-            if (bodyElement.classList.contains(CSS_CLASS_NAV) && window.screen.width > 639) {
+            if ($bodyElement.classList.contains(CSS_CLASS_NAV) && window.screen.width > 639) {
                 toggleNav();
             }
         }, 0);
 
         // Event listener
-        document.getElementById('sidebar-open').addEventListener('click', toggleNav);
+        $buttonNav.addEventListener('click', toggleNav);
         window.addEventListener('resize', closeMenuOnResize);
 
-        siteCanvas.addEventListener(
+        $siteCanvas.addEventListener(
             transitionEnd,
             function() {
                 if (stateNav === 'opening') {
-                    svgOpen.classList.add('hidden');
-                    svgClose.classList.remove('hidden');
+                    $svgOpen.classList.add('hidden');
+                    $svgClose.classList.remove('hidden');
+                    $buttonNav.setAttribute('aria-label', 'Cerrar menú');
                     stateNav = 'open';
                 } else {
-                    svgOpen.classList.remove('hidden');
-                    svgClose.classList.add('hidden');
-                    siteMenu.classList.add('hidden');
+                    $svgOpen.classList.remove('hidden');
+                    $svgClose.classList.add('hidden');
+                    $siteMenu.classList.add('hidden');
+                    $buttonNav.setAttribute('aria-label', 'Abrir menú');
                     stateNav = 'closed';
                 }
             },
@@ -41,13 +44,13 @@
         //////////////////////////////////////////////////////////////
 
         function toggleNav() {
-            if (bodyElement.classList.contains(CSS_CLASS_NAV)) {
-                bodyElement.classList.remove(CSS_CLASS_NAV);
+            if ($bodyElement.classList.contains(CSS_CLASS_NAV)) {
+                $bodyElement.classList.remove(CSS_CLASS_NAV);
                 stateNav = 'closing';
             } else {
-                bodyElement.classList.add(CSS_CLASS_NAV);
+                $bodyElement.classList.add(CSS_CLASS_NAV);
                 stateNav = 'opening';
-                siteMenu.classList.remove('hidden');
+                $siteMenu.classList.remove('hidden');
             }
         }
 
