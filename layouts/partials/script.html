@@ -1,0 +1,96 @@
+{{ $focusVisible := "js/focus-visible.min.js" | absURL }}
+<script src="{{ $focusVisible }}"></script>
+<script>
+    (function() {
+        const $bodyElement = document.getElementsByTagName('body')[0];
+        const $svgOpen = document.getElementById('open-menu');
+        const $svgClose = document.getElementById('close-menu');
+        const $siteCanvas = document.getElementById('site-canvas');
+        const $siteMenu = document.getElementById('site-menu');
+        const $buttonNav = document.getElementById('sidebar-open');
+        const transitionEnd = transitionEndEventName();
+        const CSS_CLASS_NAV = 'show-nav';
+        let stateNav = 'closed';
+
+        const closeMenuOnResize = debounce(function() {
+            if ($bodyElement.classList.contains(CSS_CLASS_NAV) && window.screen.width > 639) {
+                toggleNav();
+            }
+        }, 0);
+
+        // Event listener
+        $buttonNav.addEventListener('click', toggleNav);
+        window.addEventListener('resize', closeMenuOnResize);
+
+        $siteCanvas.addEventListener(
+            transitionEnd,
+            function() {
+                if (stateNav === 'opening') {
+                    $svgOpen.classList.add('hidden');
+                    $svgClose.classList.remove('hidden');
+                    $buttonNav.setAttribute('aria-label', 'Cerrar menú');
+                    stateNav = 'open';
+                } else {
+                    $svgOpen.classList.remove('hidden');
+                    $svgClose.classList.add('hidden');
+                    $siteMenu.classList.add('hidden');
+                    $buttonNav.setAttribute('aria-label', 'Abrir menú');
+                    stateNav = 'closed';
+                }
+            },
+            false
+        );
+        // setTimeout(toggleNav, 100);
+        //////////////////////////////////////////////////////////////
+
+        function toggleNav() {
+            if ($bodyElement.classList.contains(CSS_CLASS_NAV)) {
+                $bodyElement.classList.remove(CSS_CLASS_NAV);
+                stateNav = 'closing';
+            } else {
+                $bodyElement.classList.add(CSS_CLASS_NAV);
+                stateNav = 'opening';
+                $siteMenu.classList.remove('hidden');
+            }
+        }
+
+        function debounce(func, wait, immediate) {
+            let timeout;
+            return function() {
+                let context = this;
+                let args = arguments;
+                const later = function() {
+                    timeout = null;
+                    if (!immediate) {
+                        func.apply(context, args);
+                    }
+                };
+                let callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) {
+                    func.apply(context, args);
+                }
+            };
+        }
+
+        function transitionEndEventName() {
+            let i;
+            const el = document.createElement('div');
+            const transitions = {
+                'transition': 'transitionend',
+                'OTransition': 'otransitionend',  // oTransitionEnd in very old Opera
+                'MozTransition': 'transitionend',
+                'WebkitTransition': 'webkitTransitionEnd'
+            };
+
+            for (i in transitions) {
+                if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+                    return transitions[i];
+                }
+            }
+        }
+
+    })();
+
+</script>

@@ -1,5 +1,7 @@
 ---
 title: Conexión remota a Raspberry Pi
+img: img/raspberry-logo.jpg
+altImg: Logo raspberry pi
 author: javi
 type: post
 date: 2017-01-25T15:41:09+00:00
@@ -39,7 +41,7 @@ Para conectar remotamente, disponemos de 2 opciones:
 
 {{< img src="img/xrdp.png" alt="Conexión a escritorio remoto de Windows" >}}
   
-<!--more-->
+
 
 Es posible que salte un aviso informando de que no se puede comprobar la identidad del equipo remoto, pulsaremos _Sí_ para establecer la conexión. Si todo ha ido bien, veremos una pantalla donde introducir nuestras credenciales de acceso a la Raspberry.  Usuario pi y contraseña raspberry, si es que no la has cambiado aún(¡deberías!).
 

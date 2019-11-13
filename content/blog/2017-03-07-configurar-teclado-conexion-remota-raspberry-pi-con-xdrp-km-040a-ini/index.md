@@ -1,5 +1,7 @@
 ---
 title: Configurar teclado conexión remota Raspberry Pi con XDRP – km-040a.ini
+img: img/raspberry.jpg
+altImg: Placa raspberry pi
 author: javi
 type: post
 date: 2017-03-07T10:24:28+00:00
@@ -8,7 +10,7 @@ tags:
   - xdrp
 
 ---
-Si te conectas de manera remota a tu raspberry, a través de la aplicación de **Conexión a escritorio remoto de Windows** por ejemplo, tarde o temprano te darás cuentas que si no utilizas un teclado inglés, muchos de los símbolos y teclas están cambiados, y puede convertirse en una odisea el simple hecho de introducir el password de conexión si este tiene algún caracter especial.
+Si te conectas de manera remota a tu raspberry, a través de la aplicación de **Conexión a escritorio remoto de Windows** por ejemplo, tarde o temprano te darás cuentas que si no utilizas un teclado inglés, muchos de los símbolos y teclas están cambiados. Puede convertirse en una odisea el simple hecho de introducir el password de conexión si este tiene algún caracter especial.
 
 ¿Pero cómo es esto posible? Si al configurar mi raspberry me preocupé de cambiar la configuración de teclado a español (o el idioma que sea). Bien esto  sucede por tener el teclado conectado fisicamente, pero si desconectas teclado y ratón y te conectas remotamente, **la raspberry tomará por defecto que utilizas un teclado inglés americano.** Veamos como solucionarlo.
 

@@ -1,10 +1,6 @@
 const { runImagemin } = require('./shared/imagemin');
 const { converToSlash, COLORS } = require('./shared/utils');
 
-// Run script from repository root folder
-const process = require('process');
-process.chdir('../');
-
 const watch = require('node-watch');
 const { join, parse, normalize } = require('path');
 const fs = require('fs');
@@ -17,7 +13,7 @@ const INPUT_DIR = 'static-src/img';
 const OUTPUT_DIR = 'static/img';
 
 const processImage = async dir => {
-    console.log(COLORS.yellow, `Beginning image compression for ${dir}`);
+    console.log(`Beginning image compression for ${dir}`);
     /**
      * imagemin needs paths with forward slashes. converToSlash is needed
      * on Windows environment.
@@ -29,34 +25,42 @@ const processImage = async dir => {
     const source = `${converToSlash(dir)}/*.{jpg,png,svg,gif}`;
 
     const files = await runImagemin(source, destiny);
-    console.log(COLORS.yellow, `Image compression finished.`);
+    console.log(`Image compression finished`);
 };
 
 const deleteImage = imgPath => {
     const urlDestiny = converToSlash(join(OUTPUT_DIR, imgPath)).replace(INPUT_DIR, '');
     const url = normalize(urlDestiny);
+    let isDirectory;
 
-    if (fs.lstatSync(url).isDirectory()) {
-        console.log('Borrar directorio');
-        rimraf(url, function() {
+    try {
+        isDirectory = fs.lstatSync(url).isDirectory();
+    } catch {
+        isDirectory = false;
+    }
+
+    if (isDirectory) {
+        rimraf(url, () => {
             console.log(`Deleted ${url}`);
         });
     } else {
-        fs.unlink(url, function(err) {
+        fs.unlink(url, err => {
             if (err && err.code === 'ENOENT') {
                 // File doens't exist
-                console.info("File doesn't exist");
+                console.log(`File not found: ${url}`);
             } else if (err) {
                 // other errors, e.g. maybe we don't have enough permission
-                console.error('Error occurred while trying to remove file');
+                console.log(`Error occurred while trying to remove file: ${url}`);
             } else {
-                console.info(`File ${imgPath} deleted`);
+                console.log(`File deleted: ${imgPath}`);
             }
         });
     }
 };
 
-watch('./static-src/img', { recursive: true }, function(evt, name) {
+console.log(`Watching for image files to be optimized on ${INPUT_DIR} folder`);
+
+watch(INPUT_DIR, { recursive: true }, (evt, name) => {
     if (evt === 'update') {
         processImage(parse(name).dir);
     }

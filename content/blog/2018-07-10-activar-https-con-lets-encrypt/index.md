@@ -1,5 +1,7 @@
 ---
 title: Activar https con Let’s Encrypt
+img: img/certbot.jpg
+altImg: Logo certbot
 author: javi
 type: post
 date: 2019-06-26T17:43:44+00:00
@@ -8,7 +10,7 @@ tags:
   - linux
 
 ---
-[Let&#8217;s Encrypt][1] es un proveedor gratuito de **certificados TLS/SSL** que nos brinda la posibilidad de activar **https** en nuestro servidor para nuestros dominio.s El proceso está automatizado tanto para Apache como Nginx, en mi caso voy a utilizar **Cerbot** para instalarlo en mi servidor Nginx.
+[Let&#8217;s Encrypt][1] es un proveedor gratuito de **certificados TLS/SSL** que nos brinda la posibilidad de activar **https** en nuestro servidor para nuestros dominios. El proceso está automatizado tanto para Apache como Nginx, en mi caso voy a utilizar **Cerbot** para instalarlo en mi servidor Nginx.
 
 Certbot es un software que es actualizado bastante amenudo por sus desarrolladores. Si queremos disfrutar de la versión más actualizada, deberemos añadir su repositorio ya que si tiramos de los de Ubuntu, lo más normal es que tengan versiones más antiguas. Para ello:
 

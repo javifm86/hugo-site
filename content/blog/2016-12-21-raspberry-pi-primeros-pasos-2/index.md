@@ -1,5 +1,7 @@
 ---
 title: Raspberry pi, primeros pasos (2)
+img: img/raspberry-logo.jpg
+altImg: Logo raspberry pi
 author: javi
 type: post
 date: 2016-12-21T15:07:46+00:00
@@ -26,7 +28,7 @@ Dentro de la pestaña sistema.
   * El resto de parámetros no necesitan explicación.
   * En la imagen no aparece la opción **Expandir sistema de ficheros**, supongo que es porque ya lo hice. Esta opción es para que se utilice toda la capacidad de la tarjeta microSD en el sistema, si cambias de tarjeta por una de mayor capacidad, no olvides aplicar la expansión para aprovechar todo el espacio.
 
-<!--more-->
+
 
 En **Interfaces** podemos activar/desactivar una serie de servicios, yo activé ssh, que es lo que uso el 90% del tiempo para manejar la raspberry.
 

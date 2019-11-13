@@ -1,8 +1,27 @@
 {{ $svg := readFile .svgSrc | safeHTML }}
-{{ $cssClasses := .cssClasses }}
+{{ $cssClasses := .cssClasses | default "" }}
+{{ $classes :=  print "class='" $cssClasses "'" }}
+{{ $cssStyle := .cssStyle | default "" }}
+{{ $style :=  print "style='" $cssStyle "'" }}
+{{ $htmlId := .htmlId | default "" }}
+{{ $id :=  print "id='" $htmlId "'" }}
 
-{{ if $cssClasses }}
-{{ $svg = replace $svg "{{cssClass}}" $cssClasses | safeHTML }}
+{{ if ne $cssClasses "" }}
+{{ $svg = replace $svg "data-class" $classes | safeHTML }}
+{{ else }}
+{{ $svg = replace $svg "data-class" "" | safeHTML }}
+{{ end }}
+
+{{ if ne $cssStyle "" }}
+{{ $svg = replace $svg "data-style" $style | safeHTML }}
+{{ else }}
+{{ $svg = replace $svg "data-style" "" | safeHTML }}
+{{ end }}
+
+{{ if ne $htmlId "" }}
+{{ $svg = replace $svg "data-id" $id | safeHTML }}
+{{ else }}
+{{ $svg = replace $svg "data-id" "" | safeHTML }}
 {{ end }}
 
 {{ $svg }}

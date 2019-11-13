@@ -40,7 +40,7 @@ class EnsureNewlineAtEof(sublime_plugin.EventListener):
                 view.end_edit(edit)
 {{< / highlight >}}
 
-<!--more-->Podéis modificar ese mismo fichero, yo preferí crearme otro distinto, por no tocar nada de lo que trae Sublime por defecto, y le puse un nombre super original: 
+Podéis modificar ese mismo fichero, yo preferí crearme otro distinto, por no tocar nada de lo que trae Sublime por defecto, y le puse un nombre super original: 
 
 _**trim\_trailing\_white_space2.py,**_ en la misma carpeta. El código es el siguiente:
 

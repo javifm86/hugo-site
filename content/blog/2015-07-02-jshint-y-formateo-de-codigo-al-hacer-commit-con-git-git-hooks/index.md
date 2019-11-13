@@ -20,7 +20,7 @@ Para estandarizar nuestro código, he decidido crear una serie de reglas a la ho
 
 La idea es simple, quiero que cada vez que alguien vaya a hacer commit de sus cambios al repositorio, se validen los ficheros Javascript de acuerdo a unas reglas comunes de JSHint, y si el archivo no contiene errores será formateado automáticamente antes del commit al repositorio. La idea es hacerlo automático, así nadie tiene ninguna excusa. Veamos primero como instalar a nivel de proyecto las 2 herramientas.
 
-<!--more-->
+
 
 En primer lugar vamos a <a href="http://jshint.com/install/" target="_blank">instalar JSHint.</a> Podemos instalarlo a nivel global, o a nivel de proyecto, me quedaré con esta última opción, de esa manera podemos disponer en cada proyecto de una configuración especifica de JSHint con las reglas que deseemos aplicar a cada proyecto. Iremos a la consola, y estando en el directorio raíz de nuestro proyecto, ejecutaremos el siguiente comando:
 

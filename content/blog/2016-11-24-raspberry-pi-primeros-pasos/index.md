@@ -15,7 +15,7 @@ Hay multitud de distribuciones, tanto oficiales como no oficiales, yo en mi caso
 
 Si aún no tienes tu Raspberry, vamos a repasar brevemente el material necesario.
 
-<!--more-->
+
 
   * **Raspberry Pi 3 B**, el último modelo. Su precio puede oscilar en función de donde la adquieras, siendo más barata en sitios como Aliexpress, y un poco más cara en tiendas como Amazon. Entre los **25-40€** puedes encontrarla. Este último modelo cuenta con antena Wifi incorporada y Bluetooth, características no disponibles en modelos anteriores.
   * Fuente de alimentación. Recomiendo la oficial, pero si no lo es, asegurate de que sea buena y que cuente con salida de **5.1V a 2.5A**.
