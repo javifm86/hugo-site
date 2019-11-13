@@ -25,7 +25,7 @@ module.exports.runImagemin = (source, destiny) => {
             }),
             imageminGifsicle(),
             imageminSvgo({
-                plugins: [{ removeViewBox: false }]
+                plugins: [{ removeViewBox: false, removeUnknownsAndDefaults: false }]
             })
         ]
     });
