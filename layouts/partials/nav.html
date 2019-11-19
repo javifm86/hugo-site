@@ -9,17 +9,27 @@
 <div class="bg-gray-100 prefers-dark:bg-gray-900 border-t-4 border-green-500">
     <div class="container mx-auto">
         <nav class="flex flex-wrap justify-end items-center py-6 px-4">
-            {{ range .Site.Menus.main }}
+            <a href="{{ .Site.BaseURL }}" class="mr-auto p-2 -m-2 last:mr-0" aria-hidden="true">
+                <span class="sr-only">Inicio</span>
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/logo.svg" "cssClasses" "w-10 h-10") }}
+            </a>
+            {{ $numElems:= len .Site.Menus.main }}
+            {{ $lastElem := sub $numElems 1 }}
+            {{ range $i, $e := .Site.Menus.main }}
                 {{ $text := .Name | safeHTML }}
                 {{ $classes := "" }}
-                {{ $classes := "" }}
                 {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-                {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
+                {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) }}
                     {{ $classes = "font-semibold bg-gray-300 rounded-sm" }}
                 {{ else }}
                     {{ $classes = "hover:bg-gray-300 hover:rounded-sm" }}
-                {{end}}
-                <a class="mr-6 first:-ml-2 p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ .URL }}">{{ $text }}</a>
+                {{ end }}
+
+                {{ if not (eq $i $lastElem) }}
+                    {{ $classes = printf "%s %s" $classes "mr-6"}}
+                {{ end }}
+                <a class="p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ $e.URL }}">{{ $text }}</a>
+
             {{ end }}
             <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 flex items-center uppercase text-xl p-1 -m-1">
                 Menú
