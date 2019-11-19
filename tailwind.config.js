@@ -46,7 +46,7 @@ module.exports = {
             'prefers-dark-focus'
         ],
         boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
-        margin: ['responsive', 'first']
+        margin: ['responsive']
     },
     plugins: [
         function({ addVariant, e }) {
