@@ -8,7 +8,7 @@
     "prebuild": "rimraf ./public",
     "build": "cross-env NODE_ENV=production npm-run-all --sequential copy:lunr copy:focus-visible css:build hugo:build",
     "hugo:serve": "hugo server",
-    "hugo:build": "hugo",
+    "hugo:build": "hugo --minify",
     "css:watch": "node_modules/.bin/watch \"npm run css:build\" ./static-src/css",
     "css:build": "node_modules/.bin/postcss static-src/css/styles.css -o static/css/styles.css",
     "copy:lunr": "copyfiles -u 2 node_modules/lunr/lunr.min.js static/js/",
