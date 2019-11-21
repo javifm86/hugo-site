@@ -2,13 +2,13 @@
 {{ $currentPage := . }}
 
 <!-- Skip nav link menu -->
-<a id="skiplink" class="sr-only absolute top-0 left-0 mt-2 ml-1 font-semibold bg-gray-300 rounded-sm p-2 uppercase text-gray-700" href="#main">
+<a id="skiplink" class="sr-only absolute top-0 left-0 mt-2 ml-1 font-semibold bg-gray-300 prefers-dark:bg-gray-700 rounded-sm p-2 uppercase text-gray-700 prefers-dark:text-gray-300" href="#main">
     Saltar al contenido principal
 </a>
 <!-- Desktop menu -->
-<div class="bg-gray-100 prefers-dark:bg-gray-900 border-t-4 border-green-500">
+<div class="bg-gray-100 prefers-dark:bg-gray-800 border-t-4 border-green-500">
     <div class="container mx-auto">
-        <nav class="flex flex-wrap justify-end items-center py-6 px-4">
+        <nav class="flex flex-wrap justify-end items-center p-4">
             <a href="{{ .Site.BaseURL }}" class="mr-auto p-2 -m-2 last:mr-0" aria-hidden="true">
                 <span class="sr-only">Inicio</span>
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/logo.svg" "cssClasses" "w-10 h-10") }}
@@ -20,9 +20,9 @@
                 {{ $classes := "" }}
                 {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
                 {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) }}
-                    {{ $classes = "font-semibold bg-gray-300 rounded-sm" }}
+                    {{ $classes = "font-semibold bg-gray-300 prefers-dark:bg-transparent rounded-sm prefers-dark:text-green-500" }}
                 {{ else }}
-                    {{ $classes = "hover:bg-gray-300 hover:rounded-sm" }}
+                    {{ $classes = "hover:bg-gray-300 prefers-dark:hover:bg-transparent hover:rounded-sm prefers-dark:text-gray-200 prefers-dark:hover:text-green-500" }}
                 {{ end }}
 
                 {{ if not (eq $i $lastElem) }}

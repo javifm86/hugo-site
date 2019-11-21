@@ -1,7 +1,7 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 }}
 
-<ul class="pagination flex items-center justify-center text-xl">
+<ul class="pagination flex items-center justify-center text-xl text-gray-700 prefers-dark:text-gray-400">
     {{ with $pag.First }}
     <!-- <li class="page-item py-3">
         <a href="{{ .URL }}" class="page-link" aria-label="First">
@@ -13,7 +13,7 @@
     {{ end }}
     {{ if $pag.HasPrev }}
     <li class="page-item{{ if not $pag.HasPrev }} disabled{{ end }} px-3 -m-2">
-        <a href="{{ $pag.Prev.URL }}" class="page-link hover:bg-gray-200 px-3 py-2 rounded" aria-label="Anterior">
+        <a href="{{ $pag.Prev.URL }}" class="hover:bg-gray-300 prefers-dark:hover:bg-gray-800 px-3 py-2 rounded" aria-label="Anterior">
             &laquo; Anterior
         </a>
     </li>
@@ -33,9 +33,9 @@
     {{ if $showNumber }}
     <li class="page-item{{ if eq . $pag }} active{{ end }} border-gray-400 px-3 py-3">
         {{ if eq . $pag }}
-        <a class="page-link bg-gray-300 text-gray-700 rounded px-3 py-2 -m-2" href="{{ .URL }}">{{ .PageNumber }}</a>
+        <a class="page-link bg-gray-300 prefers-dark:bg-gray-800 rounded px-3 py-2 -m-2" href="{{ .URL }}">{{ .PageNumber }}</a>
         {{ else }}
-        <a class="page-link rounded px-3 py-2 -m-2 hover:bg-gray-200" href="{{ .URL }}">{{ .PageNumber }}</a>
+        <a class="page-link rounded px-3 py-2 -m-2 hover:bg-gray-300 prefers-dark:hover:bg-gray-800" href="{{ .URL }}">{{ .PageNumber }}</a>
         {{ end }}
 
     </li>
@@ -45,7 +45,7 @@
     {{ end }}
     {{ if $pag.HasNext }}
     <li class="page-item px-3 -m-2">
-        <a href="{{ $pag.Next.URL }}" class="page-link hover:bg-gray-200 px-3 py-2 rounded" aria-label="Siguiente">
+        <a href="{{ $pag.Next.URL }}" class="page-link hover:bg-gray-300 prefers-dark:hover:bg-gray-800 px-3 py-2 rounded" aria-label="Siguiente">
            Siguiente &raquo;
         </a>
     </li>
