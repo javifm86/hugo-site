@@ -34,38 +34,31 @@ module.exports = {
         }
     },
     variants: {
-        backgroundColor: ['responsive', 'hover', 'focus', 'prefers-dark', 'prefers-dark-hover', 'prefers-dark-focus'],
-        borderColor: ['responsive', 'hover', 'focus', 'prefers-dark', 'prefers-dark-hover', 'prefers-dark-focus'],
-        textColor: [
-            'responsive',
-            'hover',
-            'focus',
-            'group-hover',
-            'prefers-dark',
-            'prefers-dark-hover',
-            'prefers-dark-focus'
-        ],
+        backgroundColor: ['responsive', 'hover', 'focus', 'dark', 'dark:hover', 'dark:focus'],
+        borderColor: ['responsive', 'hover', 'focus', 'dark', 'dark:hover', 'dark:focus'],
+        textColor: ['responsive', 'hover', 'focus', 'group-hover', 'dark', 'dark:hover', 'dark:focus'],
+        borderStyle: ['responsive', 'dark'],
         boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
         margin: ['responsive']
     },
     plugins: [
         function({ addVariant, e }) {
-            addVariant('prefers-dark', ({ container, separator }) => {
+            addVariant('dark', ({ container, separator }) => {
                 const variant = '';
                 return getSelector({ container, separator, variant });
             });
 
-            addVariant('prefers-dark-hover', ({ container, separator }) => {
+            addVariant('dark:hover', ({ container, separator }) => {
                 const variant = 'hover';
                 return getSelector({ container, separator, variant });
             });
 
-            addVariant('prefers-dark-focus', ({ container, separator }) => {
+            addVariant('dark:focus', ({ container, separator }) => {
                 const variant = 'focus';
                 return getSelector({ container, separator, variant });
             });
 
-            addVariant('prefers-dark-active', ({ container, separator }) => {
+            addVariant('dark:active', ({ container, separator }) => {
                 const variant = 'active';
                 return getSelector({ container, separator, variant });
             });
@@ -77,16 +70,16 @@ module.exports = {
                 supportsRule.walkRules(rule => {
                     switch (variant) {
                         case 'focus':
-                            rule.selector = `.${e(`prefers-dark:focus${separator}${rule.selector.slice(1)}`)}:focus`;
+                            rule.selector = `.${e(`dark:focus${separator}${rule.selector.slice(1)}`)}:focus`;
                             break;
                         case 'hover':
-                            rule.selector = `.${e(`prefers-dark:hover${separator}${rule.selector.slice(1)}`)}:hover`;
+                            rule.selector = `.${e(`dark:hover${separator}${rule.selector.slice(1)}`)}:hover`;
                             break;
                         case 'active':
-                            rule.selector = `.${e(`prefers-dark:active${separator}${rule.selector.slice(1)}`)}:active`;
+                            rule.selector = `.${e(`dark:active${separator}${rule.selector.slice(1)}`)}:active`;
                             break;
                         default:
-                            rule.selector = `.${e(`prefers-dark${separator}${rule.selector.slice(1)}`)}`;
+                            rule.selector = `.${e(`dark${separator}${rule.selector.slice(1)}`)}`;
                             break;
                     }
                 });
