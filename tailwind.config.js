@@ -51,5 +51,5 @@ module.exports = {
         boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
         margin: ['responsive']
     },
-    plugins: [require('./plugins/tailwindcss-prefers-dark-mode')()]
+    plugins: [require('tailwindcss-prefers-dark-mode')()]
 };
