@@ -31,7 +31,7 @@
                 <a class="p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ $e.URL }}">{{ $text }}</a>
 
             {{ end }}
-            <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 flex items-center uppercase text-xl p-1 -m-1">
+            <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 dark:text-gray-300 flex items-center uppercase text-xl p-1 -m-1">
                 Menú
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/menu.svg" "cssClasses" "ml-2 w-6 h-6 fill-current" "htmlId" "open-menu") }}
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/cross.svg" "cssClasses" "ml-2 w-6 h-6 fill-current hidden" "htmlId" "close-menu") }}
