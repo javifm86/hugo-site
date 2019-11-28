@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development npm-run-all --parallel img:compress copy:lunr copy:focus-visible css:build css:watch img:watch hugo:serve",
+    "prestart": "cross-env NODE_ENV=development npm-run-all --sequential img:compress copy:lunr copy:focus-visible css:build",
+    "start": "cross-env NODE_ENV=development npm-run-all --parallel css:watch img:watch hugo:serve",
     "prebuild": "rimraf ./public",
     "build": "cross-env NODE_ENV=production npm-run-all --sequential copy:lunr copy:focus-visible css:build hugo:build",
     "hugo:serve": "hugo server",
