@@ -18,9 +18,11 @@
             {{ range $i, $e := .Site.Menus.main }}
                 {{ $text := .Name | safeHTML }}
                 {{ $classes := "" }}
+                {{ $active := false }}
                 {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
                 {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) }}
                     {{ $classes = "font-semibold bg-gray-300 dark:bg-transparent rounded-sm dark:text-green-500" }}
+                    {{ $active = true }}
                 {{ else }}
                     {{ $classes = "hover:bg-gray-300 dark:hover:bg-transparent hover:rounded-sm dark:text-gray-200 dark:hover:text-green-500" }}
                 {{ end }}
@@ -28,7 +30,7 @@
                 {{ if not (eq $i $lastElem) }}
                     {{ $classes = printf "%s %s" $classes "mr-6"}}
                 {{ end }}
-                <a class="p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ $e.URL }}">{{ $text }}</a>
+                <a class="p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ $e.URL }}" {{ if $active }} aria-current="page" {{ end }}>{{ $text }}</a>
 
             {{ end }}
             <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 dark:text-gray-300 flex items-center uppercase text-xl p-1 -m-1">
