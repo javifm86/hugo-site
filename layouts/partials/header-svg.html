@@ -17,7 +17,7 @@
                 </p>
             </div>
             <div class="hidden md:block w-full lg:w-2/5 p-4">
-                {{ partial "svg.html" (dict "context" . "svgSrc" $svgUrl "cssStyle" "max-height: 280px;") }}
+                {{ partial "svg.html" (dict "context" . "svgSrc" $svgUrl "cssClasses" "pointer-events-none" "cssStyle" "max-height: 280px;") }}
             </div>
         </div>
     </div>
