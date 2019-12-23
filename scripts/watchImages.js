@@ -1,18 +1,24 @@
 const { runImagemin } = require('./shared/imagemin');
-const { converToSlash, COLORS } = require('./shared/utils');
+const { converToSlash } = require('./shared/utils');
 
 const watch = require('node-watch');
 const { join, parse, normalize } = require('path');
 const fs = require('fs');
 const rimraf = require('rimraf');
 
-// Source directory for images to be optimized
-const INPUT_DIR = 'static-src/img';
+// Source and destiny directory for images to be optimized
+const DIRS = [
+    {
+        input: 'static-src/img',
+        output: 'static/img'
+    },
+    {
+        input: 'static-src/svg',
+        output: 'static/svg'
+    }
+];
 
-// Destiny for compressed images
-const OUTPUT_DIR = 'static/img';
-
-const processImage = async dir => {
+const processImage = async (dir, inputDir, outputDir) => {
     console.log(`Beginning image compression for ${dir}`);
     /**
      * imagemin needs paths with forward slashes. converToSlash is needed
@@ -21,15 +27,15 @@ const processImage = async dir => {
      * Remove INPUT_DIR in OUTPUT_DIR for just getting the part of folder wanted.
      * If not replaced, the output would be: static/img/static-src/img/**
      */
-    const destiny = converToSlash(join(OUTPUT_DIR, dir)).replace(INPUT_DIR, '');
+    const destiny = converToSlash(join(outputDir, dir)).replace(inputDir, '');
     const source = `${converToSlash(dir)}/*.{jpg,png,svg,gif}`;
 
     const files = await runImagemin(source, destiny);
     console.log(`Image compression finished`);
 };
 
-const deleteImage = imgPath => {
-    const urlDestiny = converToSlash(join(OUTPUT_DIR, imgPath)).replace(INPUT_DIR, '');
+const deleteImage = (imgPath, inputDir, outputDir) => {
+    const urlDestiny = converToSlash(join(outputDir, imgPath)).replace(inputDir, '');
     const url = normalize(urlDestiny);
     let isDirectory;
 
@@ -58,14 +64,15 @@ const deleteImage = imgPath => {
     }
 };
 
-console.log(`Watching for image files to be optimized on ${INPUT_DIR} folder`);
-
-watch(INPUT_DIR, { recursive: true }, (evt, name) => {
-    if (evt === 'update') {
-        processImage(parse(name).dir);
-    }
-    // remove
-    else {
-        deleteImage(name);
-    }
+DIRS.forEach(dir => {
+    console.log(`Watching for image files to be optimized on ${dir.input} folder`);
+    watch(dir.input, { recursive: true }, (evt, name) => {
+        if (evt === 'update') {
+            processImage(parse(name).dir, dir.input, dir.output);
+        }
+        // remove
+        else {
+            deleteImage(name, dir.input, dir.output);
+        }
+    });
 });

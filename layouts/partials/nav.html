@@ -2,26 +2,38 @@
 {{ $currentPage := . }}
 
 <!-- Skip nav link menu -->
-<a id="skiplink" class="sr-only absolute top-0 left-0 mt-2 ml-1 font-semibold bg-gray-300 rounded-sm p-2 uppercase text-gray-700" href="#main">
+<a id="skiplink" class="sr-only absolute top-0 left-0 mt-2 ml-1 font-semibold bg-gray-300 dark:bg-gray-700 rounded-sm p-2 uppercase text-gray-700 dark:text-gray-300" href="#main">
     Saltar al contenido principal
 </a>
 <!-- Desktop menu -->
-<div class="bg-gray-100 prefers-dark:bg-gray-900 border-t-4 border-green-500">
+<div class="bg-gray-100 dark:bg-gray-800 border-t-4 border-green-500">
     <div class="container mx-auto">
-        <nav class="flex flex-wrap justify-end items-center py-6 px-4">
-            {{ range .Site.Menus.main }}
+        <nav class="flex flex-wrap justify-end items-center p-4">
+            <a href="{{ .Site.BaseURL }}" class="mr-auto p-2 -m-2 last:mr-0" aria-hidden="true">
+                <span class="sr-only">Inicio</span>
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/logo.svg" "cssClasses" "w-10 h-10") }}
+            </a>
+            {{ $numElems:= len .Site.Menus.main }}
+            {{ $lastElem := sub $numElems 1 }}
+            {{ range $i, $e := .Site.Menus.main }}
                 {{ $text := .Name | safeHTML }}
                 {{ $classes := "" }}
-                {{ $classes := "" }}
+                {{ $active := false }}
                 {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-                {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
-                    {{ $classes = "font-semibold bg-gray-300 rounded-sm" }}
+                {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) }}
+                    {{ $classes = "font-semibold bg-gray-300 dark:bg-transparent rounded-sm dark:text-green-500" }}
+                    {{ $active = true }}
                 {{ else }}
-                    {{ $classes = "hover:bg-gray-300 hover:rounded-sm" }}
-                {{end}}
-                <a class="mr-6 first:-ml-2 p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ .URL }}">{{ $text }}</a>
+                    {{ $classes = "hover:bg-gray-300 dark:hover:bg-transparent hover:rounded-sm dark:text-gray-200 dark:hover:text-green-500" }}
+                {{ end }}
+
+                {{ if not (eq $i $lastElem) }}
+                    {{ $classes = printf "%s %s" $classes "mr-3 md:mr-6"}}
+                {{ end }}
+                <a class="p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ $e.URL }}" {{ if $active }} aria-current="page" {{ end }}>{{ $text }}</a>
+
             {{ end }}
-            <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 flex items-center uppercase text-xl p-1 -m-1">
+            <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 dark:text-gray-300 flex items-center uppercase text-xl p-1 -m-1">
                 Menú
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/menu.svg" "cssClasses" "ml-2 w-6 h-6 fill-current" "htmlId" "open-menu") }}
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/cross.svg" "cssClasses" "ml-2 w-6 h-6 fill-current hidden" "htmlId" "close-menu") }}
@@ -30,7 +42,7 @@
     </div>
 </div>
 <!-- Mobile menu -->
-<div id="site-menu" class="h-full absolute top-0 py-6 px-4 bg-gray-800 hidden">
+<div id="site-menu" class="h-full absolute top-0 py-6 px-4 bg-gray-800 dark:bg-gray-700 hidden border-l border-transparent dark:border-gray-600">
     <nav class="flex flex-col uppercase text-xl">
     {{ range .Site.Menus.main }}
         {{ $text := .Name | safeHTML }}

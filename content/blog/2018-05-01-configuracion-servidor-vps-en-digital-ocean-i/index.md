@@ -1,6 +1,6 @@
 ---
 title: Configuración servidor VPS en Digital Ocean I
-img: img/digital-ocean.png
+img: img/digitalocean-logo.jpg
 altImg: Logo Digital Ocean
 author: javi
 type: post
@@ -180,10 +180,10 @@ Añadiremos `index.php` como posible entrada por defecto de un directorio, podre
 
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
         #
-        <span style="color: #ff0000;"><strong>location ~ \.php$ {
+        <strong>location ~ \.php$ {
                 include snippets/fastcgi-php.conf;
                 fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        }</strong></span>
+        }</strong>
 
         # deny access to .htaccess files, if Apache's document root
         # concurs with nginx's one

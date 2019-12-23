@@ -2,13 +2,19 @@ const { lstatSync, readdirSync } = require('fs');
 const { join, normalize } = require('path');
 
 const { runImagemin } = require('./shared/imagemin');
-const { converToSlash, COLORS } = require('./shared/utils');
+const { converToSlash } = require('./shared/utils');
 
-// Source directory for images to be optimized
-const INPUT_DIR = 'static-src/img';
-
-// Destiny for compressed images
-const OUTPUT_DIR = 'static/img';
+// Source and destiny directory for images to be optimized
+const DIRS = [
+    {
+        input: 'static-src/img',
+        output: 'static/img'
+    },
+    {
+        input: 'static-src/svg',
+        output: 'static/svg'
+    }
+];
 
 /**
  * Return true if source is a directory.
@@ -37,31 +43,37 @@ const getDirectoriesRecursive = source => [
         .reduce((a, b) => a.concat(b), [])
 ];
 
-console.log(COLORS.yellow, 'Beginning image compression.');
+console.log('Beginning image compression.');
 
 (async () => {
-    const imageDirs = getDirectoriesRecursive(INPUT_DIR);
     let imagesOptimized = 0;
 
-    /**
-     * Loop through all subfolders, and recursively run imagemin,
-     * outputting to the same subfolders inside OUTPUT_DIR folder.
-     */
-    for (let i in imageDirs) {
-        const dir = imageDirs[i];
+    for (const dir of DIRS) {
+        const inputDir = dir.input;
+        const outputDir = dir.output;
+
+        const imageDirs = getDirectoriesRecursive(inputDir);
 
         /**
-         * imagemin needs paths with forward slashes. converToSlash is needed
-         * on Windows environment.
-         *
-         * Remove INPUT_DIR in OUTPUT_DIR for just getting the part of folder wanted.
-         * If not replaced, the output would be: static/img/static-src/img/**
+         * Loop through all subfolders, and recursively run imagemin,
+         * outputting to the same subfolders inside outputDir folder.
          */
-        const destiny = converToSlash(join(OUTPUT_DIR, dir)).replace(INPUT_DIR, '');
-        const source = `${converToSlash(dir)}/*.{jpg,png,svg,gif}`;
-        const files = await runImagemin(source, destiny);
-        imagesOptimized += files.length;
+        for (let i in imageDirs) {
+            const dir = imageDirs[i];
+
+            /**
+             * imagemin needs paths with forward slashes. converToSlash is needed
+             * on Windows environment.
+             *
+             * Remove inputDir in outputDir for just getting the part of folder wanted.
+             * If not replaced, the output would be: static/img/static-src/img/**
+             */
+            const destiny = converToSlash(join(outputDir, dir)).replace(inputDir, '');
+            const source = `${converToSlash(dir)}/*.{jpg,png,svg,gif}`;
+            const files = await runImagemin(source, destiny);
+            imagesOptimized += files.length;
+        }
     }
 
-    console.log(COLORS.yellow, `Image compression finished. Total images compressed: ${imagesOptimized}`);
+    console.log(`Image compression finished. Total images compressed: ${imagesOptimized}`);
 })();

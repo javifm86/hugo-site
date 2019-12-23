@@ -4,11 +4,11 @@
 {{ $title := .titleHeader }}
 {{ $des := .des }}
 
-<div class="bg-gray-100">
-    <div class="container mx-auto pb-4 -mt-4">
+<div class="bg-gray-100 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-600">
+    <div class="container mx-auto pb-4">
         <div class="flex flex-col md:flex-row items-center">
             <div class="w-full lg:w-3/5 px-4 pb-4">
-                <span class="line-before text-sm sm:text-base inline-block my-4 uppercase">{{ $miniTitle }}</span>
+                <span class="line-before text-sm sm:text-base inline-block my-4 uppercase dark:text-gray-300">{{ $miniTitle }}</span>
                 <h1 class="text-4xl sm:text-5xl font-bold font-serif leading-tight mb-4">
                     {{ $title }}
                 </h1>
@@ -17,7 +17,7 @@
                 </p>
             </div>
             <div class="hidden md:block w-full lg:w-2/5 p-4">
-                {{ partial "svg.html" (dict "context" . "svgSrc" $svgUrl "cssStyle" "max-height: 280px;") }}
+                {{ partial "svg.html" (dict "context" . "svgSrc" $svgUrl "cssClasses" "pointer-events-none" "cssStyle" "max-height: 280px;") }}
             </div>
         </div>
     </div>

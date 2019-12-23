@@ -5,6 +5,21 @@
 @tailwind base;
 @tailwind components;
 
+@media (prefers-color-scheme: dark) {
+    body {
+        @apply text-gray-300 bg-gray-700;
+    }
+    a.tag {
+        @apply bg-gray-800 text-gray-200;
+    }
+    code:not([class*='language-']) {
+        @apply text-gray-200 bg-gray-800;
+    }
+    pre {
+        @apply bg-gray-800;
+    }
+}
+
 /* -------- Focus visible -------- */
 *:focus,
 button:focus {
@@ -36,7 +51,7 @@ main {
     position: absolute;
     top: 50%;
     left: 0;
-    border-top: 1px solid theme('colors.green.500');
+    border-top: 2px solid theme('colors.green.500');
     background: theme('colors.green.500');
     width: 70px;
     transform: translateY(-50%);
@@ -157,6 +172,10 @@ body.show-nav #site-canvas {
 #site-menu {
     width: 300px;
     right: -300px;
+}
+
+.transition-all-100 {
+    transition: all 0.1s ease;
 }
 
 .transition-all-300 {

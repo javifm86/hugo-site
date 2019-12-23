@@ -1,7 +1,17 @@
-<footer class="bg-gray-900 text-blue-100 p-4">
-    <div class="container">
-        <div class="text-center">
-            &copy; 2019 Sitio construido con Hugo alojado en Github.
+<footer class="bg-gray-900 text-gray-200 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <p>
+            &copy; 2019 Sitio construido con <a class="text-white underline" href="https://gohugo.io/">Hugo</a> alojado en <a class="text-white underline" href="https://github.com/">Github</a>.
+        </p>
+        <div class="flex items-center">
+            <a href="https://github.com/javifm86" class="mr-1 p-2 text-gray-300 hover:text-white">
+                <span class="sr-only">Github</span>
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/github-icon.svg" "cssClasses" "w-8 pointer-events-none") }}
+            </a>
+            <a href="https://twitter.com/javifm86" class="p-2 text-gray-300 hover:text-white">
+                <span class="sr-only">Twitter</span>
+                {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/twitter.svg" "cssClasses" "w-8 mt-1 pointer-events-none") }}
+            </a>
         </div>
     </div>
 </footer>
