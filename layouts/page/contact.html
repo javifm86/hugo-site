@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $svgUrl := "static/svg/contact.svg" }}
 {{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" .Params.titleHeader "miniTitle" .Params.miniTitle "des" .Params.des) }}
+{{/* https://getform.io/docs/collecting-submissions/spam-filtering-with-recaptcha */}}
 <div class="container mx-auto px-4">
     <div class="max-w-2xl mx-auto my-8 p-6 rounded border border-gray-300 dark:border-gray-600 shadow bg-gray-100 dark:bg-gray-800">
         <form action="https://getform.io/f/7abbd559-9aab-478c-af2b-0fc1762cc1ce" method="POST" accept-charset="UTF-8">
