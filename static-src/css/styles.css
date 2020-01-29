@@ -131,7 +131,7 @@ h2.title {
 }
 
 .single-post ul {
-    @apply list-disc list-inside;
+    @apply list-disc ml-6;
 }
 
 .single-post ol {
