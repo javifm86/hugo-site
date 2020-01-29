@@ -4,10 +4,10 @@
     background-color: theme('colors.gray.900');
 }
 /* Error */
-.chroma .err {
+/*.chroma .err {
     color: #a61717;
     background-color: #e3d2d2;
-}
+}*/
 /* LineTableTD */
 .chroma .lntd {
     vertical-align: top;
