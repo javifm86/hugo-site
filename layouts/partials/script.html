@@ -5,10 +5,8 @@
         const $bodyElement = document.getElementsByTagName('body')[0];
         const $svgOpen = document.getElementById('open-menu');
         const $svgClose = document.getElementById('close-menu');
-        const $siteCanvas = document.getElementById('site-canvas');
         const $siteMenu = document.getElementById('site-menu');
         const $buttonNav = document.getElementById('sidebar-open');
-        const transitionEnd = transitionEndEventName();
         const CSS_CLASS_NAV = 'show-nav';
         let stateNav = 'closed';
 
@@ -22,26 +20,23 @@
         $buttonNav.addEventListener('click', toggleNav);
         window.addEventListener('resize', closeMenuOnResize);
 
-        $siteCanvas.addEventListener(
-            transitionEnd,
-            function() {
-                if (stateNav === 'opening') {
-                    $svgOpen.classList.add('hidden');
-                    $svgClose.classList.remove('hidden');
-                    $buttonNav.setAttribute('aria-label', 'Cerrar menú');
-                    stateNav = 'open';
-                } else {
-                    $svgOpen.classList.remove('hidden');
-                    $svgClose.classList.add('hidden');
-                    $siteMenu.classList.add('hidden');
-                    $buttonNav.setAttribute('aria-label', 'Abrir menú');
-                    stateNav = 'closed';
-                }
-            },
-            false
-        );
-        // setTimeout(toggleNav, 100);
         //////////////////////////////////////////////////////////////
+
+
+        function checkHideNav() {
+            if (stateNav === 'opening') {
+                $svgOpen.classList.add('hidden');
+                $svgClose.classList.remove('hidden');
+                $buttonNav.setAttribute('aria-label', 'Cerrar menú');
+                stateNav = 'open';
+            } else {
+                $svgOpen.classList.remove('hidden');
+                $svgClose.classList.add('hidden');
+                $siteMenu.classList.add('hidden');
+                $buttonNav.setAttribute('aria-label', 'Abrir menú');
+                stateNav = 'closed';
+            }
+        }
 
         function toggleNav() {
             if ($bodyElement.classList.contains(CSS_CLASS_NAV)) {
@@ -52,6 +47,7 @@
                 stateNav = 'opening';
                 $siteMenu.classList.remove('hidden');
             }
+            setTimeout(checkHideNav, 300);
         }
 
         function debounce(func, wait, immediate) {
@@ -72,23 +68,6 @@
                     func.apply(context, args);
                 }
             };
-        }
-
-        function transitionEndEventName() {
-            let i;
-            const el = document.createElement('div');
-            const transitions = {
-                'transition': 'transitionend',
-                'OTransition': 'otransitionend',  // oTransitionEnd in very old Opera
-                'MozTransition': 'transitionend',
-                'WebkitTransition': 'webkitTransitionEnd'
-            };
-
-            for (i in transitions) {
-                if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
-                    return transitions[i];
-                }
-            }
         }
 
     })();
