@@ -1,44 +1,79 @@
-baseURL = "https://javifm.com/beta/"
+baseURL = "https://javifm.com/beta"
 languageCode = "es-es"
 title = "Frontend developer"
 paginate = 12
 summaryLength = 10
 enableEmoji = true
-# PygmentsCodeFences = true
 PygmentsUseClasses = true
-# PygmentsStyle = "native" # https://xyproto.github.io/splash/docs/all.html
-# PygmentsStyle = "github"
+
+DefaultContentLanguage = "es"
+[languages]
+  [languages.es]
+    weight = 1
+  [languages.en]
+    weight = 2
+
 [permalinks]
   blog = "/:section/:title/"
 
-[menu]
-  [[menu.main]]
+[languages.es.menu]
+  [[languages.es.menu.main]]
     name = "Inicio"
-    url = "/"
+    url = ""
     weight = 1
-  [[menu.main]]
+  [[languages.es.menu.main]]
     name = "Blog"
-    url = "/blog/"
+    url = "blog/"
     weight = 2
-  # [[menu.main]]
+  # [[languages.es.menu.main]]
   #   name = "Categories"
   #   url = "/categories/"
   #   weight = 3
-  [[menu.main]]
+  [[languages.es.menu.main]]
     name = "Tags"
-    url = "/tags/"
+    url = "tags/"
     weight = 4
-  [[menu.main]]
+  [[languages.es.menu.main]]
     name = "Sobre mí"
-    url = "/sobre-mi/"
+    url = "about/"
     weight = 5
-  [[menu.main]]
+  [[languages.es.menu.main]]
     name = "Buscar"
-    url = "/search/"
+    url = "search/"
     weight = 6
-  [[menu.main]]
+  [[languages.es.menu.main]]
     name = "Contacto"
-    url = "/contact/"
+    url = "contact/"
+    weight = 7
+
+[languages.en.menu]
+  [[languages.en.menu.main]]
+    name = "Home"
+    url = ""
+    weight = 1
+  [[languages.en.menu.main]]
+    name = "Blog"
+    url = "blog/"
+    weight = 2
+  # [[languages.en.menu.main]]
+  #   name = "Categories"
+  #   url = "/categories/"
+  #   weight = 3
+  [[languages.en.menu.main]]
+    name = "Tags"
+    url = "tags/"
+    weight = 4
+  [[languages.en.menu.main]]
+    name = "About"
+    url = "about/"
+    weight = 5
+  [[languages.en.menu.main]]
+    name = "Search"
+    url = "search/"
+    weight = 6
+  [[languages.en.menu.main]]
+    name = "Contact"
+    url = "contact/"
     weight = 7
 # [outputs]
 #     section = ["JSON", "HTML"]

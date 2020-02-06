@@ -9,7 +9,7 @@
 <div class="bg-gray-100 dark:bg-gray-800 border-t-4 border-green-500">
     <div class="container mx-auto">
         <nav class="flex flex-wrap justify-end items-center p-4">
-            <a href="{{ .Site.BaseURL }}" class="mr-auto p-2 -m-2 last:mr-0" aria-hidden="true">
+            <a href="{{ "" | absLangURL }}" class="mr-auto p-2 -m-2 last:mr-0" aria-hidden="true">
                 <span class="sr-only">Inicio</span>
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/logo.svg" "cssClasses" "w-10 h-10") }}
             </a>
