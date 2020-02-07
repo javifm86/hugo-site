@@ -1,0 +1,143 @@
+# index.html
+[index_bio]
+other = """
+Soy un desarrollador frontend que vive en Madrid. Me encanta centrarme en el rendimiento, el responsive design y la
+accesibilidad. Siempre estoy aprendiendo nuevas herramientas y conceptos.
+"""
+
+[index_homeText]
+other = """
+Apasionado del mundo del desarrollo front. Disfruto programando en Javascript siempre teniendo presente el
+responsive design y la accesibilidad.
+"""
+
+[index_miniTitle]
+other = "Web personal"
+
+[index_youCan]
+other = "Puedes"
+
+[index_textKnow]
+other = "conocer más sobre mí"
+
+[index_or]
+other = "o"
+
+[index_textContact]
+other = "contactarme"
+
+[index_altMe]
+other = "Imagen personal"
+
+# last-articles.html
+[last_title]
+other = "Últimos artículos"
+
+[last_watchAll]
+other = "Ver todos los artículos"
+
+# list.html
+[list_latestPosts]
+other = "Últimos artículos"
+
+[list_tags]
+other = "Artículos sobre..."
+
+[list_tagsDes]
+other = "Artículos de la categoría seleccionada."
+
+# date-and-tags.html
+[date_published]
+other = "Publicado el"
+
+[date_readingTime]
+other = "Tiempo de lectura"
+
+[date_min]
+other = "min"
+
+# terms.html
+[tag_title]
+other = "Tags"
+
+[tag_subtitle]
+other = "Listado de tags"
+
+[tag_minititle]
+other = "Artículos sobre..."
+
+[tag_description]
+other = "Categorías de los artículos publicados en el blog."
+
+# about.html
+[about_subtitle]
+other = "Principales skills"
+
+[about_intro]
+other = """
+Mi nombre es **Javier Fernández** y nací en Madrid en 1986. Desde que conocí internet y
+el mundo de las páginas web supe que quería dedicarme a ello, y comencé a aprender de manera autodidacta
+HTML y CSS antes de acabar el bachillerato. Estudié un grado de formación profesional superior de
+**Administración de sistemas informáticos**, pero pronto comencé a mejorar y aprender en el
+mundo de la programación por mi cuenta.
+"""
+
+[about_bio]
+other = """
+
+Mi profesión es **desarrollador frontend**, siendo mi punto fuerte la programación con
+**Javascript**. He trabajado con Javascript nativo, antiguamente con la librería jQuery y
+recientemente con frameworks actuales como Vue o Angular. Sé maquetar y conozco **CSS**, me
+preocupo por el responsive design. He trabajado con preprocesadores como Sass y PostCSS así como con algunos
+frameworks como Bootstrap y Tailwind CSS.
+
+Utilizo **Git** para control de versiones, siempre que puedo para proyectos en equipo propongo
+utilizar la metodología Git flow.
+
+Respecto a la parte backend, he trabajado con **PHP** y **NodeJS**, aunque no en
+tanta profundidad como para considerarme un desarrollador fullstack. Me encanta desarrollar tareas de
+optimización y automatización con gestores de tareas (Grunt/Gulp), Webpack o directamente con scripts npm en
+NodeJS.
+
+La accesibilidad, optimización y el rendimiento son mis principales objetivos a la hora de ofrecer soluciones en
+la web.
+
+"""
+
+# search.html
+[search_title]
+other ="Buscar en la web"
+
+[search_miniTitle]
+other ="Buscador"
+
+[search_description]
+other ="Introduce los términos de búsqueda deseados para encontrar artículos publicados en el blog."
+
+[search_term]
+other ="Término de búsqueda"
+
+[search_loading]
+other ="Cargando"
+
+# contact.html
+[contact_title]
+other = "Contacta conmigo"
+
+[contact_minititle]
+other = "Contacto"
+
+[contact_description]
+other = "Rellena el formulario para contactar conmigo y trataré de contestar lo antes posible."
+
+[contact_fullName]
+other = "Nombre completo"
+
+[contact_mail]
+other = "Email"
+
+[contact_message]
+other = "Mensaje"
+
+[contact_send]
+other = "Enviar"

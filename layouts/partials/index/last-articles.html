@@ -4,7 +4,7 @@
     }
 </style>
 <div class="container mx-auto">
-    <h2 class="title my-10 pl-4">Últimos artículos</h2>
+    <h2 class="title my-10 pl-4">{{ i18n "last_title" }}</h2>
     <div class="bg-white dark:bg-gray-700 px-4">
     <div class="flex flex-wrap mb-8 p-4 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-900 rounded-sm shadow-md">
         {{ with .Site.GetPage "/blog" }}
@@ -32,7 +32,7 @@
         </article>
         {{ end }}
         <div class="pl-4 mb-4 w-full">
-            <a href="{{ "blog/" | absLangURL }}" class="text-lg sm:text-xl general-link">Ver todos los artículos &rarr;</a>
+            <a href="{{ "blog/" | absLangURL }}" class="text-lg sm:text-xl general-link">{{ i18n "last_watchAll" }} &rarr;</a>
         </div>
     </div>
     </div>

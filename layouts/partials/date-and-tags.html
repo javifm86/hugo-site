@@ -1,18 +1,24 @@
 {{ $dateTime := .context.PublishDate.Format "2006-01-02" }}
 {{ $isFull := (eq .type "full") }}
+{{ $date := .context.PublishDate.Format "Jan 2, 2006" }}
+{{ if eq .context.Site.Language.Lang "es" }}
+{{ $date = print .context.Date.Day " " (index $.context.Site.Data.months (printf "%d" .context.Date.Month)) " " .context.Date.Year }}
+{{ end }}
+
 <div class="flex flex-wrap flex-col sm:flex-row sm:items-center text-gray-700 dark:text-gray-300">
     <time datetime="{{ $dateTime }}">
-        {{ if $isFull }}Publicado el{{ end }} {{ .context.Date.Day }} {{ index $.context.Site.Data.months (printf "%d" .context.Date.Month) }} {{ .context.Date.Year }}</time>
+        {{ if $isFull }}{{ i18n "date_published" }}{{ end }} {{ $date }}
+    </time>
     {{ if $isFull }}
     <span>
-        <span class="mx-2 hidden sm:inline-flex">&bull;</span>Tiempo de lectura: {{ .context.ReadingTime }}min
+        <span class="mx-2 hidden sm:inline-flex">&bull;</span>{{ i18n "date_readingTime" }}: {{ .context.ReadingTime }} {{ i18n "date_min" .context.ReadingTime }}
     </span>
     {{ end }}
 </div>
 {{ with .context.Params.tags }}
     <div class="mt-4">
         {{ range . }}
-            {{ $href := print (absURL "tags/") (urlize .) }}
+            {{ $href := print (absLangURL "tags/") (urlize .) }}
             <a class="tag inline-block text-sm mr-2 mb-2" href="{{ $href }}">{{ . }}</a>
         {{ end }}
     </div>

@@ -1,5 +1,5 @@
-baseURL = "https://javifm.com/beta"
-languageCode = "es-es"
+baseURL = "https://javifm.com"
+# languageCode = "es-es"
 title = "Frontend developer"
 paginate = 12
 summaryLength = 10
@@ -19,11 +19,11 @@ DefaultContentLanguage = "es"
 [languages.es.menu]
   [[languages.es.menu.main]]
     name = "Inicio"
-    url = ""
+    url = "/"
     weight = 1
   [[languages.es.menu.main]]
     name = "Blog"
-    url = "blog/"
+    url = "/blog/"
     weight = 2
   # [[languages.es.menu.main]]
   #   name = "Categories"
@@ -31,29 +31,29 @@ DefaultContentLanguage = "es"
   #   weight = 3
   [[languages.es.menu.main]]
     name = "Tags"
-    url = "tags/"
+    url = "/tags/"
     weight = 4
   [[languages.es.menu.main]]
     name = "Sobre mí"
-    url = "about/"
+    url = "/about/"
     weight = 5
   [[languages.es.menu.main]]
     name = "Buscar"
-    url = "search/"
+    url = "/search/"
     weight = 6
   [[languages.es.menu.main]]
     name = "Contacto"
-    url = "contact/"
+    url = "/contact/"
     weight = 7
 
 [languages.en.menu]
   [[languages.en.menu.main]]
     name = "Home"
-    url = ""
+    url = "/"
     weight = 1
   [[languages.en.menu.main]]
     name = "Blog"
-    url = "blog/"
+    url = "/blog/"
     weight = 2
   # [[languages.en.menu.main]]
   #   name = "Categories"
@@ -61,19 +61,19 @@ DefaultContentLanguage = "es"
   #   weight = 3
   [[languages.en.menu.main]]
     name = "Tags"
-    url = "tags/"
+    url = "/tags/"
     weight = 4
   [[languages.en.menu.main]]
     name = "About"
-    url = "about/"
+    url = "/about/"
     weight = 5
   [[languages.en.menu.main]]
     name = "Search"
-    url = "search/"
+    url = "/search/"
     weight = 6
   [[languages.en.menu.main]]
     name = "Contact"
-    url = "contact/"
+    url = "/contact/"
     weight = 7
 # [outputs]
 #     section = ["JSON", "HTML"]

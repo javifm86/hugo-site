@@ -16,18 +16,11 @@
         <h1 class="title">{{ .Title }}</h1>
     </div>
     <div class="single-post-content">
-        <p>
-            ¡Hola! Mi nombre es <strong>Javier Fernández</strong> y nací en Madrid en 1986. Desde que conocí internet y
-            el mundo de las páginas web supe que quería dedicarme a ello, y comencé a aprender de manera autodidacta
-            HTML y CSS antes de acabar el bachillerato. Estudié un grado de formación profesional superior de
-            <strong>Administración de sistemas informáticos,</strong> pero pronto comencé a mejorar y aprender en el
-            mundo de la programación por mi cuenta.
-        </p>
+        <p>{{- i18n "about_intro" | markdownify -}}</p>
     </div>
-</div>
-
-<div class="text-center my-12">
-    <h2 class="title">Principales skills</h2>
+    <div class="my-12">
+        <h2 class="title">{{ i18n "about_subtitle" }}</h2>
+    </div>
 </div>
 
 <div class="container mx-auto flex flex-wrap items-center svg-container">
@@ -63,27 +56,7 @@
     </div>
 </div>
 <div class="container mx-auto px-4 single-post single-post-content">
-    <p>
-        Mi profesión es <strong>desarrollador frontend</strong>, siendo mi punto fuerte la programación con
-        <strong>Javascript</strong>. He trabajado con Javascript nativo, antiguamente con la librería jQuery y
-        recientemente con frameworks actuales como Vue o Angular. Sé maquetar y conozco <strong>CSS</strong>, me
-        preocupo por el responsive design. He trabajado con preprocesadores como Sass y PostCSS así como con algunos
-        frameworks como Bootstrap y Tailwind CSS.
-    </p>
-    <p>
-        Utilizo <strong>Git</strong> para control de versiones, siempre que puedo para proyectos en equipo propongo
-        utilizar la metodología Git flow.
-    </p>
-    <p>
-        Respecto a la parte backend, he trabajado con <strong>PHP</strong> y <strong>NodeJS</strong>, aunque no en
-        tanta profundidad como para considerarme un desarrollador fullstack. Me encanta desarrollar tareas de
-        optimización y automatización con gestores de tareas (Grunt/Gulp), Webpack o directamente con scripts npm en
-        NodeJS.
-    </p>
-    <p>
-        La accesibilidad, optimización y el rendimiento son mis principales objetivos a la hora de ofrecer soluciones en
-        la web.
-    </p>
+    {{- i18n "about_bio" | markdownify -}}
 </div>
 
 {{ end }}
