@@ -115,6 +115,15 @@ other ="Search term"
 [search_loading]
 other ="Loading"
 
+[search_error]
+other ="Error loading info."
+
+[search_noCoincidence]
+other ="No matches found in the search."
+
+[search_inputPlaceholder]
+other ="Enter search term"
+
 # contact.html
 [contact_title]
 other = "Contact me"

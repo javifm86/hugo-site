@@ -120,6 +120,15 @@ other ="Término de búsqueda"
 [search_loading]
 other ="Cargando"
 
+[search_error]
+other ="Se ha producido un error."
+
+[search_noCoincidence]
+other ="No se han encontrado coindidencias en la búsqueda."
+
+[search_inputPlaceholder]
+other ="Introduce término de búsqueda"
+
 # contact.html
 [contact_title]
 other = "Contacta conmigo"

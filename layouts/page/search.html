@@ -1,10 +1,10 @@
 {{ define "main" }}
 {{ $svgUrl := "static/svg/search.svg" }}
-{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" .Params.titleHeader "miniTitle" .Params.miniTitle "des" .Params.des) }}
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" (i18n "search_title") "miniTitle" (i18n "search_miniTitle") "des" (i18n "search_description")) }}
 <div class="container mx-auto px-4">
     <div class="relative my-10">
-        <label for="search-input" class="sr-only">Término de búsqueda</label>
-        <input type="text" id="search-input" name="search" placeholder="Cargando..." class="focus:outline-none border-solid border-2 border-gray-400 focus:border-green-400 dark:border-gray-700 dark:focus:bg-white dark:text-gray-700 dark:bg-gray-300 block text-lg sm:text-xl w-full rounded px-10 py-2">
+        <label for="search-input" class="sr-only"></label>
+        <input type="text" id="search-input" name="search" placeholder="{{i18n "search_loading"}}..." class="focus:outline-none border-solid border-2 border-gray-400 focus:border-green-400 dark:border-gray-700 dark:focus:bg-white dark:text-gray-700 dark:bg-gray-300 block text-lg sm:text-xl w-full rounded px-10 py-2">
         <div class="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
             {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/search.svg" "cssClasses" "fill-current pointer-events-none text-gray-600 w-4 h-4") }}
         </div>
@@ -14,8 +14,116 @@
 {{ end }}
 
 {{ define "script" }}
-{{ $search := "js/search.js" | absURL }}
 {{ $lunr := "js/lunr.min.js" | absURL }}
-<script src="{{ $search }}"></script>
 <script src="{{ $lunr }}"></script>
+<script type="text/javascript">
+    // https://github.com/olivernn/lunr.js/issues/273
+    // https://gist.github.com/mwalters/81dc0ab448b11621514ed02c799a9536
+    // https://www.mattwalters.net/posts/hugo-and-lunr/#fnref:2
+    // https://www.josephearl.co.uk/post/static-sites-search-hugo/
+    (function() {
+        let idx;
+        let documents = [];
+        const URL_LIST_POSTS = '{{ "blog/index.json" | relLangURL }}';
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        // Request and index documents
+        fetch(URL_LIST_POSTS, {
+            method: 'get'
+        })
+            .then(res => res.json())
+            .then(res => {
+                // Create index document with lunr
+                idx = lunr(function() {
+                    this.ref('url');
+                    this.field('title');
+                    this.field('content');
+                    this.field('summary');
+
+                    res.forEach(function(doc) {
+                        this.add(doc);
+                        documents[doc.url] = {
+                            title: doc.title,
+                            content: doc.content,
+                            summary: doc.summary
+                        };
+                    }, this);
+                });
+
+                // Once data is loaded we can register handler
+                registerSearchHandler();
+            })
+            .catch(err => {
+                console.log({ err });
+                const errorMsg = '{{ i18n "search_error" }}';
+                searchResults.innerHTML = `
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+                    <p>${errorMsg}</p>
+                </div>`;
+            });
+
+        ///////////////////////////////////////////////////////////
+
+        function renderSearchResults(results) {
+            const noResults = '{{ i18n "search_noCoincidence" }}';
+            // If results are empty
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
+                    <p>${noResults}</p>
+                </div>
+                `;
+                return;
+            }
+
+            // Show max 10 results
+            if (results.length > 9) {
+                results = results.slice(0, 10);
+            }
+
+            // Reset search results
+            searchResults.innerHTML = '';
+
+            // Append results
+            results.forEach(result => {
+                // Create result item
+                let article = document.createElement('article');
+                article.classList.add('mb-8');
+                article.innerHTML = `
+                    <a href="${result.ref}" class="block group">
+                        <h2 class="article-title group-hover:text-green-500 pb-1">${documents[result.ref].title}</h2>
+                        <div class="text-gray-700 dark:text-gray-300"><p>${documents[result.ref].summary}</p></div>
+                    </a>
+                    `;
+                searchResults.appendChild(article);
+            });
+        }
+
+        function registerSearchHandler() {
+            // Register on input event
+            searchInput.oninput = function(event) {
+                if (searchInput.value === '') {
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                // Get input value
+                const query = event.target.value;
+
+                // Run fuzzy search
+                const results = idx.query(function(q) {
+                    q.term(lunr.tokenizer(query.trim()), { usePipeline: true, boost: 100 });
+                    q.term(lunr.tokenizer(query.trim()) + '*', { usePipeline: false, boost: 10 });
+                    q.term(lunr.tokenizer(query.trim()), { usePipeline: false, editDistance: 1 });
+                });
+
+                // Render results
+                renderSearchResults(results);
+            };
+
+            searchInput.placeholder = '{{ i18n "search_inputPlaceholder" }}';
+        }
+    })();
+</script>
 {{ end }}
