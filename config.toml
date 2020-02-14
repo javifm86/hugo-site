@@ -49,11 +49,11 @@ DefaultContentLanguage = "es"
 [languages.en.menu]
   [[languages.en.menu.main]]
     name = "Home"
-    url = "/"
+    url = "/en/"
     weight = 1
   [[languages.en.menu.main]]
     name = "Blog"
-    url = "/blog/"
+    url = "/en//blog/"
     weight = 2
   # [[languages.en.menu.main]]
   #   name = "Categories"
@@ -61,22 +61,28 @@ DefaultContentLanguage = "es"
   #   weight = 3
   [[languages.en.menu.main]]
     name = "Tags"
-    url = "/tags/"
+    url = "/en/tags/"
     weight = 4
   [[languages.en.menu.main]]
     name = "About"
-    url = "/about/"
+    url = "/en/about/"
     weight = 5
   [[languages.en.menu.main]]
     name = "Search"
-    url = "/search/"
+    url = "/en/search/"
     weight = 6
   [[languages.en.menu.main]]
     name = "Contact"
-    url = "/contact/"
+    url = "/en/contact/"
     weight = 7
 # [outputs]
 #     section = ["JSON", "HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
 
 [params]
   # .Site.Params.homeText
