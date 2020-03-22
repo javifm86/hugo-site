@@ -1,6 +1,7 @@
 const purgecss = require('@fullhuman/postcss-purgecss')({
     content: ['./content/**/*.md', './layouts/**/*.html', './static/**/*.js'],
     whitelist: ['chroma'],
+    whitelistPatternsChildren: [/chroma$/],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 });
 

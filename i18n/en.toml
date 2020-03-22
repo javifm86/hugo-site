@@ -1,0 +1,147 @@
+# index.html
+[index_bio]
+other = """
+I am a frontend developer who lives in Madrid. I love to focus on performance, responsive design and accessibility.
+I am always learning new tools and concepts.
+"""
+
+[index_homeText]
+other = """
+Passionate about the frontend development world. I enjoy programming in Javascript always keeping in mind
+responsive design and accessibility.
+"""
+
+[index_miniTitle]
+other = "Personal website"
+
+[index_youCan]
+other = "You can"
+
+[index_textKnow]
+other = "know more about me"
+
+[index_or]
+other = "or"
+
+[index_textContact]
+other = "contact me"
+
+[index_altMe]
+other = "Personal image"
+
+# last-articles.html
+[last_title]
+other = "Latest posts"
+
+[last_watchAll]
+other = "Go to all posts"
+
+# list.html
+[list_latestPosts]
+other = "Latest posts"
+
+[list_tags]
+other = "Posts about..."
+
+[list_tagsDes]
+other = "Articles for the selected category."
+
+# date-and-tags.html
+[date_published]
+other = "Published"
+
+[date_readingTime]
+other = "Reading time"
+
+[date_min]
+other = "min"
+
+# terms.html
+[tag_title]
+other = "Tags"
+
+[tag_subtitle]
+other = "Tag List"
+
+[tag_minititle]
+other = "Posts about..."
+
+[tag_description]
+other = "Categories for articles published on the blog."
+
+# about.html
+[about_subtitle]
+other = "Main skills"
+
+[about_intro]
+other = """
+My name is **Javier Fernández** and I was born in Madrid in 1986. Since I discover Internet and the world
+of web pages I realized that I wanted to dedicate myself to it, and I began to learn HTML and CSS self-taught before
+finishing high school. I studied a higher professional degree in **Computer Systems Administration**, but
+soon I started to improve and learn in the world of programming on my own.
+"""
+
+[about_bio]
+other = """
+
+My profession is a **frontend developer**, my strong area is Javascript. I have worked with vanilla Javascript,
+formerly with jQuery library and recently with frameworks such as Vue or Angular. I know **CSS** and I care about
+responsive design. I have worked with preprocessors such as Sass and PostCSS as well as with some
+frameworks such as Bootstrap and TailwindCSS.
+
+I use **Git** as control version and I like using Git flow methodology.
+
+Regarding backend, I have worked with **PHP** and **NodeJS**, although not as deep as to consider me a fullstack developer.
+I love to develop tasks for optimization and automation with task managers (Grunt / Gulp), Webpack or directly with
+npm scripts in NodeJS.
+
+Accessibility, optimization and performance are my main objectives when offering solutions in web development.
+
+"""
+
+# search.html
+[search_title]
+other ="Search in the web"
+
+[search_miniTitle]
+other ="Search engine"
+
+[search_description]
+other ="Enter desired search term to find articles published on the blog."
+
+[search_term]
+other ="Search term"
+
+[search_loading]
+other ="Loading"
+
+[search_error]
+other ="Error loading info."
+
+[search_noCoincidence]
+other ="No matches found in the search."
+
+[search_inputPlaceholder]
+other ="Enter search term"
+
+# contact.html
+[contact_title]
+other = "Contact me"
+
+[contact_minititle]
+other = "Contact"
+
+[contact_description]
+other = "Fill in the form to contact me and I will try to answer as soon as possible."
+
+[contact_fullName]
+other = "Full name"
+
+[contact_mail]
+other = "Email"
+
+[contact_message]
+other = "Message"
+
+[contact_send]
+other = "Send"

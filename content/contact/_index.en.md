@@ -1,5 +1,5 @@
 ---
-title: Contacto
+title: Contact
 layout: contact
 type: page
 ---
