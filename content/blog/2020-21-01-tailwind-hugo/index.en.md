@@ -11,7 +11,7 @@ tags:
 ---
 
 In this article we are going to see how can we build our Hugo site with [TailwindCSS][1]. Hugo is very flexible and
-allows us setting up our site easily as we want. In this web, y have a `baseof.html` file as template for the site. Inside
+allows us setting up our site easily as we want. In this web, I have a `baseof.html` file as template for the site. Inside
 this file I have a partial (an include in Hugo) file, `head.html`.
 
 {{< highlight go-html-template >}}
@@ -35,10 +35,7 @@ We import `styles.css` file from css folder and call `absURL` Hugo function, so 
 {{< / highlight >}}
 
 Static files in Hugo are saved by default in `static` folder so that is the first step, having `styles.css` in
-`/static/css/`. This files is going to be generated
-
-Los archivos estáticos en Hugo se guardan por defecto en la carpeta `static`, así que ya tenemos el primer paso, tener un
-fichero `styles.css` en la ruta `/static/css/`. As this file is going to be generated, what I have done has been to create a
+`/static/css/`. As this file is going to be generated, what I have done has been to create a
 folder called `static-src` where to have sources of my static files that I will subsequently process.
 
 Before continuing, we will install the dependencies that we will need with npm.
@@ -61,8 +58,8 @@ on npm script.
 -   **cssnano**: CSS minifier.
 
 With all these dependencies we are ready to generate a CSS file with just the utility classes used and not the whole
-framework. Let´s generate an empty Tailwind config file so that [we can customize default settings][2] in the framework. We
-just run:
+framework. Let´s generate an empty Tailwind config file so that [we can customize default settings][2] in the framework.
+We simply run:
 
 {{< highlight shell >}}
 npx tailwind init
@@ -99,7 +96,7 @@ a.tag:hover {
 @tailwind utilities;
 {{< / highlight >}}
 
-Tailwind is comiled using PostCSS, so adding new plugins is very easy. We are going to add `autoprefixer` in order to
+Tailwind is compiled using PostCSS, so adding new plugins is very easy. We are going to add `autoprefixer` in order to
 auto generate prefixes for CSS properties that need them. Besides when compiling for production, we will use `purgecss`
 and `cssnano` for reducing the file size for our stylesheet. Let´s see PostCSS config file (`postcss.config.js` in the
 root folder):
