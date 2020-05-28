@@ -52,8 +52,8 @@
     "postcss-import": "^12.0.1",
     "prettier": "1.19.1",
     "rimraf": "^3.0.0",
-    "tailwindcss": "^1.2.0",
-    "tailwindcss-prefers-dark-mode": "^1.1.1",
+    "tailwindcss": "^1.4.0",
+    "tailwindcss-prefers-dark-mode": "^1.2.0",
     "watch": "^1.0.2"
   }
 }
