@@ -50,6 +50,9 @@ other = "Artículos de la categoría seleccionada."
 [date_published]
 other = "Publicado el"
 
+[date_updated]
+other = "Actualizado el"
+
 [date_readingTime]
 other = "Tiempo de lectura"
 
