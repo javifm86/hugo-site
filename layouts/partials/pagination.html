@@ -1,7 +1,7 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 }}
 
-<ul class="pagination flex items-center justify-center text-xl text-gray-700 dark:text-gray-400">
+<ul class="pagination flex items-center justify-center text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-400">
     {{ with $pag.First }}
     <!-- <li class="page-item py-3">
         <a href="{{ .URL }}" class="page-link" aria-label="First">
