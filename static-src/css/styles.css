@@ -232,7 +232,6 @@ blockquote p:first-of-type {
 #site-canvas {
     /* For sticky footer */
     @apply flex min-h-screen flex-col;
-    height: 100px; /* min-height is buggy in IE11 */
     transform: translateX(0);
     transform: translate3d(0, 0, 0);
     transition: transform 300ms ease;
