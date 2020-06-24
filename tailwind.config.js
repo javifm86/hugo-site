@@ -29,6 +29,9 @@ module.exports = {
                 '9/12': '75%',
                 '10/12': '83.333333%',
                 '11/12': '91.666667%'
+            },
+            gridTemplateColumns: {
+               'auto-fit-min-290': 'repeat(auto-fit, minmax(290px, 1fr))'
             }
         }
     },
