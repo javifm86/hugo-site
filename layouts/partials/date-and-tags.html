@@ -1,8 +1,11 @@
 {{ $dateTime := .context.PublishDate.Format "2006-01-02" }}
+{{ $updateDateTime := .context.Lastmod.Format "2006-01-02" }}
 {{ $isFull := (eq .type "full") }}
 {{ $date := .context.PublishDate.Format "Jan 2, 2006" }}
+{{ $updatedDate := .context.Lastmod.Format "Jan 2, 2006" }}
 {{ if eq .context.Site.Language.Lang "es" }}
 {{ $date = print .context.Date.Day " " (index $.context.Site.Data.months (printf "%d" .context.Date.Month)) " " .context.Date.Year }}
+{{ $updatedDate = print .context.Lastmod.Day " " (index $.context.Site.Data.months (printf "%d" .context.Lastmod.Month)) " " .context.Lastmod.Year }}
 {{ end }}
 
 <div class="flex flex-wrap flex-col sm:flex-row sm:items-center text-gray-700 dark:text-gray-300">
@@ -10,6 +13,11 @@
         {{ if $isFull }}{{ i18n "date_published" }}{{ end }} {{ $date }}
     </time>
     {{ if $isFull }}
+     {{ if ne $date $updatedDate }}
+    <time datetime="{{ $updateDateTime }}">
+        <span class="mx-2 hidden sm:inline-flex">&bull;</span>{{ i18n "date_updated" }} {{ $updatedDate }}
+    </time>
+    {{ end }}
     <span>
         <span class="mx-2 hidden sm:inline-flex">&bull;</span>{{ i18n "date_readingTime" }}: {{ .context.ReadingTime }} {{ i18n "date_min" .context.ReadingTime }}
     </span>

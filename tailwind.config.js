@@ -29,6 +29,9 @@ module.exports = {
                 '9/12': '75%',
                 '10/12': '83.333333%',
                 '11/12': '91.666667%'
+            },
+            gridTemplateColumns: {
+               'auto-fit-min-290': 'repeat(auto-fit, minmax(290px, 1fr))'
             }
         }
     },
@@ -51,5 +54,10 @@ module.exports = {
         boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
         margin: ['responsive']
     },
-    plugins: [require('tailwindcss-prefers-dark-mode')()]
+    plugins: [
+        require('tailwindcss-prefers-dark-mode')({
+            type: 'mediaQuery',
+            className: '.the-dark'
+        })
+    ]
 };

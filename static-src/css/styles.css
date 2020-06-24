@@ -39,7 +39,9 @@ body {
 }
 
 main {
-    @apply flex-1;
+    /* IE11 prefers flex-basis: auto, flex-basis: 0 is not working */
+    /* @apply flex-1; */
+    @apply flex-auto;
 }
 
 .line-before {
@@ -252,6 +254,51 @@ body.show-nav #site-canvas {
     overflow: visible;
     clip: auto;
     white-space: normal;
+}
+
+/* list.html css grid with fallback to flexbox */
+.grid-container {
+    @apply flex flex-wrap -mx-2 mb-8;
+}
+
+.item-container {
+    @apply w-full px-4 mb-8;
+}
+
+@screen sm {
+    .item-container {
+        @apply w-1/2;
+    }
+}
+@screen lg {
+    .item-container {
+        @apply w-1/3;
+    }
+}
+
+@supports (display: grid) {
+    .blog-container {
+        @apply px-4;
+    }
+   .grid-container {
+        @apply grid gap-8 grid-cols-auto-fit-min-290 mb-12 mx-0;
+        /* grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); */
+        grid-auto-rows: 1fr;
+    }
+
+    .item-container {
+       @apply w-full px-0 mb-0;
+    }
+    @screen sm {
+        .item-container {
+            @apply w-full
+        }
+    }
+    @screen lg {
+        .item-container {
+            @apply w-full
+        }
+    }
 }
 
 @tailwind utilities;

@@ -50,6 +50,9 @@ other = "Articles for the selected category."
 [date_published]
 other = "Published"
 
+[date_updated]
+other = "Updated"
+
 [date_readingTime]
 other = "Reading time"
 
@@ -144,4 +147,4 @@ other = "Email"
 other = "Message"
 
 [contact_send]
-other = "Send"
+other = "Contact"

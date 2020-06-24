@@ -175,8 +175,8 @@ prueba][4] que he creado en otro repositorio para verlo en acción.
 obliga a tener instalado globalmente `postcss-cli` además de los plugins que uses. Yo personalmente prefiero no tener
 instalados globalmente paquetes y poder personalizar todo el proceso, pero es una opción a tener en cuenta que nos brinda Hugo.
 
- [1]: https://tailwindcss.com/docs/configuration/#app
- [2]: https://tailwindcss.com/
+ [1]: https://tailwindcss.com/
+ [2]: https://tailwindcss.com/docs/configuration/#app
  [3]: https://github.com/javifm86/hugo-tailwindcss-starter
  [4]: https://github.com/javifm86/hugo-tailwindcss
  [5]: https://gohugo.io/hugo-pipes/postcss/
