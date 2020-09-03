@@ -3,7 +3,7 @@
 {{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" (i18n "search_title") "miniTitle" (i18n "search_miniTitle") "des" (i18n "search_description")) }}
 <div class="container mx-auto px-4">
     <div class="relative my-10">
-        <label for="search-input" class="sr-only"></label>
+        <label for="search-input" class="sr-only">{{i18n "search_term"}}</label>
         <input type="text" id="search-input" name="search" placeholder="{{i18n "search_loading"}}..." class="focus:outline-none border-solid border-2 border-gray-400 focus:border-green-400 dark:border-gray-700 dark:focus:bg-white dark:text-gray-700 dark:bg-gray-300 block text-lg sm:text-xl w-full rounded px-10 py-2">
         <div class="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
             {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/search.svg" "cssClasses" "fill-current pointer-events-none text-gray-600 w-4 h-4") }}
