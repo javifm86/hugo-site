@@ -73,6 +73,14 @@ code:not([class*='language-']) {
     font-size: 95%;
 }
 
+.lntable code {
+    color: inherit;
+    background: inherit;
+    padding: initial;
+    font-size: inherit;
+    border-radius: 0;
+}
+
 article.post-container:hover a.post-container-title {
     @apply text-green-500;
 }
@@ -134,8 +142,17 @@ h2.title {
 .single-post ul,
 .single-post ol,
 .single-post-content blockquote,
+.chroma,
 pre {
     @apply mb-6;
+}
+
+.lntable pre {
+    @apply mb-0;
+}
+
+.lntable .lntd:nth-child(2) {
+    @apply w-full;
 }
 
 .single-post ul {
@@ -204,16 +221,16 @@ a.general-link {
     @apply mt-0;
 }
 
-.single-post-content table {
+.single-post-content table:not(.lntable) {
     @apply max-w-full my-2 border-collapse;
 }
 
-.single-post-content table thead {
+.single-post-content table:not(.lntable) thead {
     @apply bg-gray-200;
 }
 
-.single-post-content table th,
-.single-post-content table td {
+.single-post-content table:not(.lntable) th,
+.single-post-content table:not(.lntable) td {
     @apply border border-gray-300 p-2;
 }
 /*
