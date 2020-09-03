@@ -100,7 +100,7 @@ with key `path` and `extra-webpack.config.js` as its value.
 
 Finally we will add our `src/tailwind.scss` stylesheet to the array in `architect.build.options.styles`. Let´s see all the changes together:
 
-{{< highlight JSON "hl_lines=3 5-7 10 17 19-21" >}}
+{{< highlight JSON "linenos=table,hl_lines=3 5-7 10 17 19-21" >}}
 "architect": {
   "build": {
     "builder": "@angular-builders/custom-webpack:browser",
@@ -183,7 +183,7 @@ npm install cross-env --save-dev
 
 After the installation we can create a script in `package.json` to launch the build:
 
-{{< highlight JSON "hl_lines=10" >}}
+{{< highlight JSON "linenos=table,hl_lines=10" >}}
 {
   // ...
   "scripts": {
