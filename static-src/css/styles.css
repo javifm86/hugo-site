@@ -1,16 +1,28 @@
-/* https://github.com/voronianski/oceanic-next-color-scheme */
-/* https://developers.google.com/web/updates/2019/03/prefers-reduced-motion */
+/* Syntax highlighter styles for hugo */
 @import './syntax-native.css';
 
 @tailwind base;
 @tailwind components;
+
+body {
+    @apply text-gray-900;
+}
+
+main {
+    /* IE11 prefers flex-basis: auto, flex-basis: 0 is not working */
+    /* @apply flex-1; */
+    @apply flex-auto;
+}
 
 @media (prefers-color-scheme: dark) {
     body {
         @apply text-gray-300 bg-gray-700;
     }
     a.tag {
-        @apply bg-gray-800 text-gray-200;
+        @apply bg-gray-700 text-gray-100;
+    }
+    article.single-post  a.tag, a.tag.tag-lg {
+        @apply bg-gray-800 text-gray-100;
     }
     code:not([class*='language-']) {
         @apply text-gray-200 bg-gray-800;
@@ -34,31 +46,6 @@ button:focus-visible {
 }
 /* -------- End Focus visible -------- */
 
-body {
-    @apply text-gray-900;
-}
-
-main {
-    /* IE11 prefers flex-basis: auto, flex-basis: 0 is not working */
-    /* @apply flex-1; */
-    @apply flex-auto;
-}
-
-.line-before {
-    position: relative;
-    padding-left: 80px;
-}
-.line-before:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    border-top: 2px solid theme('colors.green.500');
-    background: theme('colors.green.500');
-    width: 70px;
-    transform: translateY(-50%);
-}
-
 pre {
     @apply p-4 overflow-auto text-base bg-gray-200;
 }
@@ -73,6 +60,23 @@ code:not([class*='language-']) {
     font-size: 95%;
 }
 
+.lntable code {
+    color: inherit;
+    background: inherit;
+    padding: initial;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+.lntable pre {
+    @apply mb-0;
+}
+
+.lntable .lntd:nth-child(2) {
+    @apply w-full;
+}
+
+/* -------- Post container in article.html -------- */
 article.post-container:hover a.post-container-title {
     @apply text-green-500;
 }
@@ -99,14 +103,9 @@ a.post-container-title::before {
     width: 100%;
     height: 100%;
 }
+/* -------- End post container in article.html -------- */
 
-a.tag {
-    @apply bg-gray-200 rounded-full px-3 py-1 font-semibold text-gray-700;
-}
-
-a.tag:hover {
-    @apply underline;
-}
+/* -------- Titles -------- */
 
 h1.title {
     @apply text-3xl font-serif leading-tight font-bold mb-2;
@@ -130,10 +129,15 @@ h2.title {
     }
 }
 
+/* -------- End titles -------- */
+
+/* -------- Single post -------- */
+
 .single-post p,
 .single-post ul,
 .single-post ol,
 .single-post-content blockquote,
+.chroma,
 pre {
     @apply mb-6;
 }
@@ -204,59 +208,23 @@ a.general-link {
     @apply mt-0;
 }
 
-.single-post-content table {
+.single-post-content table:not(.lntable) {
     @apply max-w-full my-2 border-collapse;
 }
 
-.single-post-content table thead {
+.single-post-content table:not(.lntable) thead {
     @apply bg-gray-200;
 }
 
-.single-post-content table th,
-.single-post-content table td {
+.single-post-content table:not(.lntable) th,
+.single-post-content table:not(.lntable) td {
     @apply border border-gray-300 p-2;
 }
-/*
-blockquote p:last-of-type {
 
-    margin-bottom: 0;
+/* -------- Single post -------- */
 
-}
-blockquote p:first-of-type {
+/* --------  list.html css grid with fallback to flexbox -------- */
 
-    margin-top: 0;
-
-}
-*/
-
-#site-canvas {
-    /* For sticky footer */
-    @apply flex min-h-screen flex-col;
-    transform: translateX(0);
-    transform: translate3d(0, 0, 0);
-    transition: transform 300ms ease;
-    backface-visibility: hidden;
-}
-
-body.show-nav #site-canvas {
-    transform: translateX(-300px);
-    transform: translate3d(-300px, 0, 0);
-}
-#site-menu {
-    width: 300px;
-    right: -300px;
-}
-
-#skiplink:focus {
-    position: absolute;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-}
-
-/* list.html css grid with fallback to flexbox */
 .grid-container {
     @apply flex flex-wrap -mx-2 mb-8;
 }
@@ -300,5 +268,73 @@ body.show-nav #site-canvas {
         }
     }
 }
+
+/* --------  End list.html css grid with fallback to flexbox -------- */
+
+/* --------  Styles for offcanvas menu -------- */
+
+#site-canvas {
+    /* For sticky footer */
+    @apply flex min-h-screen flex-col;
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+    transition: transform 300ms ease;
+    backface-visibility: hidden;
+}
+
+body.show-nav #site-canvas {
+    transform: translateX(-300px);
+    transform: translate3d(-300px, 0, 0);
+}
+#site-menu {
+    width: 300px;
+    right: -300px;
+}
+
+/* --------  End Styles for offcanvas menu -------- */
+
+/* --------  Other styles -------- */
+#skiplink:focus {
+    position: absolute;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+.line-before {
+    position: relative;
+    padding-left: 80px;
+}
+.line-before:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: 2px solid theme('colors.green.500');
+    background: theme('colors.green.500');
+    width: 70px;
+    transform: translateY(-50%);
+}
+
+a.tag {
+    @apply bg-gray-200 rounded-full px-3 py-1 font-semibold text-gray-700;
+}
+
+a.tag:hover {
+    @apply underline;
+}
+
+/* --------  End other styles -------- */
+
+/*
+blockquote p:last-of-type {
+    margin-bottom: 0;
+}
+blockquote p:first-of-type {
+    margin-top: 0;
+}
+*/
 
 @tailwind utilities;

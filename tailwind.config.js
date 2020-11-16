@@ -52,6 +52,7 @@ module.exports = {
         ],
         borderStyle: ['responsive', 'dark'],
         boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
+        placeholderColor: ['responsive', 'focus', 'dark:placeholder'],
         margin: ['responsive']
     },
     plugins: [
