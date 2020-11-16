@@ -1,55 +1,55 @@
 ---
-title: "Buscar en Hugo con Lunr"
-date: 2020-08-19
+title: "Search in Hugo with Lunr"
+date: 2020-11-16
 author: javi
 type: post
 img: img/hugo-search.png
-altImg: Lupa sobre ordenador portátil
+altImg: Magnifying glass over laptop
 tags:
     - hugo
 ---
+¿What is the best way to make a search engine in Hugo? My first attempt was looking for information in the [official documentation][1],
+I found some guides and links which helped me, but none of them suited my needs. So I will detail in this guide the solution that
+I have developed.
 
-¿Cómo implementar un **buscador con Hugo**? Mi primer impulso fue buscar en la [documentación oficial][1], donde encontré una
-serie de links y guías que me permitieron orientarme un poco, pero no terminaba de convencerme ninguna. Asi que en esta guía voy
-a detallar cual es la solución que he desarrollado.
+Every guide suggest these 2 possibilities:
 
-En los distintos sitios que encontré guías basicamente las posibilidades eran 2:
+-   [Algolia][2]: It´s a service that provides a set of tools that simplify the process of making and integrating a
+    full search experience into our sites and applications. It has **an automated crawler to extract content from web sites**.
+    It´s a third party service which allows the integration on a static site easily, we just have to use the provided API in front.
+    Algolia is used in a lot of different sites but I decided I didn´t want to use
+    a third party service.
+    
+-   [Lunr][3]: Lunr.js is a small, full-text search library for use in the browser. It indexes JSON documents and provides a
+    simple search interface for retrieving documents that best match text queries. It allows [fuzzy search][4] that is the technique
+    of finding strings that match a pattern approximately (rather than exactly). This is the approach used in this blog.
 
--   [Algolia][2]: Es un servicio que se encarga de **rastrear todas las páginas de un sitio web**. De esa manera es capaz de proveer
-    una **API** que podremos utilizar para realizar búsquedas en nuestra web. Tiene la ventaja de que al ser un servicio de un tercero,
-    facilita la integración en sitios estáticos pues basta con llamar a la API desde el front. Es una opción muy válida y utilizada
-    en multitud de sitios, pero en mi caso prefería decantarme por una opción sin depender de servicios de terceros.
--   [Lunr][3]: Lunr es una librería Javascript que permite realizar búsquedas en ficheros con formato JSON. Ofrece una interfaz sencilla pero
-    potente para hacer búsquedas en cliente. Permite realizar [fuzzy search][4], que es un algoritmo que permite devolver los resultados más
-    relevantes para una búsqueda a pesar de que el término introducido no coincida exactamente. Esta opción es la que he elegido e
-    implementado en este blog.
+## Defining the output of our content in JSON format
 
-## Definiendo la salida de nuestro contenido en formato JSON
+Having Lunr as Javascript library for fuzzy search we just need the other part in order to complete our search engine: a JSON file
+with posts content from the blog. We can define this behaviour in 2 differents ways:
 
-Con Lunr como librería Javascript para realizar fuzzy search tan solo nos falta la otra parte para completar nuestro
-buscador: un fichero JSON con el contenido de todos los posts del blog. Para ello podemos definirlo en 2 sitios distintos:
 
-1. En el fichero de configuración global de Hugo, `config.toml` en mi caso. Si no definimos nada, por defecto todo el contenido estará disponible
-   en formato **HTML** y **RSS**. En mi caso, tengo todos los artículos del blog en lo que se define en Hugo como una `section`, concretamente en la carpeta
-   `content/blog`. Por tanto podría definir de manera global que todas las secciones del sitio también tuvieran como formato de salida JSON de la
-   siguiente manera:
+1.  In Hugo global config file, `config.toml` in my case. All the content in Hugo will be available in **HTML** and **RSS** format
+    by default if no config is provided. In this site, all the blog articles are under what is called in Hugo as `section`, in 
+    `content/blog` path. We can set global JSON output for every section on this way:
 
 {{< highlight go-html-template >}}
 [outputs]
 section = ["JSON", "HTML", "RSS"]
 {{< / highlight >}}
 
-De esta manera tendríamos un fichero JSON por cada **section**. Si además de _blog_ como es en mi caso, tuviéramos otra sección (_cursos_), cada una
-dispondría de su propio fichero `index.json` con el contenido propio de cada sección, lo que nos permitiría poder realizar búsquedas independientes
-por cada sección. ¿Cómo indico el contenido y formato de ese fichero JSON? En este caso al igual que disponemos de un template HTML llamado `list.html`
-para mostrar el listado de contenidos de una sección, crearemos un fichero `list.json` para generar el JSON.
+This configuration will output a JSON file for each **section**. For example, if we have another section (_courses_) in addition
+to _blog_, each one will have its `index.json` file with the content of the section. This is very powerful and we will be able to make
+independent searches for each section. But, How can I tell to Hugo the content and format for that JSON file? We have to create
+a `list.json` template file like we have `list.html` for HTML files.
 
-Si queremos que sean distintos por cada sección, dentro de la carpeta `layouts` y siguiendo con el ejemplo de este sitio, en una carpeta `blog`
-crearíamos un fichero `list.json` y en la carpeta `cursos` crearíamos otro `list.json` con contenido distinto. Si el formato del fichero JSON
-**va a ser el mismo para cada sección**, podemos crear el fichero `list.json` dentro de la carpeta `_default`, y valdría para todas las secciones
-(siempre que la sección no contenga un fichero `list.json`, en cuyo caso prevalecería este último al de `_default`).
+If we want each section file different, inside `layouts` folder and following with this site as example, in a folder called `blog` we must
+create a `list.json` file and inside `courses` folder we will create another `list.json` different. However if the format for each
+section is going to be the same, we can create `list.json` file inside `_default` folder and it will be used for every section (unless the
+section has a `list.json` file that would replace the global in `_default` folder).
 
-Veamos el contenido del fichero `list.json`, que simplemente genera usando sintáxis de Hugo un array de posts.
+Let´s see `list.json` content finally. It just generates an array of posts using Hugo syntax.
 
 {{< highlight go-html-template >}}
 [
@@ -65,17 +65,17 @@ Veamos el contenido del fichero `list.json`, que simplemente genera usando sint�
 ]
 {{< / highlight >}}
 
-El contenido es personalizable, y el nombre de cada campo también. Yo por el momento al tener un número reducido de artículos, tengo
-el contenido de cada uno en un campo `content`, pero a futuro con un número grande de artículos por temas de rendimiento sería conveniente reducir
-el tamaño del fichero JSON quizás dejando solo el título y el sumario.
+Of course the content is completely customizable, and so the name for each field. In my case I have a reduced number of posts,
+so by the moment I put all the content in `content` field, but in the future because of better performarnce I will try to
+reduce the JSON file size leaving just title and summary for the search.
 
-2. Se puede activar para cada _section_ el formato de salida desde el front matter. En mi caso, en `content/blog` tengo un fichero `_index.md` e
-   `_index.en.md` para el idioma inglés. Desde ahí puedo activar también el formato JSON de la siguiente manera:
+2.  Enabling for each _section_ the output format from the front matter. Following with my site as example, I have `_index.md` and
+    `_index.en.md` (English version) files in `content/blog` folder. We can enable JSON format on this way:
 
 {{< highlight markdown >}}
 ---
-title: Blog personal
-subtitle: Artículos escritos sobre temática variada relacionada con el mundo de la tecnología y la programación.
+title: Personal blog
+subtitle: Posts written on a variety of topics related to the world of technology and programming.
 outputs:
 - html
 - rss
@@ -83,16 +83,14 @@ outputs:
 ---
 {{< / highlight >}}
 
-La parte del template `list.json` es exactamente igual que en el punto anterior. Puedes leer en la documentación de Hugo
-[acerca de la personalización de formato de salida del contenido][5].
+The template `list.json` part is exactly the same than at point 1. You can read more about
+[custom output formats][5] in Hugo documentation.
 
-## Implementando el buscador usando lunr con Javascript
+## Implementing search engine using lunr with Javascript
 
-Una vez tenemos la fuente de datos contra la cual vamos a realizar las búsquedas, veamos el código que nos va a permitir
-terminar la implementación del buscador. Yo he decidido poner el buscador simplemente en una página, por lo que en
-`layouts/page` he creado un fichero `search.html`. Analicemos parte por parte y simplificando su contenido. Lo primero es el código html
-que consta de un input para recoger el término de búsqueda y un elemento section donde mostraremos los resultados de la
-búsqueda.
+Let´s see the code that will allow us to search in the JSON file generated. In my case, I have created a `search.html` file
+in `layouts/page`. Let´s check step by step the content. First of all we need and input text for the search term, followed by
+a `section` element where search results will be showed.
 
 {{< highlight go-html-template >}}
 <label for="search-input">Término de búsqueda</label>
@@ -101,10 +99,10 @@ búsqueda.
 <section id="search-results"></section>
 {{< / highlight >}}
 
-En el mismo fichero html se encuentra el código Javascript, ya que no es muy largo y podemos **crear variables dinámicas en
-Javascript con Hugo** para obtener los literales multidioma y la ruta relativa al `index.json` para cada lenguaje.
+Javascript code is also inside the html file so that we can create dinamyc vars in Javascript with Hugo, for example for
+getting translation of strings and getting relative path to `index.json` for each language.
 
-Importamos Lunr, yo lo tengo en la carpeta `static/js/`:
+Next step is importing Lunr, in my case in `static/js/` folder:
 
 {{< highlight go-html-template >}}
 {{ $lunr := "js/lunr.min.js" | absURL }}
@@ -113,7 +111,7 @@ Importamos Lunr, yo lo tengo en la carpeta `static/js/`:
 
 {{< / highlight >}}
 
-También podría importarse desde CDN:
+It would be possible importing Lunr via CDN:
 
 {{< highlight go-html-template >}}
 
@@ -121,9 +119,8 @@ También podría importarse desde CDN:
 
 {{< / highlight >}}
 
-A continuación, el código javascript que al cargar la página hace una petición para cargar el fichero `index.json` y crea el
-documento indexado que posteriormente se utilizará para devolver los resultados de la búsqueda. Las búsquedas se van lanzando
-según el usuario va escribiendo en el input.
+Below is shown the Javascript code that on pageload makes a petition to load `index.json` file and creates indexed
+document that will be used to return search results. Searchs will be launched when user is typing in the input field.
 
 {{< highlight go-html-template >}}
 
@@ -234,10 +231,10 @@ según el usuario va escribiendo en el input.
 </script>
 {{< / highlight >}}
 
-Y con esto ya tendríamos nuestro buscador finalizado. Para elaborar esta solución he seguido las guías
-de [Joseph Earl][6] y [Matt Walters][7]. He adaptado y actualizado el código Javascript y he corregido la manera de lanzar la
-búsqueda con **Lunr**, ya que no era del todo precisa y no funcionaba correctamente en todos los casos. Esta es la parte más
-importante, y [la solución][8] la encontré en una issue en el github de Lunr:
+And that´s all. To develop this solution I have followed the guides of [Joseph Earl][6] and [Matt Walters][7]. I have
+adapted and updated Javascript code and corrected the method for searching with **Lunr**, beacuse it didn´t work
+properly in all cases. This is the most important part, I found [the solution][8] in an issue in Lunr github:
+
 
 {{< highlight javascript >}}
 // Run fuzzy search
@@ -248,7 +245,7 @@ const results = idx.query(function(q) {
 });
 {{< / highlight >}}
 
-Puedes [consultar mi fichero search.html][9] con el código completo en github y adaptarlo para tu caso de uso.
+You can [take a look to search.html file][9] with the complete code in github and adapt it to your needs.
 
 [1]: https://gohugo.io/tools/search/
 [2]: https://www.algolia.com/

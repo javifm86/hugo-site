@@ -1,6 +1,6 @@
 ---
 title: "Buscar en Hugo con Lunr"
-date: 2020-08-19
+date: 2020-11-16
 author: javi
 type: post
 img: img/hugo-search.png
@@ -91,7 +91,7 @@ La parte del template `list.json` es exactamente igual que en el punto anterior.
 Una vez tenemos la fuente de datos contra la cual vamos a realizar las búsquedas, veamos el código que nos va a permitir
 terminar la implementación del buscador. Yo he decidido poner el buscador simplemente en una página, por lo que en
 `layouts/page` he creado un fichero `search.html`. Analicemos parte por parte y simplificando su contenido. Lo primero es el código html
-que consta de un input para recoger el término de búsqueda y un elemento section donde mostraremos los resultados de la
+que consta de un input para recoger el término de búsqueda y un elemento `section` donde mostraremos los resultados de la
 búsqueda.
 
 {{< highlight go-html-template >}}
