@@ -114,7 +114,7 @@ Nginx HTTP (v6)            ALLOW       Anywhere (v6)
 
 Hecho esto, ya solo deberemos acceder a la dirección IP pública de nuestro VPS para ver la página de bienvenida de nginx.
 
-{{< img src="img/nginx_default.png" alt="ágina de bienvenida de Nginx" >}}
+{{< img src="img/nginx_default.png" alt="Página de bienvenida de Nginx" >}}
 
 ## Instalar MySQL
 
