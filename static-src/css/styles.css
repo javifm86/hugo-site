@@ -14,24 +14,6 @@ main {
     @apply flex-auto;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        @apply text-gray-300 bg-gray-700;
-    }
-    a.tag {
-        @apply bg-gray-700 text-gray-100;
-    }
-    article.single-post  a.tag, a.tag.tag-lg {
-        @apply bg-gray-800 text-gray-100;
-    }
-    code:not([class*='language-']) {
-        @apply text-gray-200 bg-gray-800;
-    }
-    pre {
-        @apply bg-gray-800;
-    }
-}
-
 /* -------- Focus visible -------- */
 *:focus,
 button:focus {
@@ -337,5 +319,23 @@ blockquote p:first-of-type {
     margin-top: 0;
 }
 */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @apply text-gray-300 bg-gray-700;
+    }
+    a.tag {
+        @apply bg-gray-700 text-gray-100;
+    }
+    article.single-post  a.tag, a.tag.tag-lg {
+        @apply bg-gray-800 text-gray-100;
+    }
+    code:not([class*='language-']) {
+        @apply text-gray-200 bg-gray-800;
+    }
+    pre {
+        @apply bg-gray-800;
+    }
+}
 
 @tailwind utilities;
