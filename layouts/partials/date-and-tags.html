@@ -8,7 +8,7 @@
 {{ $updatedDate = print .context.Lastmod.Day " " (index $.context.Site.Data.months (printf "%d" .context.Lastmod.Month)) " " .context.Lastmod.Year }}
 {{ end }}
 
-<div class="flex flex-wrap flex-col sm:flex-row sm:items-center text-gray-700 dark:text-gray-300">
+<div class="flex flex-wrap flex-col sm:flex-row sm:items-center text-gray-600 dark:text-gray-300">
     <time datetime="{{ $dateTime }}">
         {{ if $isFull }}{{ i18n "date_published" }}{{ end }} {{ $date }}
     </time>

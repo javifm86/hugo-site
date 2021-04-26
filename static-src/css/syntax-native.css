@@ -1,7 +1,8 @@
 /* Background */
 .chroma {
     color: theme('colors.gray.100');
-    background-color: theme('colors.gray.900');
+    /* background-color: theme('colors.gray.800'); */
+    background-color: #1a202c;
 }
 /* Error */
 /*.chroma .err {
@@ -35,41 +36,41 @@
 .chroma .lnt {
     margin-right: 0.4em;
     padding: 0 0.4em 0 0.4em;
-    color: #999999;
+    color: #a8a8a8;
 }
 /* LineNumbers */
 .chroma .ln {
     margin-right: 0.4em;
     padding: 0 0.4em 0 0.4em;
-    color: #999999;
+    color: #a8a8a8;
 }
 /* Keyword */
 .chroma .k {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* KeywordConstant */
 .chroma .kc {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* KeywordDeclaration */
 .chroma .kd {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* KeywordNamespace */
 .chroma .kn {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* KeywordPseudo */
 .chroma .kp {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* KeywordReserved */
 .chroma .kr {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* KeywordType */
 .chroma .kt {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* NameAttribute */
 .chroma .na {
@@ -107,7 +108,7 @@
 }
 /* NameTag */
 .chroma .nt {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* NameVariable */
 .chroma .nv {
@@ -199,26 +200,26 @@
 }
 /* OperatorWord */
 .chroma .ow {
-    color: #6ab825;
+    color: #6cbb26;
 }
 /* Comment */
 .chroma .c {
-    color: #999999;
+    color: #a8a8a8;
     font-style: italic;
 }
 /* CommentHashbang */
 .chroma .ch {
-    color: #999999;
+    color: #a8a8a8;
     font-style: italic;
 }
 /* CommentMultiline */
 .chroma .cm {
-    color: #999999;
+    color: #a8a8a8;
     font-style: italic;
 }
 /* CommentSingle */
 .chroma .c1 {
-    color: #999999;
+    color: #a8a8a8;
     font-style: italic;
 }
 /* CommentSpecial */

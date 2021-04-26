@@ -5,7 +5,7 @@
 @tailwind components;
 
 body {
-    @apply text-gray-900;
+    @apply text-gray-800;
 }
 
 main {
@@ -29,7 +29,7 @@ button:focus-visible {
 /* -------- End Focus visible -------- */
 
 pre {
-    @apply p-4 overflow-auto text-base bg-gray-200;
+    @apply p-4 overflow-auto text-base bg-gray-100;
 }
 
 .highlight {
@@ -302,7 +302,7 @@ body.show-nav #site-canvas {
 }
 
 a.tag {
-    @apply bg-gray-200 rounded-full px-3 py-1 font-semibold text-gray-700;
+    @apply bg-gray-100 rounded-full px-3 py-1 font-semibold text-gray-600;
 }
 
 a.tag:hover {
@@ -322,7 +322,7 @@ blockquote p:first-of-type {
 
 @media (prefers-color-scheme: dark) {
     body {
-        @apply text-gray-300 bg-gray-700;
+        @apply text-gray-200 bg-gray-600;
     }
     a.tag {
         @apply bg-gray-700 text-gray-100;
@@ -334,8 +334,13 @@ blockquote p:first-of-type {
         @apply text-gray-200 bg-gray-800;
     }
     pre {
-        @apply bg-gray-800;
+        @apply bg-gray-700;
     }
+    /* purgecss start ignore */
+    .lntable code {
+        background-color: inherit;
+    }
+    /* purgecss end ignore */
 }
 
 @tailwind utilities;
