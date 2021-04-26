@@ -1,7 +1,12 @@
 // https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+const colors = require('tailwindcss/colors');
 module.exports = {
+    darkMode: 'media',
     theme: {
         extend: {
+            colors: {
+                gray: colors.blueGray
+            },
             spacing: {
                 '1/2': '50%',
                 '1/3': '33.333333%',
@@ -31,34 +36,14 @@ module.exports = {
                 '11/12': '91.666667%'
             },
             gridTemplateColumns: {
-               'auto-fit-min-290': 'repeat(auto-fit, minmax(290px, 1fr))'
+                'auto-fit-min-290': 'repeat(auto-fit, minmax(290px, 1fr))'
             }
         }
     },
     variants: {
-        backgroundColor: ['responsive', 'hover', 'focus', 'dark', 'dark:hover', 'dark:focus'],
-        borderColor: ['responsive', 'hover', 'focus', 'dark', 'dark:hover', 'dark:focus'],
-        textColor: [
-            'responsive',
-            'hover',
-            'focus',
-            'group-hover',
-            'dark',
-            'dark:hover',
-            'dark:focus',
-            'dark:group-hover',
-            'focus-within',
-            'dark:focus-within'
-        ],
-        borderStyle: ['responsive', 'dark'],
-        boxShadow: ['responsive', 'hover', 'focus', 'group-hover'],
-        placeholderColor: ['responsive', 'focus', 'dark:placeholder'],
-        margin: ['responsive']
+        extend: {
+            borderStyle: ['dark']
+        }
     },
-    plugins: [
-        require('tailwindcss-prefers-dark-mode')({
-            type: 'mediaQuery',
-            className: '.the-dark'
-        })
-    ]
+    plugins: []
 };
