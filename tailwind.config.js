@@ -2,6 +2,13 @@
 const colors = require('tailwindcss/colors');
 module.exports = {
     darkMode: 'media',
+    purge: {
+        content: ['./content/**/*.md', './layouts/**/*.html', './static/**/*.js', './static/**/*.svg'],
+        options: {
+            safelist: ['chroma', /chroma$/],
+            defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+        }
+    },
     theme: {
         extend: {
             colors: {
