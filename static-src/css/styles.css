@@ -37,7 +37,7 @@ pre {
 }
 /* purgecss start ignore */
 code:not([class*='language-']) {
-    @apply text-gray-700 bg-gray-200 rounded;
+    @apply text-gray-700 bg-gray-100 rounded;
     padding: 3px 7px;
     font-size: 95%;
 }
@@ -331,10 +331,10 @@ blockquote p:first-of-type {
         @apply bg-gray-800 text-gray-100;
     }
     code:not([class*='language-']) {
-        @apply text-gray-200 bg-gray-800;
+        @apply text-gray-200 bg-gray-700;
     }
     pre {
-        @apply bg-gray-700;
+        @apply bg-gray-800;
     }
     /* purgecss start ignore */
     .lntable code {
