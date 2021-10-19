@@ -1,6 +1,7 @@
 baseURL = "https://javifm.com"
 # languageCode = "es-es"
-title = "Frontend developer"
+title = "Javier Fernández"
+
 paginate = 12
 summaryLength = 10
 enableEmoji = true
@@ -85,6 +86,7 @@ DefaultContentLanguage = "es"
       unsafe = true
 
 [params]
+titleHtml = "Javier <span class='text-green-500'>Fernández</span>"
   # .Site.Params.homeText
   # homeText = "Front end developer"
   # homeText = "Apasionado del mundo del desarrollo front. Disfruto programando en Javascript siempre teniendo presente el responsive design y la accesibilidad."

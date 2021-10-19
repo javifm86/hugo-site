@@ -10,7 +10,7 @@
             <div class="w-full lg:w-3/5 px-4 pb-4">
                 <span class="line-before text-sm sm:text-base inline-block my-4 uppercase dark:text-gray-300">{{ $miniTitle }}</span>
                 <h1 class="text-4xl sm:text-5xl font-bold font-serif leading-tight mb-4">
-                    {{ $title }}
+                    {{ $title | safeHTML }}
                 </h1>
                 <p class="font-sans text-base sm:text-lg">
                     {{ $des }}
