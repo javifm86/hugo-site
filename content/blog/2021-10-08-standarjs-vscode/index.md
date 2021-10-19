@@ -1,20 +1,20 @@
 ---
-title: "Configurando StandarJS"
+title: "Configurando StandardJS"
 date: 2021-08-10
 author: javi
 type: post
-img: img/vue-typescript-eslint-prettier.jpg
-altImg: Logotipos de Vue, Typescript, ESLint, Prettier
+img: img/standardjs-vscode.png
+altImg: Logotipos de StandardJS y VSCode
 tags:
     - vue
 ---
-En este post vamos a ver como configurar [StandarJS][1] en VSCode para poder corregir todos los errores al guardar
+En este post vamos a ver como configurar [StandardJS][1] en VSCode para poder corregir todos los errores al guardar
 un archivo automáticamente.
 
 ## ¿Qué es StandardJS?
 
 A simple vista podría parecer que es el estándar a la hora de escribir código Javascript, y esa es la intención de
-StandarJS, proporcionar una **guía de estilos, linter y formateador para código Javascript**. En realidad no lo es, el
+StandardJS, proporcionar una **guía de estilos, linter y formateador para código Javascript**. En realidad no lo es, el
 ecosistema Javascript ya sabemos cómo es y para gustos los colores. La idea es buena, lo instalas
 y te despreocupas de definir reglas, siempre y cuando te guste lo que trae. Yo había oído hablar de él pero nunca lo
 había probado.
@@ -26,9 +26,9 @@ formateador, pero todo es acostumbrarse. Las ventajas son:
 - Formateado automático del código con `standard --fix`.
 - Identifica errores de estilo y programación en el código.
 
-StandarJS utiliza una configuración de reglas fijas definidas con [ESLint][2].
+StandardJS utiliza una configuración de reglas fijas definidas con [ESLint][2].
 
-## Instalar y configurar StandarJS
+## Instalar y configurar StandardJS
 
 El primer paso será como no, instalar el paquete. Lo puedes hacer de manera global o local para un proyecto, yo siempre
 que puedo elijo esta última opción, para poder tener las dependencias controladas y no depender de un paquete global.
@@ -48,15 +48,15 @@ Puedes crearte un script npm para ejecutarlo automáticamente, pero la opción m
 
 ## Formateo automático en VSCode
 
-He utilizado StandarJS por primera vez en un proyecto de un compañero, y de primeras me volví loco. Tengo configurado
+He utilizado StandardJS por primera vez en un proyecto de un compañero, y de primeras me volví loco. Tengo configurado
 **Prettier** como formateador por defecto, y me encontraba constantemente distintos formatos al guardar, pues Prettier
-formateaba violando reglas de StandarJS.
+formateaba violando reglas de StandardJS.
 
 Le pregunte a mi compañero que como formateaba el código al guardar un fichero, y me dijo que no lo hacía, simplemente
 al detectar un error le da a la bombilla y seleccionaba **Fix all**. Este tipo de tareas manuales no van conmigo,
 asi que investigué como formatear cada vez que se guarda un archivo en VSCode y a continuación describo la solución.
 
-En primer lugar, instalaremos [la extensión de StandarJS para VSCode][3]. Como StandarJS utiliza ESLint, instalaremos
+En primer lugar, instalaremos [la extensión de StandardJS para VSCode][3]. Como StandardJS utiliza ESLint, instalaremos
 [la extensión de ESLint][4] también.
 
 En mi caso, como suelo utilizar Prettier lo más recomendable es desactivar el formateador en lenguaje Javascript en el 
@@ -86,7 +86,7 @@ líneas que aparecen remarcadas, porque sino no me funcionaba.
 {{< / highlight >}}
 
 Para probar que todo funciona, vamos a un fichero Javascript y comprobamos que al guardar desaparecen todos los errores
-que marcaba StandarJS. Eso es todo, por mi parte prefiero Prettier a la hora de formatear, ya que puedo usarlo también
+que marcaba StandardJS. Eso es todo, por mi parte prefiero Prettier a la hora de formatear, ya que puedo usarlo también
 para HTML y CSS, y aplicar reglas directamente con ESLint.
 
 [1]: https://standardjs.com/

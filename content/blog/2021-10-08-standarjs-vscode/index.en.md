@@ -3,7 +3,7 @@ title: "Setting up StandardJS"
 date: 2021-08-10
 author: javi
 type: post
-img: img/vue-typescript-eslint-prettier.jpg
+img: img/standardjs-vscode.png
 altImg: Vue, Typescript, ESLint and, Prettier logos
 tags:
     - vue
@@ -86,7 +86,7 @@ Let's check that everything is working as expected. We just have to open a Javas
 auto-formatted and all the error should disappear.
 
 As conclusion, I prefer Prettier for formatting because I can use the same tool as well for HTML and CSS. I can define and apply rules
-directly with ESLint, but StandardJS is a superb tool that can avoid log discussions about opinionated things.
+directly with ESLint, but StandardJS is a superb tool that can avoid long discussions about opinionated things.
 
 [1]: https://standardjs.com/
 [2]: https://eslint.org/
