@@ -10,13 +10,13 @@ tags:
     - theme
 ---
 {{< img src="img/logo.png" alt="Oceanic Wind logo." >}}
-I have created a VSCode dark theme called **Oceanic Wind**. Why did I do that? Well, I have been using Oceanic Next theme for many years ago, first time I used it with Sublime Text.
+I have created a VSCode dark theme called **Oceanic Wind**. Why did I do that? Well, I have been using Oceanic Next theme for many years ago, first time I used it with Sublime Text, and I wanted to tweak it.
 
 It is based on color combinations from [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme) replaced and customized with [Tailwind CSS color palette](https://tailwindcss.com/docs/customizing-colors).
 
 I am a person who usually needs time to get used to changes, and, since I moved to VSCode, there were not many ports for the theme (nowadays there are much more), and I felt that which I was using didn't convince me at all. So, I decided creating my own theme with good contrast. 
 
-When I started creating the theme I didn't know there were so many colors and possibilities to customize VSCode, I decided to customize every color I could find, in most cases I just changed the default color from VSCode with one picked from the Tailwind palette.
+When I started creating the theme I didn't know there were so many colors and possibilities to customize VSCode. I decided to customize every color I could find, in most cases I just changed the default color from VSCode with one picked from the Tailwind palette.
 
 ## Create your own theme
 
@@ -90,12 +90,12 @@ You can also go to your user settings, and overwrite colors for your theme to ge
 ## Conclusion
 Once finished I just [followed the official guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) to publish the theme.
 
-I have tested this theme focused on my day-to-day workflow, with HTML, CSS, Javascript, Typescript and developing with frameworks such as Angular, Vue and React. Furthermore, I have tried with files you can find in demo folder (thanks to [Wes Bos](https://twitter.com/wesbos) and [Sarah Drasner](https://twitter.com/sarah_edo)).
+I have tested this theme focused on my day-to-day workflow, with HTML, CSS, Javascript, Typescript and developing with frameworks such as Angular, Vue and React. Furthermore, I have tried with files you can find in [demo folder](https://github.com/javifm86/oceanic-wind/tree/main/demo) (thanks to [Wes Bos](https://twitter.com/wesbos) and [Sarah Drasner](https://twitter.com/sarah_edo)).
 
 If you find something amiss, you have any suggestion or improvement, please feel free to open and [issue](https://github.com/javifm86/oceanic-wind/issues). I'm sure there are things I missed.
 
 I am not a designer, so any help or feedback would be really appreciated.
 
-* [Oceanic Wind en Marketplace](https://marketplace.visualstudio.com/items?itemName=javifm.oceanic-wind)
+* [Oceanic Wind at Marketplace](https://marketplace.visualstudio.com/items?itemName=javifm.oceanic-wind)
 * [Github repository](https://github.com/javifm86/oceanic-wind)
 * [Default dark colors on VSCode](https://gist.github.com/javifm86/073d8e05942a8849dd11fa6996955fc0)
