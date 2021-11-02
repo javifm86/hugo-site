@@ -6,7 +6,7 @@ type: post
 img: img/standardjs-vscode.png
 altImg: Logotipos de StandardJS y VSCode
 tags:
-    - vue
+    - javascript
 ---
 En este post vamos a ver como configurar [StandardJS][1] en VSCode para poder corregir todos los errores al guardar
 un archivo automáticamente.
