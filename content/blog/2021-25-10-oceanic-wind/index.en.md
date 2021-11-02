@@ -1,6 +1,6 @@
 ---
 title: "Oceanic Wind for VSCode"
-date: 2021-02-11
+date: 2021-11-02
 author: javi
 type: post
 img: img/oceanic-wind.png
@@ -9,12 +9,12 @@ tags:
     - vscode
     - theme
 ---
-{{< img src="img/logo.png" alt="Oceanic Wind logo." >}}
-I have created a VSCode dark theme called **Oceanic Wind**. Why did I do that? Well, I have been using Oceanic Next theme for many years ago, first time I used it with Sublime Text, and I wanted to tweak it.
+{{< img src="img/logo.png" alt="Oceanic Wind logo." class="mx-auto md:float-left pr-2" >}}
+I have created a VSCode dark theme called **Oceanic Wind**, but, why did I do that? Well, I have been using Oceanic Next theme for many years, first time I used it with Sublime Text, and I wanted to tweak it.
 
 It is based on color combinations from [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme) replaced and customized with [Tailwind CSS color palette](https://tailwindcss.com/docs/customizing-colors).
 
-I am a person who usually needs time to get used to changes, and, since I moved to VSCode, there were not many ports for the theme (nowadays there are much more), and I felt that which I was using didn't convince me at all. So, I decided creating my own theme with good contrast. 
+I'm a person who usually needs time to get used to changes, and, since I moved to VSCode, there were not many ports for the theme (nowadays there are much more), and I felt that which I was using didn't convince me at all. So, I decided creating my own theme with good contrast. 
 
 When I started creating the theme I didn't know there were so many colors and possibilities to customize VSCode. I decided to customize every color I could find, in most cases I just changed the default color from VSCode with one picked from the Tailwind palette.
 

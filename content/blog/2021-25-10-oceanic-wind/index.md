@@ -1,6 +1,6 @@
 ---
 title: "Oceanic Wind para VSCode"
-date: 2021-02-11
+date: 2021-11-02
 author: javi
 type: post
 img: img/oceanic-wind.png
@@ -9,8 +9,8 @@ tags:
     - vscode
     - theme
 ---
-{{< img src="img/logo.png" alt="Oceanic Wind logo." >}}
-He creado un theme oscuro para VSCode llamado **Oceanic Wind**. Pero, ¿Por qué? Bueno, he estado usando el tema Oceanic Next durante años, la primera vez que lo utilicé fue con Sublime Text, y quería modificarlo.
+{{< img src="img/logo.png" alt="Oceanic Wind logo." class="mx-auto md:float-left pr-2" >}}
+He creado un theme oscuro para VSCode llamado **Oceanic Wind**, pero, ¿por qué? Bueno, he estado usando el tema Oceanic Next durante años, la primera vez que lo utilicé fue con Sublime Text, y quería modificarlo.
 
 
 Está basado en las combinaciones de color de [Oceanic Next](https://github.com/voronianski/oceanic-next-color-scheme) pero reemplazando y personalizando con [la paleta de colores de Tailwind CSS](https://tailwindcss.com/docs/customizing-colors).
@@ -47,11 +47,11 @@ Pulsa `Ctrl + Shift + P` y teclea `Inspect Editor Tokens and Scopes`. Ahora pued
 
 {{< img src="img/scopes.png" alt="VSCode información del scope del nodo seleccionado: lenguaje, tipo de token, color foreground, background, ratio de contraste." >}}
 
-VSCode dispone de Developer tools que puedes utilizar para inspeccionar elementos. Pulsa `Ctrl + Shift + P` y teclea `Toggle Developer Tools` para abrirlas.
+VSCode dispone de developer tools que puedes utilizar para inspeccionar elementos. Pulsa `Ctrl + Shift + P` y teclea `Toggle Developer Tools` para abrirlas.
 
 {{< img src="img/devtools.png" alt="Inspeiccionando con VSCode devtools para obtener un color." >}}
 
-Muy útil si quieres obtener rapidamente un color de algún tema que estás consultando para obtener inspiración. Al comenzar al crear el tema éste era el método que utilizaba para obtener el color por defecto de cualquier cosa en VSCode, pero hay algunos elementos que son díficiles de inspeccionar como el minimapa.
+Muy útil si quieres obtener rapidamente un color de algún tema que estás consultando para obtener inspiración. Al comenzar a crear el tema éste era el método que utilizaba para obtener el color por defecto de cualquier cosa en VSCode, pero hay algunos elementos que son díficiles de inspeccionar como el minimapa.
 
 Finalmente, opté por buscar los colores por defecto en el [repositorio de VSCode en Github](https://github.com/microsoft/vscode). Simplemente busca el color que quieras en el buscador (sin poner el punto), por ejemplo `activityBar inactiveForeground`, e indaga entre los distintos resultados hasta obtener el color que usan.
 
@@ -72,7 +72,7 @@ Se pueden sobreescribir colores para un terma en las settings de VSCode. He crea
 He realizado pruebas de contraste de color para los distintos esquemas, no debería haber ningún gran problema de contraste. Tengo pendiente revisarlo porque no he comprobado con las versiones **Warm** y **Cool** del tema.
 
 ## Creando a partir de una paleta de colores definida
-Una vez terminé el tema, **podría facilmente generarl numerosas variantes**. Simplemente reemplazando el gris con los 5 distintos tipos de gris de Tailwind, podría generar 40 distintas variantes (8 colores de acento x 5 tipos de gris = 40). Esto es solo una posibilidad, decidí utilizar el gris neutro para la versión por defecto, el gris cálido para la versión cálida y el gris azul para la fría.
+Una vez terminé el tema, **podía facilmente generar numerosas variantes**. Simplemente reemplazando el gris con los 5 distintos tipos de gris de Tailwind, podría generar 40 distintas variantes (8 colores de acento x 5 tipos de gris = 40). Esto es solo una posibilidad, decidí utilizar el gris neutro para la versión por defecto, el gris cálido para la versión cálida y el gris azul para la fría.
 
 He querido evitar ensuciar el selector de themes de VSCode con más de 40 distintas versiones, había que elegir asi que finalmente dejé 3 versiones con el azul como color de acento, y si alguien desea personalizar más puede copiar y pegar la configuración de los distintos colores de acento. ¡Es tan fácil generar variantes cuando dispones de una paleta de colores!
 
