@@ -30,10 +30,10 @@ DefaultContentLanguage = "es"
   #   name = "Categories"
   #   url = "/categories/"
   #   weight = 3
-  [[languages.es.menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
+  # [[languages.es.menu.main]]
+  #   name = "Tags"
+  #   url = "/tags/"
+  #   weight = 4
   [[languages.es.menu.main]]
     name = "Sobre mí"
     url = "/about/"
@@ -60,10 +60,10 @@ DefaultContentLanguage = "es"
   #   name = "Categories"
   #   url = "/categories/"
   #   weight = 3
-  [[languages.en.menu.main]]
-    name = "Tags"
-    url = "/en/tags/"
-    weight = 4
+  # [[languages.en.menu.main]]
+  #   name = "Tags"
+  #   url = "/en/tags/"
+  #   weight = 4
   [[languages.en.menu.main]]
     name = "About"
     url = "/en/about/"
