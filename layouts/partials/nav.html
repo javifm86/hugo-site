@@ -20,7 +20,7 @@
                 {{ $classes := "" }}
                 {{ $active := false }}
                 {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-                {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) }}
+                {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) (eq $currentPage.RelPermalink .URL) }}
                     {{ $classes = "font-semibold bg-gray-200 dark:bg-transparent rounded-sm dark:text-green-400" }}
                     {{ $active = true }}
                 {{ else }}
@@ -49,7 +49,7 @@
         {{ $classesMobile := "" }}
         {{ $classesMobile := "" }}
         {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-        {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
+        {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost) (eq $currentPage.RelPermalink .URL) }}
             {{ $classesMobile = "bg-green-600 rounded text-white font-semibold outline-none focus:bg-white focus:text-green-600" }}
         {{ else }}
             {{ $classesMobile = "text-gray-100" }}
