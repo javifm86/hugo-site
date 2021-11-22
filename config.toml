@@ -3,7 +3,7 @@ baseURL = "https://javifm.com"
 title = "Javier Fernández"
 
 paginate = 12
-summaryLength = 30
+summaryLength = 10
 enableEmoji = true
 PygmentsUseClasses = true
 

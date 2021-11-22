@@ -208,7 +208,7 @@ a.general-link {
 
 /* --------  list.html css grid with fallback to flexbox -------- */
 
-.grid-container {
+/* .grid-container {
     @apply flex flex-wrap -mx-2 mb-8;
 }
 
@@ -233,7 +233,6 @@ a.general-link {
     }
    .grid-container {
         @apply grid gap-8 grid-cols-auto-fit-min-290 mb-12 mx-0;
-        /* grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); */
         grid-auto-rows: 1fr;
     }
 
@@ -250,7 +249,7 @@ a.general-link {
             @apply w-full
         }
     }
-}
+} */
 
 /* --------  End list.html css grid with fallback to flexbox -------- */
 
