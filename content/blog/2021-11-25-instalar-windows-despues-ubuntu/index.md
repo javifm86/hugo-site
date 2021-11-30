@@ -3,7 +3,7 @@ title: Restaurar grub después de instalar Windows
 date: 2021-11-25
 author: javi
 type: post
-img: img/boot-repair-cover.png
+img: img/boot-repair-cover.jpg
 altImg: Windows, Linux y Boot repair logos
 tags:
     - windows
