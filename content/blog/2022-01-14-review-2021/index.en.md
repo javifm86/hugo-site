@@ -19,6 +19,8 @@ This was a goal pending since some years ago, I could write and read in English 
 
 Besides, I started watching series in English with subtitles. I watched the 10 seasons of **Friends**, and I started **Downtown Abbey**. I don't know if I will be able to watch entirely without peeking the subtitles, but I will try.
 
+A nice tool I am using for checking my posts, emails, etc. is [LanguageTool](5). I got a subscription for 1 year, and I am pleased.
+
 ### Change in my career
 After almost 4 years working in Renta 4 bank, **I started searching for a new job**. I had always been working in consultancy, and this was my first opportunity in a final client. I never regret about my decisions, and with the information I had, it seemed a good opportunity.
 
@@ -43,7 +45,7 @@ I didn't know anything about React, I try not to drive myself crazy about learni
 
 I created some repos and Github (216 contributions in the last year), and I wrote 6 blogs post in 2021. Moreover, I created a theme for VSCode called [Oceanic Wind](2), I love it, you should try it.
 
-{{< img src="img/github.png" alt="Yearly graph about my Github account. 216 contributions in the last year " >}}
+{{< img src="img/github.png" class="mx-auto" alt="Yearly graph about my Github account. 216 contributions in the last year " >}}
 
 ## Goals for 2022
 These are my goals for 2022:
@@ -66,3 +68,4 @@ These are my goals for 2022:
 [2]: https://marketplace.visualstudio.com/items?itemName=javifm.oceanic-wind
 [3]: https://8fit.com/
 [4]: https://www.garmin.com/es-ES/p/665374
+[5]: https://languagetool.org/
