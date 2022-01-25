@@ -19,7 +19,7 @@ This was a goal pending since some years ago, I could write and read in English 
 
 Besides, I started watching series in English with subtitles. I watched the 10 seasons of **Friends**, and I started **Downtown Abbey**. I don't know if I will be able to watch entirely without peeking the subtitles, but I will try.
 
-A nice tool I am using for checking my posts, emails, etc. is [LanguageTool](5). I got a subscription for 1 year, and I am pleased.
+A nice tool I am using for checking my posts, emails, etc. is [LanguageTool][5]. I got a subscription for 1 year, and I am pleased.
 
 ### Change in my career
 After almost 4 years working in Renta 4 bank, **I started searching for a new job**. I had always been working in consultancy, and this was my first opportunity in a final client. I never regret about my decisions, and with the information I had, it seemed a good opportunity.
@@ -37,21 +37,21 @@ I got vaccinated with Pfizer 💉💉. Everybody is fed up with the pandemic, th
 
 ## Professional/Work skills highlights
 
-I started 2021 with the objective of **learning Vue 3**. I created a personal invented project called [financial-bank](1). I didn't finish it, but I learnt and played with Tailwind, Vue and Typescript. It's in develop branch, if I have time in the future I have several things in my head I wanted to apply.
+I started 2021 with the objective of **learning Vue 3**. I created a personal invented project called [financial-bank][1]. I didn't finish it, but I learnt and played with Tailwind, Vue and Typescript. It's in develop branch, if I have time in the future I have several things in my head I wanted to apply.
 
 In the last 3 months, **I have been learning React**. React is one of the most popular frameworks, many people use it, write libraries and articles about it, maybe it will be the most used library soon when jQuery leaves the first place.
 
 I didn't know anything about React, I try not to drive myself crazy about learning constantly new frameworks. Knowing Angular and Vue was enough for me, but I was assigned to a React project, so here I am, **now I have some experience with the big three!**
 
-I created some repos and Github (216 contributions in the last year), and I wrote 6 blogs post in 2021. Moreover, I created a theme for VSCode called [Oceanic Wind](2), I love it, you should try it.
+I created some repos and Github (216 contributions in the last year), and I wrote 6 blogs post in 2021. Moreover, I created a theme for VSCode called [Oceanic Wind][2], I love it, you should try it.
 
 {{< img src="img/github.png" class="mx-auto" alt="Yearly graph about my Github account. 216 contributions in the last year " >}}
 
 ## Goals for 2022
 These are my goals for 2022:
-1. Making more exercise and gain a bit of muscle (I think it will help me with some of my chronic pain). I am changing my diet with [8fit](3) and exercising sometimes at home.
+1. Making more exercise and gain a bit of muscle (I think it will help me with some of my chronic pain). I am changing my diet with [8fit][3] and exercising sometimes at home.
 
-1. Elevating my swimming skills with different kind of workouts. I purchased [Garmin Swim 2](4) to track my sessions. Swimming 3 times per week is my objective.
+1. Elevating my swimming skills with different kind of workouts. I purchased [Garmin Swim 2][4] to track my sessions. Swimming 3 times per week is my objective.
 
 1. Reading more. In English and in Spanish, I hope I can have a couple of hours per week.
 
