@@ -7,6 +7,7 @@
         {{ partial "date-and-tags.html" (dict "context" . "type" "full") }}
     </div>
     <div class="single-post-content">
+        {{ partial "toc.html" (dict "context" .) }}
         {{ .Content }}
     </div>
     <div class="my-16 border-b border-gray-300"></div>

@@ -84,6 +84,8 @@ DefaultContentLanguage = "es"
     [markup.goldmark.renderer]
       hardWraps = false
       unsafe = true
+  [markup.tableOfContents]
+    ordered = true
 
 [params]
 titleHtml = "Javier <span class='text-green-500'>Fernández</span>"

@@ -148,3 +148,7 @@ other = "Message"
 
 [contact_send]
 other = "Contact"
+
+#toc.html
+[toc_title]
+other = "Table of content"
