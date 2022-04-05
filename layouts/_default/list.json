@@ -5,7 +5,7 @@
       "url": "{{ .RelPermalink }}",
       "title": "{{ .Title }}",
       "content": {{ .Content | plainify | jsonify }},
-      "summary": "{{.Summary}}"
+      "summary": {{.Summary | plainify | jsonify}}
   }
   {{ end }}
 ]

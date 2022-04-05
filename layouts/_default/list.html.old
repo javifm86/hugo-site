@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+{{ $miniTitle := i18n "list_latestPosts" }}
+{{ $svgUrl := "static/svg/blog6.svg" }}
+{{ $isTag := false }}
+{{ $titleHeader := .Title }}
+{{ $des := "" }}
+
+{{ if in .Permalink "/tags/" }}
+    {{ $miniTitle = i18n "list_tags" }}
+    {{ $isTag = true }}
+    {{ $des = i18n "list_tagsDes" }}
+    {{ $titleHeader =  print "#" .Title }}
+{{ else }}
+    {{ $des = .Params.subtitle }}
+{{ end }}
+
+{{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" $titleHeader "miniTitle" $miniTitle "des" $des) }}
+
+<div class="max-w-7xl mx-auto py-12 overflow-hidden blog-container">
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    <div class="grid-container">
+        {{ range $paginator.Pages.ByPublishDate.Reverse }}
+        <div class="item-container">
+            <article class="border border-gray-300 dark:border-gray-500 dark:bg-gray-800 rounded shadow-md h-full p-4 post-container">
+                <h2 class="article-title mb-2">
+                    <a href="{{ .RelPermalink }}" class="text-gray-800 dark:text-gray-300 post-container-title">{{ .Title }}</a>
+                </h2>
+                <!-- <p>{{ .Summary | safeHTML  }}</p> -->
+                {{ partial "date-and-tags.html" (dict "context" . "type" "")}}
+            </article>
+        </div>
+        {{ end }}
+    </div>
+    {{/*  {{ template "_internal/pagination.html" . }}  */}}
+    {{ partial "pagination.html" . }}
+
+</div>
+
+{{ end }}

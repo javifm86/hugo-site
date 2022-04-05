@@ -17,22 +17,36 @@
 
 {{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" $titleHeader "miniTitle" $miniTitle "des" $des) }}
 
-<div class="container mx-auto py-12 overflow-hidden blog-container">
+<div class="max-w-7xl mx-auto py-12 overflow-hidden px-4">
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-    <div class="grid-container">
+
+    <div class="grid gap-8 grid-cols-auto-fit-min-290 mb-12">
         {{ range $paginator.Pages.ByPublishDate.Reverse }}
-        <div class="item-container">
-            <article class="border border-gray-300 dark:border-gray-500 dark:bg-gray-800 rounded shadow-md h-full p-4 post-container">
-                <h2 class="article-title mb-2">
-                    <a href="{{ .RelPermalink }}" class="text-gray-800 dark:text-gray-300 post-container-title">{{ .Title }}</a>
-                </h2>
-                <!-- <p>{{ .Summary | safeHTML  }}</p> -->
-                {{ partial "date-and-tags.html" (dict "context" . "type" "")}}
-            </article>
-        </div>
+        <article>
+            {{ $contextBlog := . }}
+            {{ $altCover := .Params.altImg | default "" }}
+            {{ with .Params.img }}
+                {{ $resources := $contextBlog.Resources.Match . }}
+                {{ $cover := index ($resources) 0 }}
+                {{ with $cover.Width }}
+                    {{ $img := $cover }}
+                    {{ if ge $cover.Width "640" }}
+                        {{ $img = $cover.Resize "640x" }}
+                    {{ end }}
+                    <div class="relative pb-1/2 sm:pb-7/12 mb-2">
+                        <img src="{{$img.RelPermalink}}" class="absolute h-full w-full object-cover shadow" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $altCover }}">
+                    </div>
+                {{ end }}
+            {{ end }}
+            <a class="inline-block hover:text-green-500 transform transition duration-300" href="{{.Permalink}}">
+                <span class="article-title inline-block pt-2 pb-2" >{{.Title}}</span>
+            </a>
+            {{ partial "date-and-tags.html" (dict "context" . "type" "")}}
+            <div class="text-gray-600 dark:text-gray-300">{{.Summary}} &rarr;</div>
+        </article>
         {{ end }}
     </div>
-    {{/*  {{ template "_internal/pagination.html" . }}  */}}
+
     {{ partial "pagination.html" . }}
 
 </div>

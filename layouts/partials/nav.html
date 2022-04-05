@@ -7,7 +7,7 @@
 </a>
 <!-- Desktop menu -->
 <div class="bg-gray-50 dark:bg-gray-800 border-t-4 border-green-500">
-    <div class="container mx-auto">
+    <div class="max-w-7xl mx-auto">
         <nav class="flex flex-wrap items-center p-4">
             <a href="{{ "" | absLangURL }}" class="mr-auto p-2 -m-2 last:mr-0" aria-hidden="true">
                 <span class="sr-only">Inicio</span>
@@ -20,7 +20,7 @@
                 {{ $classes := "" }}
                 {{ $active := false }}
                 {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-                {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) }}
+                {{ if or ($currentPage.IsMenuCurrent "main" $e) ($currentPage.HasMenuCurrent "main" $e) ($isBlogPost) (eq $currentPage.RelPermalink .URL) }}
                     {{ $classes = "font-semibold bg-gray-200 dark:bg-transparent rounded-sm dark:text-green-400" }}
                     {{ $active = true }}
                 {{ else }}
@@ -49,7 +49,7 @@
         {{ $classesMobile := "" }}
         {{ $classesMobile := "" }}
         {{ $isBlogPost := (and (eq .Name "Blog") (in $permalink "/blog/")) }}
-        {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost)  }}
+        {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) ($isBlogPost) (eq $currentPage.RelPermalink .URL) }}
             {{ $classesMobile = "bg-green-600 rounded text-white font-semibold outline-none focus:bg-white focus:text-green-600" }}
         {{ else }}
             {{ $classesMobile = "text-gray-100" }}

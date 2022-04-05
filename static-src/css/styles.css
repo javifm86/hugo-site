@@ -42,6 +42,10 @@ code:not([class*='language-']) {
     font-size: 95%;
 }
 
+.single-post-content blockquote code:not([class*='language-']) {
+    @apply text-blue-700 bg-blue-100;
+}
+
 .lntable code {
     color: inherit;
     background: inherit;
@@ -161,11 +165,16 @@ a.general-link {
 }
 
 .single-post-content h2 {
-    @apply text-2xl;
+    @apply text-2xl mb-6;
+}
+
+.single-post-content h2:not(:first-of-type),
+.single-post-content h3  {
+    @apply mt-8;
 }
 
 .single-post-content h3 {
-    @apply text-xl;
+    @apply text-xl mb-4;
 }
 
 .single-post-content h4 {
@@ -182,6 +191,10 @@ a.general-link {
 
 .single-post-content blockquote {
     @apply border-l-4 border-blue-500 pl-6 bg-gray-100 text-blue-900 p-4;
+}
+
+.single-post-content blockquote a {
+    @apply border-blue-500;
 }
 
 .single-post-content blockquote > :last-child {
@@ -204,55 +217,35 @@ a.general-link {
     @apply border border-gray-300 p-2;
 }
 
+.single-post-content .table-of-content {
+    @apply inline-block w-auto p-8 bg-blue-50 rounded text-base mb-8;
+}
+
+.single-post-content .table-of-content a {
+    @apply border-b-0 font-normal text-blue-700 pb-0;
+}
+
+.single-post-content .table-of-content a:hover {
+    @apply underline;
+}
+
+.single-post-content .table-of-content ol {
+    @apply mb-0 ;
+}
+
+.single-post-content .table-of-content li > ol {
+    @apply mt-2;
+}
+
+.single-post-content .table-of-content h2 {
+    @apply text-xl mb-6;
+}
+
+.single-post-content .table-of-content > :last-child {
+    @apply mb-0;
+}
+
 /* -------- Single post -------- */
-
-/* --------  list.html css grid with fallback to flexbox -------- */
-
-.grid-container {
-    @apply flex flex-wrap -mx-2 mb-8;
-}
-
-.item-container {
-    @apply w-full px-4 mb-8;
-}
-
-@screen sm {
-    .item-container {
-        @apply w-1/2;
-    }
-}
-@screen lg {
-    .item-container {
-        @apply w-1/3;
-    }
-}
-
-@supports (display: grid) {
-    .blog-container {
-        @apply px-4;
-    }
-   .grid-container {
-        @apply grid gap-8 grid-cols-auto-fit-min-290 mb-12 mx-0;
-        /* grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); */
-        grid-auto-rows: 1fr;
-    }
-
-    .item-container {
-       @apply w-full px-0 mb-0;
-    }
-    @screen sm {
-        .item-container {
-            @apply w-full
-        }
-    }
-    @screen lg {
-        .item-container {
-            @apply w-full
-        }
-    }
-}
-
-/* --------  End list.html css grid with fallback to flexbox -------- */
 
 /* --------  Styles for offcanvas menu -------- */
 
@@ -327,7 +320,8 @@ blockquote p:first-of-type {
     a.tag {
         @apply bg-gray-700 text-gray-100;
     }
-    article.single-post  a.tag, a.tag.tag-lg {
+    article.single-post a.tag,
+    a.tag.tag-lg {
         @apply bg-gray-800 text-gray-100;
     }
     code:not([class*='language-']) {

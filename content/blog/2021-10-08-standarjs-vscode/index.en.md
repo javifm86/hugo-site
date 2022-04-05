@@ -6,7 +6,7 @@ type: post
 img: img/standardjs-vscode.png
 altImg: Vue, Typescript, ESLint and, Prettier logos
 tags:
-    - vue
+    - javascript
 ---
 In this post, we will cover the setup of [StandardJS][1] in VSCode to fix all the errors when saving a file automatically.
 

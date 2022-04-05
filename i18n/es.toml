@@ -153,3 +153,7 @@ other = "Mensaje"
 
 [contact_send]
 other = "Enviar"
+
+#toc.html
+[toc_title]
+other = "Tabla de contenido"

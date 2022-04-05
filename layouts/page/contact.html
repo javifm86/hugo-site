@@ -13,7 +13,7 @@
 {{ $svgUrl := "static/svg/contact.svg" }}
 {{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" (i18n "contact_title") "miniTitle" (i18n "contact_minititle") "des" (i18n "contact_description")) }}
 {{/* https://getform.io/docs/collecting-submissions/spam-filtering-with-recaptcha */}}
-<div class="container mx-auto px-4 relative">
+<div class="max-w-7xl mx-auto px-4 relative">
     <div class="pattern hidden lg:block right-0 top-0 mr-1"></div>
     <div class="max-w-2xl mx-auto my-10 p-6 rounded relative">
         <form action="https://getform.io/f/7abbd559-9aab-478c-af2b-0fc1762cc1ce" method="POST" accept-charset="UTF-8">

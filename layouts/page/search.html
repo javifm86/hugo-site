@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $svgUrl := "static/svg/search.svg" }}
 {{ partial "header-svg.html" (dict "context" . "svgUrl" $svgUrl "titleHeader" (i18n "search_title") "miniTitle" (i18n "search_miniTitle") "des" (i18n "search_description")) }}
-<div class="container mx-auto px-4 mb-16">
+<div class="max-w-7xl mx-auto px-4 mb-16">
     <div class="relative my-10">
         <label for="search-input" class="sr-only">{{i18n "search_term"}}</label>
         <input type="text" id="search-input" name="search" placeholder="{{i18n "search_loading"}}..." class="focus:outline-none border-solid border-2 border-gray-300 focus:border-green-400 dark:border-gray-600 dark:focus:bg-white dark:text-gray-700 dark:bg-gray-300 block text-lg sm:text-xl w-full rounded px-10 py-2 dark:placeholder-gray-700">
