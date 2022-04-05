@@ -1,15 +1,16 @@
 ---
 title: "Monorepo simple starter workflow"
-date: 2022-03-17
+date: 2022-04-05
 author: javi
 type: post
 img: img/monorepo-react-nestjs.jpg
-altImg: 2021 in review
+altImg: React and NestJS logos
 toc: true
 tags:
     - git
     - hook
     - react
+    - nestJS
 ---
 
 In my current job, I have had to configure a monorepo with git hooks, ESLint, Prettier and some custom actions. I want to register the process, for future reference. This is the use case:
@@ -53,7 +54,7 @@ cd ../frontend
 npm install --save-dev --save-exact prettier
 ```
 
-Now we can create a `.prettierrc` config file in the root folder (config will be shared with both projects). You can config with your preferred rules, for example:
+Now we can create a `.prettierrc` config file in the root folder (config will be shared with both projects). We can configure with our preferred rules, for example:
 
 ```json
 {
@@ -272,7 +273,7 @@ npm set-script prepare "husky install"
 npm run prepare
 ```
 
-`prepare` is a lifecycle script, and will be executed after you execute `npm install` in a repository. If you are using **Yarn**, maybe **husky** is not installed automatically after install. In that case, you should manually run:
+`prepare` is a lifecycle script, and will be executed after we execute `npm install` in a repository. If we are using **Yarn**, maybe **husky** is not installed automatically after install. In that case, we should manually run:
 
 ```bash
 npm run prepare
@@ -324,7 +325,7 @@ npm i -D npm-run-all
 The next step, is defining `lint:staged` script in `backend/package.json` and in `frontend/package.json` as well, but before that, we will install another dependency for linting.
 
 ### Installing tsc-files
-[tsc-files][10] is a tiny tool to run tsc on specific files without ignoring `tsconfig.json`. This package was created [because passing specific files][11] like `tsc --noEmit file1.ts file2.ts` will cause TypeScript to simply ignore the `tsconfig.json`.
+[tsc-files][10] is a tiny tool to run `tsc` on specific files without ignoring `tsconfig.json`. This package was created [because passing specific files][11] like `tsc --noEmit file1.ts file2.ts` will cause TypeScript to simply ignore the `tsconfig.json`.
 
 We install tsc-files, which will be needed in the following step:
 
@@ -394,7 +395,7 @@ We will go with the first one, so:
 ```
 
 ### pre-commit summary
-Once we have completed this steps, **we have finished the configuration for pre-commit hook**. This is the flow that will be triggered when we make a git commit:
+Once we have completed these steps, **we have finished the configuration for pre-commit hook**. This is the flow that will be triggered when we make a git commit:
 
 1. `pre-commit` husky script will execute `npm run lint` defined in root `package.json`.
 1. `lint` script will go to both **backend** and **frontend** folder, and will execute `npm run lint:staged`.
@@ -502,7 +503,7 @@ Note for frontend:
 - If `prepush-if-changed` config finds any match, will launch `npm run test -- --watchAll=false`.
 - Finally, `lint` script executes `lint:eslint` and `lint:tsc`. 
 
-Wow this was a huge post, very interesting for future reference. A lot of topics, I published [the final result in Github][14]. Thanks for reading.
+Wow this was a huge post, very interesting for future reference. A lot of topics, I published [the final result in Github][14]. In my team we have been using this config for the last 3 months, and we are pleased with the result. Thanks for reading.
 
 [1]: https://nestjs.com/
 [2]: https://prettier.io/
