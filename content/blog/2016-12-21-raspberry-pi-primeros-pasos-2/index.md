@@ -56,16 +56,16 @@ Una vez conectado, puedes abrir el navegador y comprobar la conexión a internet
 
 Configurada la salida a Internet, el siguiente paso es **actualizar el sistema**. Estos comandos deberían ejecutarse de vez en cuando, para estar al día en actualizaciones de seguridad.
 
-{{< highlight bash >}}
+```bash
 sudo apt-get update
 sudo apt-get dist-upgrade
-{{< / highlight >}}
+```
 
 El primero actualiza el listado de paquetes, el segundo instala las actualizaciones. Si quieres ejecutar ambos y que conteste sí a las preguntas, puedes poner en una sola línea:
 
-{{< highlight bash >}}
+```bash
 sudo apt-get update && sudo apt-get -y dist-upgrade
-{{< / highlight >}}
+```
 
 Con todo esto ya tenemos la configuración básica inicial. Las posibilidades que brinda este mini ordenador son enormes, a partir de aquí hay que adpatarla a nuestras necesidades. Los usos más comunes son para servidores de descarga, servidor de contenido multimedia, domótica, etc. En próximas entradas explicaré configuración de algunos servicios que estoy usando.
 

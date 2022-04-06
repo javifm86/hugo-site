@@ -11,17 +11,17 @@ Una de las cosas más tontas, pero que descubrí hace poco. Por defecto, Sublime
 
 Es una buena idea por tanto, al menos para CSS eliminar el carácter &#8220;-&#8221; como separador. Para ello, en Sublime vamos al menú  _**Preferences -> Settings &#8211; Default.**_ Y buscamos la siguiente propiedad:
 
-{{< highlight JavaScript >}}
+```js
 // Characters that are considered to separate words
 "word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
-{{< / highlight >}}
+```
 
 La copiamos, y podemos cambiarla globalmente en _**Preferences -> Settings &#8211; User,**_ o para un lenguaje en específico. En este caso optamos por esta última opción, abrimos un archivo CSS cualquiera, y vamos a **_Preferences -> Settings &#8211; More -> Syntax &#8211; Specific &#8211; User._** Si no has definido ninguna preferencia para el lenguaje específico, aparecerá un archivo vacío. Pegaremos la propiedad y la encerraremos entre llaves de la siguiente manera, eliminando el carácter &#8220;**&#8211;**&#8220;:
 
-{{< highlight JavaScript >}}
+```js
 {
 "word_separators": "./\\()\"':,.;<>~!@#$%^&*|+=[]{}`~?"
 }
-{{< / highlight >}}
+```
 
 Puedes utilizar un proceso similar para otros lenguajes, por ejemplo si utilizas jQuery en Javascript y/o PHP, puede resultarnos interesante eliminar el carácter &#8220;**$**&#8221; como separador de palabra. Por este tipo de detalles personalizables son por los que me encanta Sublime.

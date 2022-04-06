@@ -14,7 +14,7 @@ Vamos a ver como configurar nuestro sitio construido con Hugo para que integre [
 permite de una manera sencilla configurar tu sitio a tu gusto. En mi caso en particular, tengo el fichero `baseof.html`
 como esqueleto de todo mi sitio, y en el tengo un partial (que viene a ser un include) llamado `head.html`.
 
-{{< highlight go-html-template >}}
+```go-html-template
 
 <!doctype html>
 <html lang="es">
@@ -23,17 +23,17 @@ como esqueleto de todo mi sitio, y en el tengo un partial (que viene a ser un in
 </head>
 <body></body>
 </html>
-{{< / highlight >}}
+```
 
 Realizamos la importación del fichero `styles.css` de la carpeta css y le pasamos la función `absURL` de Hugo, de manera
 que nos devuelve la ruta absoluta.
 
-{{< highlight go-html-template >}}
+```go-html-template
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{ $css := "css/styles.css" | absURL }}
 <link rel="stylesheet" href="{{ $css }}">
-{{< / highlight >}}
+```
 
 Los archivos estáticos en Hugo se guardan por defecto en la carpeta `static`, así que ya tenemos el primer paso, tener un
 fichero `styles.css` en la ruta `/static/css/`. Como este fichero va a ser generado, lo que he hecho ha sido crearme una
@@ -41,10 +41,10 @@ carpeta llamada `static-src` donde tener los fuentes de mis ficheros estáticos 
 
 Antes de continuar, vamos a instalar las dependencias que vamos a necesitar con npm.
 
-{{< highlight shell >}}
+```bash
 npm install tailwindcss --save
 npm install postcss postcss-cli @fullhuman/postcss-purgecss autoprefixer watch cross-env cssnano --save-dev
-{{< / highlight >}}
+```
 
 Veamos qué son estas dependencias:
 
@@ -63,12 +63,12 @@ Con todas estas dependencias ya disponemos de las piezas del puzzle necesarias p
 y solo con las clases que utilicemos, no todo el framework. Generamos un fichero de configuración de Tailwind vacío,
 para en caso de querer [personalizar las opciones que vienen por defecto][2] en el framework podamos. Tan solo ejecutaremos:
 
-{{< highlight shell >}}
+```bash
 npx tailwind init
-{{< / highlight >}}
+```
 
 Y nos generará un fichero `tailwind.config.js` vacío en el raíz:
-{{< highlight JavaScript >}}
+```js
 module.exports = {
   theme: {
     extend: {}
@@ -76,12 +76,12 @@ module.exports = {
   variants: {},
   plugins: []
 }
-{{< / highlight >}}
+```
 
 Ya podemos crear nuestro fichero `/static-src/styles.css` invocando a las directivas de Tailwind. Además podremos añadir
 otros estilos CSS que queramos, utilicen Tailwind o no.
 
-{{< highlight CSS >}}
+```css
 @tailwind base;
 @tailwind components;
 
@@ -95,14 +95,14 @@ a.tag:hover {
 /* Custom CSS end */
 
 @tailwind utilities;
-{{< / highlight >}}
+```
 
 Tailwind es compilado utilizando PostCSS, por lo que puedes integrar facilmente otros plugins. En nuestro caso vamos
 a meter `autoprefixer`, para que se generen automáticamente los prefijos de las propiedades que lo necesiten y además,
 cuando compilemos para producción vamos a utilizar `purgecss` y `cssnano` para reducir al máximo el tamaño de nuestra 
 hoja de estilos. Veamos el fichero de configuración de PostCSS (`postcss.config.js`, ubicado en el directorio raíz):
 
-{{< highlight JavaScript >}}
+```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
     content: ['../../content/**/*.md', './layouts/**/*.html'],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
@@ -115,23 +115,23 @@ module.exports = {
         ...(process.env.NODE_ENV === 'production' ? [purgecss, require('cssnano')] : [])
     ]
 };
-{{< / highlight >}}
+```
 
 A la hora de purgar el CSS, buscaremos en todos nuestros ficheros con extensión `.md` en la carpeta `content` y `.html` en
 `layouts`. Si trabajas con ficheros javascript u otras rutas donde añadas clases CSS, deberás ajustar el array de rutas.
 Este snippet considera que estamos trabajando con un theme dentro de la carpeta `/themes/nombretheme/`, si
 trabajamos directamente desde la carpeta `layouts` de Hugo (como he hecho yo en este blog) habría que ajustar las rutas:
 
-{{< highlight JavaScript >}}
+```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
     content: ['./content/**/*.md', './layouts/**/*.html', './static/**/*.js'],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 });
-{{< / highlight >}}
+```
 
 Con todo esto ya podemos generar nuestros scripts npm en el fichero `package.json`:
 
-{{< highlight JSON >}}
+```json
 {
   "name": "hugo-tailwindcss",
   "version": "0.0.1",
@@ -159,7 +159,7 @@ Con todo esto ya podemos generar nuestros scripts npm en el fichero `package.jso
   }
 }
 
-{{< / highlight >}}
+```
 Tenemos principalmente 3 tareas:
 - **css:build:dev**: Compila el fichero CSS en modo desarrollo, para mayor agilidad tendremos todo Tailwind por defecto sin
 necesidad de minimizar y purgar clases.

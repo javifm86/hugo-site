@@ -33,16 +33,16 @@ StandardJS utiliza una configuración de reglas fijas definidas con [ESLint][2].
 El primer paso será como no, instalar el paquete. Lo puedes hacer de manera global o local para un proyecto, yo siempre
 que puedo elijo esta última opción, para poder tener las dependencias controladas y no depender de un paquete global.
 
-{{< highlight shell >}}
+```bash
 npm install standard --save-dev
-{{< / highlight >}}
+```
 
 En cualquier momento puedes solucionar automáticamente los problemas que encuentre (los que se puedan arreglar
 automáticamente) con:
 
-{{< highlight shell >}}
+```bash
 standard --fix
-{{< / highlight >}}
+```
 
 Puedes crearte un script npm para ejecutarlo automáticamente, pero la opción más cómoda es integrarlo en el editor.
 
@@ -64,7 +64,7 @@ workspace del proyecto. También a nivel de workspace, utilizaremos la siguiente
 documentación de la extensión para formateo y resolución automática de problemas, pero a la que he tenido que añadir las
 líneas que aparecen remarcadas, porque sino no me funcionaba.
 
-{{< highlight JSON "linenos=table,hl_lines=12-14" >}}
+```json {linenos=table,hl_lines=["12-14"]}
 {
   "standard.enable": true,
   "standard.run": "onSave",
@@ -83,7 +83,7 @@ líneas que aparecen remarcadas, porque sino no me funcionaba.
     "editor.defaultFormatter": null
   }
 }
-{{< / highlight >}}
+```
 
 Para probar que todo funciona, vamos a un fichero Javascript y comprobamos que al guardar desaparecen todos los errores
 que marcaba StandardJS. Eso es todo, por mi parte prefiero Prettier a la hora de formatear, ya que puedo usarlo también

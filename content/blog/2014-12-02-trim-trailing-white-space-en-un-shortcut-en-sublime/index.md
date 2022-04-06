@@ -18,7 +18,7 @@ La solución es sencilla, Sublime tiene un plugin por default que realiza la acc
 
 El archivo es _**trim\_trailing\_white_space.py.**_
 
-{{< highlight python >}}
+```py
 import sublime, sublime_plugin
 
 class TrimTrailingWhiteSpace(sublime_plugin.EventListener):
@@ -38,13 +38,13 @@ class EnsureNewlineAtEof(sublime_plugin.EventListener):
                 edit = view.begin_edit()
                 view.insert(edit, view.size(), "\n")
                 view.end_edit(edit)
-{{< / highlight >}}
+```
 
 Podéis modificar ese mismo fichero, yo preferí crearme otro distinto, por no tocar nada de lo que trae Sublime por defecto, y le puse un nombre super original: 
 
 _**trim\_trailing\_white_space2.py,**_ en la misma carpeta. El código es el siguiente:
 
-{{< highlight python >}}
+```py
 import sublime, sublime_plugin
 
 def trim_trailing_white_space2(view):
@@ -58,19 +58,19 @@ def trim_trailing_white_space2(view):
 class TrimTrailingWhiteSpace2Command(sublime_plugin.TextCommand):
     def run(self, edit):
         trim_trailing_white_space2(self.view)
-{{< / highlight >}}
+```
 
 Para terminar, abrimos el archivo _**Key Bindings &#8211; User**_ y añadimos el siguiente shortcut:
 
-{{< highlight JavaScript >}}
+```js
 { "keys": ["ctrl+alt+shift+t"], "command": "trim_trailing_white_space2" }
-{{< / highlight >}}
+```
 
 Con la combinación de teclas que os sea más cómoda. Et voilà! Eso es todo.
 
 Lo anterior para la versión 2 de Sublime, si lo queremos funcionando en la 3 el código es el siguiente:
 
-{{< highlight python >}}
+```py
 import sublime, sublime_plugin
 
     class TrimTrailingWhiteSpace2Command(sublime_plugin.TextCommand):
@@ -83,7 +83,7 @@ import sublime, sublime_plugin
     class TrimTrailingWhiteSpace2(sublime_plugin.EventListener):
         def run(self, view):
             view.run_command("trim_trailing_white_space2")
-{{< / highlight >}}
+```
 
 Solución encontrada en: [Stackoverflow (3ª respuesta)][2]
 

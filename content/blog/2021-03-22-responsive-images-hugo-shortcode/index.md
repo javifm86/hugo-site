@@ -35,7 +35,7 @@ responsive-images-hugo
 </pre>
 
 El siguiente paso es crear un archivo para el shortcode, yo lo creé en `layouts/shortcodes/img.html` con el siguiente código:
-{{< highlight go-html-template >}}
+```go-html-template
 {{/* Get file that matches the filename as specified as src="" in shortcode */}}
 {{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
 
@@ -89,12 +89,12 @@ El siguiente paso es crear un archivo para el shortcode, yo lo creé en `layouts
     width="{{ $src.Width }}" height="{{ $src.Height }}"
     {{ with .Get "alt" }}alt='{{.}}'{{ end }}>
 
-{{< / highlight >}}
+```
 
 De esta manera seremos capaces de usar en los archivos markdown para los artículos el shortcode:
-{{< highlight go-html-template >}}
+```go-html-template
 {{</* img src="img/img1.jpg" alt="Description for image" */>}}
-{{< / highlight >}}
+```
 
 Y eso es todo, usas la imagen como si estuvieras en html y gracias al shortcode y Hugo se generarán imágenes más pequeñas
 cuando sea necesario. El crédito de esta solución es de [Laura Kalbag][2], yo simplemente modifiqué un poco su código. Aprovecho

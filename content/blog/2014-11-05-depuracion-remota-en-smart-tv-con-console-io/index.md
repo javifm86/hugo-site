@@ -25,22 +25,22 @@ Rapidamente mis compañeros y yo pensamos en elaborar un propio debugger muy sim
 
 Vamos a ver en unos sencillos pasos como instalar Console.io rapidamente. Se instala como un módulo de [Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
 
-{{< highlight bash >}}
+```bash
 npm install -g xconsole.io
-{{< / highlight >}}
+```
 
 De esta manera una vez terminen de realizarse todas las operaciones en la consola, se habrá instalado correctamente y podremos comenzar a usarlo. Para ello simplemente abriremos la consola, y ejecutaremos el siguiente comando:
 
-{{< highlight bash >}}
+```bash
 consoleio
-{{< / highlight >}}
+```
 
 Y aparecerá en consola el siguiente mensaje:
 
-{{< highlight bash >}}
+```bash
 Starting Console.IO
 Console.IO is run at http://localhost:8082
-{{< / highlight >}}
+```
 
 Con esto ya estaría instalado, simplemente abrimos la dirección del servidor y comprobamos que todo cargue correctamente. Deberíamos ver algo así:
 
@@ -52,16 +52,16 @@ En mi portátil personal fue suficiente con estos pasos, en el del trabajo por a
 
 Esto sucede porque se intenta buscar el Console.io en el directorio en el cual estoy situado actualmente en la consola, y no encuentra los archivos necesarios para ejecutarse. Lo que hice fue **copiarme todas las carpetas del Console.io en mi servidor wamp** (puede ser en cualquier directorio, Mis Documentos, en el escritorio). Y en la barra de tareas tengo un acceso directo a un .bat muy sencillo, que se coloca en dicha carpeta y una vez allí lanza el Console.io:
 
-{{< highlight bash >}}
+```bash
 cd C:\wamp\www\jsconsole
 consoleio
-{{< / highlight >}}
+```
 
 Una vez funcionando de la manera que sea, ya solo nos queda añadir un script a nuestra aplicación, para poder recibir en Console.io los mensajes de depuración. Siendo 192.168.1.15, nuestra máquina con nuestra ip (en vuestro caso deberéis usar la IP que tenga vuestro ordenador), añadiríamos lo siguiente:
 
-{{< highlight HTML >}}
+```html
 <script type="text/javascript" src="http://192.168.1.15:8082/console.io.js"></script>
-{{< / highlight >}}
+```
 
 Ya solo nos queda lanzar nuestra aplicación, desde el dispositivo que queramos, y podremos ver desde la url de Console.io todos los logs que van saliendo. Podemos ver la estructura de los objetos, y **utilizar los distintos método de la consola,** info, error, warning, hasta funciona `console.time` y `console.timeEnd`.
 

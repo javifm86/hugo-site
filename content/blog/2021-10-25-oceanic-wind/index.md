@@ -26,17 +26,17 @@ Primero, instalar la extensión para Yeoman para generar extensiones de VSCode, 
 
 {{< img src="img/yo.png" alt="Opciones del generador de Yeoman." >}}
 
-{{< highlight shell >}}
+```bash
 npm install -g yo generator-code
 yo code
-{{< / highlight >}}
+```
 
 Selecciona `New color theme` y `No, start fresh`. Rellena los campos que te pide como nombre e identificador, y selecciona un punto de partida para crear tu theme, en mi caso **Dark theme**. Ya puedes abrir el directorio con VSCode:
 
-{{< highlight shell >}}
+```bash
 cd your-theme
 code .
-{{< / highlight >}}
+```
 
 Para probar el tema, simplemente pulsa `F5` y se abrirá una nueva ventana en la que puedes ver el resultado.
 

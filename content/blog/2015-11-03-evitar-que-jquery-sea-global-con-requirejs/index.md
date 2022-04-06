@@ -15,7 +15,7 @@ Por ejemplo, desarrollando para las televisiones SmartTV de Samsung, me encontr
 
 Veamos como quedaría nuestra configuración de RequireJS:
 
-{{< highlight JavaScript >}}
+```js
 require.config( {
 
     baseUrl: "./",
@@ -35,21 +35,21 @@ require.config( {
     }
 
 } );
-{{< / highlight >}}
+```
 
 Y luego simplemente añadiríamos el siguiente código en el módulo **noConflict**:
 
-{{< highlight JavaScript >}}
+```js
 define( [ "jquery" ], function( $ ) {
     return $.noConflict( true );
 } );
-{{< / highlight >}}
+```
 
 Pasándole true al método noConflict de jQuery, además de eliminar jQuery de la variable global `$`, se elimina además de la global `jQuery`. De esta manera, podríamos tener varias versiones de jQuery de manera privada, o una pública y otra solo usada como dependencia en los módulos que se necesite.
 
 Para usarlo, se require jQuery como una dependencia, y se le asigna a la variable que solo estará disponible en ese módulo el nombre que queramos:
 
-{{< highlight JavaScript >}}
+```js
 define(
 
     // Módulos requeridos
@@ -60,7 +60,7 @@ define(
     }
     
 );
-{{< / highlight >}}
+```
 
 Si aún no conoces RequireJS, o no utilizas un cargador de módulos en tus desarrollos Javascript, te recomiendo que aprendas, ya que ayuda a mantener separadas las distintas funcionalidades de una aplicación, evitando crear un monstruo que a la larga sea difícil de mantener.
 

@@ -18,14 +18,14 @@ Si estás conectado en remoto, ten en cuenta que **te deberás conectar fisicame
 
 <ol>
   <li>Ejecuta el siguiente comando, con el cual indicamos que queremos usar un teclado español de españa.</li>
-  {{< highlight bash >}}setxkbmap -layout 'es,es' {{< / highlight >}}
+  ```bashsetxkbmap -layout 'es,es' ```
   
 
   <li>Navega al directorio _/etc/xrdp_, haz `ls` y comprueba que no haya un fichero **km-040a.ini**, que es el correspondiente al teclado español. Si lo hay, no está de más de hacer un backup por si acaso. Lo normal es que no lo haya, asi que a través del siguiente comando lo crearemos.</li>
- {{< highlight bash >}}xrdp-genkeymap /etc/xrdp/km-040a.ini {{< / highlight >}}
+ ```bashxrdp-genkeymap /etc/xrdp/km-040a.ini ```
 
   <li>Este es el fichero que se encarga de establecer los mapeos a las teclas. Crearemos un backup de él antes de modificarlo. Desde la consola, con sudo ejecutaremos:</li>
-  {{< highlight bash >}}sudo cp km-040a.ini km-040a.ini.backup {{< / highlight >}}
+  ```bashsudo cp km-040a.ini km-040a.ini.backup ```
 
   <li>Con esto tendríamos ya funcionando el teclado, pero no del todo. Seguramente muchos símbolos ya se hayan corregido, pero combinaciones con la tecla _AltGr_, y las flechas arriba, abajo, derecha, izquierda puede que no funcionen. Si este es el caso, hay que editar el fichero **km-040a.ini** y terminar de mapear todo correctamente. Por suerte <a href=" https://github.com/javifm86/km-041a.ini/blob/master/km-040a.ini">pude encontrar por internet un fichero que funcionaba bien</a> con mi teclado, y simplemente lo sobreescribí.</li>
 </ol>

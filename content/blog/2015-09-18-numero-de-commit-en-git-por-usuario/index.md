@@ -9,6 +9,6 @@ tags:
 ---
 Para saber el número de commits realizados por usuario en un repositorio Git, simplemente en el terminal:
 
-{{< highlight bash >}}
+```bash
 git shortlog -s -n
-{{< / highlight >}}
+```

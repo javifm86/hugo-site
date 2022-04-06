@@ -34,10 +34,10 @@ buscador: un fichero JSON con el contenido de todos los posts del blog. Para ell
    `content/blog`. Por tanto podría definir de manera global que todas las secciones del sitio también tuvieran como formato de salida JSON de la
    siguiente manera:
 
-{{< highlight go-html-template >}}
+```go-html-template
 [outputs]
 section = ["JSON", "HTML", "RSS"]
-{{< / highlight >}}
+```
 
 De esta manera tendríamos un fichero JSON por cada **section**. Si además de _blog_ como es en mi caso, tuviéramos otra sección (_cursos_), cada una
 dispondría de su propio fichero `index.json` con el contenido propio de cada sección, lo que nos permitiría poder realizar búsquedas independientes
@@ -51,7 +51,7 @@ crearíamos un fichero `list.json` y en la carpeta `cursos` crearíamos otro `li
 
 Veamos el contenido del fichero `list.json`, que simplemente genera usando sintáxis de Hugo un array de posts.
 
-{{< highlight go-html-template >}}
+```go-html-template
 [
 {{ range $index, $value := where .Site.Pages "Type" "post" }}
 {{ if $index }}, {{ end }}
@@ -63,7 +63,7 @@ Veamos el contenido del fichero `list.json`, que simplemente genera usando sint�
 }
 {{ end }}
 ]
-{{< / highlight >}}
+```
 
 El contenido es personalizable, y el nombre de cada campo también. Yo por el momento al tener un número reducido de artículos, tengo
 el contenido de cada uno en un campo `content`, pero a futuro con un número grande de artículos por temas de rendimiento sería conveniente reducir
@@ -72,7 +72,7 @@ el tamaño del fichero JSON quizás dejando solo el título y el sumario.
 2. Se puede activar para cada _section_ el formato de salida desde el front matter. En mi caso, en `content/blog` tengo un fichero `_index.md` e
    `_index.en.md` para el idioma inglés. Desde ahí puedo activar también el formato JSON de la siguiente manera:
 
-{{< highlight markdown >}}
+```md
 ---
 title: Blog personal
 subtitle: Artículos escritos sobre temática variada relacionada con el mundo de la tecnología y la programación.
@@ -81,7 +81,7 @@ outputs:
 - rss
 - json
 ---
-{{< / highlight >}}
+```
 
 La parte del template `list.json` es exactamente igual que en el punto anterior. Puedes leer en la documentación de Hugo
 [acerca de la personalización de formato de salida del contenido][5].
@@ -94,38 +94,38 @@ terminar la implementación del buscador. Yo he decidido poner el buscador simpl
 que consta de un input para recoger el término de búsqueda y un elemento `section` donde mostraremos los resultados de la
 búsqueda.
 
-{{< highlight go-html-template >}}
+```go-html-template
 <label for="search-input">Término de búsqueda</label>
 <input type="text" id="search-input" name="search" placeholder="{{i18n "search_loading"}}...">
 
 <section id="search-results"></section>
-{{< / highlight >}}
+```
 
 En el mismo fichero html se encuentra el código Javascript, ya que no es muy largo y podemos **crear variables dinámicas en
 Javascript con Hugo** para obtener los literales multidioma y la ruta relativa al `index.json` para cada lenguaje.
 
 Importamos Lunr, yo lo tengo en la carpeta `static/js/`:
 
-{{< highlight go-html-template >}}
+```go-html-template
 {{ $lunr := "js/lunr.min.js" | absURL }}
 
 <script src="{{ $lunr }}"></script>
 
-{{< / highlight >}}
+```
 
 También podría importarse desde CDN:
 
-{{< highlight go-html-template >}}
+```go-html-template
 
 <script src="https://unpkg.com/lunr/lunr.js"></script>
 
-{{< / highlight >}}
+```
 
 A continuación, el código javascript que al cargar la página hace una petición para cargar el fichero `index.json` y crea el
 documento indexado que posteriormente se utilizará para devolver los resultados de la búsqueda. Las búsquedas se van lanzando
 según el usuario va escribiendo en el input.
 
-{{< highlight go-html-template >}}
+```go-html-template
 
 <script type="text/javascript">
 (function () {
@@ -232,21 +232,21 @@ según el usuario va escribiendo en el input.
   }
 })();
 </script>
-{{< / highlight >}}
+```
 
 Y con esto ya tendríamos nuestro buscador finalizado. Para elaborar esta solución he seguido las guías
 de [Joseph Earl][6] y [Matt Walters][7]. He adaptado y actualizado el código Javascript y he corregido la manera de lanzar la
 búsqueda con **Lunr**, ya que no era del todo precisa y no funcionaba correctamente en todos los casos. Esta es la parte más
 importante, y [la solución][8] la encontré en una issue en el github de Lunr:
 
-{{< highlight javascript >}}
+```js
 // Run fuzzy search
 const results = idx.query(function(q) {
   q.term(lunr.tokenizer(query.trim()), { usePipeline: true, boost: 100 });
   q.term(lunr.tokenizer(query.trim()) + '*', { usePipeline: false, boost: 10 });
   q.term(lunr.tokenizer(query.trim()), { usePipeline: false, editDistance: 1 });
 });
-{{< / highlight >}}
+```
 
 Puedes [consultar mi fichero search.html][9] con el código completo en github y adaptarlo para tu caso de uso.
 

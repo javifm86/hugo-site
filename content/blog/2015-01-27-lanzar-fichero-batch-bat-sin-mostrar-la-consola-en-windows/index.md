@@ -11,12 +11,12 @@ En mi día a día suelo trabajar en entorno Windows, y hay ciertos atajos de tec
 
 Por si te resulta molesto que esté la consola abierta mientras se ejecuta el script, hay una manera sencilla de impedirlo, como pude encontrar en esta pregunta de [Superuser.][2] Copia el siguiente miniscript en un fichero con extensión `.vbs` en la misma carpeta que tu bat, y ejecutalo en lugar del `.bat`
 
-{{< highlight vb >}}
+```vb
 Set oShell = CreateObject ("Wscript.Shell") 
 Dim strArgs
 strArgs = "cmd /c testing.bat"
 oShell.Run strArgs, 0, false
-{{< / highlight >}}
+```
 
 Simplemente cambia `testing.bat` por el nombre de tu fichero y listo.
 

@@ -26,22 +26,22 @@ productive as possible, we will run PurgeCSS just when building for production. 
 
 First of all we will install dependencies:
 
-{{< highlight shell >}}
+```bash
 npm install tailwindcss --save
 npm install --save-dev @angular-builders/custom-webpack @fullhuman/postcss-purgecss
-{{< / highlight >}}
+```
 
 Generate an empty Tailwind config file:
 
-{{< highlight shell >}}
+```bash
 npx tailwind init
-{{< / highlight >}}
+```
 
 Create a new file, and give it the extension depending on the preprocessor you are using. In my case `scss`, so the file
 will be `src/tailwind.scss` where we will insert Tailwind directives. We can also add custom styles using Tailwind directives 
 in this file.
 
-{{< highlight CSS >}}
+```css
 @tailwind base;
 @tailwind components;
 
@@ -55,11 +55,11 @@ a.tag:hover {
 /* Custom CSS end */
 
 @tailwind utilities;
-{{< / highlight >}}
+```
 
 Next step is creating `extra-webpack.config.js` file on folder root with this content:
 
-{{< highlight JavaScript >}}
+```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
   // Specify the paths to all of the template files in your project
   content: ['./src/**/*.html', './src/**/*.component.ts'],
@@ -86,7 +86,7 @@ module.exports = (config, options) => {
   });
   return config;
 };
-{{< / highlight >}}
+```
 
 ## angular.json
 Now we need to edit `angular.json` config file so that we can customize `ng serve` and `ng build` commands. We must search
@@ -100,7 +100,7 @@ with key `path` and `extra-webpack.config.js` as its value.
 
 Finally we will add our `src/tailwind.scss` stylesheet to the array in `architect.build.options.styles`. Let´s see all the changes together:
 
-{{< highlight JSON "linenos=table,hl_lines=3 5-7 10 17 19-21" >}}
+```json {linenos=table,hl_lines=[3,"5-7", 10, 17, "19-21"]}
 "architect": {
   "build": {
     "builder": "@angular-builders/custom-webpack:browser",
@@ -126,21 +126,21 @@ Finally we will add our `src/tailwind.scss` stylesheet to the array in `architec
     }
   }
 }
-{{< / highlight >}}
+```
 
 Once these changes are applied we can init server in development mode with `ng serve` as usual. All the Tailwind classes will
 be available. When compiling for production with `ng build --prod` we can check in `dist` folder that styles files is generated
 with only classes that are used in our application.
 
-{{< highlight plaintext >}}
+```text
 chunk {4} styles.847663bf210845648553.css (styles) 5.51 kB [initial] [rendered]
-{{< / highlight >}}
+```
 
 ## PurgeCSS with Tailwind
 From Tailwind 1.4.0 PurgeCSS is integrated into Tailwind config file. This way we can remove `@fullhuman/postcss-purgecss`
 dependency in our project and leave `extra-webpack.config.js` with this content:
 
-{{< highlight JavaScript >}}
+```js
 
 module.exports = (config, options) => {
   console.log(`Using '${config.mode}' mode`);
@@ -159,11 +159,11 @@ module.exports = (config, options) => {
   });
   return config;
 };
-{{< / highlight >}}
+```
 
 We just move routes to `tailwind.config.js` file:
 
-{{< highlight JavaScript >}}
+```js
 module.exports = {
   purge: ['./src/**/*.html', './src/**/*.component.ts'],
   theme: {
@@ -172,18 +172,18 @@ module.exports = {
   variants: {},
   plugins: [],
 };
-{{< / highlight >}}
+```
 
 We must compile with `NODE_ENV` variable set to `production` so that Tailwind automatically purges unused
 styles. To achieve this with a multiplatform solution I like using `cross-env` package. We just install it:
 
-{{< highlight shell >}}
+```bash
 npm install cross-env --save-dev
-{{< / highlight >}}
+```
 
 After the installation we can create a script in `package.json` to launch the build:
 
-{{< highlight JSON "linenos=table,hl_lines=10" >}}
+```json {linenos=table,hl_lines=[10]}
 {
   // ...
   "scripts": {
@@ -197,17 +197,17 @@ After the installation we can create a script in `package.json` to launch the bu
   },
   // ...
 }
-{{< / highlight >}}
+```
 
 Now we run the script and check that everything is working as expected:
 
-{{< highlight shell >}}
+```bash
 npm run build:prod
-{{< / highlight >}}
+```
 
-{{< highlight plaintext >}}
+```text
 chunk {4} styles.847663bf210845648553.css (styles) 5.51 kB [initial] [rendered]
-{{< / highlight >}}
+```
 
 With these simple steps you are ready to go with Tailwind in your Angular projects.
 

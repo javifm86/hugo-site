@@ -26,17 +26,17 @@ First, you have to install Yeoman extension generator and run it:
 
 {{< img src="img/yo.png" alt="Yeoman generator options." >}}
 
-{{< highlight shell >}}
+```bash
 npm install -g yo generator-code
 yo code
-{{< / highlight >}}
+```
 
 Select `New color theme` and `No, start fresh`. Give a name and identifier for your extension, and select a base theme to be used as starting point. Now you can open the folder with VSCode.
 
-{{< highlight shell >}}
+```bash
 cd your-theme
 code .
-{{< / highlight >}}
+```
 
 If you want to test your theme, just press `F5` and a new window will be open where you will be able to see the result.
 

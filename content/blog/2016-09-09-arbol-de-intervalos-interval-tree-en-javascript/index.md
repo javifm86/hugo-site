@@ -18,9 +18,9 @@ Además, no es un escenario normal, en mi caso los datos se encuentran en format
 
 Su uso es muy sencillo, tal y como describen en su sitio de Github. En nuestro proyecto utilizamos **RequireJS** como cargador de módulos, asi que adapté los distintos ficheros y los convertí en módulos. Si no tienes ni idea de [CoffeeScript][3] (lenguaje que compila a Javascript), ni de como compilarlo, puedes instalarte el paquete por npm, que es lo que hice yo y de ahí cogí los ficheros js.
 
-{{< highlight bash >}}
+```bash
 npm install interval-tree2
-{{< / highlight >}}
+```
 
 En la carpeta _dist_ se encuentran los ficheros necesarios:
 
@@ -33,7 +33,7 @@ En la carpeta _dist_ se encuentran los ficheros necesarios:
 
 Yo he cogido todos, los he modificado para usarlos en entorno web, pongo el código al final de la entrada. Siguiendo el ejemplo puesto por el autor. Para crear un árbol y añadir intervalos:
 
-{{< highlight JavaScript >}}
+```js
 var itree = new IntervalTree(300); // 300 : Centro del árbol
 
 // 'foo' es el identificador del intervalo
@@ -44,33 +44,33 @@ itree.add(44, 199, 'bar');
 
 // Si no se pone id, se asigna automaticamente uno
 itree.add(1, 38);
-{{< / highlight >}}
+```
 
 Una vez insertados los intervalos, a la hora de buscar disponemos de 2 métodos:
 
-{{< highlight JavaScript >}}
+```js
 // Intervalos que coinciden con un punto
 var intervals = itree.pointSearch(103);
 
 // Intervalos que entran en el rango solicitado
 var intervals2 = itree.rangeSearch(103, 400);
-{{< / highlight >}}
+```
 
 Una vez obtenidos, se pueden recorrer todos los intervalos:
 
-{{< highlight JavaScript >}}
+```js
 intervals2.forEach(function(interval) {
 console.log(interval.start); // Posición de inicio
 console.log(interval.end); // Posición de fin
 console.log(interval.id); // ID
 });
-{{< / highlight >}}
+```
 
 Por último, se puede eliminar un intervalo dado su id:
 
-{{< highlight JavaScript >}}
+```js
 itree.remove('foo');
-{{< / highlight >}}
+```
 
 En mi caso, encontré especialmente útil el id de cada intervalo, pues lo usaba para obtener información de la posición dentro del binario donde poder buscar la información de cada programa. Cada canal de televisión dispone de su árbol, y cada evento tenía un id de este estilo:
 
@@ -80,7 +80,7 @@ Ejemplo: &#8220;5|250&#8221;
 
 Aquí está todo el código de seguido, en formato módulos de Javascript, listo para importar y comenzar a usarse en entorno web.
 
-{{< highlight JavaScript >}}
+```js
 var Node = ( function() {
 
        /**
@@ -820,7 +820,7 @@ var Node = ( function() {
 
    } )();
 
-{{< / highlight >}}
+```
 
 &nbsp;
 

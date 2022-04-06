@@ -14,7 +14,7 @@ In this article we are going to see how can we build our Hugo site with [Tailwin
 allows us setting up our site easily as we want. In this web, I have a `baseof.html` file as template for the site. Inside
 this file I have a partial (an include in Hugo) file, `head.html`.
 
-{{< highlight go-html-template >}}
+```go-html-template
 
 <!doctype html>
 <html lang="es">
@@ -23,16 +23,16 @@ this file I have a partial (an include in Hugo) file, `head.html`.
 </head>
 <body></body>
 </html>
-{{< / highlight >}}
+```
 
 We import `styles.css` file from css folder and call `absURL` Hugo function, so it will return us the absolute path file.
 
-{{< highlight go-html-template >}}
+```go-html-template
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{ $css := "css/styles.css" | absURL }}
 <link rel="stylesheet" href="{{ $css }}">
-{{< / highlight >}}
+```
 
 Static files in Hugo are saved by default in `static` folder so that is the first step, having `styles.css` in
 `/static/css/`. As this file is going to be generated, what I have done has been to create a
@@ -40,10 +40,10 @@ folder called `static-src` where to have sources of my static files that I will 
 
 Before continuing, we will install the dependencies that we will need with npm.
 
-{{< highlight shell >}}
+```bash
 npm install tailwindcss --save
 npm install postcss postcss-cli @fullhuman/postcss-purgecss autoprefixer watch cross-env cssnano --save-dev
-{{< / highlight >}}
+```
 
 Let´s see what are these dependencies:
 
@@ -61,13 +61,13 @@ With all these dependencies we are ready to generate a CSS file with just the ut
 framework. Let´s generate an empty Tailwind config file so that [we can customize default settings][2] in the framework.
 We simply run:
 
-{{< highlight shell >}}
+```bash
 npx tailwind init
-{{< / highlight >}}
+```
 
 A `tailwind.config.js` file will be generated:
 
-{{< highlight JavaScript >}}
+```js
 module.exports = {
   theme: {
     extend: {}
@@ -75,12 +75,12 @@ module.exports = {
   variants: {},
   plugins: []
 }
-{{< / highlight >}}
+```
 
 Finally we can create our `/static-src/styles.css` file invoking Tailwind directives. Besides, we can add custom styles
 we want, using Tailwind or not.
 
-{{< highlight CSS >}}
+```css
 @tailwind base;
 @tailwind components;
 
@@ -94,14 +94,14 @@ a.tag:hover {
 /* Custom CSS end */
 
 @tailwind utilities;
-{{< / highlight >}}
+```
 
 Tailwind is compiled using PostCSS, so adding new plugins is very easy. We are going to add `autoprefixer` in order to
 auto generate prefixes for CSS properties that need them. Besides when compiling for production, we will use `purgecss`
 and `cssnano` for reducing the file size for our stylesheet. Let´s see PostCSS config file (`postcss.config.js` in the
 root folder):
 
-{{< highlight JavaScript >}}
+```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
     content: ['../../content/**/*.md', './layouts/**/*.html'],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
@@ -114,7 +114,7 @@ module.exports = {
         ...(process.env.NODE_ENV === 'production' ? [purgecss, require('cssnano')] : [])
     ]
 };
-{{< / highlight >}}
+```
 
 When using purgecss, we will search for files with `.md` extension inside `content` folder and `.html` in `layouts`. If
 you are working with javascript files or any other paths where you add CSS classes, you will have to adjust the array of
@@ -122,16 +122,16 @@ paths to suit your needs. In this snippet of code we are considering that we are
 `/themes/themename/` folder. If we are working directly in `layouts` folder (as I do in this blog), we should adjust the
 paths:
 
-{{< highlight JavaScript >}}
+```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
     content: ['./content/**/*.md', './layouts/**/*.html', './static/**/*.js'],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 });
-{{< / highlight >}}
+```
 
 With all this we can generate our npm scripts in `package.json` file:
 
-{{< highlight JSON >}}
+```json
 {
   "name": "hugo-tailwindcss",
   "version": "0.0.1",
@@ -159,7 +159,7 @@ With all this we can generate our npm scripts in `package.json` file:
   }
 }
 
-{{< / highlight >}}
+```
 There are 3 tasks:
 - **css:build:dev**: Compile CSS in development mode, for greater agility we will have all Tailwind utilities by default
 without need to minimize and purge classes.

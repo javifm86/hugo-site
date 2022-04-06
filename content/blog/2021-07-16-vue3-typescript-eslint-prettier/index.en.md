@@ -17,17 +17,17 @@ Typescript and setting up ESLint and Prettier for working properly together in V
 The easiest and fastest way for creating a new project is using [Vue CLI][1]. It will allow us to set up the project
 using different predefined workflows. First of all we will install Vue CLI:
 
-{{< highlight shell >}}
+```bash
 yarn global add @vue/cli
 # OR
 npm install -g @vue/cli
-{{< / highlight >}}
+```
 
 Once installed we can create a new project:
 
-{{< highlight shell >}}
+```bash
 vue create hello-world
-{{< / highlight >}}
+```
 
 We will select the last option from the list:
 <pre>
@@ -82,7 +82,7 @@ new application will launch in development mode.
 The Vue team has done a great job in order to avoid us headaches setting up ESLint and Prettier. If we open
 `.eslintrc.js` file we will see these plugins installed:
 
-{{< highlight js "linenos=table,hl_lines=6-12 19-20" >}}
+```js {linenos=table,hl_lines=["6-12", "19-20"]}
 module.exports = {
   root: true,
   env: {
@@ -116,7 +116,7 @@ module.exports = {
     },
   ],
 };
-{{< / highlight >}}
+```
 
 This way Prettier won't conflict with ESLint rules. At lines 19-20 there are custom rules added by me, we can add what
 we want in order to customize it.
@@ -134,20 +134,20 @@ option in the rest including Typescript, with just Prettier instead of **prettie
 
 In VSCode settings we must add Vetur as default formatter for Vue:
 
-{{< highlight js >}}
+```js
 "[vue]": {
   "editor.defaultFormatter": "octref.vetur"
 }
-{{< / highlight >}}
+```
 
 This way VSCode delegates in Vetur, and Vetur will format each different language that finds inside `.vue` files with
 a proper formatter. In my experience, there is only one thing wrong with auto format in `.vue` files,
 **inserting the final new line at the end of the file**. If you use this rule (which is the default), the only way I
 could find is delegating this task in VSCode with this setting:
 
-{{< highlight js >}}
+```js
 "files.insertFinalNewline": false
-{{< / highlight >}}
+```
 
 Sometimes using [the last version of Vetur can be problematic][3], recently in a project Vetur started formatting HTML
 in a different way. After struggling for some hours I realized Vetur had been updated and after downgrading Vetur version

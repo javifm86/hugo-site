@@ -13,27 +13,27 @@ Una vez finalizada la configuración básica, vamos a ver la manera de **conecta
 
 Si no dispones de Windows no te preocupes, vamos a ver varias maneras distintas de conexión en remoto. Para continuar con la configuración instalaremos el paquete **tightvncserver**, que se encarga automaticamente de desinstalar RealVNC . Para instalar, desde la terminal simplemente ejecutamos:
 
-{{< highlight bash >}}
+```bash
 sudo apt install -y tightvncserver
-{{< / highlight >}}
+```
 
 La opción _**-y**_ simplemente responde que sí a cualquier pregunta planteada. Finalmente instalamos xrdp:
 
-{{< highlight bash >}}
+```bash
 sudo apt install -y xrdp
-{{< / highlight >}}
+```
 
 Para poder acceder facilmente a nuestra Raspberry desde Windows, podemos instalar **Samba**. Así en lugar de recordar la IP, podemos recordar solamente el nombre que le hayamos puesto en el apartado **hostname** de la pestaña Sistema dentro de la configuración de la raspberry. Especialmente útil si tiene IP dinámica y no fija. En mi caso mi Raspbery se llama _**&#8220;rasp&#8221;**_. Para instalar samba:
 
-{{< highlight bash >}}
+```bash
 sudo apt install -y samba
-{{< / highlight >}}
+```
 
 Desde ahora, en una máquina Windows podremos acceder facilmente al miniordenador. Probamos desde cmd de Windows a hacer ping:
 
-{{< highlight bash >}}
+```bash
 ping rasp
-{{< / highlight >}}
+```
 
 Para conectar remotamente, disponemos de 2 opciones:
 

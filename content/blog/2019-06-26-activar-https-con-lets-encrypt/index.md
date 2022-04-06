@@ -14,51 +14,51 @@ tags:
 
 Certbot es un software que es actualizado bastante amenudo por sus desarrolladores. Si queremos disfrutar de la versión más actualizada, deberemos añadir su repositorio ya que si tiramos de los de Ubuntu, lo más normal es que tengan versiones más antiguas. Para ello:
 
-{{< highlight bash >}}
+```bash
 sudo add-apt-repository ppa:certbot/certbot
-{{< / highlight >}}
+```
 
 Aceptaremos las condiciones del servicio para poder actualizar los repositorios del sistema operativo.
 
-{{< highlight bash >}}
+```bash
 sudo apt-get update
-{{< / highlight >}}
+```
 
 Y finalmente instalaremos Certbot.
 
-{{< highlight bash >}}
+```bash
 sudo apt-get install python-certbot-nginx
-{{< / highlight >}}
+```
 
 Certbot ya está listo, ahora simplemente comprobaremos que tenemos definido en nuestro fichero de configuración de Nginx la clave `server_name` con el dominio que vamos a utilizar.
 
 Veremos la configuración del servidor por defecto en el fichero default, o si está en otro dominio configurado, iremos a ese fichero.
 
-{{< highlight bash >}}
+```bash
 sudo nano /etc/nginx/sites-available/default
-{{< / highlight >}}
+```
 
 <pre>server_name <strong>example.com www.example.com</strong>;</pre>
 
 Si ya está configurado, no es necesario hacer nada. En caso contrario añadimos nuestro dominio y ejecutamos los siguientes comandos para comprobar que la configuración de Nginx introducida no da problemas, y si es así recargamos para refrescar la nueva configuración:
 
-{{< highlight bash >}}
+```bash
 sudo nginx -t
     sudo systemctl reload nginx
-{{< / highlight >}}
+```
 
 Por último antes de obtener el certificado, vamos a añadir en nuestro firewall ufw que permita el trafico https. Para ello podemos ejecutar los siguientes comandos para añadir el perfil **Nginx full**, que incorporta tanto http como https y eliminaremos el http que sobra una vez añadido el anterior:
 
-{{< highlight bash >}}
+```bash
 sudo ufw allow 'Nginx Full'
     sudo ufw delete allow 'Nginx HTTP'
-{{< / highlight >}}
+```
 
 Comprobamos:
 
-{{< highlight bash >}}
+```bash
 sudo ufw status
-{{< / highlight >}}
+```
 
 <pre>
 Status: active
@@ -73,9 +73,9 @@ Nginx Full (v6)            ALLOW       Anywhere (v6)
 
 Finalmente lanzaremos el proceso para obtener el certificado y que se renueve automaticamente.
 
-{{< highlight bash >}}
+```bash
 sudo certbot --nginx -d example.com -d www.example.com
-{{< / highlight >}}
+```
 
 Se nos pedirá una dirección de correo electrónico y, si todo va bien, nos saldrá una pregunta solicitandonos elegir entre si queremos redireccionar el tráfico http a https o no. Elegimos la deseada, en mi caso elegí la segunda y pulsamos enter.
 
@@ -119,7 +119,7 @@ Hay una solución, que consiste en abrir el fichero de configuración de Nginx p
 
 Al volver a ejecutar de nuevo y eligiendo la opción de reinstalar los certificados debería de funcionar. Los certificados son válidos durante 90 días, certbot se encarga de lanzar un proceso que comprueba automáticamente 2 veces por día si quedan menos de 30 días para la expiración, de ser así los certificados serán renovados. Podemos comprobar que todo funciona correctamente ejecutando:
 
-{{< highlight bash >}}sudo certbot renew --dry-run{{< / highlight >}}
+```bashsudo certbot renew --dry-run```
 
 Puedes comprobar en el directorio **/etc/cron.d** que hay un script llamado **certbot** que se encarga de ello. Referencias interesantes:
 

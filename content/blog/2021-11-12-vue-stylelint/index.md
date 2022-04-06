@@ -22,9 +22,9 @@ El primer paso será añadir algunas dependencias a nuestro proyecto:
 * `postcss-html`: Dependencia necesaria para validar CSS en ficheros `.vue`.
 
 Por lo tanto, las instalamos:
-{{< highlight shell >}}
+```bash
 npm install stylelint stylelint-config-standard stylelint-config-recommended-vue postcss-html --save-dev
-{{< / highlight >}}
+```
 
 ## Stylelint en VSCode
 El siguiente paso es instalar [la extensión oficial de Stylelint para VSCode](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
@@ -35,7 +35,7 @@ Además, desde la versión 14 de Stylelint, **es necesario especificar los difer
 
 Adicionalmente, tengo `fixAll` que se ejecuta automáticamente al guardar un archivo.
 
-{{< highlight jsonc >}}
+```json
 {
   "css.validate": false, // Disable built-in lint
   "less.validate": false, // Disable built-in lint
@@ -47,12 +47,12 @@ Adicionalmente, tengo `fixAll` que se ejecuta automáticamente al guardar un arc
     "source.fixAll.stylelint": true
   },
 }
-{{< / highlight >}}
+```
 
 ## Fichero de configuración Stylelint
 Por último pero no menos importante, debemos crear un fichero de configuración en la raíz de nuestro proyecto.`.stylelintrc`:
 
-{{< highlight json >}}
+```json
 {
   "extends": [
     "stylelint-config-standard",
@@ -62,11 +62,11 @@ Por último pero no menos importante, debemos crear un fichero de configuración
 
   }
 }
-{{< / highlight >}}
+```
 
 En caso de no extender `stylelint-config-recommended-vue`, tendremos que añadir manualmente el override para validar archivos `vue`:
 
-{{< highlight json >}}
+```json
 {
   "extends": [
     "stylelint-config-standard",
@@ -84,14 +84,14 @@ En caso de no extender `stylelint-config-recommended-vue`, tendremos que añadir
 
   }
 }
-{{< / highlight >}}
+```
 
 Con todas estas configuraciones, nuestro proyecto está listo para comenzar a utilizar Stylelint para linting de CSS.
 
 ## Añadiendo nuestras propias reglas
 Podemos especificar reglas personalizadas. Por ejemplo, en un proyecto en el que estemos utilizando Tailwind CSS, podemos evitar el siguiente warning al utilizar `@apply`:  `Unknown at rule @applycss(unknownAtRules)`. Esto es clave si queremos trabajar con plugins de PostCSS y evitar mensajes de advertencia. Ejemplo para Tailwind CSS:
 
-{{< highlight json >}}
+```json
 {
   "extends": [
     "stylelint-config-standard",
@@ -115,7 +115,7 @@ Podemos especificar reglas personalizadas. Por ejemplo, en un proyecto en el que
     "no-descending-specificity": null
   }
 }
-{{< / highlight >}}
+```
 
 Enlacés de interés:
 * [Stylelint][1]

@@ -24,13 +24,13 @@ La idea es simple, quiero que cada vez que alguien vaya a hacer commit de sus ca
 
 En primer lugar vamos a <a href="http://jshint.com/install/" target="_blank">instalar JSHint.</a> Podemos instalarlo a nivel global, o a nivel de proyecto, me quedaré con esta última opción, de esa manera podemos disponer en cada proyecto de una configuración especifica de JSHint con las reglas que deseemos aplicar a cada proyecto. Iremos a la consola, y estando en el directorio raíz de nuestro proyecto, ejecutaremos el siguiente comando:
 
-{{< highlight bash >}}
+```bash
 npm install --save-dev jshint
-{{< / highlight >}}
+```
 
 Se creará un directorio llamado `node_modules` donde se instalará JSHint para nuestro proyecto específico. A la hora de definir las reglas para el proyecto, lo mejor será tener un fichero `.jshintrc`, que contenga todas las reglas y esté también en el repositorio, para que si se modifica alguna cosa, todos se actualicen al hacer pull. Hay muchas opciones, están todas explicadas en la <a href="http://jshint.com/docs/options/" target="_blank">documentación oficial</a>, pongo como ejemplo el archivo que he creado para nuestro proyecto:
 
-{{< highlight JavaScript >}}
+```js
 {
     "evil"      : true,
     "regexdash" : true,
@@ -53,17 +53,17 @@ Se creará un directorio llamado `node_modules` donde se instalará JSHint para 
         "console": true
     }
 }
-{{< / highlight >}}
+```
 
 A continuación instalaremos js-beautify, también localmente en el proyecto, desde la consola en la raíz del proyecto:
 
-{{< highlight bash >}}
+```bash
 npm install --save-dev js-beautify
-{{< / highlight >}}
+```
 
 Igual que en el caso anterior, crearemos un fichero `.beautifyrc` con las opciones que queremos que se utilicen a nivel de proyecto para formatear los ficheros javascript. Este es el nuestro:
 
-{{< highlight JavaScript >}}
+```js
 {
     "indent_size": 4,
     "indent_char": " ",
@@ -85,13 +85,13 @@ Igual que en el caso anterior, crearemos un fichero `.beautifyrc` con las opcion
     "wrap_attributes_indent_size": 4,
     "end_with_newline": true
 }
-{{< / highlight >}}
+```
 
 Puedes <a href="https://www.npmjs.com/package/js-beautify" target="_blank">consultar el listado</a> de opciones para añadir/modificar según tus preferencias. Ya está todo listo, ahora simplemente hemos de hacer que automáticamente **al hacer commit, se pase el JSHint a todos los ficheros javascript automáticamente,** y si detecta algún error en alguno de los archivos, no será posible hacer commit, ya que git dará error hasta que no se solucionen. ¿Cómo puede automatizarse este proceso?
 
 A través de lo que se llaman <a href="https://git-scm.com/book/es/v2/Customizing-Git-Git-Hooks" target="_blank">hooks</a>, que no son más que scripts que lanza git automáticamente cuando determinadas acciones ocurren. Puedes ir al directorio .git de tu proyecto, y allí encontrarás una carpeta `hooks` en la que hay scripts de ejemplo con la extensión `.sample`. El que nos interesa para este ejemplo, es el script ejecutado antes de hacer commit, que realizará tareas en el momento que hagamos commit. Para ello simplemente crearemos un archivo llamado `pre-commit`, sin extensión, o bien editaremos el archivo `pre-commit.sample` y modificaremos su nombre. El script que he creado en cuestión es el siguiente:
 
-{{< highlight bash >}}
+```bash
 #!/bin/sh
 
 # Solo queremos validar y formatear los ficheros Javascript incluidos en el commit
@@ -155,15 +155,15 @@ else
     echo "Validación y formateado satisfactorios."
     exit 0
 fi
-{{< / highlight >}}
+```
 
 En primer lugar filtraremos los archivos que se están comiteando, y nos quedaremos solo con **los que tienen extensión .js.** Además, en el raíz del repositorio, en un fichero llamado `exclude-hook.txt`, añadiremos patrones, que si son encontrados en las rutas del fichero, hará que se excluya al fichero del proceso. Ficheros que por ejemplo no queremos que sean validados y formateados, librerías externas de terceros, como Jasmine, jQuery, archivos minimizados, etc. Un ejemplo de fichero:
 
-{{< highlight text >}}
+```text
 .min.js
 jasmine
 source/lib
-{{< / highlight >}}
+```
 
 De esta manera ignoraremos todo lo que esté en `source/lib`, contenga la palabra `jasmine` o contenga los caracteres `.min.js`.
 
