@@ -8,9 +8,9 @@ tags:
   - javascript
 
 ---
-Hace algún tiempo hablé de [Weinre,][1] como opción para **depurar de forma remota nuestras aplicaciones Javascript.** Era una opción bastante buena para dispositivos Android y Smarts TV de LG, pero cuando fuí a depurar la aplicación que estamos desarrollando en una Smart TV de Samsung, me llevé la sorpresa de que las televisiones Samsung, deben hacer algo por dentro que sobreescribe el método console del navegador, y con Weinre no podía ver ninguno de los logs que había puesto en el código.
+Hace algún tiempo hablé de [Weinre,][1] como opción para **depurar de forma remota nuestras aplicaciones Javascript.** Era una opción bastante buena para dispositivos Android y Smarts TV de LG, pero cuando fuí a depurar la aplicación que estamos desarrollando en una Smart TV de Samsung, me llevé la sorpresa de que las televisiones Samsung, deben hacer algo por dentro que sobrescribe el método console del navegador, y con Weinre no podía ver ninguno de los logs que había puesto en el código.
 
-Rapidamente mis compañeros y yo pensamos en elaborar un propio debugger muy simple con un script en PHP, pero pronto comenzaron a surgir los inconvenientes y desechamos la idea. Fue de esta manera como nos topamos con [Console.io,][2] una consola web remota que cumplía de largo con todas nuestras necesidades. Además **es totalmente compatible con diferentes modelos de Smart TV** de distintos años, entre ellos la mencionada Samsung que usamos para pruebas. Según su página web:
+Rápidamente mis compañeros y yo pensamos en elaborar un propio debugger muy simple con un script en PHP, pero pronto comenzaron a surgir los inconvenientes y desechamos la idea. Fue de esta manera como nos topamos con [Console.io,][2] una consola web remota que cumplía de largo con todas nuestras necesidades. Además **es totalmente compatible con diferentes modelos de Smart TV** de distintos años, entre ellos la mencionada Samsung que usamos para pruebas. Según su página web:
 
   * Toshiba TV (2011, 2012, 2013)
   * LG NetCast TV (2011, 2012, 2013)
@@ -23,7 +23,7 @@ Rapidamente mis compañeros y yo pensamos en elaborar un propio debugger muy sim
   * Firefox, Safari, Opera, Chrome, Maple, PhantomJS and IE
   * iPhone, iPod, iPad, Android browser, windows 8 phone etc
 
-Vamos a ver en unos sencillos pasos como instalar Console.io rapidamente. Se instala como un módulo de [Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
+Vamos a ver en unos sencillos pasos como instalar Console.io rápidamente. Se instala como un módulo de [Node.js][3], así que deberemos [instalar Node.js][4] si no lo tenemos ya instalado. Antes de nada, vamos a descargar todos los archivos necesarios, podéis descargarlo en formato [TAR][5], [ZIP][6] o descargarlo vía git desde la [página web de github del proyecto. ][7] En principio no serán necesarios los archivos, ya que con el siguiente paso debería ser suficiente, pero por si acaso no lo es, luego explico como hacerlo funcionar. Una vez descargado, abrimos la consola e instalamos Console.io como paquete npm mediante el siguiente comando:
 
 ```bash
 npm install -g xconsole.io

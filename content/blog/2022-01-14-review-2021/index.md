@@ -37,7 +37,7 @@ En estos momentos para mí tener la posibilidad de teletrabajar, organizarme mi 
 Finalmente comencé en **Cognizant como Frontend Developer**, creo que es una gran oportunidad de aprender, trabajar en equipo en proyectos internacionales y mejorar mi inglés. En estos momentos trabajo 100% en remoto y en el futuro iré un par de mañanas a la oficina.
 
 ### Vacuna Covid-19
-Me vacuné con Pfizer 💉💉. Todos estamos hartos de esta pandemia, hay un montón de información y en ocasiones dudamos de si esto acabará algún día. En estos momentos estoy a la espera de mi tercera dósis, está siendo difícil escapar de la variante Omicron.
+Me vacuné con Pfizer 💉💉. Todos estamos hartos de esta pandemia, hay un montón de información y en ocasiones dudamos de si esto acabará algún día. En estos momentos estoy a la espera de mi tercera dosis, está siendo difícil escapar de la variante Omicron.
 
 ## Resumen de las skill profesionales
 

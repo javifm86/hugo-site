@@ -96,7 +96,7 @@ This way we will be able to use in markdown files the shortcode:
 ```
 
 And that´s all, you use the image as if you were in html and the shortcode and Hugo will generate images smaller when necessary. This
-solution comes from [Laura Kalbag][2], I just modified a little bit her code. I take this opportunity to recomendate her
+solution comes from [Laura Kalbag][2], I just modified a little bit her code. I take this opportunity to recommend her
 book [Accessibility For Everyone][3].
 
 [1]: https://gohugo.io/content-management/page-bundles/

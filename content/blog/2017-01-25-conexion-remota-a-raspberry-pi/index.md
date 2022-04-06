@@ -11,7 +11,7 @@ tags:
 ---
 Una vez finalizada la configuración básica, vamos a ver la manera de **conectarnos remotamente**, sin necesidad de tener enchufado ratón y teclado a la Raspberry, ni tan siquiera un monitor HDMI (si no quieres). Por defecto raspbian Pixel trae instalado el paquete **RealVNC** para conexiones remotas. Este paquete es incompatible con **xrdp**, que es el protocolo que utiliza la herramienta de _Conexión a Escritorio remoto_ que trae instalada Windows por defecto.
 
-Si no dispones de Windows no te preocupes, vamos a ver varias maneras distintas de conexión en remoto. Para continuar con la configuración instalaremos el paquete **tightvncserver**, que se encarga automaticamente de desinstalar RealVNC . Para instalar, desde la terminal simplemente ejecutamos:
+Si no dispones de Windows no te preocupes, vamos a ver varias maneras distintas de conexión en remoto. Para continuar con la configuración instalaremos el paquete **tightvncserver**, que se encarga automáticamente de desinstalar RealVNC . Para instalar, desde la terminal simplemente ejecutamos:
 
 ```bash
 sudo apt install -y tightvncserver
@@ -23,13 +23,13 @@ La opción _**-y**_ simplemente responde que sí a cualquier pregunta planteada.
 sudo apt install -y xrdp
 ```
 
-Para poder acceder facilmente a nuestra Raspberry desde Windows, podemos instalar **Samba**. Así en lugar de recordar la IP, podemos recordar solamente el nombre que le hayamos puesto en el apartado **hostname** de la pestaña Sistema dentro de la configuración de la raspberry. Especialmente útil si tiene IP dinámica y no fija. En mi caso mi Raspbery se llama _**&#8220;rasp&#8221;**_. Para instalar samba:
+Para poder acceder fácilmente a nuestra Raspberry desde Windows, podemos instalar **Samba**. Así en lugar de recordar la IP, podemos recordar solamente el nombre que le hayamos puesto en el apartado **hostname** de la pestaña Sistema dentro de la configuración de la raspberry. Especialmente útil si tiene IP dinámica y no fija. En mi caso mi Raspberry se llama _**"rasp"**_. Para instalar samba:
 
 ```bash
 sudo apt install -y samba
 ```
 
-Desde ahora, en una máquina Windows podremos acceder facilmente al miniordenador. Probamos desde cmd de Windows a hacer ping:
+Desde ahora, en una máquina Windows podremos acceder fácilmente al mini ordenador. Probamos desde cmd de Windows a hacer ping:
 
 ```bash
 ping rasp
@@ -63,7 +63,7 @@ Tras pulsar conectar, nos solicitará la password y después de introducirla con
 
 {{< img src="img/vnc_android.png" alt="VNC desde Android" >}}
 
-Hasta aquí la manera de conectar a través de interfaz gráfica, si bien no es la conexión que más amenudo uso, puntualmente me viene bien. La manera más habitual de conectar, como hacen muchos usuarios de Linux es a través de [SSH][2], conectaremos a la consola de nuestra Raspberry y dispondremos de la línea de comandos para ejecutar lo que queramos.
+Hasta aquí la manera de conectar a través de interfaz gráfica, si bien no es la conexión que más a menudo uso, puntualmente me viene bien. La manera más habitual de conectar, como hacen muchos usuarios de Linux es a través de [SSH][2], conectaremos a la consola de nuestra Raspberry y dispondremos de la línea de comandos para ejecutar lo que queramos.
 
 Para ello se puede hacer uso de una herramienta llamada [Putty][3], o de cualquier línea de comandos. En Putty simplemente ponemos la dirección IP de la máquina a la que nos vamos a conectar, elegimos ssh y dejamos el puerto por defecto que es el 22. En consola normal, ejecutaremos el comando ssh seguido de la dirección IP: `ssh 192.168.1.50`.
 

@@ -10,7 +10,7 @@ tags:
   - script
 
 ---
-A la hora de trabajar en equipo, tener una guía de estilos definida es de vital importancia. Estoy trabajando en un proyecto en el cual por diversos motivos que no vienen al caso, se podría mejorar bastante en ese aspecto, y mediante el uso de [Node.js][1] disponemos de herramientas que nos pueden ayudar a tener en un equipo un código más uniforme y estandar.
+A la hora de trabajar en equipo, tener una guía de estilos definida es de vital importancia. Estoy trabajando en un proyecto en el cual por diversos motivos que no vienen al caso, se podría mejorar bastante en ese aspecto, y mediante el uso de [Node.js][1] disponemos de herramientas que nos pueden ayudar a tener en un equipo un código más uniforme y estándar.
 
 Para nuestro proyecto he elegido un linter, en este caso [JSHint][2], y un formateador para el código Javascript, que representa el grueso de los desarrollos de nuestra aplicación, [js-beautify][3]. Podría incorporarse además una tercera herramienta, muy potente a la hora de definir exactamente los estilos que deseamos aplicar de manera muy minuciosa, [JSCS][4], que se ocupa de muchas opciones de estilo que actualmente mantiene JSHint, pero que pronto **pasarán a estar deprecadas.**  (Actualización: Parece que [ESLint][5] es una alternativa equilibrada a JSHint y JSCS, tengo que probarlo más a fondo). Por el momento me limitaré a las 2 mencionadas.
 
@@ -157,7 +157,7 @@ else
 fi
 ```
 
-En primer lugar filtraremos los archivos que se están comiteando, y nos quedaremos solo con **los que tienen extensión .js.** Además, en el raíz del repositorio, en un fichero llamado `exclude-hook.txt`, añadiremos patrones, que si son encontrados en las rutas del fichero, hará que se excluya al fichero del proceso. Ficheros que por ejemplo no queremos que sean validados y formateados, librerías externas de terceros, como Jasmine, jQuery, archivos minimizados, etc. Un ejemplo de fichero:
+En primer lugar filtraremos los archivos que se están commiteando, y nos quedaremos solo con **los que tienen extensión .js.** Además, en el raíz del repositorio, en un fichero llamado `exclude-hook.txt`, añadiremos patrones, que si son encontrados en las rutas del fichero, hará que se excluya al fichero del proceso. Ficheros que por ejemplo no queremos que sean validados y formateados, librerías externas de terceros, como Jasmine, jQuery, archivos minimizados, etc. Un ejemplo de fichero:
 
 ```text
 .min.js
@@ -173,7 +173,7 @@ Debo decir que formatear el código Javascript no es para lo que está pensado e
 
 Lo ideal sería que cada desarrollador tuviese configurado su editor para formatear el código, pero bueno, en este caso, por el bien de que todos los ficheros tengan la misma guía de estilos, este aspecto representa un mal menor.
 
-Un script de mucha utilidad, que evitará que subamos archivos con errores de sintáxis o de estilo. Puedes ampliar información sobre hooks en la [página de Git][8], o en [Git Hooks][9].
+Un script de mucha utilidad, que evitará que subamos archivos con errores de sintaxis o de estilo. Puedes ampliar información sobre hooks en la [página de Git][8], o en [Git Hooks][9].
 
  [1]: https://nodejs.org/
  [2]: https://www.npmjs.com/package/jshint

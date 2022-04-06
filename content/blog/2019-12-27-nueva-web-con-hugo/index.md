@@ -28,7 +28,7 @@ quise dar cuenta me encontraba cómodo y avanzaba rápido, así que me decanté 
 
 Para poder trabajar con Hugo, lo primero que hice fué [instalarlo][2] y posteriormente seguir [esta guía para poder crear un blog con
 Hugo desde cero][3]. A partir de ahí Hugo te permite hacer prácticamente lo que quieras, es bastante flexible, puedes instalar
-temas, utilizar [shortcodes][4] para sintáxis coloreada de código, embeber contenido de servicios populares como Youtube, Twitter, Instagram, etc.
+temas, utilizar [shortcodes][4] para sintaxis coloreada de código, embeber contenido de servicios populares como Youtube, Twitter, Instagram, etc.
 
 Como Hugo genera un sitio estático, la opción para hosting más sencilla es [Github][5] pages. Para subir una nueva versión del
 sitio simplemente copio la carpeta public al repositorio, y al hacer commit y push se despliega automáticamente.
@@ -42,14 +42,14 @@ punto de que he quedado encantado.
 
 {{< img src="img/tailwindcss.png" alt="TailwindCSS" class="mx-auto" >}}
 
-Tailwind no es un framework como Boostrap, **no te da componentes creados** con una sintáxis marcada. Tailwind te ofrece un
+Tailwind no es un framework como Bootstrap, **no te da componentes creados** con una sintaxis marcada. Tailwind te ofrece un
 **conjunto de utilidades CSS atómicas** con las que poder crear tus propios componentes de manera consistente. Te puedes concentrar
 en crear, no pierdes tiempo en buscar la mejor manera de nombrar las clases, no repites una y otra vez las mismas propiedades
 CSS que hacen que los ficheros CSS crezcan sin control.
 
 Tailwind te provee de un conjunto de posibilidades entre las que elegir, distintos tamaños de texto, una paleta de colores,
 sombras, escala para margins y paddings... Y además es completamente personalizable, Tailwind está construido sobre PostCSS
-y puedes mediante su fichero de configuración sobreescribir o extender los valores que desees. Tailwind te da una base sobre
+y puedes mediante su fichero de configuración sobrescribir o extender los valores que desees. Tailwind te da una base sobre
 la que poder crear tu sistema de diseño para una web totalmente personalizada. Pruébalo y no te defraudará, de primeras es
 normal ser reticente.
 

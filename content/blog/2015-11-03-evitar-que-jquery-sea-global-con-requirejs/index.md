@@ -11,7 +11,7 @@ tags:
 ---
 El popular framework de Javascript [jQuery][1], es utilizado ampliamente en el mundo del desarrollo web. Por defecto se instancia en la variable global `$`, además de `jQuery`. Esto puede entrar en conflicto con otras librerías que hayan decidido utilizar el $ también. Si estás utilizando el popular cargador de módulos [RequireJS][2], hay una manera muy fácil para **evitar que jQuery se instancie globalmente.**
 
-Por ejemplo, desarrollando para las televisiones SmartTV de Samsung, me encontré con ese problema, ya que **Samsung incluye internamente su propia versión de jQuery**, sobreescribiendo la que añadas. De manera que haciendo uso del método `noConflict` de jQuery, junto con la opción `map` de RequireJS, podemos hacer que se guarde la referencia a jQuery, y que solo tengan acceso a ella los módulos que declaren nuestra versión de jQuery como dependencia.
+Por ejemplo, desarrollando para las televisiones SmartTV de Samsung, me encontré con ese problema, ya que **Samsung incluye internamente su propia versión de jQuery**, sobrescribiendo la que añadas. De manera que haciendo uso del método `noConflict` de jQuery, junto con la opción `map` de RequireJS, podemos hacer que se guarde la referencia a jQuery, y que solo tengan acceso a ella los módulos que declaren nuestra versión de jQuery como dependencia.
 
 Veamos como quedaría nuestra configuración de RequireJS:
 

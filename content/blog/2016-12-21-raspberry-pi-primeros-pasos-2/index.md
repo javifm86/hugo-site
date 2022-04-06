@@ -67,7 +67,7 @@ El primero actualiza el listado de paquetes, el segundo instala las actualizacio
 sudo apt-get update && sudo apt-get -y dist-upgrade
 ```
 
-Con todo esto ya tenemos la configuración básica inicial. Las posibilidades que brinda este mini ordenador son enormes, a partir de aquí hay que adpatarla a nuestras necesidades. Los usos más comunes son para servidores de descarga, servidor de contenido multimedia, domótica, etc. En próximas entradas explicaré configuración de algunos servicios que estoy usando.
+Con todo esto ya tenemos la configuración básica inicial. Las posibilidades que brinda este mini ordenador son enormes, a partir de aquí hay que adaptarla a nuestras necesidades. Los usos más comunes son para servidores de descarga, servidor de contenido multimedia, domótica, etc. En próximas entradas explicaré configuración de algunos servicios que estoy usando.
 
  [1]: https://www.raspberrypi.org/documentation/linux/usage/users.md
  [2]: https://www.raspberrypi.org/documentation/configuration/config-txt.md

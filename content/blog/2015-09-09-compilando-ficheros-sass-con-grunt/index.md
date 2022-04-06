@@ -19,7 +19,7 @@ Para automatizar más aún todos estos procesos, está [Grunt][3], que dispone d
 
 Para ello está utilizando [Sass][4], uno de los preprocesadores CSS más populares actualmente. Por motivos de simplicidad de código y maximizar la compatibilidad con navegadores no muy modernos (mantenemos soporte a navegadores webKit antiguos, que usan algunas Smart TV anteriores a 2013), a la hora de hacer los elementos reutilizables de la aplicación con Javascript, decidimos que en lugar de que cada widget cargue su hoja de estilos, **tener todo el CSS de todos los widgets unificados en un mismo fichero que esté cargado desde el principio** (controlar cuando se ha cargado una hoja de estilos, de manera simple y compatible con todos los navegadores es una tarea que [ni RequireJS ha incluido en su cargador de módulos][5]).
 
-Grunt y sus plugins son instalados y gestionados a través de **NPM**, el gestor de paquetes por consola para [Node.js][6]. Asi que si no lo tienes ya, el primer paso es instalar [Node.js][7]. Acto seguido, nos dirigiremos a la consola, e instalaramos Grunt globalmente (seguramente necesites sudo en Linux):
+Grunt y sus plugins son instalados y gestionados a través de **NPM**, el gestor de paquetes por consola para [Node.js][6]. Asi que si no lo tienes ya, el primer paso es instalar [Node.js][7]. Acto seguido, nos dirigiremos a la consola, e instalaremos Grunt globalmente (seguramente necesites sudo en Linux):
 
 ```bash
 npm install -g grunt-cli
@@ -97,7 +97,7 @@ module.exports = function( grunt ) {
         /*
          *  Dentro de la tarea sass, tenemos dos subtareas:
          *  - dist: compila el fichero main.scss siempre
-         *    que se produza un cambio en cualquier scss. El
+         *    que se produzca un cambio en cualquier scss. El
          *    fichero main.scss, contiene imports del resto de
          *    ficheros, cada vez que se toca alguno debe de
          *    actualizarse este.
@@ -141,7 +141,7 @@ module.exports = function( grunt ) {
             _file = {};
 
         /*
-         *  Creamos un pobjeto, para sobreescribir el parámetro file de
+         *  Creamos un objeto, para sobrescribir el parámetro file de
          *  la subtarea changed.
          */
         _file[ _destiny ] = filepath;
@@ -149,7 +149,7 @@ module.exports = function( grunt ) {
         grunt.log.writeln( 'Compilando Sass del fichero cambiado: ' + filepath );
 
         /*
-         *  Sobreescribimos el parámetro de configuración, para que solo
+         *  Sobrescribimos el parámetro de configuración, para que solo
          *  se compile el fichero modificado.
          */
         grunt.config( 'sass.changed.files', _file );
@@ -172,9 +172,9 @@ module.exports = function( grunt ) {
 };
 ```
 
-Ya simplemento hemos de dirigirnos a la consola, y ejecutar **`grunt`**, ya que la tarea watch ha sido añadida por defecto, o bien `grunt watch` y se lanzará el proceso que estará observando los cambios producidos en los ficheros scss de nuestro proyecto, para acto seguido lanzar la tarea.
+Ya simplemente hemos de dirigirnos a la consola, y ejecutar **`grunt`**, ya que la tarea watch ha sido añadida por defecto, o bien `grunt watch` y se lanzará el proceso que estará observando los cambios producidos en los ficheros scss de nuestro proyecto, para acto seguido lanzar la tarea.
 
-De esta manera **nuestros ficheros Sass son compilados automaticamente**, muy útil si nuestro editor de texto no dispone de un plugin que automatice el proceso y queremos evitar tener que estar compilando manualmente desde la consola.
+De esta manera **nuestros ficheros Sass son compilados automáticamente**, muy útil si nuestro editor de texto no dispone de un plugin que automatice el proceso y queremos evitar tener que estar compilando manualmente desde la consola.
 
 * [Primeros pasos con grunt][10]
 * [Configurando tareas][11]

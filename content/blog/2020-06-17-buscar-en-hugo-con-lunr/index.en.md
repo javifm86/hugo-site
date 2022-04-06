@@ -17,7 +17,7 @@ Every guide suggest these 2 possibilities:
 -   [Algolia][2]: It´s a service that provides a set of tools that simplify the process of making and integrating a
     full search experience into our sites and applications. It has **an automated crawler to extract content from web sites**.
     It´s a third party service which allows the integration on a static site easily, we just have to use the provided API in front.
-    Algolia is used in a lot of different sites but I decided I didn´t want to use
+    Algolia is used in a lot of different sites but I decided I didn't want to use
     a third party service.
     
 -   [Lunr][3]: Lunr.js is a small, full-text search library for use in the browser. It indexes JSON documents and provides a
@@ -27,7 +27,7 @@ Every guide suggest these 2 possibilities:
 ## Defining the output of our content in JSON format
 
 Having Lunr as Javascript library for fuzzy search we just need the other part in order to complete our search engine: a JSON file
-with posts content from the blog. We can define this behaviour in 2 differents ways:
+with posts content from the blog. We can define this behavior in 2 different ways:
 
 
 1.  In Hugo global config file, `config.toml` in my case. All the content in Hugo will be available in **HTML** and **RSS** format
@@ -66,7 +66,7 @@ Let´s see `list.json` content finally. It just generates an array of posts usin
 ```
 
 Of course the content is completely customizable, and so the name for each field. In my case I have a reduced number of posts,
-so by the moment I put all the content in `content` field, but in the future because of better performarnce I will try to
+so by the moment I put all the content in `content` field, but in the future because of better performance I will try to
 reduce the JSON file size leaving just title and summary for the search.
 
 2.  Enabling for each _section_ the output format from the front matter. Following with my site as example, I have `_index.md` and
@@ -99,7 +99,7 @@ a `section` element where search results will be showed.
 <section id="search-results"></section>
 ```
 
-Javascript code is also inside the html file so that we can create dinamyc vars in Javascript with Hugo, for example for
+Javascript code is also inside the html file so that we can create dynamic vars in Javascript with Hugo, for example for
 getting translation of strings and getting relative path to `index.json` for each language.
 
 Next step is importing Lunr, in my case in `static/js/` folder:
@@ -119,8 +119,8 @@ It would be possible importing Lunr via CDN:
 
 ```
 
-Below is shown the Javascript code that on pageload makes a petition to load `index.json` file and creates indexed
-document that will be used to return search results. Searchs will be launched when user is typing in the input field.
+Below is shown the Javascript code that on page load makes a petition to load `index.json` file and creates indexed
+document that will be used to return search results. Searches will be launched when user is typing in the input field.
 
 ```go-html-template
 
@@ -232,7 +232,7 @@ document that will be used to return search results. Searchs will be launched wh
 ```
 
 And that´s all. To develop this solution I have followed the guides of [Joseph Earl][6] and [Matt Walters][7]. I have
-adapted and updated Javascript code and corrected the method for searching with **Lunr**, beacuse it didn´t work
+adapted and updated Javascript code and corrected the method for searching with **Lunr**, because it didn't work
 properly in all cases. This is the most important part, I found [the solution][8] in an issue in Lunr github:
 
 

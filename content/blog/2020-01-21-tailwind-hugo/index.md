@@ -97,7 +97,7 @@ a.tag:hover {
 @tailwind utilities;
 ```
 
-Tailwind es compilado utilizando PostCSS, por lo que puedes integrar facilmente otros plugins. En nuestro caso vamos
+Tailwind es compilado utilizando PostCSS, por lo que puedes integrar fácilmente otros plugins. En nuestro caso vamos
 a meter `autoprefixer`, para que se generen automáticamente los prefijos de las propiedades que lo necesiten y además,
 cuando compilemos para producción vamos a utilizar `purgecss` y `cssnano` para reducir al máximo el tamaño de nuestra 
 hoja de estilos. Veamos el fichero de configuración de PostCSS (`postcss.config.js`, ubicado en el directorio raíz):

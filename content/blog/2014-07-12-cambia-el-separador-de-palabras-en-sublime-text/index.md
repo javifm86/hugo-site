@@ -7,7 +7,7 @@ tags:
   - sublime
 
 ---
-Una de las cosas más tontas, pero que descubrí hace poco. Por defecto, Sublime Text tiene definido determinados caráceteres como separador de palabras. El punto, la coma, el signo del dólar, etc. En determinadas ocasiones, para determinados lenguajes (o para todos), podemos querer modificar los carácteres considerados como separador de palabra. Por ejemplo, en CSS, es muy común utilizar en las clases nombres separando las palabras con guiones, es una convención bastante extendida. Creas tu nuevo estilo en CSS, vas a copiarlo y te ves obligado a seleccionarlo ya que con doble click no se selecciona todo.
+Una de las cosas más tontas, pero que descubrí hace poco. Por defecto, Sublime Text tiene definido determinados caracteres como separador de palabras. El punto, la coma, el signo del dólar, etc. En determinadas ocasiones, para determinados lenguajes (o para todos), podemos querer modificar los caracteres considerados como separador de palabra. Por ejemplo, en CSS, es muy común utilizar en las clases nombres separando las palabras con guiones, es una convención bastante extendida. Creas tu nuevo estilo en CSS, vas a copiarlo y te ves obligado a seleccionarlo ya que con doble click no se selecciona todo.
 
 Es una buena idea por tanto, al menos para CSS eliminar el carácter &#8220;-&#8221; como separador. Para ello, en Sublime vamos al menú  _**Preferences -> Settings &#8211; Default.**_ Y buscamos la siguiente propiedad:
 

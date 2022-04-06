@@ -8,7 +8,7 @@ altImg: Portátil, tables y smartphone sobre un escritorio
 tags:
     - hugo
 ---
-En este post voy a compartir un shortcode muy útil que nos permitirá **procesar automaticamente las imágenes con Hugo**. Antes de nada
+En este post voy a compartir un shortcode muy útil que nos permitirá **procesar automáticamente las imágenes con Hugo**. Antes de nada
 debemos asegurarnos de que nuestro contenido se encuentra estructurado con [Hugo´s page bundles][1]. Al crear este blog, lo migré de
 un Wordpress y todos los artículos estaban estructurados de la siguiente manera:
 <pre>

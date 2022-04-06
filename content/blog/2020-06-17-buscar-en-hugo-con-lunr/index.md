@@ -13,7 +13,7 @@ tags:
 serie de links y guías que me permitieron orientarme un poco, pero no terminaba de convencerme ninguna. Asi que en esta guía voy
 a detallar cual es la solución que he desarrollado.
 
-En los distintos sitios que encontré guías basicamente las posibilidades eran 2:
+En los distintos sitios que encontré guías básicamente las posibilidades eran 2:
 
 -   [Algolia][2]: Es un servicio que se encarga de **rastrear todas las páginas de un sitio web**. De esa manera es capaz de proveer
     una **API** que podremos utilizar para realizar búsquedas en nuestra web. Tiene la ventaja de que al ser un servicio de un tercero,
@@ -49,7 +49,7 @@ crearíamos un fichero `list.json` y en la carpeta `cursos` crearíamos otro `li
 **va a ser el mismo para cada sección**, podemos crear el fichero `list.json` dentro de la carpeta `_default`, y valdría para todas las secciones
 (siempre que la sección no contenga un fichero `list.json`, en cuyo caso prevalecería este último al de `_default`).
 
-Veamos el contenido del fichero `list.json`, que simplemente genera usando sintáxis de Hugo un array de posts.
+Veamos el contenido del fichero `list.json`, que simplemente genera usando sintaxis de Hugo un array de posts.
 
 ```go-html-template
 [
@@ -102,7 +102,7 @@ búsqueda.
 ```
 
 En el mismo fichero html se encuentra el código Javascript, ya que no es muy largo y podemos **crear variables dinámicas en
-Javascript con Hugo** para obtener los literales multidioma y la ruta relativa al `index.json` para cada lenguaje.
+Javascript con Hugo** para obtener los literales multi idioma y la ruta relativa al `index.json` para cada lenguaje.
 
 Importamos Lunr, yo lo tengo en la carpeta `static/js/`:
 

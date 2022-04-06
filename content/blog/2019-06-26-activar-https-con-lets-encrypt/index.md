@@ -12,7 +12,7 @@ tags:
 ---
 [Let&#8217;s Encrypt][1] es un proveedor gratuito de **certificados TLS/SSL** que nos brinda la posibilidad de activar **https** en nuestro servidor para nuestros dominios. El proceso está automatizado tanto para Apache como Nginx, en mi caso voy a utilizar **Cerbot** para instalarlo en mi servidor Nginx.
 
-Certbot es un software que es actualizado bastante amenudo por sus desarrolladores. Si queremos disfrutar de la versión más actualizada, deberemos añadir su repositorio ya que si tiramos de los de Ubuntu, lo más normal es que tengan versiones más antiguas. Para ello:
+Certbot es un software que es actualizado bastante a menudo por sus desarrolladores. Si queremos disfrutar de la versión más actualizada, deberemos añadir su repositorio ya que si tiramos de los de Ubuntu, lo más normal es que tengan versiones más antiguas. Para ello:
 
 ```bash
 sudo add-apt-repository ppa:certbot/certbot
@@ -47,7 +47,7 @@ sudo nginx -t
     sudo systemctl reload nginx
 ```
 
-Por último antes de obtener el certificado, vamos a añadir en nuestro firewall ufw que permita el trafico https. Para ello podemos ejecutar los siguientes comandos para añadir el perfil **Nginx full**, que incorporta tanto http como https y eliminaremos el http que sobra una vez añadido el anterior:
+Por último antes de obtener el certificado, vamos a añadir en nuestro firewall ufw que permita el trafico https. Para ello podemos ejecutar los siguientes comandos para añadir el perfil **Nginx full**, que incorpora tanto http como https y eliminaremos el http que sobra una vez añadido el anterior:
 
 ```bash
 sudo ufw allow 'Nginx Full'
@@ -71,13 +71,13 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 Nginx Full (v6)            ALLOW       Anywhere (v6)
 </pre>
 
-Finalmente lanzaremos el proceso para obtener el certificado y que se renueve automaticamente.
+Finalmente lanzaremos el proceso para obtener el certificado y que se renueve automáticamente.
 
 ```bash
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-Se nos pedirá una dirección de correo electrónico y, si todo va bien, nos saldrá una pregunta solicitandonos elegir entre si queremos redireccionar el tráfico http a https o no. Elegimos la deseada, en mi caso elegí la segunda y pulsamos enter.
+Se nos pedirá una dirección de correo electrónico y, si todo va bien, nos saldrá una pregunta solicitándonos elegir entre si queremos redireccionar el tráfico http a https o no. Elegimos la deseada, en mi caso elegí la segunda y pulsamos enter.
 
 <pre>
 Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.

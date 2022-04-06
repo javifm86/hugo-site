@@ -8,7 +8,7 @@ tags:
   - css
 
 ---
-Ellipsis es simplemente un cáracter compuesto por tres puntos: &#8220;…&#8221;. En desarrollo web, se aplica a textos muy largos que son más grandes que su contenedor, y por tanto queremos que sean recortados agregando al final el carácter ellipsis. Con el avance de los estándares css modernos, ya podemos aplicar una solución sin necesidad de echar mano de Javascript:
+Ellipsis es simplemente un carácter compuesto por tres puntos: &#8220;…&#8221;. En desarrollo web, se aplica a textos muy largos que son más grandes que su contenedor, y por tanto queremos que sean recortados agregando al final el carácter ellipsis. Con el avance de los estándares css modernos, ya podemos aplicar una solución sin necesidad de echar mano de Javascript:
 
 ```css
 .ellipsis {
@@ -23,7 +23,7 @@ Ellipsis es simplemente un cáracter compuesto por tres puntos: &#8220;…&#8221
 
 ```js
 /**
- *  Acorta strings multilinea añadiendo el símbolo ellipsis.
+ *  Acorta strings multilínea añadiendo el símbolo ellipsis.
  *  @param  {jQuery}  $obj     : Objeto jQuery a aplicar si es necesario.
  *                               Importante, debe tener line-height definido.
  *  @param  {String}  val      : Texto a insertar.

@@ -117,7 +117,7 @@ Podemos especificar reglas personalizadas. Por ejemplo, en un proyecto en el que
 }
 ```
 
-Enlacés de interés:
+Enlaces de interés:
 * [Stylelint][1]
 * [stylelint-config-recommended-vue](https://github.com/ota-meshi/stylelint-config-recommended-vue)
 * [PostCSS HTML Syntax](https://github.com/ota-meshi/postcss-html)

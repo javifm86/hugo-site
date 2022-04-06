@@ -9,7 +9,7 @@ tags:
     - windows
     - linux
 ---
-En este artículo, vamos a ver como podemos restaurar grub después de instalar Windows. Tenía Windows 7 aún en mi portátil junto con Ubuntu, asi que después de mucho tiempo posponiéndolo, finalmente me he decidido a actualizar a Windows 10. Lo más recomendable al instalar un ordenadfor, es instalar Windows y después Linux. De esta manera, Linux se preocupará de dejar grub listo para posibilitar el arranque dual.
+En este artículo, vamos a ver como podemos restaurar grub después de instalar Windows. Tenía Windows 7 aún en mi portátil junto con Ubuntu, asi que después de mucho tiempo posponiéndolo, finalmente me he decidido a actualizar a Windows 10. Lo más recomendable al instalar un ordenador, es instalar Windows y después Linux. De esta manera, Linux se preocupará de dejar grub listo para posibilitar el arranque dual.
 
 Si por cualquier motivo tienes que instalar Windows después de Linux, Windows eliminará grub, pondrá por defecto que cargue Windows y será necesario restaurar grub. A continuación la opción más sencilla para recuperar grub.
 

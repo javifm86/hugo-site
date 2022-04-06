@@ -38,7 +38,7 @@ Vamos a ver como instalar Raspbian en la tarjeta MicroSD en unos sencillos pasos
 
 ## Primer arranque de la Raspberry
 
-Ahora solo toca ensamblar todo el hardware antes de arrancar. Si disponemos de caja, **en la parte posterior** encontramos la ranura para introducir facilmente nuestra tarjeta MicroSD. Una vez insertada, hacemos uso de los puertos USB para conectar ratón y teclado, conectamos el cable HDMI de la raspberry al monitor/televisión, y por último conectamos la fuente de alimentación. Con esto se encencerá nuestra raspberry y deberíamos ver en pantalla el arranque de Raspbian.
+Ahora solo toca ensamblar todo el hardware antes de arrancar. Si disponemos de caja, **en la parte posterior** encontramos la ranura para introducir fácilmente nuestra tarjeta MicroSD. Una vez insertada, hacemos uso de los puertos USB para conectar ratón y teclado, conectamos el cable HDMI de la raspberry al monitor/televisión, y por último conectamos la fuente de alimentación. Con esto se encenderá nuestra raspberry y deberíamos ver en pantalla el arranque de Raspbian.
 
 {{< img src="img/splash-1024x768.jpg" alt="Pantalla de bienvenida a Pixel, sistema operativo Raspbian" >}}
 

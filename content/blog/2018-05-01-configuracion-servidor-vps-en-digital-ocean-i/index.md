@@ -14,7 +14,7 @@ Me he decidido a contratar un VPS en Digital Ocean, a ver si de una vez por toda
 
 ## Configuración inicial del servidor
 
-En este apartado hablaremos de la configuración incial básica para que nuestro VPS sea más seguro. Lo primero de todo es conectarnos a nuestro servidor, para ello utilizaremos ssh para establecer conexión remota por consola, con el usuario root, hasta que creemos otro usuario. Podemos conectarnos desde la consola de nuestro sistema operativo (Mac, Linux), o utilizar alguna utilidad como [Putty][1], que es un cliente SSH gratuito y archiconocido para Windows. Para conectarnos deberemos saber la dirección IP pública de nuestro servidor y ejecutar el siguiente comando:
+En este apartado hablaremos de la configuración inicial básica para que nuestro VPS sea más seguro. Lo primero de todo es conectarnos a nuestro servidor, para ello utilizaremos ssh para establecer conexión remota por consola, con el usuario root, hasta que creemos otro usuario. Podemos conectarnos desde la consola de nuestro sistema operativo (Mac, Linux), o utilizar alguna utilidad como [Putty][1], que es un cliente SSH gratuito y archiconocido para Windows. Para conectarnos deberemos saber la dirección IP pública de nuestro servidor y ejecutar el siguiente comando:
 
 ```bash
 ssh root@your_server_ip
@@ -32,7 +32,7 @@ Y se nos solicitará cambiar la contraseña root por seguridad. El usuario root 
 adduser mike
 ```
 
-Tras crear nuestro nuevo usuario, le otorgaremos permisos de superusuario para poder ejecutar comandos con privilegios de root anteponiendo la palabra sudo.
+Tras crear nuestro nuevo usuario, le otorgaremos permisos de super usuario para poder ejecutar comandos con privilegios de root anteponiendo la palabra sudo.
 
 ```bash
 usermod -aG sudo mike
@@ -80,7 +80,7 @@ OpenSSH                    ALLOW       Anywhere
 OpenSSH (v6)               ALLOW       Anywhere (v6)
 </pre>
 
-A partir de ahora será necesario que en futuras aplicaciones y/o servicios instalados, permitamos que realice conexiones añadiendolas a ufw.
+A partir de ahora será necesario que en futuras aplicaciones y/o servicios instalados, permitamos que realice conexiones añadiéndolas a ufw.
 
 ## Instalación de LEMP
 
@@ -95,7 +95,7 @@ sudo apt-get update
 sudo apt-get install nginx
 ```
 
-Una vez instalado se inicia el servicio automaticamente, acto seguido deberemos registrar nginx en ufw:
+Una vez instalado se inicia el servicio automáticamente, acto seguido deberemos registrar nginx en ufw:
 
 ```bash
 sudo ufw allow 'Nginx HTTP'
@@ -194,7 +194,7 @@ Añadiremos `index.php` como posible entrada por defecto de un directorio, podre
 }
 </pre>
 
-Cerramos, guardamos el fichero y haremos un test para verificar que no hay ningún error de sintáxis en la configuración de Nginx:
+Cerramos, guardamos el fichero y haremos un test para verificar que no hay ningún error de sintaxis en la configuración de Nginx:
 
 ```bashsudo nginx -t```
 

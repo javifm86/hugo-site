@@ -19,7 +19,7 @@ npm -g install weinre
 
 Yo utilizo Windows, aunque también tengo Ubuntu, en sistemas Linux deberemos ejecutar el comando precedido de sudo probablemente. Así de simple y así de fácil, ya tenemos instalado weinre. Weinre ejecutará un servidor en nuestra máquina, que será la interfaz a través de la cual depuraremos nuestro aplicación HTML5, que se ejecutará en otro dispositivo (móvil, tablet, Smart TV, etc).
 
-**La interfaz es practicamente la misma que las developer tools de Chrome,** asi que si sueles usarla te desenvolverás con soltura en ella, aunque tiene algunas limitaciones.
+**La interfaz es prácticamente la misma que las developer tools de Chrome,** asi que si sueles usarla te desenvolverás con soltura en ella, aunque tiene algunas limitaciones.
 
 Para ejecutar el servidor de weinre, vamos a la consola y ejecutamos:
 
@@ -27,7 +27,7 @@ Para ejecutar el servidor de weinre, vamos a la consola y ejecutamos:
 weinre --boundHost 192.168.1.2
 ```
 
-En en este caso he utilizado la IP que tengo asignada en mi ordenador en mi red local, 192.168.1.2. Podríamos ejecutar en localhost, pero en ese caso solo podríamos hacer pruebas desde nuestro ordenador, que podría ser util quizás para depurar desde algún emulador. De esta manera, podremos depurar aplicaciones de otros dipositivos que se ejecuten en nuestra misma red local. El comando es el más simple, puedes _teclear weinre &#8211;help_ y ver otro tipo de opciones, como el puerto por el que se lanza, pero en mi caso la configuración por defecto me vale. Si es la primera vez que ejecutas weinre, y estás en windows, probablemente el Firewall pida permisos para que weinre acceda a la red. Veremos un mensaje que confirma que se lanza el servidor:
+En en este caso he utilizado la IP que tengo asignada en mi ordenador en mi red local, 192.168.1.2. Podríamos ejecutar en localhost, pero en ese caso solo podríamos hacer pruebas desde nuestro ordenador, que podría ser util quizás para depurar desde algún emulador. De esta manera, podremos depurar aplicaciones de otros dispositivos que se ejecuten en nuestra misma red local. El comando es el más simple, puedes _teclear weinre &#8211;help_ y ver otro tipo de opciones, como el puerto por el que se lanza, pero en mi caso la configuración por defecto me vale. Si es la primera vez que ejecutas weinre, y estás en windows, probablemente el Firewall pida permisos para que weinre acceda a la red. Veremos un mensaje que confirma que se lanza el servidor:
 
 {{< img src="img/consola.png" alt="Consola con mensaje de confirmación de que el servidor de Weinre se ha iniciado correctamente" >}}
 

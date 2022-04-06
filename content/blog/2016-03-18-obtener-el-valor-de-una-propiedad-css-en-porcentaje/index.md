@@ -17,7 +17,7 @@ $("body").append( $element );
 console.log( $("#nodo").css("width") ); // 683px
 ```
 
-Si quisieramos obtener el valor en porcentaje, habría que hacerlo de otra manera, directamente sin jQuery. Los selectores de jQuery devuelven un array con los elementos del DOM, asi que si tomamos la posición 0 tendremos el elemento del DOM (no la instancia jQuery) y podremos acceder directamente a la clave style:
+Si quisiéramos obtener el valor en porcentaje, habría que hacerlo de otra manera, directamente sin jQuery. Los selectores de jQuery devuelven un array con los elementos del DOM, asi que si tomamos la posición 0 tendremos el elemento del DOM (no la instancia jQuery) y podremos acceder directamente a la clave style:
 
 ```js
 var $element = $("<div id='nodo' style='width: 50%'></div>");

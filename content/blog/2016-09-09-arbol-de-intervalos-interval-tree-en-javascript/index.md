@@ -14,7 +14,7 @@ En los navegadores de hoy en día, como Google Chrome o cualquier navegador medi
 
 
 
-Además, no es un escenario normal, en mi caso los datos se encuentran en formato binario, y es necesario realizar una descodificación antes de saber si un determinado programa de un canal está dentro del rango horario buscado o no. Para ello podemos elaborar un [árbol de intervalos,][1] algo bastante sencillo de hacer en lenguajes como Java, pero más díficil en Javascript. Por suerte, siempre **podemos encontrar librerías y código de terceros** que ya haya resuelto este y otros algoritmos para Javascript, en este caso yo he utilizado ésta librería, [interval-tree2.][2]
+Además, no es un escenario normal, en mi caso los datos se encuentran en formato binario, y es necesario realizar una descodificación antes de saber si un determinado programa de un canal está dentro del rango horario buscado o no. Para ello podemos elaborar un [árbol de intervalos,][1] algo bastante sencillo de hacer en lenguajes como Java, pero más difícil en Javascript. Por suerte, siempre **podemos encontrar librerías y código de terceros** que ya haya resuelto este y otros algoritmos para Javascript, en este caso yo he utilizado ésta librería, [interval-tree2.][2]
 
 Su uso es muy sencillo, tal y como describen en su sitio de Github. En nuestro proyecto utilizamos **RequireJS** como cargador de módulos, asi que adapté los distintos ficheros y los convertí en módulos. Si no tienes ni idea de [CoffeeScript][3] (lenguaje que compila a Javascript), ni de como compilarlo, puedes instalarte el paquete por npm, que es lo que hice yo y de ahí cogí los ficheros js.
 
@@ -42,7 +42,7 @@ itree.add(22, 56, 'foo');
 // 'bar' es el identificador del intervalo
 itree.add(44, 199, 'bar');
 
-// Si no se pone id, se asigna automaticamente uno
+// Si no se pone id, se asigna automáticamente uno
 itree.add(1, 38);
 ```
 
@@ -327,7 +327,7 @@ var Node = ( function() {
        @public
        @param {Number} start start of the interval to create
        @param {Number} end   end of the interval to create
-       @param {String|Number} [id] identifier to distinguish intervals. Automatically defiend when not set.
+       @param {String|Number} [id] identifier to distinguish intervals. Automatically defined when not set.
        @return {Interval}
         */
 

@@ -91,11 +91,11 @@ module.exports = (config, options) => {
 ## angular.json
 Now we need to edit `angular.json` config file so that we can customize `ng serve` and `ng build` commands. We must search
 `projects.architect.build.builder` key and replace `@angular-devkit/build-angular:browser` with
-`@angular-builders/custom-webpack:browser`. It´s neccessary add a new object `customWebpackConfig` at `architect.build.options`
+`@angular-builders/custom-webpack:browser`. It´s necessary add a new object `customWebpackConfig` at `architect.build.options`
 with key `path` and `extra-webpack.config.js` as its value.
 
 We must do same changes in `projects.architect.serve.builder` replacing `@angular-devkit/build-angular:dev-server` with
-`@angular-builders/custom-webpack:dev-server`.  It´s neccessary again adding a new object `customWebpackConfig` at `architect.serve.options`
+`@angular-builders/custom-webpack:dev-server`.  It´s necessary again adding a new object `customWebpackConfig` at `architect.serve.options`
 with key `path` and `extra-webpack.config.js` as its value.
 
 Finally we will add our `src/tailwind.scss` stylesheet to the array in `architect.build.options.styles`. Let´s see all the changes together:

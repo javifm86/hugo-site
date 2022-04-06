@@ -48,7 +48,7 @@ Widget.prototype.method2 = function() {
 var instancia = new Widget("Hola", "Mundo");
 ```
 
-Si quisieramos llamar a los 2 métodos, deberíamos hacerlo de la siguiente manera:
+Si quisiéramos llamar a los 2 métodos, deberíamos hacerlo de la siguiente manera:
 
 ```js
 instancia.method1();
