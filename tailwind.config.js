@@ -1,18 +1,17 @@
 // https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 const colors = require('tailwindcss/colors');
 module.exports = {
-    darkMode: 'media',
-    purge: {
-        content: ['./content/**/*.md', './layouts/**/*.html', './static/**/*.js', './static/**/*.svg', 'config.toml'],
-        options: {
-            safelist: ['chroma', /chroma$/],
-            defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-        }
-    },
+    content: [
+        './content/**/*.md', './layouts/**/*.html', './static/**/*.js', './static/**/*.svg', 'config.toml'
+    ],
+    // safelist: ['chroma', { pattern: /chroma$/ }],
     theme: {
         extend: {
             colors: {
-                gray: colors.blueGray
+                green: colors.emerald,
+                purple: colors.violet,
+                yellow: colors.amber,
+                gray: colors.slate
             },
             spacing: {
                 '1/2': '50%',
@@ -45,11 +44,6 @@ module.exports = {
             gridTemplateColumns: {
                 'auto-fit-min-290': 'repeat(auto-fit, minmax(290px, 1fr))'
             }
-        }
-    },
-    variants: {
-        extend: {
-            borderStyle: ['dark']
         }
     },
     plugins: []
