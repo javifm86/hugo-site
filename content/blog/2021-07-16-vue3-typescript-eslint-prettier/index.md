@@ -17,17 +17,17 @@ y configurar ESLint y Prettier para que funcionen correctamente en Visual Studio
 Para crear un nuevo proyecto la opción más rápida y sencilla es utilizar [Vue CLI][1]. Nos permitirá configurar nuestro proyecto
 con diferentes workflows predefinidos. El primer paso es instalar Vue CLI:
 
-{{< highlight shell >}}
+```bash
 yarn global add @vue/cli
 # OR
 npm install -g @vue/cli
-{{< / highlight >}}
+```
 
 Y una vez instalado ya podemos crear un nuevo proyecto:
 
-{{< highlight shell >}}
+```bash
 vue create hello-world
-{{< / highlight >}}
+```
 
 Nos saldrá un listado de opciones donde seleccionaremos la última opción:
 <pre>
@@ -82,7 +82,7 @@ Después de responder a todo lo que nos pregunta comenzará a instalar las depen
 El equipo de Vue ha hecho un buen trabajo a la hora de evitarnos los quebraderos de cabeza de configurar ESLint y Prettier
 de manera que no haya conflicto entre ellos. Si abrimos el fichero `.eslintrc.js` vemos que tenemos instalados estos plugins:
 
-{{< highlight js "linenos=table,hl_lines=6-12 19-20" >}}
+```js {linenos=table,hl_lines=["6-12", "19-20"]}
 module.exports = {
   root: true,
   env: {
@@ -116,7 +116,7 @@ module.exports = {
     },
   ],
 };
-{{< / highlight >}}
+```
 
 De esta manera Prettier no entrará en conflicto con las reglas de ESLint. En las líneas 19-20 hay unas reglas que he
 añadido yo. Se puede añadir todo lo que deseemos para personalizarlo a nuestro gusto.
@@ -136,19 +136,19 @@ marcado **prettier-eslint**, en el resto yo tengo la opción por defecto, inclus
 
 En la configuración de VSCode tenemos que decir que los ficheros de tipo Vue utilicen
 como formateador por defecto Vetur:
-{{< highlight js >}}
+```js
 "[vue]": {
   "editor.defaultFormatter": "octref.vetur"
 }
-{{< / highlight >}}
+```
 
 De esta manera VSCode delega en Vetur, y es Vetur el que a cada parte que encuentre en los ficheros `.vue` aplicará el
 formateador adecuado. Tan solo hay una cosa que Vetur no hace correctamente en el autoformateo de los ficheros `.vue`, y
 es el **insertar una línea en blanco al final del archivo**. Si tienes esta opción, la única forma que he encontrado es
 delegar esa tarea en VSCode mediante esta configuración:
-{{< highlight js >}}
+```js
 "files.insertFinalNewline": false
-{{< / highlight >}}
+```
 
 En ocasiones tener [la última versión de Vetur puede ser problemático][3], recientemente en un proyecto me he encontrado
 que Vetur comenzaba a formatear el HTML de manera distinta. Después de unas horas volviéndome loco, instalé una

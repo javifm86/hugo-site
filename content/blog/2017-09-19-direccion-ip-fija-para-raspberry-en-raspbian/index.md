@@ -15,23 +15,23 @@ Vamos a ver como en unos sencillos pasos lo hacemos en Raspbian. Los pasos son p
 
 Editaremos el fichero `dhcpcd.conf` con nano u otro cualquier editor.
 
-{{< highlight bash >}}
+```bash
 sudo nano /etc/dhcpcd.conf
-{{< / highlight >}}
+```
 
 Y añadiremos al final del fichero las siguientes líneas (asegurate de poner una dirección dentro de tu red y la IP de tu router):
 
-{{< highlight text >}}
+```text
 interface eth0
 static ip_address=192.168.1.50
 static routers=192.168.1.1
 static domain_name_servers=8.8.8.8
 static domain_search=8.8.4.4
-{{< / highlight >}}
+```
 
 Guardamos y salimos, para comprobar el fichero `interfaces`, que tendrá este aspecto:
 
-{{< highlight text >}}
+```text
 # interfaces(5) file used by ifup(8) and ifdown(8)
 
 # Please note that this file is written to be used with dhcpcd
@@ -52,6 +52,6 @@ iface wlan0 inet manual
 allow-hotplug wlan1
 iface wlan1 inet manual
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-{{< / highlight >}}
+```
 
 La parte importante es iface `eth0 inet manual`, donde indicamos que la IP sea manual. Lo más probable es que ya esté bien y no tengas que tocarlo. Guardando y reiniciando ya deberíamos disponer de nuestra IP fija.

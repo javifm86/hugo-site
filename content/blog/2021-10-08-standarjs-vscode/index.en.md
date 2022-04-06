@@ -31,16 +31,16 @@ StandardJS uses a fixed set of rules defined with [ESLint][2].
 The first is step is installing the package. You can do it globally or locally in a project. I always try using the last
 one in order to have under control all the dependencies.
 
-{{< highlight shell >}}
+```bash
 npm install standard --save-dev
-{{< / highlight >}}
+```
 
 You can fix at any moment all the problems founds automatically (some errors can't be auto-fixed, you must fix it on
 your own) with:
 
-{{< highlight shell >}}
+```bash
 standard --fix
-{{< / highlight >}}
+```
 
 You can create a npm script to run the command, but in my opinion integrating into the editor is much better.
 
@@ -61,7 +61,7 @@ If you use Prettier as default formatter for Javascript as I do, you should disa
 At workspace level we will use the following setting which appears in the extension documentation. This way we are
 enabling auto-fix, but it's necessary adding the highlighted lines to make work everything properly.
 
-{{< highlight JSON "linenos=table,hl_lines=12-14" >}}
+```json {linenos=table,hl_lines=["12-14"]}
 {
   "standard.enable": true,
   "standard.run": "onSave",
@@ -80,7 +80,7 @@ enabling auto-fix, but it's necessary adding the highlighted lines to make work 
     "editor.defaultFormatter": null
   }
 }
-{{< / highlight >}}
+```
 
 Let's check that everything is working as expected. We just have to open a Javascript file and save it. File must be
 auto-formatted and all the error should disappear.

@@ -23,9 +23,9 @@ First, we will need adding some dependencies to our project:
 * `postcss-html`: Necessary to be able to lint `.vue` files.
 
 Therefore, we install them:
-{{< highlight shell >}}
+```bash
 npm install stylelint stylelint-config-standard stylelint-config-recommended-vue postcss-html --save-dev
-{{< / highlight >}}
+```
 
 ## Stylelint in VSCode
 The next step is installing [official Stylelint extension for VSCode](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
@@ -36,7 +36,7 @@ Moreover, since Stylelint version 14, **we must specify different styling langua
 
 Additionally, I have `fixAll` to be executed on save.
 
-{{< highlight jsonc >}}
+```json
 {
   "css.validate": false, // Disable built-in lint
   "less.validate": false, // Disable built-in lint
@@ -48,12 +48,12 @@ Additionally, I have `fixAll` to be executed on save.
     "source.fixAll.stylelint": true
   },
 }
-{{< / highlight >}}
+```
 
 ## Stylelint config file
 Last but not least, we must create Stylelint config file at our project root. `.stylelintrc`:
 
-{{< highlight json >}}
+```json
 {
   "extends": [
     "stylelint-config-standard",
@@ -63,11 +63,11 @@ Last but not least, we must create Stylelint config file at our project root. `.
 
   }
 }
-{{< / highlight >}}
+```
 
 If we don't add `stylelint-config-recommended-vue`, we will have to put the override to lint `vue` files:
 
-{{< highlight json >}}
+```json
 {
   "extends": [
     "stylelint-config-standard",
@@ -85,14 +85,14 @@ If we don't add `stylelint-config-recommended-vue`, we will have to put the over
 
   }
 }
-{{< / highlight >}}
+```
 
 With all this configuration, our project is ready to use Stylelint for CSS linting.
 
 ## Adding own rules
 We can specify our custom rules. For example, in a project where we are using Tailwind CSS, we avoid the following warning when using @apply: `Unknown at rule @applycss(unknownAtRules)`. This crucial if we are working with PostCSS plugins and want to avoid some warnings. Example for Tailwind CSS syntax:
 
-{{< highlight json >}}
+```json
 {
   "extends": [
     "stylelint-config-standard",
@@ -116,7 +116,7 @@ We can specify our custom rules. For example, in a project where we are using Ta
     "no-descending-specificity": null
   }
 }
-{{< / highlight >}}
+```
 
 Useful links:
 * [Stylelint][1]

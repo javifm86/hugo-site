@@ -26,17 +26,17 @@ Primero, instalar la extensión para Yeoman para generar extensiones de VSCode, 
 
 {{< img src="img/yo.png" alt="Opciones del generador de Yeoman." >}}
 
-{{< highlight shell >}}
+```bash
 npm install -g yo generator-code
 yo code
-{{< / highlight >}}
+```
 
 Selecciona `New color theme` y `No, start fresh`. Rellena los campos que te pide como nombre e identificador, y selecciona un punto de partida para crear tu theme, en mi caso **Dark theme**. Ya puedes abrir el directorio con VSCode:
 
-{{< highlight shell >}}
+```bash
 cd your-theme
 code .
-{{< / highlight >}}
+```
 
 Para probar el tema, simplemente pulsa `F5` y se abrirá una nueva ventana en la que puedes ver el resultado.
 
@@ -49,16 +49,16 @@ Pulsa `Ctrl + Shift + P` y teclea `Inspect Editor Tokens and Scopes`. Ahora pued
 
 VSCode dispone de developer tools que puedes utilizar para inspeccionar elementos. Pulsa `Ctrl + Shift + P` y teclea `Toggle Developer Tools` para abrirlas.
 
-{{< img src="img/devtools.png" alt="Inspeiccionando con VSCode devtools para obtener un color." >}}
+{{< img src="img/devtools.png" alt="Inspeccionando con VSCode devtools para obtener un color." >}}
 
-Muy útil si quieres obtener rapidamente un color de algún tema que estás consultando para obtener inspiración. Al comenzar a crear el tema éste era el método que utilizaba para obtener el color por defecto de cualquier cosa en VSCode, pero hay algunos elementos que son díficiles de inspeccionar como el minimapa.
+Muy útil si quieres obtener rápidamente un color de algún tema que estás consultando para obtener inspiración. Al comenzar a crear el tema éste era el método que utilizaba para obtener el color por defecto de cualquier cosa en VSCode, pero hay algunos elementos que son difíciles de inspeccionar como el mini mapa.
 
 Finalmente, opté por buscar los colores por defecto en el [repositorio de VSCode en Github](https://github.com/microsoft/vscode). Simplemente busca el color que quieras en el buscador (sin poner el punto), por ejemplo `activityBar inactiveForeground`, e indaga entre los distintos resultados hasta obtener el color que usan.
 
 He creado un [gist con todos los colores oscuros por defecto en VSCode](https://gist.github.com/javifm86/073d8e05942a8849dd11fa6996955fc0), algunos valores no son 100% exactos ya que en el código fuente se ve que usan las funciones `darken` o `lighten`, o también pueden aplicar transparencia a un color que ya tenía transparencia. Te ahorrará mucho tiempo, no encontré en un ningún sitio un listado con los colores por defecto utilizados.
 
 ## Color de acento
-Se pueden sobreescribir colores para un terma en las settings de VSCode. He creado differentes esquemas de colores para cambiar el color de acento en VSCode. Si alguien desea probar con otro color en lugar del azul por defecto, puede utilizar estas combinaciones:
+Se pueden sobrescribir colores para un tema en las settings de VSCode. He creado differentes esquemas de colores para cambiar el color de acento en VSCode. Si alguien desea probar con otro color en lugar del azul por defecto, puede utilizar estas combinaciones:
 
 - [Indigo](https://github.com/javifm86/oceanic-wind/blob/main/customize/indigo.md)
 - [Green](https://github.com/javifm86/oceanic-wind/blob/main/customize/green.md)
@@ -72,7 +72,7 @@ Se pueden sobreescribir colores para un terma en las settings de VSCode. He crea
 He realizado pruebas de contraste de color para los distintos esquemas, no debería haber ningún gran problema de contraste. Tengo pendiente revisarlo porque no he comprobado con las versiones **Warm** y **Cool** del tema.
 
 ## Creando a partir de una paleta de colores definida
-Una vez terminé el tema, **podía facilmente generar numerosas variantes**. Simplemente reemplazando el gris con los 5 distintos tipos de gris de Tailwind, podría generar 40 distintas variantes (8 colores de acento x 5 tipos de gris = 40). Esto es solo una posibilidad, decidí utilizar el gris neutro para la versión por defecto, el gris cálido para la versión cálida y el gris azul para la fría.
+Una vez terminé el tema, **podía fácilmente generar numerosas variantes**. Simplemente reemplazando el gris con los 5 distintos tipos de gris de Tailwind, podría generar 40 distintas variantes (8 colores de acento x 5 tipos de gris = 40). Esto es solo una posibilidad, decidí utilizar el gris neutro para la versión por defecto, el gris cálido para la versión cálida y el gris azul para la fría.
 
 He querido evitar ensuciar el selector de themes de VSCode con más de 40 distintas versiones, había que elegir asi que finalmente dejé 3 versiones con el azul como color de acento, y si alguien desea personalizar más puede copiar y pegar la configuración de los distintos colores de acento. ¡Es tan fácil generar variantes cuando dispones de una paleta de colores!
 
@@ -86,7 +86,7 @@ De esta forma puedes activar localmente tu tema y probarlo en el workspace que d
 
 Puedes hacer cambios directamente en el directorio del tema, pero **necesitarás reiniciar la instancia de VSCode** para poder ver los cambios (puedes pulsar `Ctrl + Shift + P` y escribir `Reload window`).
 
-Además puedes modificar las settings de usuario, y sobreescribir los colores de tu tema para poder ver en caliente los cambios realizados. ¡Esto ahorra mucho tiempo!
+Además puedes modificar las settings de usuario, y sobrescribir los colores de tu tema para poder ver en caliente los cambios realizados. ¡Esto ahorra mucho tiempo!
 
 ## Conclusión
 Cuando termines puedes [seguir la guía oficial](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) para publicar tu theme.

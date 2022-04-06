@@ -13,29 +13,29 @@ Nunca me había visto en la necesidad de hacer uso de esta funcionalidad, normal
 
 ¿Como depurar remotamente? Para ellos podemos utilizar [Weinre,][1] que se instala como un módulo de [Node.js.][2] Lo primero de todo, como es lógico será [instalar Node.js][3] si no lo tenemos ya instalado. Una vez lo tenemos, podremos instalar Weinre a través de [npm,][4] tan solo debemos ir a la consola y ejecutar el siguiente comando:
 
-{{< highlight bash >}}
+```bash
 npm -g install weinre
-{{< / highlight >}}
+```
 
 Yo utilizo Windows, aunque también tengo Ubuntu, en sistemas Linux deberemos ejecutar el comando precedido de sudo probablemente. Así de simple y así de fácil, ya tenemos instalado weinre. Weinre ejecutará un servidor en nuestra máquina, que será la interfaz a través de la cual depuraremos nuestro aplicación HTML5, que se ejecutará en otro dispositivo (móvil, tablet, Smart TV, etc).
 
-**La interfaz es practicamente la misma que las developer tools de Chrome,** asi que si sueles usarla te desenvolverás con soltura en ella, aunque tiene algunas limitaciones.
+**La interfaz es prácticamente la misma que las developer tools de Chrome,** asi que si sueles usarla te desenvolverás con soltura en ella, aunque tiene algunas limitaciones.
 
 Para ejecutar el servidor de weinre, vamos a la consola y ejecutamos:
 
-{{< highlight bash >}}
+```bash
 weinre --boundHost 192.168.1.2
-{{< / highlight >}}
+```
 
-En en este caso he utilizado la IP que tengo asignada en mi ordenador en mi red local, 192.168.1.2. Podríamos ejecutar en localhost, pero en ese caso solo podríamos hacer pruebas desde nuestro ordenador, que podría ser util quizás para depurar desde algún emulador. De esta manera, podremos depurar aplicaciones de otros dipositivos que se ejecuten en nuestra misma red local. El comando es el más simple, puedes _teclear weinre &#8211;help_ y ver otro tipo de opciones, como el puerto por el que se lanza, pero en mi caso la configuración por defecto me vale. Si es la primera vez que ejecutas weinre, y estás en windows, probablemente el Firewall pida permisos para que weinre acceda a la red. Veremos un mensaje que confirma que se lanza el servidor:
+En en este caso he utilizado la IP que tengo asignada en mi ordenador en mi red local, 192.168.1.2. Podríamos ejecutar en localhost, pero en ese caso solo podríamos hacer pruebas desde nuestro ordenador, que podría ser util quizás para depurar desde algún emulador. De esta manera, podremos depurar aplicaciones de otros dispositivos que se ejecuten en nuestra misma red local. El comando es el más simple, puedes _teclear weinre &#8211;help_ y ver otro tipo de opciones, como el puerto por el que se lanza, pero en mi caso la configuración por defecto me vale. Si es la primera vez que ejecutas weinre, y estás en windows, probablemente el Firewall pida permisos para que weinre acceda a la red. Veremos un mensaje que confirma que se lanza el servidor:
 
 {{< img src="img/consola.png" alt="Consola con mensaje de confirmación de que el servidor de Weinre se ha iniciado correctamente" >}}
 
 Ya podemos abrir en el navegador la url, en mi caso: http://192.168.1.2:8080/ El siguiente paso es muy simple, tan solo deberemos incluir un script en nuestra aplicación, para que podamos depurar remotamente. Para el ejemplo en concreto, nuestra SmartTV está conectada en la misma red local, por lo que simplemente añadimos la siguiente línea en nuestra aplicación:
 
-{{< highlight html >}}
+```html
 <script src="http://192.168.1.2:8080/target/target-script-min.js#instancia"></script>
-{{< / highlight >}}
+```
 
 Observemos que se ha concatenado **#instancia,** ¿Qué quiere decir esto? Que podemos crear distintas instancias para depurar remotamente, podríamos montar weinre en un ordenador, y conectarnos varias personas a él, y no sufriremos interferencias en los logs si cada uno tenemos un hashtag diferente. Siguiendo con el ejemplo, para poder conectar con la interfaz desde la que depuraremos, iremos a la siguiente url: http://192.168.1.2:8080/client/#instancia Y nos encontraremos con una interfaz bastante familiar:
 
@@ -43,9 +43,9 @@ Observemos que se ha concatenado **#instancia,** ¿Qué quiere decir esto? Que p
 
 Ya solo nos queda realizar pruebas, ejecutaremos nuestra aplicación con el script incluido, y donde pone Target comenzaremos a ver las ejecuciones. Al igual que en Chrome, podemos ir a la pestaña Elements, ver el código fuente cargado, editarlo, añadir o quitar estilos css. También disponemos de Resources, Network, Timeline y Console, desde donde podremos visualizar los console.log. Por lo que he probado weinre tarda un poco en inicializarse, por lo que **es conveniente que ejecutes los console.log con un timeout,** de lo contrario puede que no aparezcan:
 
-{{< highlight JavaScript >}}
+```js
 setTimeout(function() { console.log("Hola Mundo"); }, 2000);
-{{< / highlight >}}
+```
 
 En este caso lo he ejecutado desde mi mismo ordenador, pero en el trabajo pruebo sin problemas con un televisor LG. Así vemos que hay una conexión, una vez ejecutamos la aplicación:
 

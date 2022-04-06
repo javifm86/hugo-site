@@ -16,7 +16,7 @@ Nunca me había visto en la necesidad de **detectar cuando una transición CSS3 
 
 Solución para transiciones:
 
-{{< highlight JavaScript >}}
+```js
 var ended = false;
 $("#selector").bind("transitionend
                      webkitTransitionEnd 
@@ -24,11 +24,11 @@ $("#selector").bind("transitionend
                      MSTransitionEnd", function(){ 
                         ended = true;
                     });
-{{< / highlight >}}
+```
 
 Solución para animaciones:
 
-{{< highlight JavaScript >}}
+```js
 var ended = false;
 $("#someSelector").bind("animationend 
                          webkitAnimationEnd 
@@ -36,11 +36,11 @@ $("#someSelector").bind("animationend
                          MSAnimationEnd", function(){
                         ended = true;
                     });
-{{< / highlight >}}
+```
 
 Si no deseas usar jQuery, en Modernizr tienen esto:
 
-{{< highlight JavaScript >}}
+```js
 function transitionEndEventName () {
     var i,
         undefined,
@@ -60,14 +60,14 @@ function transitionEndEventName () {
 
     //TODO: throw 'TransitionEnd event is not supported in this browser'; 
 }
-{{< / highlight >}}
+```
 
 Y se utiliza de la siguiente manera:
 
-{{< highlight JavaScript >}}
+```js
 var transitionEnd = transitionEndEventName();
 element.addEventListener(transitionEnd, theFunctionToInvoke, false);
-{{< / highlight >}}
+```
 
 
 Encontré la solución en StackOverflow:

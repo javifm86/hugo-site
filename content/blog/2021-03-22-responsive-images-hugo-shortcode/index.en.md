@@ -34,7 +34,7 @@ responsive-images-hugo
 </pre>
 
 The next step is creating a file for the shortcode, I created in `layouts/shortcodes/img.html` with this code:
-{{< highlight go-html-template >}}
+```go-html-template
 {{/* Get file that matches the filename as specified as src="" in shortcode */}}
 {{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
 
@@ -88,15 +88,15 @@ The next step is creating a file for the shortcode, I created in `layouts/shortc
     width="{{ $src.Width }}" height="{{ $src.Height }}"
     {{ with .Get "alt" }}alt='{{.}}'{{ end }}>
 
-{{< / highlight >}}
+```
 
 This way we will be able to use in markdown files the shortcode:
-{{< highlight go-html-template >}}
+```go-html-template
 {{</* img src="img/img1.jpg" alt="Description for image" */>}}
-{{< / highlight >}}
+```
 
 And that´s all, you use the image as if you were in html and the shortcode and Hugo will generate images smaller when necessary. This
-solution comes from [Laura Kalbag][2], I just modified a little bit her code. I take this opportunity to recomendate her
+solution comes from [Laura Kalbag][2], I just modified a little bit her code. I take this opportunity to recommend her
 book [Accessibility For Everyone][3].
 
 [1]: https://gohugo.io/content-management/page-bundles/

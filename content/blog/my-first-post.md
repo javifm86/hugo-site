@@ -97,7 +97,7 @@ html
     </html>
 
 #### Code block with Hugo's internal highlight shortcode
-{{< highlight html >}}
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -17,6 +17,6 @@ Simplemente pulsando _Ctrl + H_ (o en el menú _Find-> Replace_), nos aseguramos
 
 Vemos como se seleccionan todas las ocurrencias (en rojo la opción de búsqueda con expresiones regulares).
 
-{{< img src="img/Screenshot_2.png" alt="ditor sublime text marcando el selector de expresiones regulares y mostrando seleccionados todos los atributos width de un documento HTML" >}}
+{{< img src="img/Screenshot_2.png" alt="Editor sublime text marcando el selector de expresiones regulares y mostrando seleccionados todos los atributos width de un documento HTML" >}}
 
-Simplemente va a buscar todas las coincidencias en el fichero del atributo width con contenido entre comillas. Seleccionamos reemplazar por nada, y en un momento ya hemos eliminado todos los artributos width del texto. Fácil y sencillo.
+Simplemente va a buscar todas las coincidencias en el fichero del atributo width con contenido entre comillas. Seleccionamos reemplazar por nada, y en un momento ya hemos eliminado todos los atributos width del texto. Fácil y sencillo.

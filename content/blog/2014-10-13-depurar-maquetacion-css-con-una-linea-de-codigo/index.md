@@ -12,19 +12,19 @@ Llevo aproximadamente 8 años trabajando como desarrollador Javascript principal
 
 Es un código ideal para depurar, ver donde se te descuadra un div, donde se te ha colado un margen, controlar al milímetro todo. El código en cuestión es el siguiente. Versión para consolas, que cuentan con el siguiente alias: `$$('*')` equivalente a `document.querySelectorAll('*')`
 
-{{< highlight JavaScript >}}
+```js
 [].forEach.call($$("*"),function(a){
   a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)
 })
-{{< / highlight >}}
+```
 
 Asi que si deseas incorporarlo desde código, en lugar de desde la consola, simplemente:
 
-{{< highlight JavaScript >}}
+```js
 [].forEach.call(document.querySelectorAll("*"),function(a){
   a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)
 })
-{{< / highlight >}}
+```
 
 Podemos ver como con solo este código, podemos tener un generador de colores aleatorio en formato hexadecimal: `(~~(Math.random()*(1<<24))).toString(16)`
 

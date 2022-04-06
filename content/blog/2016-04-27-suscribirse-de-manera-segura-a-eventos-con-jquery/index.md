@@ -14,27 +14,27 @@ Un truco del que me acabo de enterar, que seguro será de gran utilidad a la hor
 
 Un ejemplo sería el evento `resize`.
 
-{{< highlight JavaScript >}}
+```js
 $( window ).on( "resize", _handleResize );
-{{< / highlight >}}
+```
 
 Muy simple, nos suscribimos al evento resize del navegador para que se ejecute la función _handleResize cada vez que se produce un redimensionado del navegador. Al salir de nuestra vista, para ahorrar en consumo de memoria, es altamente recomendable eliminar todos los listeners que hayamos creado, si no van a ser necesarios, y crearlos nuevamente cuando vayamos a necesitarlos. La duda es, ¿Cómo eliminar nuestra llamada unicamente sin afectar al resto?
 
-{{< highlight JavaScript >}}
+```js
 $( window ).off( "resize" );
-{{< / highlight >}}
+```
 
 Si hacemos el off directamente, **eliminaríamos todos los callbacks asociados al evento resize,** algo que probablemente no es lo que buscamos. Para solucionar este problema, **podemos hacer uso de namespaces** que nos permitan suscribirnos y desuscribirnos al evento `resize` dado un namespace. Para ello simplemente escribiremos `resize.nombreNameSpace`. Así creamos el listener:
 
-{{< highlight JavaScript >}}
+```js
 $( window ).on( "resize.config", _handleResize );
-{{< / highlight >}}
+```
 
 Y de la misma forma, aplicamos el off.
 
-{{< highlight JavaScript >}}
+```js
 $( window ).off( "resize.config" );
-{{< / highlight >}}
+```
 
 El mismo truco funciona para otros eventos como `keydown`. Asi que si no conocías esta valiosa información de jQuery, ya puedes comenzar a utilizarla para evitar &#8220;desuscribir&#8221; más de la cuenta.
 

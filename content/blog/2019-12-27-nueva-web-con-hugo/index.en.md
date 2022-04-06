@@ -32,13 +32,13 @@ to copy public folder into the repository, commit, push and the website is deplo
 
 Finally, I had the decision of how I was going to organize the web layout. I could have developed everything on my own
 with CSS or SASS, but I have been hearing about [Tailwind CSS][6], a CSS framework  that implements "utility first"
-concept. After having worked with Bootstrap, I didn´t want to start learning another framework but I decided to give it a
+concept. After having worked with Bootstrap, I didn't want to start learning another framework but I decided to give it a
 shot. First day I thought that HTML was very dirty with so many classes, but after a couple of days I decided it was
 very useful and now I love it.
 
 {{< img src="img/tailwindcss.png" alt="TailwindCSS" class="mx-auto" >}}
 
-Tailwind is not a framework like Boostrap, **you don´t have components** with a given markup. Tailwind provides 
+Tailwind is not a framework like Bootstrap, **you don´t have components** with a given markup. Tailwind provides 
 **low-level utility classes** that let you build completely custom designs without ever leaving your HTML. You can focus
 on creating, you don´t have to invert time in naming classes and you don´t repeat every time the same CSS properties
 that make CSS files size growing without control.
