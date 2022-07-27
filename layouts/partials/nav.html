@@ -26,19 +26,18 @@
                 {{ else }}
                     {{ $classes = "hover:bg-gray-200 dark:hover:bg-transparent hover:rounded-sm dark:text-gray-200 dark:hover:text-green-400" }}
                 {{ end }}
+                {{ $classes = printf "%s %s" $classes "mr-3 md:mr-6"}}
 
-                {{ if not (eq $i $lastElem) }}
-                    {{ $classes = printf "%s %s" $classes "mr-3 md:mr-6"}}
-                {{ end }}
                 <a class="p-2 uppercase text-gray-700 hidden sm:inline-flex {{$classes}}" href="{{ $e.URL | absLangURL }}" {{ if $active }} aria-current="page" {{ end }}>{{ $text }}</a>
-
-            {{ end }}
+                {{ end }}
+            {{ partial "language.html" (dict "context" .) }}
             <button type="button" id="sidebar-open" aria-label="Abrir menu" class="sm:hidden text-gray-700 dark:text-gray-300 flex items-center uppercase text-xl p-1 -m-1">
                 Menú
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/menu.svg" "cssClasses" "ml-2 w-6 h-6 fill-current" "htmlId" "open-menu") }}
                 {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/icon/cross.svg" "cssClasses" "ml-2 w-6 h-6 fill-current hidden" "htmlId" "close-menu") }}
             </button>
         </nav>
+
     </div>
 </div>
 <!-- Mobile menu -->

@@ -12,12 +12,12 @@
     </div>
     <div class="my-16 border-b border-gray-300"></div>
     <div class="mb-16 text-center max-w-3xl mx-auto">
-        {{ with .NextInSection }}
+        {{ with .PrevInSection }}
         <a class="{{ $buttonClasses }}" href="{{ .Permalink }}">
             &laquo; {{ .Title }}
         </a>
         {{ end }}
-        {{ with .PrevInSection }}
+        {{ with .NextInSection }}
         <a class="{{ $buttonClasses }}" href="{{ .Permalink }}">
             {{ .Title }} &raquo;
         </a>

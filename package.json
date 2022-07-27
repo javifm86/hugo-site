@@ -1,6 +1,6 @@
 {
   "name": "hugo-site",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production npm-run-all --sequential copy:lunr copy:focus-visible css:build hugo:build",
     "hugo:serve": "hugo server --minify",
     "hugo:build": "hugo --minify",
-    "css:watch": "watch \"npm run css:build\" ./static-src/css",
+    "css:watch": "watch \"npm run css:build\" ./static-src/css ./layouts",
     "css:build": "postcss static-src/css/styles.css -o static/css/styles.css",
     "copy:lunr": "copyfiles -u 2 node_modules/lunr/lunr.min.js static/js/",
     "copy:focus-visible": "copyfiles -u 3 node_modules/focus-visible/dist/focus-visible.min.js static/js/",

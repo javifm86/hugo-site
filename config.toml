@@ -11,8 +11,16 @@ DefaultContentLanguage = "es"
 [languages]
   [languages.es]
     weight = 1
+    languageName = "Español"
+    languageShortName = "ES"
+    languageEmoji = "🇪🇸"
+
   [languages.en]
     weight = 2
+    languageName = "English"
+    languageShortName = "EN"
+    languageEmoji = "🇬🇧"
+
 
 [permalinks]
   blog = "/:section/:title/"
