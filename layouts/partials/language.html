@@ -21,7 +21,7 @@
       <ul id="languageList" class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm hidden" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-{{ $currentLang }}">
         {{ range .context.Site.Home.AllTranslations }}
         {{ $lang := .Language.Params.languageShortName }}
-        <li class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9" id="listbox-option-{{ $lang }}" tabindex="-1" role="option" data-url="{{ .Permalink }}">
+        <li class="text-gray-900 hover:bg-gray-100 cursor-pointer select-none relative py-2 pl-3 pr-9" id="listbox-option-{{ $lang }}" tabindex="-1" role="option" data-url="{{ .Permalink }}">
             <div class="flex items-center">
                 <span>{{.Language.Params.languageEmoji}}</span>
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
