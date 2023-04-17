@@ -1,95 +1,141 @@
 <script type="text/javascript">
-    (function () {
-      const $containerSelector = document.getElementById(
-        "containerLanguageSelector"
-      );
-      const $languageList = document.getElementById("languageList");
-      const $buttonLanguageSelector = document.getElementById(
-        "buttonLanguageSelector"
-      );
-      const $languageItems = document.querySelectorAll("#languageList li");
+  (function() {
+    const $containerSelector = document.getElementById(
+      'desktopContainerLanguageSelector'
+    );
+    const $containerSelectorMobile = document.getElementById(
+      'mobileContainerLanguageSelector'
+    );
+    const $languageList = document.getElementById('desktopLanguageList');
+    const $languageListMobile = document.getElementById('mobileLanguageList');
+    const $buttonLanguageSelector = document.getElementById(
+      'desktopButtonLanguageSelector'
+    );
+    const $buttonLanguageSelectorMobile = document.getElementById(
+      'mobileButtonLanguageSelector'
+    );
+    const $languageItemsAll = document.querySelectorAll(
+      '#desktopLanguageList li, #mobileLanguageList li'
+    );
+    const $languageItems = document.querySelectorAll('#desktopLanguageList li');
+    const $languageItemsMobile = document.querySelectorAll(
+      '#mobileLanguageList li'
+    );
 
-      $buttonLanguageSelector.addEventListener("click", function (e) {
-        $languageList.classList.toggle("hidden");
+    $buttonLanguageSelector.addEventListener('click', function(e) {
+      $languageList.classList.toggle('hidden');
+    });
+
+    $buttonLanguageSelectorMobile.addEventListener('click', function(e) {
+      $languageListMobile.classList.toggle('hidden');
+    });
+
+    $languageItemsAll.forEach(item => {
+      item.addEventListener('click', function(e) {
+        window.location.href = this.dataset.url;
       });
-
-      $languageItems.forEach((item) => {
-        item.addEventListener("click", function (e) {
+      item.addEventListener('keypress', function({ key }) {
+        if (key === 'Enter' || key === 'Space') {
           window.location.href = this.dataset.url;
-        });
-        item.addEventListener("keypress", function ({ key }) {
-          if (key === "Enter" || key === "Space") {
-            window.location.href = this.dataset.url;
-          }
-        });
-      });
-
-      document.addEventListener("click", function (event) {
-        if (!$containerSelector.contains(event.target) && isOpenSelector()) {
-          $languageList.classList.add("hidden");
         }
       });
+    });
 
-      document.addEventListener("keydown", function (event) {
-        const { key } = event;
-        const isOpen = isOpenSelector();
-
-        if(!isOpen) {
-          return;
-        }
-
-        if (key === "Escape" || key === "Tab") {
-          closeSelector();
-          return;
-        }
-
-        if (key === "ArrowUp") {
-          event.preventDefault();
-
-          if (document.activeElement.previousElementSibling !== null) {
-            document.activeElement.previousElementSibling.focus();
-          }
-          return;
-        }
-
-        if (key === "ArrowDown") {
-          event.preventDefault();
-
-          if (selectorHasFocus()) {
-            $languageItems[0].focus();
-          } else if (
-            focusedIsLanguageOption() &&
-            document.activeElement.nextElementSibling !== null
-          ) {
-            document.activeElement.nextElementSibling.focus();
-          }
-          return;
-        }
-      });
-
-      function isOpenSelector() {
-        return !$languageList.classList.contains("hidden");
+    document.addEventListener('click', function(event) {
+      if (!$containerSelector.contains(event.target) && isOpenSelector()) {
+        $languageList.classList.add('hidden');
       }
 
-      function closeSelector() {
-        $languageList.classList.add("hidden");
-        if(focusedIsLanguageOption()) {
-          $buttonLanguageSelector.focus();
+      if (
+        !$containerSelectorMobile.contains(event.target) &&
+        isOpenSelectorMobile()
+      ) {
+        $languageListMobile.classList.add('hidden');
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      const { key } = event;
+      const isOpen = isOpenSelector();
+      const isOpenMobile = isOpenSelectorMobile();
+
+      if (!isOpen && !isOpenMobile) {
+        return;
+      }
+
+      if (key === 'Escape' || key === 'Tab') {
+        closeSelector(isOpen);
+        return;
+      }
+
+      if (key === 'ArrowUp') {
+        event.preventDefault();
+
+        if (document.activeElement.previousElementSibling !== null) {
+          document.activeElement.previousElementSibling.focus();
         }
+        return;
       }
 
-      function selectorHasFocus() {
-        return document.activeElement.isSameNode($buttonLanguageSelector);
+      if (key === 'ArrowDown') {
+        event.preventDefault();
+
+        if (selectorHasFocus()) {
+          $languageItems[0].focus();
+        } else if (selectorHasFocusMobile()) {
+          $languageItemsMobile[0].focus();
+        } else if (
+          focusedIsLanguageOption() &&
+          document.activeElement.nextElementSibling !== null
+        ) {
+          document.activeElement.nextElementSibling.focus();
+        }
+        return;
+      }
+    });
+
+    function isOpenSelector() {
+      return !$languageList.classList.contains('hidden');
+    }
+
+    function isOpenSelectorMobile() {
+      return !$languageListMobile.classList.contains('hidden');
+    }
+
+    function closeSelector(isOpenDesktop) {
+      let $languageListOpen = null;
+      let $buttonLanguageOpen = null;
+
+      if (isOpenDesktop) {
+        $languageListOpen = $languageList;
+        $buttonLanguageOpen = $buttonLanguageSelector;
+      } else {
+        $languageListOpen = $languageListMobile;
+        $buttonLanguageOpen = $buttonLanguageSelectorMobile;
       }
 
-      function focusedIsLanguageOption() {
-        return document.activeElement
-          .getAttribute("id")
-          .includes("listbox-option-");
+      $languageListOpen.classList.add('hidden');
+      if (focusedIsLanguageOption()) {
+        $buttonLanguageOpen.focus();
       }
+    }
 
-      function isLanguageOption(node) {
-        return node.getAttribute("id").includes("listbox-option-");
-      }
-    })();
+    function selectorHasFocus() {
+      return document.activeElement.isSameNode($buttonLanguageSelector);
+    }
+
+    function selectorHasFocusMobile() {
+      return document.activeElement.isSameNode($buttonLanguageSelectorMobile);
+    }
+
+    function focusedIsLanguageOption() {
+      return document.activeElement
+        .getAttribute('id')
+        .includes('listbox-option-');
+    }
+
+    function isLanguageOption(node) {
+      return node.getAttribute('id').includes('listbox-option-');
+    }
+  })();
 </script>
