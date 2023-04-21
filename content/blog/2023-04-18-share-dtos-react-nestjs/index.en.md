@@ -457,8 +457,9 @@ There is scope for further improvement, such as ignoring the API folders in the 
 
 To avoid any issues in the future, make sure that you install the same version of the `@nestjs/swagger` and `class-validator` packages in all three projects.
 
-We hope this guide has been helpful to you. **Happy coding!**
+We hope this guide has been helpful to you. You can find [the example in this repository][4]. **Happy coding!**
 
  [1]: https://docs.nestjs.com/pipes#class-validator
  [2]: https://docs.nestjs.com/openapi/introduction
  [3]: https://docs.nestjs.com/techniques/validation
+ [4]: https://github.com/javifm86/vite-react-nest-share-dtos
