@@ -266,8 +266,11 @@ Para generar los literales en la aplicación, podemos ejecutar `literals:extract
 
 Se puede revisar un repositorio con este ejemplo de aplicación [en mi cuenta de Github][5].
 
+Nota: No he probado [BalbelEdit][6] pero parece que puede ser muy útil a la hora de traducir una aplicación, soporta React.
+
 [1]: https://formatjs.io/docs/react-intl/
 [2]: https://create-react-app.dev/
 [3]: https://formatjs.io/docs/getting-started/message-declaration
 [4]: https://formatjs.io/docs/getting-started/message-extraction
 [5]: https://github.com/javifm86/react-intl-example
+[6]: https://www.codeandweb.com/babeledit
