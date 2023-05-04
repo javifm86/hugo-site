@@ -78,27 +78,32 @@ other = "Main skills"
 
 [about_intro]
 other = """
-My name is **Javier Fernández** and I am from Madrid, Spain. Since I discover Internet and the world
-of web pages I realized that I wanted to dedicate myself to it, and I began to learn HTML and CSS self-taught before
-finishing high school. I studied a higher professional degree in **Computer Systems Administration**, but
-soon I started to improve and learn in the world of programming on my own.
+My name is **Javier Fernández**, and I hail from Madrid, Spain. From the moment I discovered the vast and intriguing world
+of the internet and web pages, I knew that my calling lay in this field.
+
+Self-taught, I began learning `HTML` and `CSS` while still in high school, and eventually went on to complete a higher
+professional degree in **Computer Systems Administration**. However, my passion for programming drove me to continue
+honing my skills independently, constantly pushing myself to improve and innovate.
 """
 
 [about_bio]
 other = """
 
-My profession is a **frontend developer**, my strong area is Javascript. I have worked with vanilla Javascript,
-formerly with jQuery library and recently with frameworks such as Vue or Angular. I know **CSS** and I care about
-responsive design. I have worked with preprocessors such as Sass and PostCSS as well as with some
-frameworks such as Bootstrap and TailwindCSS.
+As a **frontend developer**, my expertise lies primarily in **Javascript**. I have extensive experience with vanilla Javascript,
+as well as with jQuery and more recently with popular frameworks like **React**, **Vue**, and **Angular**.
 
-I use **Git** as control version and I like using Git flow methodology.
+In addition to my Javascript skills, I have a deep understanding of **CSS** and am committed to designing responsive websites. I
+ have also worked extensively with preprocessors like **Sass** and **PostCSS**, as well as with frameworks such as
+ Bootstrap and Tailwind.
 
-Regarding backend, I have worked with **PHP** and **NodeJS**, although not as deep as to consider me a fullstack developer.
-I love to develop tasks for optimization and automation with task managers (Grunt / Gulp), Webpack or directly with
-npm scripts in NodeJS.
+For version control, I rely on **Git**, and I am a proponent of the **Git flow methodology** when working on team projects.
 
-Accessibility, optimization and performance are my main objectives when offering solutions in web development.
+While I don't consider myself a fullstack developer, I have developed using **NodeJS**.
+
+I enjoy developing tasks for optimization and automation, using task managers, Webpack or npm scripts.
+
+My goal as a web developer is to create solutions that are accessible, optimized, and high-performing, always keeping
+the end-user experience in mind.
 
 """
 

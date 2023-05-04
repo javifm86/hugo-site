@@ -1,50 +1,15 @@
 {{ define "main" }}
 <div class="bg-gray-100 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-600"></div>
-<div class="max-w-7xl mx-auto px-4 single-post">
+<div class="max-w-3xl mx-auto px-4 single-post">
     <div class="my-6">
         <h1 class="title">{{ .Title }}</h1>
     </div>
     <div class="single-post-content">
         <p>{{- i18n "about_intro" | markdownify -}}</p>
     </div>
-    <div class="my-12">
-        <h2 class="title">{{ i18n "about_subtitle" }}</h2>
-    </div>
 </div>
 
-<div class="max-w-7xl mx-auto flex flex-wrap items-center svg-container">
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/html-5.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/css-3.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/javascript.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/git-icon.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/angular-icon.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/vue.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/sass.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/nodejs.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-40 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/npm.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-32 mx-auto") }}
-    </div>
-    <div class="w-1/2 md:w-1/4 xl:w-1/5 mb-12">
-        {{ partial "svg.html" (dict "context" . "svgSrc" "static/svg/badges/tailwindcss.svg" "cssClasses" "transition duration-300 opacity-75 hover:opacity-100 transform hover:scale-110 w-40 sm:w-48 mx-auto") }}
-    </div>
-</div>
-<div class="max-w-7xl mx-auto px-4 single-post single-post-content mb-16">
+<div class="max-w-3xl mx-auto px-4 single-post single-post-content mb-16">
     {{- i18n "about_bio" | markdownify -}}
 </div>
 
