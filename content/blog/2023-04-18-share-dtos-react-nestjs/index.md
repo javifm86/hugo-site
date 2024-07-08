@@ -1,28 +1,28 @@
 ---
-title: 'Share DTOs between NestJS and React'
+title: 'Compartiendo DTOs entre NestJS y React'
 date: 2023-04-17
 author: javi
 type: post
 img: img/monorepo-react-nestjs.jpg
-altImg: React and NestJS logos
+altImg: Logos de React y NestJS
 toc: true
 tags:
   - react
 ---
 
-Over the past two years, I have been heavily involved in working on projects that utilize a monorepo architecture, with `NestJS` as the backend and `React` for the frontend. As a result of this experience, I have developed an approach to **efficiently share DTOs between the two layers**. If you search information about this topic, you won’t find quickly a solution, so there I go!
+Durante los 2 últimos años, he estado trabajando en proyectos que utilizan estructura de monorepo, con `NestJS` para el backend y `React` para el frontend. Fruto de esta experiencia, he diseñado un approach para **compartir eficientemente DTOs entre las 2 capas**. Si buscas información acerca de este tema, no encontrarás una rápida respuesta asi que ¡allá vamos!.
 
 ## DTO (Data Transfer Object)
 
-First of all, what is a **DTO (Data Transfer Object)**? From NestJS official documentation:
+Antes de nada, ¿Qué es un **DTO (Data Transfer Object)**? Extraído de la documentación oficial de NestJS:
 
-> A DTO is an object that defines how the data will be sent over the network. We could determine the DTO schema by using TypeScript interfaces, or by simple classes. Interestingly, we recommend using classes here. Why? Classes are part of the JavaScript ES6 standard, and therefore they are preserved as real entities in the compiled JavaScript. On the other hand, since TypeScript interfaces are removed during the transpilation, Nest can't refer to them at runtime. This is important because features such as Pipes enable additional possibilities when they have access to the metatype of the variable at runtime.
+> Un DTO es un objeto que define cómo se enviarán los datos a través de la red. Podríamos determinar el esquema del DTO utilizando interfaces de TypeScript o clases simples. Curiosamente, recomendamos utilizar clases. ¿Por qué? Las clases son parte del estándar ES6 de JavaScript y, por lo tanto, se preservan como entidades reales en el JavaScript compilado. Por otro lado, dado que las interfaces de TypeScript se eliminan durante la transpilación, Nest no puede referirse a ellas en tiempo de ejecución. Esto es importante porque características como Pipes permiten posibilidades adicionales cuando tienen acceso al metatipo de la variable en tiempo de ejecución.
 
-I love how easy is validating params with DTOs in NestJS, you can use [`class-validator` decorators for validating input params][1] without writing a single line of code.
+Me encanta lo sencillo que es validar parámetros con DTOs en NestJS, puedes usar [decoradores `class-validator` para validar parámetros de entrada][1] sin la necesidad de escribir ni una línea de código.
 
-You can [document and generate swagger for your endpoints][2] leveraging decorators.
+Puedes [documentar y generar el swagger para tus endpoints][2] simplemente usando decoradores.
 
-An example for a DTO:
+Ejemplo de un DTO:
 
 ```ts
 export class ExampleRequestDto {
@@ -50,23 +50,23 @@ export class ExampleRequestDto {
 }
 ```
 
-With this DTO we can **validate the input params** for an endpoint, **we have the types**, and we can **generate a beautiful swagger** with information for developers that want to use this API. Very cool, right?
+Con este DTO podemos **validar los parámetros de entrada** para un endpoint, **tenemos tipado**, y podemos **crear un maravilloso swagger** con información para los desarrolladores que quieran utilizar esta API. Está muy chulo, ¿cierto?
 
-Wouldn't it be great if we could use a single DTO as the source of truth for typing input params in the frontend service? This would eliminate the need for duplicating type definitions. Initially, I had to generate a separate version of the DTO using a plain TypeScript interface, as decorators are not possible in this case. This was a tedious and time-consuming process, but using a unified DTO makes the development process much smoother and more efficient.
+¿No sería genial si pudiéramos utilizar el mismo DTO, como fuente de verdad para tipado de parámetros de entrada en los servicios front? De esta manera eliminaríamos la necesidad de duplicar ambas definiciones. Inicialmente, tenía que generar version separadas del DTO utilizando Typescript plano con interfaces, ya que los decoradores no eran posibles en este caso. Era una tarea tediosa, pero utilizar un DTO compartido hace el proceso de desarrollo más productivo y eficiente.
 
-## Using DTOs for typing in the frontend
+## Usando DTOs para tipado en el frontend
 
-How can we use the same DTO with decorators in the frontend without adding unnecessary things to our bundle? Initially, it might seem like installing dependencies like `@nestjs/swagger` and `class-validator` and importing them would add unnecessary bloat to your bundle.
+¿Cómo podríamos utilizar el mismo DTO con decoradores en el frontend sin añadir cosas innecesarias a nuestro bundle? De primeras, pudiera parecer que instalar dependencias como `@nestjs/swagger` y `class-validator` e importándolas añadiríamos multitud de código a nuestro bundle.
 
-However, from my testing, **if you only use the DTO as a type, it won't increase the size of the final bundle since types are removed during the bundling process**. Therefore, even if you use a class for defining the DTO, the references to it won't be included in the final bundle as long as it's only used for typing. Here's an example configuration for a monorepo setup.
+Sin embargo, por lo que he podido probar, **si solo utilizamos el DTO como un tipo, el resultado final del bundle no se verá afectado ya que los tipos son eliminados durante el proceso de compilado**. Por tanto, incluso si utilizas una clase para definir el DTO, las referencias no será incluidas en el bundle final siempre y cuando se utilice como tipado. Veamos un ejemplo de configuración para un monorepo.
 
-## Preparing the monorepo
+## Preparando el monorepo
 
-We will create in the root folder 3 directories: `backend`, `frontend` and `common` (here we will keep the shared DTOs).
+Crearemos en un directorio raíz 3 directorios: `backend`, `frontend` y `common` (aquí dejaremos los DTOs compartidos).
 
-### Backend with NestJS
+### Backend con NestJS
 
-We will bootstrap a backend project with NestJS using the CLI:
+Iniciaremos un proyecto con el CLI de NestJS:
 
 ```sh
 nest new backend
@@ -74,9 +74,9 @@ cd backend
 npm i
 ```
 
-### Frontend with React
+### Frontend con React
 
-Since CRA is officially deprecated, we will use Vite, which is faster and one of the easiest options for scaffolding a React project without a framework.
+Como CRA está oficialmente deprecado, usaremos Vite, que es más rápido y una de las opciones más fáciles para inicializar un proyecto React sin utilizar ningún framework.
 
 ```sh
 npm create vite@latest frontend -- --template react-ts
@@ -84,9 +84,9 @@ cd frontend
 npm install
 ```
 
-### Common folder
+### Directorio common
 
-We will create a common folder where we will have the DTOs reused in frontend and backend, and we will install dependencies.
+Crearemos un directorio común donde estarán los DTOs reutilizados para frontend y backend, e instalaremos las dependencias.
 
 ```sh
 mkdir common
@@ -95,7 +95,7 @@ npm i @nestjs/swagger class-validator
 npm i -D typescript
 ```
 
-We have to define a `tsconfig.json` as well:
+Tenemos que definir un `tsconfig.json`:
 
 ```json
 {
@@ -121,7 +121,7 @@ We have to define a `tsconfig.json` as well:
 }
 ```
 
-Now we will create an `api` folder that will contain the source files for DTOs. Notice that **we are not going to build this common folder, we will copy the files using this folder as a single source of true**. For example, `example.dto.ts`:
+Ahora crearemos un directorio `api` que contendrá los ficheros fuente para los DTOs. Destacar que **no vamos a hacer build de este directorio común, copiaremos los ficheros utilizando este directorio como fuente de verdad**. Por ejemplo, `example.dto.ts`:
 
 ```ts
 import { ApiProperty } from '@nestjs/swagger';
@@ -139,15 +139,15 @@ export class ExampleDto {
 }
 ```
 
-### Script to distribute DTOs for backend and frontend
+### Script para distribuir los DTOs para backend y frontend
 
-Install these dependencies in the root folder.
+Instalaremos estas dependencias en el directorio raíz.
 
 ```sh
 npm i -D cpx rimraf npm-run-all
 ```
 
-Define the following scripts to distribute the DTOs.
+Definimos los siguientes scripts para distribuir los DTOs.
 
 ```json
 // ---- scripts section from package.json
@@ -161,29 +161,29 @@ Define the following scripts to distribute the DTOs.
 // ----
 ```
 
-Finally, we execute the script to distribute the `api` folder:
+Finalmente, ejecutaremos el script para distribuir el directorio `api`:
 
 ```sh
 npm run distribute:api
 ```
 
-Now we are ready to configure `frontend` and `backend` with some dependencies and configuration.
+Ya estamos listos para configurar `frontend` y `backend` con sus dependencias y configuración.
 
-### Configuring frontend
+### Configurando el frontend
 
-We have to install NestJS dependencies, but don't worry, they won't be included in the final bundle.
+Tenemos que instalar las dependencias de NestJS, pero no te preocupes, no serán incluidas en el bundle final.
 
 ```sh
 npm i @nestjs/swagger class-validator
 ```
 
-And these dev dependencies:
+Y estas dependencias de desarrollo:
 
 ```sh
 npm i -D @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @types/node
 ```
 
-Update `tsconfig.json`, added lines to the default file are highlighted:
+Actualizaremos el `tsconfig.json`, añadiendo las líneas destacadas:
 
 ```json {linenos=table,hl_lines=["3", "18-19"]}
 {
@@ -211,7 +211,7 @@ Update `tsconfig.json`, added lines to the default file are highlighted:
 }
 ```
 
-Update `tsconfig.node.json` as well:
+Actualizaremos el `tsconfig.node.json` también:
 
 ```json {linenos=table,hl_lines=["7"]}
 {
@@ -226,7 +226,7 @@ Update `tsconfig.node.json` as well:
 }
 ```
 
-Finally, we need to update `vite.config.ts`. We'll add the necessary Babel plugins for processing decorators, and we'll create an alias for a shim file used by `@nestjs/swagger`. While we don't plan on instantiating any DTO classes, **it's always good to have a fallback option** in case there are any unforeseen use cases. **This alias will prevent unnecessary loading of polyfills and chunks of code** that would be required in such scenarios.
+Finalmente tenemos que actualizar `vite.config.ts`. Añadiremos los plugins de Babel necesarios para procesas decoradores, y crearemos un alias para el archivo shim utilizado por `@nestjs/swagger`. Aunque no tenemos planeado instanciar ninguna clase de los DTOs, **es siempre una buena idea disponer de una opción de fallback** para algún caso de uso imprevisto o error. **Este alias previene cargar codigo y polyfills innecesarios** que serían requeridos en tales casos.
 
 ```ts
 import { defineConfig } from 'vite';
@@ -255,7 +255,7 @@ export default defineConfig({
 });
 ```
 
-Now we can go to `App.tsx` file, and put a very basic example. We will import our `example.dto` and use it as a type.
+Ahora podemos ir al fichero `App.tsx`, y poner un ejemplo muy básico. Importaremos nuestro `example.dto` y lo usaremos como tipo.
 
 ```tsx
 import './App.css';
@@ -273,7 +273,7 @@ function App() {
 export default App;
 ```
 
-Nice! We have **typescript errors** if we are not defining properly the object, and a **beautiful autocompletion experience**. You can check the project starts without errors running `npm run dev` and building with `npm run build`.
+¡Genial! Tendremos **errores en typescript** si no estamos definiendo correctamente el objeto, y una **maravillosa experiencia de desarrollo gracias al autocompletado**. Puedes comprobar que el proyecto se inicia sin errores ejecutando `npm run dev` y ejecutando el build con `npm run build`.
 
 ```sh
 > frontend@0.0.0 build
@@ -286,7 +286,7 @@ dist/assets/index-d526a0c5.css    1.42 kB │ gzip:  0.74 kB
 dist/assets/index-d40907b6.js   142.90 kB │ gzip: 45.87 kB
 ```
 
-To ensure that the shim file is functioning correctly, you can edit the `App.tsx` file and instantiate an `ExampleDto` object.
+Para asegurarnos que el fichero shim está funcionando correctamente, editamos el fichero `App.tsx` e instanciamos un objeto `ExampleDto`.
 
 ```tsx
 import './App.css';
@@ -301,7 +301,7 @@ function App() {
 export default App;
 ```
 
-Result with the vite config with shim file (JS file grew up a bit):
+Resultado con la configuración de Vite con el archivo shim (el fichero JS crece un poco):
 
 ```sh
 > frontend@0.0.0 build
@@ -314,7 +314,7 @@ dist/assets/index-d526a0c5.css    1.42 kB │ gzip:  0.74 kB
 dist/assets/index-e4051b0b.js   154.29 kB │ gzip: 49.15 kB
 ```
 
-And look at the result without shim file:
+Y el resultado sin archivo shim:
 
 ```sh
 > frontend@0.0.0 build
@@ -336,17 +336,17 @@ dist/assets/index-f46b4c53.js   1,053.06 kB │ gzip: 296.88 kB
 ✓ built in 6.90s
 ```
 
-As I mentioned earlier, if we use DTOs as types, this won't happen, but it's better to have configured the shim file just in case we are missing something.
+Como mencioné anteriormente, si utilizamos DTOs como tipos, esto no ocurrirá, pero es mejor tener configurado el archivo shim por precaución.
 
-### Configuring backend
+### Configurando el backend
 
-This step is much simpler because **NestJS is ready to work with decorators and DTOs**, so we just have to install dependencies:
+Este paso es más sencillo porque **NestJS ya está preparado para trabajar con decorators y DTOs**, asi que simplemente instalamos las dependencias:
 
 ```sh
 npm i @nestjs/swagger class-validator class-transformer
 ```
 
-Note that `class-transformer` is required altogether with `class-validator`. We update `main.ts` file with these changes:
+Destacar que `class-transformer` es requerido junto con `class-validator`. Actualizamos el fichero `main.ts` con estos cambios:
 
 ```ts {linenos=table,hl_lines=["8-16"]}
 import { NestFactory } from '@nestjs/core';
@@ -369,7 +369,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-This process [is documented in NestJS documentation][3]. Now let's use it in a pretty straightforward example. Replace `app.controller.ts` content with this code:
+Este proceso [está comentado en la documentación oficial de NestJS][3]. Ahora probemos con un ejemplo muy sencillo. Reemplazamos el contenido de `app.controller.ts` con el siguiente código:
 
 ```ts
 import { Body, Controller, Get, Post } from '@nestjs/common';
@@ -392,7 +392,7 @@ export class AppController {
 }
 ```
 
-And `app.service.ts` with:
+Y `app.service.ts` con:
 
 ```ts
 import { Injectable } from '@nestjs/common';
@@ -412,11 +412,11 @@ export class AppService {
 }
 ```
 
-Our endpoint is properly typed, we can benefit from decorators validations and we would have our [API documented with the swagger][2] (this part has been omitted in this guide). We can test decorators are working running `npm run start:dev`, and making a post petition with params to `http://localhost:3050/test`.
+Nuestro endpoint está tipado correctamente, podemos beneficiarnos de las validaciones con decoradores y tendremos nuestra [API documentada con su swagger][2] (esta parte ha sido omitida en esta guía). Podemos comprobar que los decoradores están funcionando ejecutando `npm run start:dev`, y haciendo una petitición post con parámetros a `http://localhost:3050/test`.
 
-If `test` property is not string, we get an error.
+Si la propiedad `test` no es un string, obtendremos un error.
 
-Body for the request:
+Body para la request:
 
 ```json
 {
@@ -425,7 +425,7 @@ Body for the request:
 }
 ```
 
-Response:
+Respuesta:
 
 ```json
 {
@@ -435,9 +435,9 @@ Response:
 }
 ```
 
-Once we put a string, the petition runs successfully.
+Si utilizamos string, la petición termina correctamente.
 
-Body for the request:
+Body para la request:
 
 ```json
 {
@@ -446,7 +446,7 @@ Body for the request:
 }
 ```
 
-Response:
+Respuesta:
 
 ```json
 {
@@ -454,15 +454,15 @@ Response:
 }
 ```
 
-## Summary and conclusion
+## Resumen y conclusión
 
-We have explored an approach for **sharing DTOs between the NestJS backend and the React frontend**. While it's possible that there may be alternative methods, there isn't a lot of information available on this topic. Hence, we have presented a working solution through this guide.
+Hemos experimentado cómo **compartir DTOs entre un backend NestJS y un frontend React**. Aunque puede que haya métodos alternativos, no hay mucha información disponible acerca de este tema. Por tanto, en esta guía tenemos una solución que funciona.
 
-There is scope for further improvement, such as ignoring the API folders in the `backend` and `frontend` repositories, which have the same content as the `common` folder.
+Hay espacio para mejorar el enfoque, como ignorar el directorio API en el `backend` y `frontend`, que tiene el mismo contenido que el directorio `common`.
 
-To avoid any issues in the future, make sure that you install the same version of the `@nestjs/swagger` and `class-validator` packages in all three projects.
+Para evitar errores en el futuro, asegurate de instalar la misma versión de `@nestjs/swagger` y `class-validator` en los 3 proyectos.
 
-We hope this guide has been helpful to you. You can find [the example in this repository][4]. **Happy coding!**
+Espera que esta guía haya sido de utilidad. Puedes encontrar [el ejemplo en este repositorio][4].
 
 [1]: https://docs.nestjs.com/pipes#class-validator
 [2]: https://docs.nestjs.com/openapi/introduction
