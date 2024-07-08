@@ -1,13 +1,13 @@
 ---
-title: "PlantUML for generating diagrams"
+title: 'PlantUML for generating diagrams'
 date: 2023-04-18
 author: javi
 type: post
 img: img/plantuml.png
-altImg: React and NestJS logos
+altImg: PlantUML logo
 toc: true
 tags:
-    - react
+  - react
 ---
 
 # PlantUML
@@ -30,6 +30,7 @@ To be able to run the server you have to follow these steps:
    ```bash
    brew install graphviz
    ```
+
 1. Download the file `plantuml.jar` from [Plantum official page](https://plantuml.com/download) or from [github releases](https://github.com/plantuml/plantuml/releases/).
 
 Now you are ready to go! Just simply execute the following in the command line to run the server:
@@ -47,6 +48,7 @@ It is possible getting a Docker image instead of installing locally.
    ```bash
    docker pull plantuml/plantuml-server
    ```
+
 1. Run the image, by default the container image runs in 8080 port. You can use for example port 8000 with the following command:
 
    ```bash
