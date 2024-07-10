@@ -4,8 +4,8 @@ date: 2024-06-27
 author: javi
 type: post
 img: img/apple.png
-altImg: React and NestJS logos
-toc: true
+altImg: Apple logo
+toc: false
 tags:
   - mac
 ---
@@ -17,6 +17,7 @@ Finally, I decided to purchase a Mac, specifically the Mac Mini M2 Pro. Addition
 ## System settings
 
 - `Mouse > Natural scrolling` to disabled
+- `Keyboard` Adjust key repeat rate to fastest and delay until repeat to short.
 - `Keyboard > Keyboard shortcuts > Input sources` disable both shortcuts, I don't need them and one of them collides with VSCode.
 - `Keyboard > Keyboard shortcuts > Services > Text` disable `Convert text to Simplified chinese and traditional`, I want those shortcuts for something more useful for me.
 - Disable ApplePressAndHoldEnabled, a setting that doesn't allow you to hold a key to repeat that character multiple times. Go to the terminal and execute this: `defaults write -g ApplePressAndHoldEnabled -bool false`. Same command with `true` to enable again.
@@ -27,7 +28,7 @@ Finder is the file explorer for Mac. I will add some configuration for a better 
 
 - Change the view to list and add the column Date modified.
 - Go to `View` and enable `Show path bar` and `Show status bar`.
-- Drag and drop my most used folders to the left side for quick access, like for example `Github`.
+- Drag and drop my most used folders to the left side for quick access, such as `Github`.
 - In `View`, go to `Customize toolbar` and get rid of anything I don't use, like tags, groups, etc.
 - `Finder > Settings > Advanced` and select **Current folder** for the `When performing a search` field.
 
@@ -55,6 +56,7 @@ I usually install these apps:
 - [Raycast](https://www.raycast.com/): Spotlight with steroids. More information below.
 - [DevToys](https://github.com/DevToys-app/DevToysMac): Swiss Army knife DevToys for macOS.
 - [GIMP](https://www.gimp.org/downloads/): Open source image manipulation program.
+- [Rectangle PRO](https://rectangleapp.com/pro): Windows management and my favourite feature, App layouts.
 
 ### Hyperkey
 
