@@ -12,19 +12,19 @@ tags:
 
 # Setup inicial para mac
 
-Finalmente he decido comprarme Mac, concretamente el Mac Mini M2 Pro. Además, en el trabajo voy a cambiar a un MacBook Pro. NPor tanto es hora de adecuar el sistema operativo a mi gusto.
+Finalmente he decidido comprarme Mac, concretamente el Mac Mini M2 Pro. Además, en el trabajo voy a cambiar a un MacBook Pro. Por tanto es hora de adecuar el sistema operativo a mi gusto.
 
 ## Configuración del sistema
 
 - `Mouse > Natural scrolling` deshabilitado.
-- `Keyboard` Repetición de tecla a lo más rápido posible y y retardo hasta repetir a corto.
+- `Keyboard` repetición de tecla a lo más rápido posible y retardo hasta repetir a corto.
 - `Keyboard > Keyboard shortcuts > Input sources` deshabilito ambos shortcuts, no los necesito y uno de ellos coincide con uno de VSCode.
-- `Keyboard > Keyboard shortcuts > Services > Text` disable `Convert text to Simplified chinese and traditional`, quiero estas combinaciones para algo más útil.
-- Deshabilitar ApplePressAndHoldEnabled, una configuración que impide que al mantener una tecla pulsada se repita ese carácter multiples veces. Para ello ejecutar en la terminal: `defaults write -g ApplePressAndHoldEnabled -bool false`. Mismo comando con `true` para revertir el cambio.
+- `Keyboard > Keyboard shortcuts > Services > Text` deshabilitar `Convert text to Simplified chinese and traditional`, quiero estas combinaciones para algo más útil.
+- Deshabilitar `ApplePressAndHoldEnabled`, una configuración que impide que al mantener una tecla pulsada se repita ese carácter multiples veces. Para ello ejecutar en la terminal: `defaults write -g ApplePressAndHoldEnabled -bool false`. Mismo comando con `true` para revertir el cambio.
 
 ## Finder
 
-Finder es el explorador de archivos para Mac. Cambiaré estas configuraciones:
+Finder es el explorador de archivos para Mac. Cambio estas configuraciones:
 
 - Cambiar la vista por la de `listas` y añadir la columna de fecha de modificación.
 - En `View` activo `Show path bar` y `Show status bar`.
@@ -52,7 +52,7 @@ Normalmente instalo estas aplicaciones:
 - [Firefox](https://www.mozilla.org/es-ES/firefox/new/), [Chrome](https://www.google.com/intl/es_es/chrome/), [Responsively](https://responsively.app/): Navegadores.
 - [Logi Options+](https://www.logitech.com/es-es/software/logi-options-plus.html): Software para mi ratón y teclado.
 - [ChatGPT](https://openai.com/chatgpt/mac/): La herramienta de AI más famosa.
-- [HyperKey](https://hyperkey.app/): Convierte la tecla `Bloq. Mayús` or any other unused key to the hyper key, a combination of these 4 keys: `⌃⌥⌘⇧`. More information below.
+- [HyperKey](https://hyperkey.app/): Convierte la tecla `Bloq. Mayús` o otra tecla no usada en la hyper tecla, una combinación de pulsar estas 4 teclas: `⌃⌥⌘⇧`. Más información más abajo.
 - [Raycast](https://www.raycast.com/): Spotlight con extensiones y más opciones. Amplío información más adelante.
 - [DevToys](https://github.com/DevToys-app/DevToysMac): Navaja de herramientas para desarrolladores para macOS.
 - [GIMP](https://www.gimp.org/downloads/): Edición de imágenes open source.
@@ -60,7 +60,7 @@ Normalmente instalo estas aplicaciones:
 
 ### Hyperkey
 
-[HyperKey](https://hyperkey.app/) es una aplicación muy sencilla que puede implicar todo un cambio a la hora de manejar los atajos de teclado. Te permite mapear la poco usada tecla `Bloq. Mayús` (o otra a tu elección) para ejecutar la combinación `⌃⌥⌘⇧`. Esta combinación es muy raramente usada en atajos de teclado, por lo que es ideal para crear tus propios atajos de teclado evitando colisión con los de otras aplicaciones.
+[HyperKey](https://hyperkey.app/) es una aplicación muy sencilla que puede implicar todo un cambio a la hora de manejar los atajos de teclado. Te permite mapear la poco usada tecla `Bloq. Mayús` (u otra a tu elección) para ejecutar la combinación `⌃⌥⌘⇧`. Esta combinación es muy raramente usada en atajos de teclado, por lo que es ideal para crear tus propios atajos de teclado evitando colisión con los de otras aplicaciones.
 
 Además, la tecla `Bloq. Mayús` continuará funcionando como siempre si la pulsas rápidamente. Esta es la configuración que uso para Hyperkey:
 
@@ -87,7 +87,7 @@ Algunas extensiones que utilizo:
 
 ## Shortcuts
 
-Atajos de teclado predefinidos y otros creamos por mí mismo para mejorar mi productividad.
+Atajos de teclado predefinidos y otros creados por mí mismo para mejorar mi productividad.
 
 ### Manejo de aplicaciones
 
@@ -104,10 +104,10 @@ Atajos de teclado predefinidos y otros creamos por mí mismo para mejorar mi pro
 ### Screenshots
 
 - `⌘ + ⌃ + 1`: Capturar pantalla (Shottr)
-- `⌘ + ⌃ + 2`: Capturar area (Shottr)
+- `⌘ + ⌃ + 2`: Capturar área (Shottr)
 - `⌘ + ⌃ + 3`: Capturar pantalla (Nativo)
-- `⌘ + ⌃ + 4`: Capturar area (Nativo)
-- `⌘ + ⌃ + 5`: Capturar video (Nativo)
+- `⌘ + ⌃ + 4`: Capturar área (Nativo)
+- `⌘ + ⌃ + 5`: Capturar vídeo (Nativo)
 
 ### Manejo de ventanas
 
